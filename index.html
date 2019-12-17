@@ -205,22 +205,20 @@ if os.environ[&apos;HOME&apos;] == &apos;/app&apos;:
 <li>并且使用 wsgi.py 中的设置，</li>
 <li>告诉 Heroku 什么类型的事件写进日志<h2 id="6-创建静态文件目录"><a href="#6-创建静态文件目录" class="headerlink" title="6.创建静态文件目录"></a>6.创建静态文件目录</h2></li>
 </ul>
-<ol>
-<li><p>在 &lt;learning_log/learning_log/&gt; 中创建文件夹 static，</p>
-</li>
-<li><p>并且用 placeholder.txt 占位 // &lt;&gt;表示不一定为这个路径</p>
-</li>
-<li><p>txt 的内容随便写</p>
-<h2 id="7-使用-git-（没有的就先看怎么安装，这里不赘述）"><a href="#7-使用-git-（没有的就先看怎么安装，这里不赘述）" class="headerlink" title="7.使用 git （没有的就先看怎么安装，这里不赘述）"></a>7.使用 git （没有的就先看怎么安装，这里不赘述）</h2><p>编写 .gitignore文件，内容如下</p>
-<p> 11_env/<br> <strong>pycache</strong>/<br> *.sqlite3<br> // 内容不唯一<br>再一顿基操：</p>
-<p> git init<br> git add .<br> git commit -am “”<br> git status<br> // 如果 app 已经创建好了<br> git push heroku master</p>
+<p>1.在 &lt;learning_log/learning_log/&gt; 中创建文件夹 static，<br>2.并且用 placeholder.txt 占位 // &lt;&gt;表示不一定为这个路径<br>3.txt 的内容随便写</p>
+<h2 id="7-使用-git-（没有的就先看怎么安装，这里不赘述）"><a href="#7-使用-git-（没有的就先看怎么安装，这里不赘述）" class="headerlink" title="7.使用 git （没有的就先看怎么安装，这里不赘述）"></a>7.使用 git （没有的就先看怎么安装，这里不赘述）</h2><p>编写 <code>.gitignore</code>文件，内容如下</p>
+<blockquote>
+<p>11_env/<br><strong>pycache</strong>/<br>*.sqlite3<br>// 内容不唯一</p>
+</blockquote>
+<p>再一顿基操：</p>
+<blockquote>
+<p>git init<br>git add .<br>git commit -am “”<br>git status<br>// 如果 app 已经创建好了<br>git push heroku master</p>
+</blockquote>
 <h2 id="8-推送到-Heroku"><a href="#8-推送到-Heroku" class="headerlink" title="8.推送到 Heroku"></a>8.推送到 Heroku</h2><p>代码如下：</p>
-<p> heroku login<br> // 登录之后<br> heroku create<br> git push heroku master</p>
-<h2 id="9-建立数据库"><a href="#9-建立数据库" class="headerlink" title="9.建立数据库"></a>9.建立数据库</h2><p>####code:</p>
-<p> heroku run python manage.py migrate</p>
-<h3 id="10-有时候直接用-heroku-命令会报错，可以加-–remote-heroku-解决"><a href="#10-有时候直接用-heroku-命令会报错，可以加-–remote-heroku-解决" class="headerlink" title="10.有时候直接用 heroku 命令会报错，可以加 –remote heroku 解决"></a>10.有时候直接用 heroku 命令会报错，可以加 –remote heroku 解决</h3><h2 id="11-改进-Heroku-部署"><a href="#11-改进-Heroku-部署" class="headerlink" title="11.改进 Heroku 部署"></a>11.改进 Heroku 部署</h2><h3 id="创建超级用户"><a href="#创建超级用户" class="headerlink" title="创建超级用户"></a>创建超级用户</h3></li>
-</ol>
-<h3 id="code"><a href="#code" class="headerlink" title="code:"></a>code:</h3><pre><code>heroku run bash
+<pre><code>heroku login
+// 登录之后
+heroku create
+git push heroku master</code></pre><h2 id="9-建立数据库"><a href="#9-建立数据库" class="headerlink" title="9.建立数据库"></a>9.建立数据库</h2><h3 id="code"><a href="#code" class="headerlink" title="code:"></a>code:</h3><pre><code>heroku run python manage.py migrate</code></pre><h3 id="10-有时候直接用-heroku-命令会报错，可以加-–remote-heroku-解决"><a href="#10-有时候直接用-heroku-命令会报错，可以加-–remote-heroku-解决" class="headerlink" title="10.有时候直接用 heroku 命令会报错，可以加 –remote heroku 解决"></a>10.有时候直接用 heroku 命令会报错，可以加 –remote heroku 解决</h3><h2 id="11-改进-Heroku-部署"><a href="#11-改进-Heroku-部署" class="headerlink" title="11.改进 Heroku 部署"></a>11.改进 Heroku 部署</h2><h3 id="创建超级用户"><a href="#创建超级用户" class="headerlink" title="创建超级用户"></a>创建超级用户</h3><h3 id="code-1"><a href="#code-1" class="headerlink" title="code:"></a>code:</h3><pre><code>heroku run bash
 ls
 python manage.py creaetesuperuser
 balabala...
@@ -280,75 +278,6 @@ DABUG = False</code></pre><p>推送并提交修改</p>
 
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/25/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/25/hello-world/" class="archive-article-date">
-  	<time datetime="2019-10-25T14:28:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>非常感谢你点进了这个网站，点开了这篇博客。希望这个博客以后更新的文章，可以对你提供帮助。</em></p>
-<h1 id="Q-为什么要写博客？"><a href="#Q-为什么要写博客？" class="headerlink" title="Q:为什么要写博客？"></a>Q:为什么要写博客？</h1><p>####1. 记录一下自己的学习路程，分享一下个人经验。<br>####2. 总结一下自己某个时段做过的事情，类似个人笔记。<br>####3. 避免自己咕咕咕，给自己一个继续学习的理由。</p>
-<h1 id="Q-在这里你能看到什么"><a href="#Q-在这里你能看到什么" class="headerlink" title="Q:在这里你能看到什么?"></a>Q:在这里你能看到什么?</h1><p>####1. 关于各种乱七八糟的计算机技术类的帖子<br>####2. 关于我杂七杂八学习的总结笔记<br>####3. 个人的读书笔记或者随笔<code>一般是ACG相关</code></p>
-<p>\</p>
-<blockquote>
-<p>最后，路漫漫其修远兮，吾将上下而求索！</p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/25/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-《算法图解》内容概要" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -356,13 +285,13 @@ DABUG = False</code></pre><p>推送并提交修改</p>
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/12/《算法图解》内容概要/">《算法图解》内容概要</a>
+      <a class="article-title" href="/2019/12/17/《算法图解》内容概要/">《算法图解》内容概要</a>
     </h1>
   
 
         
-        <a href="/2019/10/12/《算法图解》内容概要/" class="archive-article-date">
-  	<time datetime="2019-10-12T02:54:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-12</time>
+        <a href="/2019/12/17/《算法图解》内容概要/" class="archive-article-date">
+  	<time datetime="2019-12-17T06:50:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-17</time>
 </a>
         
       </header>
@@ -444,7 +373,76 @@ DABUG = False</code></pre><p>推送并提交修改</p>
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/12/《算法图解》内容概要/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/12/17/《算法图解》内容概要/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/25/hello-world/">Hello World</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/25/hello-world/" class="archive-article-date">
+  	<time datetime="2019-10-25T14:28:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>非常感谢你点进了这个网站，点开了这篇博客。希望这个博客以后更新的文章，可以对你提供帮助。</em></p>
+<h1 id="Q-为什么要写博客？"><a href="#Q-为什么要写博客？" class="headerlink" title="Q:为什么要写博客？"></a>Q:为什么要写博客？</h1><p>####1. 记录一下自己的学习路程，分享一下个人经验。<br>####2. 总结一下自己某个时段做过的事情，类似个人笔记。<br>####3. 避免自己咕咕咕，给自己一个继续学习的理由。</p>
+<h1 id="Q-在这里你能看到什么"><a href="#Q-在这里你能看到什么" class="headerlink" title="Q:在这里你能看到什么?"></a>Q:在这里你能看到什么?</h1><p>####1. 关于各种乱七八糟的计算机技术类的帖子<br>####2. 关于我杂七杂八学习的总结笔记<br>####3. 个人的读书笔记或者随笔<code>一般是ACG相关</code></p>
+<p>\</p>
+<blockquote>
+<p>最后，路漫漫其修远兮，吾将上下而求索！</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/25/hello-world/">展开全文 >></a>
         </p>
       
 
@@ -567,15 +565,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">教程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">概要</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">教程</a>
               </li>
             
             <div class="clearfix"></div>

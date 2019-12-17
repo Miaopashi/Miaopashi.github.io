@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="MPS的个人博客">
 <meta property="og:description" content="1.安装必要的包 如：dj-database-urldj-staticstatic3gunicorn  2.创建记录包列表的文件 requirements.txt$ pip freeze &amp;gt; requirements.txt 记得加入 psycopg2&amp;gt;=&amp;lt;2.6.1&amp;gt;// &amp;lt;&amp;gt;表示不一定是版本号 ps: windows系统好像不太一样 3.在 runtime.">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-17T08:45:07.344Z">
+<meta property="og:updated_time" content="2019-12-17T08:50:26.622Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Heroku部署网页">
 <meta name="twitter:description" content="1.安装必要的包 如：dj-database-urldj-staticstatic3gunicorn  2.创建记录包列表的文件 requirements.txt$ pip freeze &amp;gt; requirements.txt 记得加入 psycopg2&amp;gt;=&amp;lt;2.6.1&amp;gt;// &amp;lt;&amp;gt;表示不一定是版本号 ps: windows系统好像不太一样 3.在 runtime.">
@@ -208,22 +208,20 @@ if os.environ[&apos;HOME&apos;] == &apos;/app&apos;:
 <li>并且使用 wsgi.py 中的设置，</li>
 <li>告诉 Heroku 什么类型的事件写进日志<h2 id="6-创建静态文件目录"><a href="#6-创建静态文件目录" class="headerlink" title="6.创建静态文件目录"></a>6.创建静态文件目录</h2></li>
 </ul>
-<ol>
-<li><p>在 &lt;learning_log/learning_log/&gt; 中创建文件夹 static，</p>
-</li>
-<li><p>并且用 placeholder.txt 占位 // &lt;&gt;表示不一定为这个路径</p>
-</li>
-<li><p>txt 的内容随便写</p>
-<h2 id="7-使用-git-（没有的就先看怎么安装，这里不赘述）"><a href="#7-使用-git-（没有的就先看怎么安装，这里不赘述）" class="headerlink" title="7.使用 git （没有的就先看怎么安装，这里不赘述）"></a>7.使用 git （没有的就先看怎么安装，这里不赘述）</h2><p>编写 .gitignore文件，内容如下</p>
-<p> 11_env/<br> <strong>pycache</strong>/<br> *.sqlite3<br> // 内容不唯一<br>再一顿基操：</p>
-<p> git init<br> git add .<br> git commit -am “”<br> git status<br> // 如果 app 已经创建好了<br> git push heroku master</p>
+<p>1.在 &lt;learning_log/learning_log/&gt; 中创建文件夹 static，<br>2.并且用 placeholder.txt 占位 // &lt;&gt;表示不一定为这个路径<br>3.txt 的内容随便写</p>
+<h2 id="7-使用-git-（没有的就先看怎么安装，这里不赘述）"><a href="#7-使用-git-（没有的就先看怎么安装，这里不赘述）" class="headerlink" title="7.使用 git （没有的就先看怎么安装，这里不赘述）"></a>7.使用 git （没有的就先看怎么安装，这里不赘述）</h2><p>编写 <code>.gitignore</code>文件，内容如下</p>
+<blockquote>
+<p>11_env/<br><strong>pycache</strong>/<br>*.sqlite3<br>// 内容不唯一</p>
+</blockquote>
+<p>再一顿基操：</p>
+<blockquote>
+<p>git init<br>git add .<br>git commit -am “”<br>git status<br>// 如果 app 已经创建好了<br>git push heroku master</p>
+</blockquote>
 <h2 id="8-推送到-Heroku"><a href="#8-推送到-Heroku" class="headerlink" title="8.推送到 Heroku"></a>8.推送到 Heroku</h2><p>代码如下：</p>
-<p> heroku login<br> // 登录之后<br> heroku create<br> git push heroku master</p>
-<h2 id="9-建立数据库"><a href="#9-建立数据库" class="headerlink" title="9.建立数据库"></a>9.建立数据库</h2><p>####code:</p>
-<p> heroku run python manage.py migrate</p>
-<h3 id="10-有时候直接用-heroku-命令会报错，可以加-–remote-heroku-解决"><a href="#10-有时候直接用-heroku-命令会报错，可以加-–remote-heroku-解决" class="headerlink" title="10.有时候直接用 heroku 命令会报错，可以加 –remote heroku 解决"></a>10.有时候直接用 heroku 命令会报错，可以加 –remote heroku 解决</h3><h2 id="11-改进-Heroku-部署"><a href="#11-改进-Heroku-部署" class="headerlink" title="11.改进 Heroku 部署"></a>11.改进 Heroku 部署</h2><h3 id="创建超级用户"><a href="#创建超级用户" class="headerlink" title="创建超级用户"></a>创建超级用户</h3></li>
-</ol>
-<h3 id="code"><a href="#code" class="headerlink" title="code:"></a>code:</h3><pre><code>heroku run bash
+<pre><code>heroku login
+// 登录之后
+heroku create
+git push heroku master</code></pre><h2 id="9-建立数据库"><a href="#9-建立数据库" class="headerlink" title="9.建立数据库"></a>9.建立数据库</h2><h3 id="code"><a href="#code" class="headerlink" title="code:"></a>code:</h3><pre><code>heroku run python manage.py migrate</code></pre><h3 id="10-有时候直接用-heroku-命令会报错，可以加-–remote-heroku-解决"><a href="#10-有时候直接用-heroku-命令会报错，可以加-–remote-heroku-解决" class="headerlink" title="10.有时候直接用 heroku 命令会报错，可以加 –remote heroku 解决"></a>10.有时候直接用 heroku 命令会报错，可以加 –remote heroku 解决</h3><h2 id="11-改进-Heroku-部署"><a href="#11-改进-Heroku-部署" class="headerlink" title="11.改进 Heroku 部署"></a>11.改进 Heroku 部署</h2><h3 id="创建超级用户"><a href="#创建超级用户" class="headerlink" title="创建超级用户"></a>创建超级用户</h3><h3 id="code-1"><a href="#code-1" class="headerlink" title="code:"></a>code:</h3><pre><code>heroku run bash
 ls
 python manage.py creaetesuperuser
 balabala...
@@ -335,8 +333,8 @@ DABUG = False</code></pre><p>推送并提交修改</p>
 <nav id="article-nav">
   
   
-    <a href="/2019/10/25/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2019/12/17/《算法图解》内容概要/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">《算法图解》内容概要</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -462,15 +460,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">教程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">概要</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">教程</a>
               </li>
             
             <div class="clearfix"></div>
