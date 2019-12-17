@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>MPS的个人博客</title>
+  <title>Archives: 2019/12 | MPS的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="MPS的个人博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/archives/2019/12/index.html">
 <meta property="og:site_name" content="MPS的个人博客">
 <meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary">
@@ -152,89 +152,34 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-使用Heroku部署网页" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/12/17/使用Heroku部署网页/" class="archive-article-date">
+  	<time datetime="2019-12-17T08:12:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-17</time>
+</a>
+        </div>
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/17/使用Heroku部署网页/">使用Heroku部署网页</a>
+      <a class="archive-article-title" href="/2019/12/17/使用Heroku部署网页/">使用Heroku部署网页</a>
     </h1>
   
 
-        
-        <a href="/2019/12/17/使用Heroku部署网页/" class="archive-article-date">
-  	<time datetime="2019-12-17T08:12:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-安装必要的包"><a href="#1-安装必要的包" class="headerlink" title="1.安装必要的包"></a>1.安装必要的包</h2><blockquote>
-<p>如：<br>dj-database-url<br>dj-static<br>static3<br>gunicorn</p>
-</blockquote>
-<h2 id="2-创建记录包列表的文件-requirements-txt"><a href="#2-创建记录包列表的文件-requirements-txt" class="headerlink" title="2.创建记录包列表的文件 requirements.txt"></a>2.创建记录包列表的文件 requirements.txt</h2><p><code>$ pip freeze &gt; requirements.txt</code></p>
-<h3 id="记得加入-psycopg2-gt-lt-2-6-1-gt"><a href="#记得加入-psycopg2-gt-lt-2-6-1-gt" class="headerlink" title="记得加入 psycopg2&gt;=&lt;2.6.1&gt;"></a>记得加入 psycopg2&gt;=&lt;2.6.1&gt;</h3><p>// &lt;&gt;表示不一定是版本号</p>
-<p>ps: windows系统好像不太一样</p>
-<h2 id="3-在-runtime-txt-指定-python-的版本"><a href="#3-在-runtime-txt-指定-python-的版本" class="headerlink" title="3.在 runtime.txt 指定 python 的版本"></a>3.在 runtime.txt 指定 python 的版本</h2><ul>
-<li>python –version    查看版本</li>
-<li>写进 runtime, 注意用小写</li>
-</ul>
-<h2 id="4-修改-settings-py-保证能够在-heroku-的服务器跑起来"><a href="#4-修改-settings-py-保证能够在-heroku-的服务器跑起来" class="headerlink" title="4.修改 settings.py 保证能够在 heroku 的服务器跑起来"></a>4.修改 settings.py 保证能够在 heroku 的服务器跑起来</h2><p>可以参照一下我在 learning_log 项目写的设置：</p>
-<pre><code>#Heroku设置
-if os.environ[&apos;HOME&apos;] == &apos;/app&apos;:
-    import dj_database_url
-    DATABASES = {
-        &apos;default&apos;: dj_database_url.config(default=&apos;postgres://localhost&apos;)
-    }
-
-    #让request.is_secure()承认X_Forward_Proto头
-    SECURE_PROXY_SSL_HEADER = (&apos;HTTP_X_FORWARDED_PROTO&apos;, &apos;https&apos;)
-
-    #支持所有的主机头(host header)
-    ALLOWED_HOSTS = [&apos;*&apos;]
-
-    #静态资产配置
-    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-    STATIC_URL = &apos;static/&apos;
-    STATIC_ROOT = os.path.join(PROJECT_ROOT, &apos;static&apos;)</code></pre><h2 id="5-创建启动进程的-Procfile"><a href="#5-创建启动进程的-Procfile" class="headerlink" title="5.创建启动进程的 Procfile"></a>5.创建启动进程的 Procfile</h2><p>不指定扩展名，P为大写</p>
-<pre><code>web: gunicorn learning_log.wsgi --log-file -</code></pre><ul>
-<li>指定服务器为 gunicorn，</li>
-<li>并且使用 wsgi.py 中的设置，</li>
-<li>告诉 Heroku 什么类型的事件写进日志<h2 id="6-创建静态文件目录"><a href="#6-创建静态文件目录" class="headerlink" title="6.创建静态文件目录"></a>6.创建静态文件目录</h2></li>
-</ul>
-<ol>
-<li><p>在 &lt;learning_log/learning_log/&gt; 中创建文件夹 static，</p>
-</li>
-<li><p>并且用 placeholder.txt 占位 // &lt;&gt;表示不一定为这个路径</p>
-</li>
-<li><p>txt 的内容随便写</p>
-<h2 id="7-使用-git-（没有的就先看怎么安装，这里不赘述）"><a href="#7-使用-git-（没有的就先看怎么安装，这里不赘述）" class="headerlink" title="7.使用 git （没有的就先看怎么安装，这里不赘述）"></a>7.使用 git （没有的就先看怎么安装，这里不赘述）</h2><p>编写 .gitignore文件，内容如下</p>
-<p> 11_env/<br> <strong>pycache</strong>/<br> *.sqlite3<br> // 内容不唯一<br>再一顿基操：</p>
-<p> git init<br> git add .<br> git commit -am “”<br> git status<br> // 如果 app 已经创建好了<br> git push heroku master</p>
-<h2 id="8-推送到-Heroku"><a href="#8-推送到-Heroku" class="headerlink" title="8.推送到 Heroku"></a>8.推送到 Heroku</h2><p>代码如下：</p>
-<p> heroku login<br> // 登录之后<br> heroku create<br> git push heroku master</p>
-<h2 id="9-建立数据库"><a href="#9-建立数据库" class="headerlink" title="9.建立数据库"></a>9.建立数据库</h2><p>####code:</p>
-<p> heroku run python manage.py migrate</p>
-<h3 id="10-有时候直接用-heroku-命令会报错，可以加-–remote-heroku-解决"><a href="#10-有时候直接用-heroku-命令会报错，可以加-–remote-heroku-解决" class="headerlink" title="10.有时候直接用 heroku 命令会报错，可以加 –remote heroku 解决"></a>10.有时候直接用 heroku 命令会报错，可以加 –remote heroku 解决</h3><h2 id="11-改进-Heroku-部署"><a href="#11-改进-Heroku-部署" class="headerlink" title="11.改进 Heroku 部署"></a>11.改进 Heroku 部署</h2><h3 id="创建超级用户"><a href="#创建超级用户" class="headerlink" title="创建超级用户"></a>创建超级用户</h3></li>
-</ol>
-<h3 id="code"><a href="#code" class="headerlink" title="code:"></a>code:</h3><pre><code>heroku run bash
-ls
-python manage.py creaetesuperuser
-balabala...
-exit</code></pre><h3 id="优化-URL"><a href="#优化-URL" class="headerlink" title="优化 URL"></a>优化 URL</h3><pre><code>heroku apps:rename &lt;mps-learning-log&gt; // &lt;&gt;表示不唯一</code></pre><h2 id="12-确保项目安全"><a href="#12-确保项目安全" class="headerlink" title="12.确保项目安全"></a>12.确保项目安全</h2><h4 id="在setting-py中关闭调试模式，只允许-Heroku-托管"><a href="#在setting-py中关闭调试模式，只允许-Heroku-托管" class="headerlink" title="在setting.py中关闭调试模式，只允许 Heroku 托管"></a>在setting.py中关闭调试模式，只允许 Heroku 托管</h4><pre><code>#只允许 Heroku 托管这个项目
-ALLOWED_HOSTS = [&apos;*&apos;]
-DABUG = False</code></pre><p>推送并提交修改</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -246,235 +191,19 @@ DABUG = False</code></pre><p>推送并提交修改</p>
 		</ul>
 	</div>
 
-      
+          
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/17/使用Heroku部署网页/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+    </div></section>
+  
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/25/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/25/hello-world/" class="archive-article-date">
-  	<time datetime="2019-10-25T14:28:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>非常感谢你点进了这个网站，点开了这篇博客。希望这个博客以后更新的文章，可以对你提供帮助。</em></p>
-<h1 id="Q-为什么要写博客？"><a href="#Q-为什么要写博客？" class="headerlink" title="Q:为什么要写博客？"></a>Q:为什么要写博客？</h1><p>####1. 记录一下自己的学习路程，分享一下个人经验。<br>####2. 总结一下自己某个时段做过的事情，类似个人笔记。<br>####3. 避免自己咕咕咕，给自己一个继续学习的理由。</p>
-<h1 id="Q-在这里你能看到什么"><a href="#Q-在这里你能看到什么" class="headerlink" title="Q:在这里你能看到什么?"></a>Q:在这里你能看到什么?</h1><p>####1. 关于各种乱七八糟的计算机技术类的帖子<br>####2. 关于我杂七杂八学习的总结笔记<br>####3. 个人的读书笔记或者随笔<code>一般是ACG相关</code></p>
-<p>\</p>
-<blockquote>
-<p>最后，路漫漫其修远兮，吾将上下而求索！</p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/25/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-《算法图解》内容概要" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/12/《算法图解》内容概要/">《算法图解》内容概要</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/12/《算法图解》内容概要/" class="archive-article-date">
-  	<time datetime="2019-10-12T02:54:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="浅谈一下《算法图解》"><a href="#浅谈一下《算法图解》" class="headerlink" title="浅谈一下《算法图解》"></a>浅谈一下《算法图解》</h1><p><em>打算系统的学一下算法，上个月刚看完《算法图解》，这周刚好抽出时间，来写一写该书的总结。</em></p>
-<p><em>本文打算先大致谈谈本书的特点和大概内容，对于个人比较感兴趣的地方再稍微做展开，最后谈谈本书给我的感受</em></p>
-<h2 id="本书特点"><a href="#本书特点" class="headerlink" title="本书特点"></a>本书特点</h2><h3 id="作为一本面向完全初学者的算法书，本书旨在，用最简单的表达，为读者介绍算法学习中常见的几个概念，并且介绍了几个比较基础的算法，最后再简要提及了几个算法，引导读者进一步学习。"><a href="#作为一本面向完全初学者的算法书，本书旨在，用最简单的表达，为读者介绍算法学习中常见的几个概念，并且介绍了几个比较基础的算法，最后再简要提及了几个算法，引导读者进一步学习。" class="headerlink" title="作为一本面向完全初学者的算法书，本书旨在，用最简单的表达，为读者介绍算法学习中常见的几个概念，并且介绍了几个比较基础的算法，最后再简要提及了几个算法，引导读者进一步学习。"></a>作为一本面向完全初学者的算法书，本书旨在，用最简单的表达，为读者介绍算法学习中常见的几个概念，并且介绍了几个比较基础的算法，最后再简要提及了几个算法，引导读者进一步学习。</h3><h2 id="大致内容"><a href="#大致内容" class="headerlink" title="大致内容"></a>大致内容</h2><h3 id="全书分为11章，脉络清晰。"><a href="#全书分为11章，脉络清晰。" class="headerlink" title="全书分为11章，脉络清晰。"></a>全书分为11章，脉络清晰。</h3><ul>
-<li>第一章介绍了一下<code>大O表示法</code>和<code>二分查找</code>；</li>
-<li>第二章开始解释<code>选择排序</code>，并且解释了一下内存的工作原理，以及<code>数组</code>和<code>链表</code>的概念；</li>
-<li>第三章开始介绍的简洁优雅的基础算法—— <code>递归</code>；</li>
-<li>第四章用<code>快速排序</code>算法的例子，介绍了一下 <code>分而治之</code> 的算法思想；</li>
-<li>第五章主要介绍了<code>散列表</code>的算法实现（通讯录）；</li>
-<li>第六章介绍了<code>广度优先搜索</code>算法，顺便解释了“<code>图</code>”的概念；</li>
-<li>第七章趁热打铁，介绍了<code>狄克斯特拉</code>算法，作为广度优先搜索的进阶算法；</li>
-<li>第八章又介绍了另外一种耳熟能详的算法——<code>贪婪算法</code>；</li>
-<li>第九章以背包问题的优化入手，介绍了<code>动态规划</code>的算法思想；</li>
-<li>第十章介绍了<code>k最邻算法</code>，这个算法是很多推荐系统和机器学习的基础算法；</li>
-<li>第十一章的内容比较杂，简单介绍了很多进阶的算法概念，为读者提供了进一步学习的方向。</li>
-</ul>
-<h3 id="下面贴上我的思维导图"><a href="#下面贴上我的思维导图" class="headerlink" title="下面贴上我的思维导图"></a>下面贴上我的思维导图</h3><p><img src="http://q14ccx2sn.bkt.clouddn.com/%E3%80%8A%E7%AE%97%E6%B3%95%E5%9B%BE%E8%A7%A3%E3%80%8B%E5%AF%BC%E5%9B%BE.png" alt="Image"></p>
-<h5 id="该图作为参考脉络，对于有兴趣的概念各位可以逐一去了解。"><a href="#该图作为参考脉络，对于有兴趣的概念各位可以逐一去了解。" class="headerlink" title="该图作为参考脉络，对于有兴趣的概念各位可以逐一去了解。"></a>该图作为参考脉络，对于有兴趣的概念各位可以逐一去了解。</h5><h2 id="下面来聊一聊几个有趣的点"><a href="#下面来聊一聊几个有趣的点" class="headerlink" title="下面来聊一聊几个有趣的点"></a>下面来聊一聊几个有趣的点</h2><h2 id="大O表示法"><a href="#大O表示法" class="headerlink" title="大O表示法"></a>大O表示法</h2><blockquote>
-<h4 id="大O表示法是一种描述算法运行速度的方法。它指出了最坏的情况下算法运算量与数据量之间的关系。我们一般通过它来比较不同算法的运行效率。常见表示为O-p-n"><a href="#大O表示法是一种描述算法运行速度的方法。它指出了最坏的情况下算法运算量与数据量之间的关系。我们一般通过它来比较不同算法的运行效率。常见表示为O-p-n" class="headerlink" title="大O表示法是一种描述算法运行速度的方法。它指出了最坏的情况下算法运算量与数据量之间的关系。我们一般通过它来比较不同算法的运行效率。常见表示为O(p(n))"></a>大O表示法是一种描述算法运行速度的方法。它指出了最坏的情况下算法运算量与数据量之间的关系。我们一般通过它来比较不同算法的运行效率。常见表示为<code>O(p(n))</code></h4><p>ps:所以为什么是用“O”？</p>
-</blockquote>
-<p>#####举个例子：</p>
-<blockquote>
-<p>如果我要在一张纸上画四个方格，最笨的方法是在纸上一个格子一个格子的画，比较好的方法是将整张纸对折两次。</p>
-</blockquote>
-<p>于是前者的大O表示为<code>O(n)</code>；后者的大O表示为<code>O(log n)</code></p>
-<p>######注意</p>
-<ul>
-<li>“n”表示数据量，比如本问的n=4，O(n)表示第一种方法的运行时间为n</li>
-<li>“log n”表示底数为2的对数函数，比如本问第二种方法的运算时间为”log 4” = “2” （很多算法问题用到的底数都是2）</li>
-<li>大O表示法不考虑常数，比如说问题变成“在两张纸上各画四个方格”那么上述两种方法的大O表示法不变</li>
-</ul>
-<p>显然，<code>O(log n)</code>要比<code>O(n)</code>简单地多。实际上，<code>O(log n)</code>已经是运算量非常小的算法了。</p>
-<p>#####常见的大O表示法<br>这样看来大O表示法的种类有很多，但是常见的大O表示法其实并不太多，下面大致罗列一下。</p>
-<ul>
-<li>O(log n) 对数时间，比如二分查找就是这种算法</li>
-<li>O(n) 线性时间</li>
-<li>O(n * log n) 这样的算法包括快速排序，后面会讲到</li>
-<li>O(n ^ 2) 包括选择排序，后面也会讲到</li>
-<li>O(n!) n的阶乘，一种非常慢的算法，但是对于NP问题无可奈何的时候也可以采用的方法，但也可以用贪婪算法等近似求解代替正解</li>
-</ul>
-<p>######关于大O表示法还有很多概念这里不一一展开，希望感兴趣的同学自行了解。</p>
-<p>##聊聊排序</p>
-<blockquote>
-<p>给定一个无序的数组，怎样才能得到一个排好序的数组呢？这是很常见的一个问题。<br>这个问题看似简单但是处理起来很麻烦，因为我们必须逐个逐个元素进行确认。</p>
-</blockquote>
-<p>###选择排序<br>比较简单的一个方法是<code>选择排序</code>。它的原理如下：</p>
-<p>比如数组为{2, 6, 8, 9, 5, 7}，需要从大到小进行排序。可以对数组中的每个元素进行比较，得到最大值，放到新数组的首位；后面对剩下的元素重复上诉操作，把得到的最大值放在新数组的后一位。于是我们就得到了拍过序的新数组{9, 8, 7, 5, 6, 2}。</p>
-<p>######这种排序方法就是选择排序<br>由于这种算法需要找n次最值，每次找最值需要比较n次，所以它的运行时间为<code>O(n ^ 2)</code>。<br>那么问题来了：各位同学可能觉得这个结果不太对劲。因为找完一次最值之后，下一次只需比较n-1次就可以了，所以运行时间应该为<code>O(n + (n-1) + (n-2) + ... + 1)</code>才对<br>而<code>(n + (n-1) + (n-2) + ... + 1)</code>是有个等差数列，等效于<code>(n * (n+1) / 2)</code>，由于大O表示法无视常数，所以最后的运算时间则为<code>O(n * n)</code><br>看到这里，你可能会觉得大O表示法不科学，因为它无法准确表示运算时间，但是大O表示法旨在表示算法复杂度，不够抽象反而有失偏颇。<br>另外，大O表示法表示算法最遭的运行时间，而实际计算时间的时候会用“平均运行时间”来表示，有兴趣的同学可以了解一下。</p>
-<p>###快速排序</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">概要</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/12/《算法图解》内容概要/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
 
 
           </div>
@@ -496,9 +225,9 @@ DABUG = False</code></pre><p>推送并提交修改</p>
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
-		isArchive: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
