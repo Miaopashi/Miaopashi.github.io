@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://wx2.sinaimg.cn/mw690/0068KoiRgy1gg88loi7qdj30xz0hrtaa.jpg">
 <meta property="og:image" content="https://wx2.sinaimg.cn/mw690/0068KoiRgy1gg88le3ks0j30xt0fe777.jpg">
 <meta property="og:image" content="https://wx4.sinaimg.cn/mw690/0068KoiRgy1gg88lr95iaj30xk0ezju9.jpg">
-<meta property="og:updated_time" content="2020-06-28T12:09:35.858Z">
+<meta property="og:updated_time" content="2020-06-28T12:11:51.487Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于学校校园网挂VPN解决断网问题的个人解读">
 <meta name="twitter:description" content="关于学校校园网挂VPN解决断网问题的个人解读引言​    从上个学期开始，学校推展网络一体化，三家运营商的网络归入CUMT_STU，师生通过身份认证上网。一体化之后，宿舍里三家运营商的wifi合并到一起，插网线也只需要往同一排插口接就可以了，而且全校基本实现wifi覆盖，特别宿舍的wifi质量非常好。 ​    不过一体化之后，学校突然限制了同学的上网时段（工作日晚十一点半后禁网），不少深夜奋战的">
@@ -192,11 +192,9 @@
 <p>​    <strong>总而言之，如果要上外网，必须要有路由器！而通过一个一个的路由器，我们最后就可以访问到某个地点放置的服务器！</strong></p>
 <h3 id="原理二：学校的CUMT-STU使用多个路由器供学生上网"><a href="#原理二：学校的CUMT-STU使用多个路由器供学生上网" class="headerlink" title="原理二：学校的CUMT_STU使用多个路由器供学生上网"></a>原理二：学校的CUMT_STU使用多个路由器供学生上网</h3><p>​    在校园内，虽然会有多个同学都使用CUMT_STU上网，<strong>根据认证页面选择的运营商的不同，我们上网使用的路由器也是不同的</strong>。下面是分别使用校园网和联通访问外网的ip地址：</p>
 <p><img src="https://wx2.sinaimg.cn/mw690/0068KoiRgy1gg88loi7qdj30xz0hrtaa.jpg" alt="校园网tracert"></p>
-<!--使用校园网访问百度经过的路由器（ip地址），可以看到校园网路由器使用的ip地址为 202.119.203.65-->
-
+<p><em>使用校园网访问百度经过的路由器（ip地址），可以看到校园网路由器使用的ip地址为 202.119.203.65</em></p>
 <p><img src="https://wx4.sinaimg.cn/mw690/0068KoiRgy1gg88lir0nzj30xz0hr0tr.jpg" alt="联通tracert"></p>
-<!--使用联通访问百度经过的路由器（ip地址），可以看到联通的路由器使用的ip地址为 112.85.229.157-->
-
+<p><em>使用联通访问百度经过的路由器（ip地址），可以看到联通的路由器使用的ip地址为 112.85.229.157</em></p>
 <p>​    可以看到，<u>由于选择的两个运营商不同，访问外网使用的ip地址/路由器也完全不同</u>。另外，<strong>ip地址是对应到路由器的</strong>，注意这点后面我们会用到。</p>
 <p>​    简单来说，就是学生在学校（通过wifi或者网线，连接到CUMT_STU），一共可以连接到<strong>4个路由器</strong>：移动的、电信的、联通的、校园网的，用于访问外网。（一个局域网内连接多少个路由器是没有限制的）</p>
 <p>​    然后，<strong>到了禁网的时段，路由器就不会帮我们向外部发消息，请求服务，所以我们就没法上网了</strong>。</p>
@@ -220,11 +218,9 @@
 <p>​    </p>
 <p>​    下面就是重点了！我们来看一下<em>联通挂vpn</em>和我们<em>使用校园网</em>上网，访问百度的截图，看看二者的ip地址有何不同：</p>
 <p><img src="https://wx3.sinaimg.cn/mw690/0068KoiRgy1gg88llsd9hj30xz0hrq4d.jpg" alt="联通挂VPNtracert"></p>
-<!--联通挂vpn上网，离开本地的第一个ip地址【2】，即vpn访问的目标路由器地址，为202.119.203.1-->
-
+<p><em>联通挂vpn上网，离开本地的第一个ip地址【2】，即vpn访问的目标路由器地址，为202.119.203.1</em></p>
 <p><img src="https://wx2.sinaimg.cn/mw690/0068KoiRgy1gg88loi7qdj30xz0hrtaa.jpg" alt="校园网tracert"></p>
-<!--使用校园网上网，离开本地的第一个ip地址【3】，即用户使用的路由器地址，为202.119.203.65-->
-
+<p><em>使用校园网上网，离开本地的第一个ip地址【3】，即用户使用的路由器地址，为202.119.203.65</em></p>
 <p>​    <strong>有没有发现什么？ 校园网和vpn链接过去的ip地址是一样的，也就是说，<u>校园网用的路由器 和 vpn的目标路由器 是同一个</u>！！，我们使用校园网和vpn就是通过”同一个路由器”的”不同子网ip”对外网进行访问！</strong></p>
 <p>​    有的同学可能就会问：“那有怎么样？到点了不还是禁网吗？”</p>
 <p>​    然而，根据原理二，在禁网时段，路由器不会帮我们给<strong>“外部”</strong>发信息，但是我们仍然可以<strong>发信息</strong>给路由器。</p>
@@ -261,15 +257,9 @@
 <p>​    看这里你可能会担心vpn上网的速度可能不能满足普通的上网需求，其实由于此时vpn链接的两个路由器其实是同一个路由器，所以省去的大量的中间时间，因此速度还是可以的。</p>
 <p>​    最后发一下正常连联通，和挂vpn的校园网速度对比：</p>
 <p><img src="https://wx2.sinaimg.cn/mw690/0068KoiRgy1gg88le3ks0j30xt0fe777.jpg" alt="联通speedtest"></p>
-<!--使用联通上网用speedtest测试，速度还是非常可观的-->
-
+<p><em>使用联通上网用speedtest测试，速度还是非常可观的</em></p>
 <p><img src="https://wx4.sinaimg.cn/mw690/0068KoiRgy1gg88lr95iaj30xk0ezju9.jpg" alt="校园网挂VPNspeedtest"></p>
-<!--使用校园网挂vpn好吧......不过，这个速度其实还是够用的了-->
-
-
-
-
-
+<p><em>使用校园网挂vpn好吧……不过，这个速度其实还是够用的了</em></p>
 <h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>​    自此，我尽我所能，大概讲了一下我的理解。由于基本功不扎实，上面的说法应该有不少问题，希望大佬及时指正！还请各位读者原谅……</p>
 
       
