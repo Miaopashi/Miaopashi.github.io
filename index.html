@@ -173,108 +173,170 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>从上个学期开始，学校推展网络一体化，三家运营商的网络归入CUMT_STU，师生通过身份认证上网。</p>
+<p>​    </p>
 <p>一体化之后，宿舍里三家运营商的wifi合并到一起，插网线也只需要往同一排插口接就可以了</p>
 <p>而且全校基本实现wifi覆盖，特别宿舍的wifi质量非常好（有爽到）</p>
+<p>​    </p>
 <p>不过一体化之后，<strong>学校突然限制了同学的上网时段</strong>（工作日晚十一点半后禁网）</p>
 <p>不少深夜奋战的同学<strong>只能选择手机开热点</strong></p>
+<p>​    </p>
 <p>气抖冷，青年何时才能站起来？（不是）</p>
+<p>​    </p>
 <p>正值众同学半夜断网大喊卧槽之际</p>
+<p>​    </p>
 <p>有同学发现</p>
 <p>在断网时段之前，如果<strong>连接校园网，再挂学校的vpn</strong></p>
 <p>居然可以实现 <strong>在禁网时段，照常使用学校的网络上网</strong>！</p>
+<p>​    </p>
 <p>最近刚学了计算机网络，觉得这个操作应该可以用课本的知识解释。</p>
 <p>于是便有了这篇博客。</p>
+<p>​    </p>
 <p>要解释这个问题，本文打算先说三个基础知识：</p>
 <p>终端如何访问外网、学校的网络情况、vpn的原理</p>
+<p>​    </p>
 <p>然后再结合以上三点，具体说明校园网挂vpn是如何无视时段禁网的。</p>
 <p>下面是正文</p>
-<h2 id="三个基本的原理"><a href="#三个基本的原理" class="headerlink" title="三个基本的原理"></a>三个基本的原理</h2><h3 id="原理一：终端通过路由器访问外网"><a href="#原理一：终端通过路由器访问外网" class="headerlink" title="原理一：终端通过路由器访问外网"></a>原理一：终端通过路由器访问外网</h3><p>我们常用的家庭网络都是通过双绞线或者wifi，将手机、pc和ipad等终端连接到路由器，才能上网的。</p>
+<p>​    </p>
+<p>​    </p>
+<h2 id="三个基本的原理"><a href="#三个基本的原理" class="headerlink" title="三个基本的原理"></a>三个基本的原理</h2><p>​    </p>
+<h3 id="原理一：终端通过路由器访问外网"><a href="#原理一：终端通过路由器访问外网" class="headerlink" title="原理一：终端通过路由器访问外网"></a>原理一：终端通过路由器访问外网</h3><p>​    </p>
+<p>我们常用的家庭网络都是通过双绞线或者wifi，将手机、pc和ipad等终端连接到路由器，才能上网的。</p>
 <p><strong>也就是说，如果要上外网，必须要有路由器！</strong></p>
 <p><strong>而通过一个一个的路由器，我们最后就可以访问到某个地点放置的服务器！</strong></p>
+<p>​    </p>
+<p>​    </p>
 <h3 id="原理二：学校的CUMT-STU使用多个路由器供学生上网"><a href="#原理二：学校的CUMT-STU使用多个路由器供学生上网" class="headerlink" title="原理二：学校的CUMT_STU使用多个路由器供学生上网"></a>原理二：学校的CUMT_STU使用多个路由器供学生上网</h3><p>在校园内，虽然会有多个同学都使用CUMT_STU上网</p>
+<p>​    </p>
 <p><strong>但根据认证页面选择的运营商的不同，我们可以选择不同的路由器上网</strong></p>
+<p>​    </p>
 <p>下面给出上述结论的依据</p>
+<p>​    </p>
 <p>以下是分别使用，校园网和联通，访问外网的经过的ip地址：</p>
 <p><img src="../pictures/%E5%85%B3%E4%BA%8E%E5%AD%A6%E6%A0%A1%E6%A0%A1%E5%9B%AD%E7%BD%91%E6%8C%82VPN%E8%A7%A3%E5%86%B3%E6%96%AD%E7%BD%91%E9%97%AE%E9%A2%98%E7%9A%84%E4%B8%AA%E4%BA%BA%E8%A7%A3%E8%AF%BB/%E6%A0%A1%E5%9B%AD%E7%BD%91tracert.png" alt="校园网tracert"></p>
 <p><em>使用校园网访问百度经过的路由器（ip地址），可以看到校园网路由器使用的ip地址为 202.119.203.65</em></p>
+<p>​    </p>
 <p><img src="../pictures/%E5%85%B3%E4%BA%8E%E5%AD%A6%E6%A0%A1%E6%A0%A1%E5%9B%AD%E7%BD%91%E6%8C%82VPN%E8%A7%A3%E5%86%B3%E6%96%AD%E7%BD%91%E9%97%AE%E9%A2%98%E7%9A%84%E4%B8%AA%E4%BA%BA%E8%A7%A3%E8%AF%BB/%E8%81%94%E9%80%9Atracert.png" alt="联通tracert"></p>
 <p><em>使用联通访问百度经过的路由器（ip地址），可以看到联通的路由器使用的ip地址为 112.85.229.157</em></p>
+<p>​    </p>
 <p>可以看到，<u>由于选择的两个运营商不同，访问外网使用的ip地址/路由器也完全不同</u>。</p>
+<p>​    </p>
 <p>另外，<strong>ip地址是对应到路由器的</strong>，注意这点后面我们会用到。</p>
+<p>​    </p>
 <p>简单来说，就是在学校，只要是通过wifi或者网线，连接到CUMT_STU的同学</p>
 <p>根据他们的选择，一共可以连接到<strong>4个路由器</strong>：</p>
 <p>移动的、电信的、联通的、校园网的，用于访问外网。</p>
+<p>​    </p>
 <p>然后，<strong>到了禁网的时段，路由器就不会帮我们向外部发消息，请求服务，所以我们就没法上网了</strong>。</p>
 <p>因为在禁网时段，我们没办法进行网络认证，路由器就不会帮我们给<strong>“外部”</strong>发信息。<em>（注意这个外部是伏笔）</em></p>
 <p>（这个认证，每隔一段时间都要进行一次，不单单是首次登录就完事的了）</p>
+<p>​    </p>
+<p>​    </p>
 <h3 id="原理三：虚拟专用网VPN的基本原理"><a href="#原理三：虚拟专用网VPN的基本原理" class="headerlink" title="原理三：虚拟专用网VPN的基本原理"></a>原理三：虚拟专用网VPN的基本原理</h3><p>在原理一我们提到：如果要上外网，必须要有路由器。</p>
+<p>​    </p>
 <p>但是路由器只是上外网的<strong>必要条件</strong>，如果要访问外部网站还有其他条件，比如<strong>访问权限</strong>。</p>
+<p>​    </p>
 <p>如果所有人都可以随便访问外网的每一个服务器，那BAT供内部人员访问的数据库，估计没几分钟就给各路人马给白嫖完了…</p>
+<p>​    </p>
 <p>所以，当我们访问外部的主机的时候，目标路由器还会判断我们是否有资格访问。</p>
+<p>​    </p>
 <p>当然，比如百度、微博这些网站是不需要特殊权限的，村里通网了就可以访问。</p>
+<p>​    </p>
+<p>​    </p>
 <h4 id="那我们如何获得访问权限？"><a href="#那我们如何获得访问权限？" class="headerlink" title="那我们如何获得访问权限？"></a>那我们如何获得访问权限？</h4><ol>
 <li><p>专门连一条专用的网线过去，其他人不能用（成本高而且浪费资源); ×</p>
 </li>
 <li><p><strong>使用虚拟专用网VPN！</strong>（终于到重点了！）√</p>
+<p>​    </p>
+<p>vpn的原理很简单，就是把终端发送的信息进行加密，</p>
+<p>​    </p>
+<p>而只有目标终端那边的路由器才能解密</p>
+<p>中间路过的所有路由器都无法解密，（为何中间会有路由器出现，具体见原理一的加粗字）</p>
+<p>​    </p>
+<p>因而中间路由器无法截取发送的信息，保证信息中途不会泄露。（只能当纯工具人）</p>
+<p>​    </p>
+<p>另外，通过vpn，不管我们访问哪个ip地址，我们都会把所有的网络请求都先发给目标路由器！</p>
+<p>​    </p>
+<p><strong>这点非常重要，可以理解为：</strong></p>
+<p><strong>通过vpn我们不仅有了访问其他组织内网的通道，我们还获取了<u>连接其他外网的新的路径</u>！</strong></p>
 </li>
 </ol>
-<p>   vpn的原理很简单，就是把终端发送的信息进行加密，</p>
-<p>   而只有目标终端那边的路由器才能解密</p>
-<p>   中间路过的所有路由器都无法解密，（为何中间会有路由器出现，具体见原理一的加粗字）</p>
-<p>   因而中间路由器无法截取发送的信息，保证信息中途不会泄露。（只能当纯工具人）</p>
-<p>   另外，通过vpn，不管我们访问哪个ip地址，我们都会把所有的网络请求都先发给目标路由器！</p>
-<p>   <strong>这点非常重要，可以理解为：</strong></p>
-<p>   <strong>通过vpn我们不仅有了访问其他组织内网的通道，我们还获取了<u>连接其他外网的新的路径</u>！</strong></p>
 <p>以上就是我们要讲的三个原理，下面就是重点的分析了</p>
-<h2 id="具体分析"><a href="#具体分析" class="headerlink" title="具体分析"></a>具体分析</h2><p>​    </p>
+<p>​    </p>
+<p>​    </p>
+<p>​    </p>
+<h2 id="具体分析"><a href="#具体分析" class="headerlink" title="具体分析"></a>具体分析</h2><p>​        </p>
 <p>上面说了一大堆，那到底为什么校园网挂vpn可以无视时段禁网？？？</p>
-<h4 id="现在咱们就来分析一下"><a href="#现在咱们就来分析一下" class="headerlink" title="现在咱们就来分析一下"></a>现在咱们就来分析一下</h4><blockquote>
+<p>​    </p>
+<h4 id="现在咱们就来分析一下"><a href="#现在咱们就来分析一下" class="headerlink" title="现在咱们就来分析一下"></a>现在咱们就来分析一下</h4><p>​    </p>
+<blockquote>
 <p>​    先来看两个结论：<br>​    首先，根据原理二，我们通过校园网认证页面可以选择不同的运营商，<strong>选择不同的路由器</strong>，访问外网；<br>​    其次，根据原理三，我们挂vpn的时候，会把上网的<strong>所有请求</strong>，<u>从自己的路由器发送到学校的路由器</u>；</p>
 </blockquote>
-<p>​    </p>
+<p>​        </p>
 <p>下面就是重点了！</p>
+<p>​    </p>
 <p>我们来看一下，联通挂vpn和我们使用校园网，分别访问百度的截图：</p>
+<p>​    </p>
 <p><img src="../pictures/%E5%85%B3%E4%BA%8E%E5%AD%A6%E6%A0%A1%E6%A0%A1%E5%9B%AD%E7%BD%91%E6%8C%82VPN%E8%A7%A3%E5%86%B3%E6%96%AD%E7%BD%91%E9%97%AE%E9%A2%98%E7%9A%84%E4%B8%AA%E4%BA%BA%E8%A7%A3%E8%AF%BB/%E8%81%94%E9%80%9A%E6%8C%82VPNtracert.png" alt="联通挂VPNtracert"></p>
 <p><em>联通挂vpn上网，离开本地的第一个ip地址【2】，即vpn访问的目标路由器地址，为202.119.203.1</em></p>
+<p>​    </p>
 <p><img src="../pictures/%E5%85%B3%E4%BA%8E%E5%AD%A6%E6%A0%A1%E6%A0%A1%E5%9B%AD%E7%BD%91%E6%8C%82VPN%E8%A7%A3%E5%86%B3%E6%96%AD%E7%BD%91%E9%97%AE%E9%A2%98%E7%9A%84%E4%B8%AA%E4%BA%BA%E8%A7%A3%E8%AF%BB/%E6%A0%A1%E5%9B%AD%E7%BD%91tracert.png" alt="校园网tracert"></p>
 <p><em>使用校园网上网，离开本地的第一个ip地址【3】，即用户使用的路由器地址，为202.119.203.65</em></p>
-<p>*<em>有没有发现什么？ *</em></p>
+<p>​    </p>
+<p><strong>有没有发现什么？</strong></p>
 <p><strong>校园网和vpn链接过去的ip地址前面的网络号是一样的</strong>！</p>
+<p>​    </p>
 <p><strong>也就是说，<u>校园网用的路由器 和 vpn的目标路由器 是同一个</u>！！</strong></p>
 <p><strong>我们使用校园网和vpn就是通过”同一个路由器”的”不同子网ip”对外网进行访问！</strong></p>
+<p>​    </p>
 <p>有的同学可能就会问：“那有怎么样？到点了不还是禁网吗？”</p>
+<p>​    </p>
 <p>然而，根据原理二，在禁网时段，路由器不会帮我们给<strong>“外部”</strong>发信息，但是我们仍然可以<strong>发信息</strong>给路由器。</p>
+<p>​    </p>
 <p>信息传递给路由器之后，由于我们挂了vpn</p>
 <p>校园网路由器就会给目标路由器发认证消息</p>
+<p>​    </p>
 <p>而vpn的<strong>目标路由器</strong>和<strong>我们使用的路由器</strong>又恰巧是同一个</p>
 <p>所以<strong>学校的路由器会自己把认证消息发给自己看</strong>，不需要访问外部的路由器，所以直接无视断网时间段！</p>
+<p>​    </p>
 <p>最后，我们肯定是可以通过vpn的认证的</p>
+<p>​    </p>
 <p>于是我们就从子网：202.119.203.65（校园网的ip），<strong>跳到了子网：202.119.203.1（学校教学用的ip）</strong></p>
+<p>​    </p>
 <p>注意这里的两个子网是<strong>同一个路由器</strong>里的ip地址</p>
+<p>​    </p>
 <p><strong>而这个过程是无视断网时段的</strong></p>
+<p>​    </p>
 <p>路由器当然不会，在禁网时段内，允许我们使用202.119.203.65访问外网</p>
 <p>毕竟我们的校园认证在该时段会失效</p>
+<p>​    </p>
 <p><strong>可是，通过vpn，我们就可以使用202.119.203.1访问外网</strong>。</p>
+<p>​    </p>
 <p>而202.119.203.1是一般情况是不会断网的</p>
 <p>否则整个学校教学使用的网络都会断掉！</p>
+<p>​    </p>
 <p>所以这条路线是非常稳定的。</p>
+<p>​    </p>
 <p><strong>所以，根据断网前不同的操作，在禁网的时段，我们访问外网（比如说上B站），就经历如下流程：</strong></p>
+<p>​    </p>
 <blockquote>
 <p><strong>①不挂vpn，随便选一个运营商的路由器（包括校园网、移动、联通、电信）：</strong></p>
 <p>机子:”我要上B站！” –&gt; </p>
 <p>运营商的路由器:”我不认识你，凭什么帮你发消息？” –&gt; </p>
 <p>机子:”上不了网了，该歇了~”</p>
 </blockquote>
+<p>​    </p>
 <blockquote>
 <p><strong>②挂校园vpn，但是选移动、联通、电信的路由器：</strong><br>机子:”歪？（打电话给运营商的路由器）帮我找学校的路由器，我要上B站！” –&gt; </p>
 <p>运营商的路由器:”我不认识你，凭什么帮你转接？” –&gt; </p>
 <p>机子:”上不了网了，该歇了~”</p>
 </blockquote>
+<p>​    </p>
 <blockquote>
 <p><strong>③挂别的vpn，用校园网：</strong><br>机子:”歪？（打电话给校园网的路由器）帮我找学校的路由器！我要上B站！” –&gt; </p>
 <p>校园网的路由器:”我不认识你，凭什么帮你转接？” （连不到vpn的目标路由器）–&gt; </p>
 <p>机子:”上不了网了，该歇了~”</p>
 </blockquote>
+<p>​    </p>
 <blockquote>
 <p><strong>④挂校园vpn，用校园网：</strong><br>机子:”歪？帮我找学校的路由器！我要上B站！” –&gt; </p>
 <p>校园网的路由器:”我不认识你，凭什么……” –&gt; </p>
@@ -284,15 +346,28 @@
 <p>机子:”收到B站返回的信息，正在生成网页” –&gt; </p>
 <p>我:”up主更新啦！爷青回！不歇了！”</p>
 </blockquote>
+<p>​    </p>
+<p>​    </p>
 <p>看这里你可能会担心vpn上网的速度可能不能满足普通的上网需求</p>
+<p>​    </p>
 <p>其实由于此时vpn链接的两个路由器其实是同一个路由器，不用绕远路找目标路由器</p>
+<p>​    </p>
 <p>这样就能够省去的大量的中间时间，因此速度还是可以的。</p>
+<p>​    </p>
 <p>最后发一下正常连联通，和挂vpn的校园网速度对比：</p>
+<p>​    </p>
 <p><img src="../pictures/%E5%85%B3%E4%BA%8E%E5%AD%A6%E6%A0%A1%E6%A0%A1%E5%9B%AD%E7%BD%91%E6%8C%82VPN%E8%A7%A3%E5%86%B3%E6%96%AD%E7%BD%91%E9%97%AE%E9%A2%98%E7%9A%84%E4%B8%AA%E4%BA%BA%E8%A7%A3%E8%AF%BB/%E8%81%94%E9%80%9Aspeedtest.png" alt="联通speedtest"></p>
 <p><em>使用联通上网用speedtest测试，速度还是非常可观的</em></p>
+<p>​    </p>
 <p><img src="../pictures/%E5%85%B3%E4%BA%8E%E5%AD%A6%E6%A0%A1%E6%A0%A1%E5%9B%AD%E7%BD%91%E6%8C%82VPN%E8%A7%A3%E5%86%B3%E6%96%AD%E7%BD%91%E9%97%AE%E9%A2%98%E7%9A%84%E4%B8%AA%E4%BA%BA%E8%A7%A3%E8%AF%BB/%E6%A0%A1%E5%9B%AD%E7%BD%91%E6%8C%82VPNspeedtest.png" alt="校园网挂VPNspeedtest"></p>
 <p><em>使用校园网挂vpn好吧……不过，这个速度其实还是够用的了</em></p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>自此，我尽我所能，大概讲了一下我的理解。由于基本功不扎实，上面的说法应该有不少问题，希望大佬及时指正！还请各位读者原谅……</p>
+<p>​    </p>
+<p>​    </p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>自此，我尽我所能，大概讲了一下我的理解。由于基本功不扎实，上面的说法应该有不少问题，希望大佬及时指正！</p>
+<p>如有错误，还请各位读者原谅……</p>
+<p>​    </p>
+<p>​    </p>
+<p>​    </p>
 
       
 
@@ -306,7 +381,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">个人解读</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">科普</a>
         		</li>
       		
 		</ul>
@@ -754,6 +829,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
@@ -763,10 +842,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">教程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">个人解读</a>
               </li>
             
             <div class="clearfix"></div>
