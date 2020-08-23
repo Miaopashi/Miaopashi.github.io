@@ -6,21 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>MPS的个人博客</title>
+  <title>入门JavaSE----初级篇 | MPS的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近看到有软件实现了用多张图片拼成指定的某一张图片。 基于好奇心理，想自己实现一个，功能类似的程序。（本来是想做成自己头像的） 于是，搜索了一下相关的程序，果然有不少别人已经写好的程序。 其中看到某个效果很好，用cpp实现的程序，基于本人太菜，没怎么看。 转而看到python可以通过photomosaic库，几行代码就可以实现功能，于是立马就自己试了一试。 简单捣腾几下就实现了需要的效果，果然还是">
+  <meta name="description" content="最近计划学习一下JavaSE，在爱慕课上找到了三个入门javase的视频，分为初级、中级和进阶。 下面记录一下听课的笔记。 javase入门 初级https://www.imooc.com/learn/85? C1 java初体验jvm是java虚拟机​    相关概念：源文件 编译器 字节码 解释器（jvm包括解释器） jdk是java开发工具包jre是java运行环境三者的集合关系：jvm &amp;">
+<meta name="keywords" content="Java,笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MPS的个人博客">
-<meta property="og:url" content="http://yoursite.com/2020/08/01/使用photomosaic库实现马赛克拼图/index.html">
+<meta property="og:title" content="入门JavaSE----初级篇">
+<meta property="og:url" content="http://yoursite.com/2020/08/21/入门JavaSE-初级篇/index.html">
 <meta property="og:site_name" content="MPS的个人博客">
-<meta property="og:description" content="最近看到有软件实现了用多张图片拼成指定的某一张图片。 基于好奇心理，想自己实现一个，功能类似的程序。（本来是想做成自己头像的） 于是，搜索了一下相关的程序，果然有不少别人已经写好的程序。 其中看到某个效果很好，用cpp实现的程序，基于本人太菜，没怎么看。 转而看到python可以通过photomosaic库，几行代码就可以实现功能，于是立马就自己试了一试。 简单捣腾几下就实现了需要的效果，果然还是">
+<meta property="og:description" content="最近计划学习一下JavaSE，在爱慕课上找到了三个入门javase的视频，分为初级、中级和进阶。 下面记录一下听课的笔记。 javase入门 初级https://www.imooc.com/learn/85? C1 java初体验jvm是java虚拟机​    相关概念：源文件 编译器 字节码 解释器（jvm包括解释器） jdk是java开发工具包jre是java运行环境三者的集合关系：jvm &amp;">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://yoursite.com/2020/08/01/pictures/%E4%BD%BF%E7%94%A8photomosaic%E5%BA%93%E5%AE%9E%E7%8E%B0%E9%A9%AC%E8%B5%9B%E5%85%8B%E6%8B%BC%E5%9B%BE/hdog.jpg">
-<meta property="og:updated_time" content="2020-08-01T01:25:25.080Z">
+<meta property="og:updated_time" content="2020-08-23T03:06:36.606Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MPS的个人博客">
-<meta name="twitter:description" content="最近看到有软件实现了用多张图片拼成指定的某一张图片。 基于好奇心理，想自己实现一个，功能类似的程序。（本来是想做成自己头像的） 于是，搜索了一下相关的程序，果然有不少别人已经写好的程序。 其中看到某个效果很好，用cpp实现的程序，基于本人太菜，没怎么看。 转而看到python可以通过photomosaic库，几行代码就可以实现功能，于是立马就自己试了一试。 简单捣腾几下就实现了需要的效果，果然还是">
-<meta name="twitter:image" content="http://yoursite.com/2020/08/01/pictures/%E4%BD%BF%E7%94%A8photomosaic%E5%BA%93%E5%AE%9E%E7%8E%B0%E9%A9%AC%E8%B5%9B%E5%85%8B%E6%8B%BC%E5%9B%BE/hdog.jpg">
+<meta name="twitter:title" content="入门JavaSE----初级篇">
+<meta name="twitter:description" content="最近计划学习一下JavaSE，在爱慕课上找到了三个入门javase的视频，分为初级、中级和进阶。 下面记录一下听课的笔记。 javase入门 初级https://www.imooc.com/learn/85? C1 java初体验jvm是java虚拟机​    相关概念：源文件 编译器 字节码 解释器（jvm包括解释器） jdk是java开发工具包jre是java运行环境三者的集合关系：jvm &amp;">
   
     <link rel="alternative" href="/atom.xml" title="MPS的个人博客" type="application/atom+xml">
   
@@ -156,58 +155,113 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-使用photomosaic库实现马赛克拼图" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-入门JavaSE-初级篇" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      入门JavaSE----初级篇
+    </h1>
+  
+
+        
+        <a href="/2020/08/21/入门JavaSE-初级篇/" class="archive-article-date">
+  	<time datetime="2020-08-21T08:56:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-21</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近看到有软件实现了用多张图片拼成指定的某一张图片。</p>
-<p>基于好奇心理，想自己实现一个，功能类似的程序。（本来是想做成自己头像的）</p>
-<p>于是，搜索了一下相关的程序，果然有不少别人已经写好的程序。</p>
-<p>其中看到某个效果很好，用cpp实现的程序，基于本人太菜，没怎么看。</p>
-<p>转而看到python可以通过photomosaic库，几行代码就可以实现功能，于是立马就自己试了一试。</p>
-<p>简单捣腾几下就实现了需要的效果，果然还是python用起来香。不过东西学起来蜻蜓点水，笔者对于函数的实现原理是一窍不通的。</p>
-<p>下面是效果图：</p>
-<p><img src="../pictures/%E4%BD%BF%E7%94%A8photomosaic%E5%BA%93%E5%AE%9E%E7%8E%B0%E9%A9%AC%E8%B5%9B%E5%85%8B%E6%8B%BC%E5%9B%BE/hdog.jpg" alt="hdog"></p>
-<p>怎样有无心动？</p>
-<p>下面先贴出代码：</p>
-<p>文件结构：</p>
-<blockquote>
-<p>MakingChatHeads/</p>
-<p>​    i_env/</p>
-<p>​    srcHead/</p>
-<p>​    srcpool/</p>
-<p>​    Head.jpg</p>
-<p>​    main.py</p>
+        <p><em>最近计划学习一下JavaSE，在爱慕课上找到了三个入门javase的视频，分为初级、中级和进阶。</em></p>
+<p><em>下面记录一下听课的笔记。</em></p>
+<h1 id="javase入门-初级"><a href="#javase入门-初级" class="headerlink" title="javase入门 初级"></a>javase入门 初级</h1><p><a href="https://www.imooc.com/learn/85" target="_blank" rel="noopener">https://www.imooc.com/learn/85</a>?</p>
+<h2 id="C1-java初体验"><a href="#C1-java初体验" class="headerlink" title="C1 java初体验"></a>C1 java初体验</h2><h4 id="jvm是java虚拟机"><a href="#jvm是java虚拟机" class="headerlink" title="jvm是java虚拟机"></a>jvm是java虚拟机</h4><p>​    相关概念：源文件 编译器 字节码 解释器（jvm包括解释器）</p>
+<h4 id="jdk是java开发工具包"><a href="#jdk是java开发工具包" class="headerlink" title="jdk是java开发工具包"></a>jdk是java开发工具包</h4><h4 id="jre是java运行环境"><a href="#jre是java运行环境" class="headerlink" title="jre是java运行环境"></a>jre是java运行环境</h4><h4 id="三者的集合关系：jvm-lt-jre-lt-jdk"><a href="#三者的集合关系：jvm-lt-jre-lt-jdk" class="headerlink" title="三者的集合关系：jvm &lt; jre &lt; jdk"></a>三者的集合关系：jvm &lt; jre &lt; jdk</h4><h2 id="java开发环境"><a href="#java开发环境" class="headerlink" title="java开发环境"></a>java开发环境</h2><h4 id="安装java-jdk后的文件目录"><a href="#安装java-jdk后的文件目录" class="headerlink" title="安装java_jdk后的文件目录"></a>安装java_jdk后的文件目录</h4><blockquote>
+<p>jdk<br>    bin<br>        java<br>        javac<br>    lib(库文件)</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># main.py源代码</span></span><br><span class="line"><span class="keyword">import</span> photomosaic <span class="keyword">as</span> pm</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">'''根据一张图，用多张其它图片拼凑为一张马赛克图'''</span></span><br><span class="line"><span class="comment"># 读取图片</span></span><br><span class="line">image = pm.imread(<span class="string">'./srcHead/head.jpg'</span>)</span><br><span class="line"><span class="comment"># 定义照片库</span></span><br><span class="line">pool = pm.make_pool(<span class="string">'./srcpool/*.jpg'</span>)</span><br><span class="line"><span class="comment"># 制作马赛克图</span></span><br><span class="line">mosaic = pm.basic_mosaic(image, pool, (<span class="number">220</span>, <span class="number">170</span>))</span><br><span class="line"><span class="comment"># 保存图片</span></span><br><span class="line">pm.imsave(<span class="string">'./HEAD.jpg'</span>, mosaic)</span><br></pre></td></tr></table></figure>
-
-<p>代码可以说非常简单了，这里简单提一下主要流程：</p>
-<ol>
-<li>导入photomosaic库</li>
-<li>加载需要拼接出来的底图，比如上面图片原来就是一张doge抱着锦鲤的图片</li>
-<li>加载拼图的时候使用的素材图，这里需要的图片数目比较多，读取的时候也只需要给出图片统一存放的文件夹</li>
-<li>利用多张素材图生成指定底图的马赛克拼接图，其中的参数是横向和纵向拼接图片的数目</li>
-<li>保存拼接出来的图片</li>
+<p>其中，java是解释器，javac是编译器，lib存放java的库</p>
+<h4 id="设置环境变量（这里可以参照菜鸟教程）"><a href="#设置环境变量（这里可以参照菜鸟教程）" class="headerlink" title="设置环境变量（这里可以参照菜鸟教程）"></a>设置环境变量（这里可以参照菜鸟教程）</h4><ol>
+<li>java_home  jdk路径</li>
+<li>path  jdk命令文件</li>
+<li>classpath  类库文件的位置</li>
+<li>java命令后不能跟文件后缀</li>
 </ol>
-<p>下面说一下个人拼图的一点心得：</p>
+<h4 id="使用IDE开发java程序"><a href="#使用IDE开发java程序" class="headerlink" title="使用IDE开发java程序"></a>使用IDE开发java程序</h4><p>开发步骤</p>
 <ol>
-<li>根据底图的颜色选择颜色相近的图片，否则出来的效果不太好</li>
-<li>素材图的质量不需要很好，否则读取图片的时间会很长很长</li>
-<li>拼接的图不要太多，否则看上去会像十字绣；不过拼图数不够多的话，会完全看不出来原图……</li>
-<li>尽量选择颜色鲜艳的图片拼图</li>
+<li>创建java项目</li>
+<li>创建程序包  右击src new 命名 一般为域名的反向</li>
+<li>编写java源程序</li>
+<li>运行java程序</li>
 </ol>
-<p>再来介绍一下photomosaic库：</p>
-<p>photomosaic库主要使用机器学习和相似性搜索算法实现，可以根据给定的图片马赛克化，并且可以使用指定的图片进行马赛克填充。</p>
-<p>相关函数的用法相信读者光看源代码就能看懂，毕竟python的优势一直是白嫖大佬的函数，所以调用库之后的代码量小的令人发指。</p>
-<p>作者python项目的github-url：<a href="https://github.com/danielballan/photomosaic" target="_blank" rel="noopener">https://github.com/danielballan/photomosaic</a></p>
-<p>由于创作者的python文档404了，我暂时没能深入了解这个库的其它函数和精细设置的其它参数。（貌似是由于弗洛伊德事件后的美国暴动，导致微软的服务器被偷了？）</p>
-<p>另外，有大佬做出了一个Docker化的photomosaic项目。可以通过–randomness, –opacity, –best-k等参数实现更好的马赛克拼接效果。</p>
-<p>url：<a href="https://cloud.tencent.com/developer/news/375609" target="_blank" rel="noopener">https://cloud.tencent.com/developer/news/375609</a></p>
-<p>最后谈谈自己对这个算法的一些看法：</p>
-<p>这个库提供了高度集成的函数，几行代码就可以实现马赛克拼图功能。对于新手来说非常友好。不过，由于函数大部分已经由对方写好。所以，用户不能根据自己的需求，实现自定义的功能。</p>
-<p>另外，目前的代码拼接出的拼图会使用大量重复的图片，这一点不知道是素材图太少，还是函数有其它参数需要调整，还有有待发掘。</p>
+<h4 id="程序的移植-拷贝项目到另一台电脑导入-（有点low）"><a href="#程序的移植-拷贝项目到另一台电脑导入-（有点low）" class="headerlink" title="程序的移植  拷贝项目到另一台电脑导入 （有点low）"></a>程序的移植  拷贝项目到另一台电脑导入 （有点low）</h4><h4 id="基本经验：多练-多问-动手-总结"><a href="#基本经验：多练-多问-动手-总结" class="headerlink" title="基本经验：多练 多问 动手 总结"></a>基本经验：多练 多问 动手 总结</h4><h2 id="C2-变量和常量"><a href="#C2-变量和常量" class="headerlink" title="C2 变量和常量"></a>C2 变量和常量</h2><h4 id="java的变量命名"><a href="#java的变量命名" class="headerlink" title="java的变量命名"></a>java的变量命名</h4><p>只能以字母 _ $ 开头，不能包含除了_ $ 以外的特殊字符</p>
+<h4 id="java变量的种类有-基本变量-和-引用变量"><a href="#java变量的种类有-基本变量-和-引用变量" class="headerlink" title="java变量的种类有 基本变量 和 引用变量"></a>java变量的种类有 基本变量 和 引用变量</h4><ul>
+<li>str就是一个典型的<strong>引用型变量</strong>，还有class interface 等</li>
+<li><strong>基本变量</strong>和c/c++差不多 但是布尔类型为boolean</li>
+<li>基本类型分为 <strong>数值型 字符型 布尔型</strong></li>
+<li>ps： 给<strong>float型变量</strong>赋值的时候需要<strong>加f</strong>，否则会默认成double</li>
+</ul>
+<h4 id="java用final表示常量-一般用大写命名"><a href="#java用final表示常量-一般用大写命名" class="headerlink" title="java用final表示常量 一般用大写命名"></a>java用final表示常量 一般用大写命名</h4><h4 id="java的注释（和c有点不一样）"><a href="#java的注释（和c有点不一样）" class="headerlink" title="java的注释（和c有点不一样）"></a>java的注释（和c有点不一样）</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 单行注释 </span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 文档注释</span></span><br><span class="line"><span class="comment"> * 可以使用 javadoc 从java文件中提取文档的内容</span></span><br><span class="line"><span class="comment"> * 可以使用 javadoc 标记 生成更加信息的文档信息</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 多行注释</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/* 单行注释的另一种写法 */</span></span><br></pre></td></tr></table></figure>
 
+<h2 id="C3-常用运算符"><a href="#C3-常用运算符" class="headerlink" title="C3 常用运算符"></a>C3 常用运算符</h2><h4 id="种类"><a href="#种类" class="headerlink" title="种类"></a>种类</h4><ul>
+<li>算术: <code>+</code> <code>-</code> <code>*</code> <code>/</code> <code>%</code> <code>++</code> <code>--</code> 自运算放左边是先运算再赋值 反则先赋值后运算</li>
+<li>赋值: <code>=</code> <code>+=</code> <code>-=</code> <code>*=</code> <code>/=</code> <code>%=</code></li>
+<li>比较: <code>&gt;</code> <code>&lt;</code> <code>&gt;=</code> <code>&lt;=</code> 只能是数值类型 <code>==</code> <code>!=</code> 可以使引用类型</li>
+<li>逻辑: <code>&amp;&amp;</code> <code>||</code> <code>!</code> <code>^</code>(异或(两者只有一个为真才为真))</li>
+<li>条件: 双目表达式 <code>*** ? ** : **</code> 和 c++ 类似</li>
+<li>ps: 优先级和c++类似 建议查表</li>
+<li>ps: java中 <code>/</code> 是整除</li>
+</ul>
+<h2 id="C4-流程控制"><a href="#C4-流程控制" class="headerlink" title="C4 流程控制"></a>C4 流程控制</h2><h4 id="if-条件判断和c类似"><a href="#if-条件判断和c类似" class="headerlink" title="if 条件判断和c类似"></a>if 条件判断和c类似</h4><ul>
+<li>if (){}  else if(){}  else{}  只有一行语句的时候可以不用{}</li>
+<li>if 可以嵌套使用</li>
+<li>ps:equals()方法用于判断字符串的内容是否相等</li>
+</ul>
+<h4 id="switch-判断和c类似"><a href="#switch-判断和c类似" class="headerlink" title="switch 判断和c类似"></a>switch 判断和c类似</h4><ul>
+<li>switch (){ case &lt;&gt;: &lt;&gt; break; … default: &lt;&gt; }</li>
+<li>当switch的值和case的值相等时，开始往下执行，如果没有break会一直向下</li>
+<li>switch的表达式必须是整型或字符型 case后面可以是常量或者常量表达式</li>
+<li>相同功能的case可以放在一起 后面接同一段代码</li>
+</ul>
+<h4 id="while循环-do-while循环-for循环-同c-c"><a href="#while循环-do-while循环-for循环-同c-c" class="headerlink" title="while循环  do while循环  for循环 (同c/c++)"></a>while循环  do while循环  for循环 (同c/c++)</h4><h4 id="break跳出整个循环-continue跳出当前循环"><a href="#break跳出整个循环-continue跳出当前循环" class="headerlink" title="break跳出整个循环 continue跳出当前循环"></a>break跳出整个循环 continue跳出当前循环</h4><p>ps: 循环可以嵌套</p>
+<h2 id="C5-程序编写小试"><a href="#C5-程序编写小试" class="headerlink" title="C5 程序编写小试"></a>C5 程序编写小试</h2><h4 id="ps-快捷键"><a href="#ps-快捷键" class="headerlink" title="ps: 快捷键"></a>ps: 快捷键</h4><p><code>&#39;syso&#39; alt+/ = System.out.println()</code><br><code>&#39;main&#39; alt+/</code></p>
+<h4 id="获取用户输入-Scanner-工具类-java-util-包-需要导入"><a href="#获取用户输入-Scanner-工具类-java-util-包-需要导入" class="headerlink" title="获取用户输入 Scanner 工具类 java.util 包 需要导入"></a>获取用户输入 Scanner 工具类 java.util 包 需要导入</h4><ol>
+<li>导入包    import java.util.Scanner;</li>
+<li>创建对象    Scanner input = new Scanner(System.in);</li>
+<li>调用方法函数    int score = input.nextInt();</li>
+<li>ps: println 和 print 不同 前者会换行</li>
+</ol>
+<h4 id="调试程序"><a href="#调试程序" class="headerlink" title="调试程序"></a>调试程序</h4><p>可以利用断点（一个小红点） 使用debug模式 stepover进行下一行代码的执行</p>
+<h4 id="经验总结-debug"><a href="#经验总结-debug" class="headerlink" title="经验总结 debug"></a>经验总结 debug</h4><p>通过分析明确需求 整理相关知识点 实例实现流程 借助“断点调试”</p>
+<h2 id="C6-数组-（和c-c-很像）"><a href="#C6-数组-（和c-c-很像）" class="headerlink" title="C6 数组 （和c/c++很像）"></a>C6 数组 （和c/c++很像）</h2><h4 id="数组的声明和初始化"><a href="#数组的声明和初始化" class="headerlink" title="数组的声明和初始化"></a>数组的声明和初始化</h4><ul>
+<li>声明+初始化  &lt;类型&gt;[] 数组名 = {…}; 等价于  &lt;类型&gt;[] 数组名 = new &lt;类型&gt;[] {…};</li>
+<li>可以使用索引 从零开始</li>
+<li>分配空间   &lt;类型&gt;[] 数组名 = new &lt;类型&gt;[数组长度];</li>
+<li>ps: [ ] 可以在类型或数组名后面加</li>
+</ul>
+<h4 id="使用-Arrays类造作java中的数组"><a href="#使用-Arrays类造作java中的数组" class="headerlink" title="使用 Arrays类造作java中的数组"></a>使用 Arrays类造作java中的数组</h4><h5 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h5><ol>
+<li>排序 <code>Arrays.sort(数组名);</code>  ps: 记得import java.util.Arrays;</li>
+<li>转换为字符串 <code>Arrays.toString(数组名);</code></li>
+<li><code>数组名.length</code> 可以获取数组的长度</li>
+</ol>
+<h5 id="使用foreach操纵数组"><a href="#使用foreach操纵数组" class="headerlink" title="使用foreach操纵数组"></a>使用foreach操纵数组</h5><p>foreach 是 for 语句的简化版本<br>语法：<code>for (元素类型 元素变量: 遍历对象) {};</code></p>
+<h4 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义并且初始化二维数组</span></span><br><span class="line">type [][] arrayName = <span class="keyword">new</span> type [rowNum][colNum];</span><br><span class="line">type [][] arrayName = &#123;&#123;...&#125;, ...&#125;;</span><br><span class="line"><span class="comment">// 赋值 </span></span><br><span class="line">arrayName[row][col] = value;</span><br><span class="line"><span class="comment">// 声明的时候可以不指名列数，后面再具体给各行分配列数</span></span><br></pre></td></tr></table></figure>
+
+<p>​    </p>
+<h2 id="C7-方法"><a href="#C7-方法" class="headerlink" title="C7 方法"></a>C7 方法</h2><p>一个功能模块，用于解决某个具体问题的代码序列组合</p>
+<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><p><code>访问修饰符 返回值类型 方法名(参数列表) {方法体}</code><br>访问修饰符指定访问权限范围如：<code>public</code>, <code>protected</code>, <code>private</code><br>根据 <strong>返回值类型</strong> 和 <strong>参数列表</strong> 方法可以分为： 无参无返 有参无返 无参有返 有参有返</p>
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><ol>
+<li>定义方法， 参照上面语法</li>
+<li>定义一个方法所在的类的对象</li>
+<li>用对象调用类里面定义的方法</li>
+<li>对于有返回值的方法，一般要定义一个变量接收返回值，变量类型要对应</li>
+<li>对于没有返回值的方法，不能加return语句</li>
+<li>对于有参数的方法，参数的类型顺序数量要与形参对应 形参要标类型</li>
+</ol>
+<h4 id="方法的重载"><a href="#方法的重载" class="headerlink" title="方法的重载"></a>方法的重载</h4><p>同一个类中可以有多个同名的方法，但必须形参的数量类型顺序不一样，和返回值没有关系</p>
+<h6 id="建立动态数组-int-nums-new-int-length"><a href="#建立动态数组-int-nums-new-int-length" class="headerlink" title="建立动态数组 int[] nums = new int[length];"></a>建立动态数组 <code>int[] nums = new int[length];</code></h6><h6 id="生成-100-以内的随机数（用到math类）-int-Math-random-100"><a href="#生成-100-以内的随机数（用到math类）-int-Math-random-100" class="headerlink" title="生成 100 以内的随机数（用到math类） (int)(Math.random() * 100)"></a>生成 100 以内的随机数（用到math类） <code>(int)(Math.random() * 100)</code></h6>
       
 
       
@@ -236,6 +290,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -286,7 +355,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/08/01/使用photomosaic库实现马赛克拼图/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/08/21/入门JavaSE-初级篇/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -301,8 +370,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2020/06/28/关于学校校园网挂VPN解决断网问题的个人解读/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">关于学校校园网挂VPN解决断网问题的个人解读</div>
+    <a href="/2020/08/21/使用photomosaic库实现马赛克拼图/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">使用photomosaic库实现马赛克拼图</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -432,6 +501,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">-Java -笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
@@ -441,6 +522,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">概要</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
             
             <div class="clearfix"></div>

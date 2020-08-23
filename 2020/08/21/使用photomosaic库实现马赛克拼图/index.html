@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 算法 | MPS的个人博客</title>
+  <title>使用photomosaic库实现马赛克拼图 | MPS的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="MPS的个人博客">
-<meta property="og:url" content="http://yoursite.com/tags/算法/index.html">
+  <meta name="description" content="最近看到有软件实现了用多张图片拼成指定的某一张图片。 基于好奇心理，想自己实现一个，功能类似的程序。（本来是想做成自己头像的） 于是，搜索了一下相关的程序，果然有不少别人已经写好的程序。 其中看到某个效果很好，用cpp实现的程序，基于本人太菜，没怎么看。 转而看到python可以通过photomosaic库，几行代码就可以实现功能，于是立马就自己试了一试。 简单捣腾几下就实现了需要的效果，果然还是">
+<meta name="keywords" content="python,图像处理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用photomosaic库实现马赛克拼图">
+<meta property="og:url" content="http://yoursite.com/2020/08/21/使用photomosaic库实现马赛克拼图/index.html">
 <meta property="og:site_name" content="MPS的个人博客">
+<meta property="og:description" content="最近看到有软件实现了用多张图片拼成指定的某一张图片。 基于好奇心理，想自己实现一个，功能类似的程序。（本来是想做成自己头像的） 于是，搜索了一下相关的程序，果然有不少别人已经写好的程序。 其中看到某个效果很好，用cpp实现的程序，基于本人太菜，没怎么看。 转而看到python可以通过photomosaic库，几行代码就可以实现功能，于是立马就自己试了一试。 简单捣腾几下就实现了需要的效果，果然还是">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/2020/08/21/pictures/%E4%BD%BF%E7%94%A8photomosaic%E5%BA%93%E5%AE%9E%E7%8E%B0%E9%A9%AC%E8%B5%9B%E5%85%8B%E6%8B%BC%E5%9B%BE/hdog.jpg">
+<meta property="og:updated_time" content="2020-08-21T08:55:29.360Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MPS的个人博客">
+<meta name="twitter:title" content="使用photomosaic库实现马赛克拼图">
+<meta name="twitter:description" content="最近看到有软件实现了用多张图片拼成指定的某一张图片。 基于好奇心理，想自己实现一个，功能类似的程序。（本来是想做成自己头像的） 于是，搜索了一下相关的程序，果然有不少别人已经写好的程序。 其中看到某个效果很好，用cpp实现的程序，基于本人太菜，没怎么看。 转而看到python可以通过photomosaic库，几行代码就可以实现功能，于是立马就自己试了一试。 简单捣腾几下就实现了需要的效果，果然还是">
+<meta name="twitter:image" content="http://yoursite.com/2020/08/21/pictures/%E4%BD%BF%E7%94%A8photomosaic%E5%BA%93%E5%AE%9E%E7%8E%B0%E9%A9%AC%E8%B5%9B%E5%85%8B%E6%8B%BC%E5%9B%BE/hdog.jpg">
   
     <link rel="alternative" href="/atom.xml" title="MPS的个人博客" type="application/atom+xml">
   
@@ -150,64 +157,225 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-使用photomosaic库实现马赛克拼图" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/17/《算法图解》内容概要/" class="archive-article-date">
-  	<time datetime="2019-12-17T06:50:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-17</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/17/《算法图解》内容概要/">《算法图解》内容概要</a>
+    <h1 class="article-title" itemprop="name">
+      使用photomosaic库实现马赛克拼图
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/08/21/使用photomosaic库实现马赛克拼图/" class="archive-article-date">
+  	<time datetime="2020-08-21T08:53:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近看到有软件实现了用多张图片拼成指定的某一张图片。</p>
+<p>基于好奇心理，想自己实现一个，功能类似的程序。（本来是想做成自己头像的）</p>
+<p>于是，搜索了一下相关的程序，果然有不少别人已经写好的程序。</p>
+<p>其中看到某个效果很好，用cpp实现的程序，基于本人太菜，没怎么看。</p>
+<p>转而看到python可以通过photomosaic库，几行代码就可以实现功能，于是立马就自己试了一试。</p>
+<p>简单捣腾几下就实现了需要的效果，果然还是python用起来香。不过东西学起来蜻蜓点水，笔者对于函数的实现原理是一窍不通的。</p>
+<p>下面是效果图：</p>
+<p><img src="../pictures/%E4%BD%BF%E7%94%A8photomosaic%E5%BA%93%E5%AE%9E%E7%8E%B0%E9%A9%AC%E8%B5%9B%E5%85%8B%E6%8B%BC%E5%9B%BE/hdog.jpg" alt="hdog"></p>
+<p>怎样有无心动？</p>
+<p>下面先贴出代码：</p>
+<p>文件结构：</p>
+<blockquote>
+<p>MakingChatHeads/</p>
+<p>​    i_env/</p>
+<p>​    srcHead/</p>
+<p>​    srcpool/</p>
+<p>​    Head.jpg</p>
+<p>​    main.py</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># main.py源代码</span></span><br><span class="line"><span class="keyword">import</span> photomosaic <span class="keyword">as</span> pm</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">'''根据一张图，用多张其它图片拼凑为一张马赛克图'''</span></span><br><span class="line"><span class="comment"># 读取图片</span></span><br><span class="line">image = pm.imread(<span class="string">'./srcHead/head.jpg'</span>)</span><br><span class="line"><span class="comment"># 定义照片库</span></span><br><span class="line">pool = pm.make_pool(<span class="string">'./srcpool/*.jpg'</span>)</span><br><span class="line"><span class="comment"># 制作马赛克图</span></span><br><span class="line">mosaic = pm.basic_mosaic(image, pool, (<span class="number">220</span>, <span class="number">170</span>))</span><br><span class="line"><span class="comment"># 保存图片</span></span><br><span class="line">pm.imsave(<span class="string">'./HEAD.jpg'</span>, mosaic)</span><br></pre></td></tr></table></figure>
+
+<p>代码可以说非常简单了，这里简单提一下主要流程：</p>
+<ol>
+<li>导入photomosaic库</li>
+<li>加载需要拼接出来的底图，比如上面图片原来就是一张doge抱着锦鲤的图片</li>
+<li>加载拼图的时候使用的素材图，这里需要的图片数目比较多，读取的时候也只需要给出图片统一存放的文件夹</li>
+<li>利用多张素材图生成指定底图的马赛克拼接图，其中的参数是横向和纵向拼接图片的数目</li>
+<li>保存拼接出来的图片</li>
+</ol>
+<p>下面说一下个人拼图的一点心得：</p>
+<ol>
+<li>根据底图的颜色选择颜色相近的图片，否则出来的效果不太好</li>
+<li>素材图的质量不需要很好，否则读取图片的时间会很长很长</li>
+<li>拼接的图不要太多，否则看上去会像十字绣；不过拼图数不够多的话，会完全看不出来原图……</li>
+<li>尽量选择颜色鲜艳的图片拼图</li>
+</ol>
+<p>再来介绍一下photomosaic库：</p>
+<p>photomosaic库主要使用机器学习和相似性搜索算法实现，可以根据给定的图片马赛克化，并且可以使用指定的图片进行马赛克填充。</p>
+<p>相关函数的用法相信读者光看源代码就能看懂，毕竟python的优势一直是白嫖大佬的函数，所以调用库之后的代码量小的令人发指。</p>
+<p>作者python项目的github-url：<a href="https://github.com/danielballan/photomosaic" target="_blank" rel="noopener">https://github.com/danielballan/photomosaic</a></p>
+<p>由于创作者的python文档404了，我暂时没能深入了解这个库的其它函数和精细设置的其它参数。（貌似是由于弗洛伊德事件后的美国暴动，导致微软的服务器被偷了？）</p>
+<p>另外，有大佬做出了一个Docker化的photomosaic项目。可以通过–randomness, –opacity, –best-k等参数实现更好的马赛克拼接效果。</p>
+<p>url：<a href="https://cloud.tencent.com/developer/news/375609" target="_blank" rel="noopener">https://cloud.tencent.com/developer/news/375609</a></p>
+<p>最后谈谈自己对这个算法的一些看法：</p>
+<p>这个库提供了高度集成的函数，几行代码就可以实现马赛克拼图功能。对于新手来说非常友好。不过，由于函数大部分已经由对方写好。所以，用户不能根据自己的需求，实现自定义的功能。</p>
+<p>另外，目前的代码拼接出的拼图会使用大量重复的图片，这一点不知道是素材图太少，还是函数有其它参数需要调整，还有有待发掘。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>感谢你请我喝咖啡~<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">概要</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">图像处理</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/08/21/使用photomosaic库实现马赛克拼图/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/08/21/入门JavaSE-初级篇/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          入门JavaSE----初级篇
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2020/06/28/关于学校校园网挂VPN解决断网问题的个人解读/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于学校校园网挂VPN解决断网问题的个人解读</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -230,9 +398,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
