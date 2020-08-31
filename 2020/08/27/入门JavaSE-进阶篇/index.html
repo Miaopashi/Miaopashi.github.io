@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="MPS的个人博客">
 <meta property="og:description" content="趁热打铁，开始看进阶篇，快速入门。希望能早一点接触Springboot！ javase入门 进阶https://www.imooc.com/learn/110 C1异常与异常处理异常简介有错误出现，阻止当前方法或作用域Throwable所有异常的父类, 有两个子类  Error 虚拟机错误，线程死锁 Exception runtime异常（非检查异常），检查异常  处理异常(捕获异常)try-ca">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-08-27T09:05:57.463Z">
+<meta property="og:updated_time" content="2020-08-31T07:50:17.010Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="入门JavaSE-进阶篇">
 <meta name="twitter:description" content="趁热打铁，开始看进阶篇，快速入门。希望能早一点接触Springboot！ javase入门 进阶https://www.imooc.com/learn/110 C1异常与异常处理异常简介有错误出现，阻止当前方法或作用域Throwable所有异常的父类, 有两个子类  Error 虚拟机错误，线程死锁 Exception runtime异常（非检查异常），检查异常  处理异常(捕获异常)try-ca">
@@ -197,6 +197,15 @@
 <li>积极根据业务需求和异常类型处理异常, 不要简单打印异常</li>
 <li>尽量用finally语句释放占用的资源</li>
 </ol>
+<h2 id="C2Java中的字符串"><a href="#C2Java中的字符串" class="headerlink" title="C2Java中的字符串"></a>C2Java中的字符串</h2><h4 id="字符串是什么"><a href="#字符串是什么" class="headerlink" title="字符串是什么"></a>字符串是什么</h4><p><code>String</code>对象位于<code>java.lang</code>包中, 默认情况下该包自动导入所有的程序<br>创建<code>String</code>对象方法:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String s1 = <span class="string">"imooc"</span>;</span><br><span class="line">String s2 = <span class="keyword">new</span> String();</span><br><span class="line">String s3 = <span class="keyword">new</span> String(<span class="string">"imooc"</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="字符串的不变性"><a href="#字符串的不变性" class="headerlink" title="字符串的不变性"></a>字符串的不变性</h4><p><code>String</code>对象创建后不能修改, 只能直接改变指向的内存, 相当于整个变量对应的内容换掉<br>如果需要可以改变的字符串,可以使用<code>StringBuffer</code>或者<code>StringBuilder</code><br>每次<code>new</code>一个<code>String</code>就是一个新的对象, 所以<code>==</code>的结果为<code>flase</code>, 比较两个字符串内容是否相同时, 应该使用<code>equals()</code>方法, 注意区分<code>==</code>和<code>equals()</code></p>
+<h4 id="String类常用的方法"><a href="#String类常用的方法" class="headerlink" title="String类常用的方法"></a><code>String</code>类常用的方法</h4><p><code>String</code>类提供了很多处理字符串的方法, 获取长度,截取字符串,字符串转换为大小写,字符串分割等等<br>可以参照菜鸟教程的<code>Java中String类</code>的说明:<br><a href="https://www.runoob.com/java/java-string.html" target="_blank" rel="noopener">https://www.runoob.com/java/java-string.html</a><br>ps: <code>equals()</code>, <code>indexOf()</code>, <code>substring()</code>, <code>charAt()</code>用的比较多<br>pps: <code>==</code>判断两个对象内存的地址是否相同, <code>equals()</code>比较两个对象的内容是否相等<br>关于<code>getBytes()</code>方法, 由于汉字有两个字节而且会溢出, 所以转换后得到的字节数是两个负数, <code>asc码</code>则转化为一个数</p>
+<h4 id="StringBuilder类"><a href="#StringBuilder类" class="headerlink" title="StringBuilder类"></a><code>StringBuilder</code>类</h4><p>修改字符串时不会额外创建一个对象, <code>StringBuffer</code>是线程安全的, <code>StringBuilder</code>则没有但性能更高, 一般课表字符串对象优先考虑<code>StringBuilder</code><br>定义: </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">StringBuilder str1 = <span class="keyword">new</span> StringBuilder();  <span class="comment">// 参数""可选</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="StringBuilder类的常用方法"><a href="#StringBuilder类的常用方法" class="headerlink" title="StringBuilder类的常用方法"></a><code>StringBuilder类</code>的常用方法</h4><p><code>append()</code>, <code>inset()</code>方法比较常用<br>同样, 可以参照菜鸟教程:<br><a href="https://www.runoob.com/java/java-stringbuffer.html" target="_blank" rel="noopener">https://www.runoob.com/java/java-stringbuffer.html</a></p>
 <p>未完待续</p>
 
       
@@ -434,15 +443,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">教程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">概要</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -454,11 +463,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+                <a href="javascript:void(0)" class="js-tag color3">概要</a>
               </li>
              
               <li class="article-tag-list-item">
