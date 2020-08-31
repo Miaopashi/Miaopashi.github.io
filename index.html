@@ -174,7 +174,7 @@
       
         <p>趁热打铁，开始看进阶篇，快速入门。希望能早一点接触<code>Springboot</code>！</p>
 <h2 id="javase入门-进阶"><a href="#javase入门-进阶" class="headerlink" title="javase入门 进阶"></a>javase入门 进阶</h2><p><a href="https://www.imooc.com/learn/110" target="_blank" rel="noopener">https://www.imooc.com/learn/110</a></p>
-<h2 id="C1异常与异常处理"><a href="#C1异常与异常处理" class="headerlink" title="C1异常与异常处理"></a>C1异常与异常处理</h2><h4 id="异常简介"><a href="#异常简介" class="headerlink" title="异常简介"></a>异常简介</h4><p>有错误出现，阻止当前方法或作用域<br><code>Throwable</code>所有异常的父类, 有两个子类</p>
+<h2 id="C1-异常与异常处理"><a href="#C1-异常与异常处理" class="headerlink" title="C1-异常与异常处理"></a>C1-异常与异常处理</h2><h4 id="异常简介"><a href="#异常简介" class="headerlink" title="异常简介"></a>异常简介</h4><p>有错误出现，阻止当前方法或作用域<br><code>Throwable</code>所有异常的父类, 有两个子类</p>
 <ol>
 <li>Error 虚拟机错误，线程死锁</li>
 <li>Exception runtime异常（非检查异常），检查异常</li>
@@ -194,7 +194,7 @@
 <li>积极根据业务需求和异常类型处理异常, 不要简单打印异常</li>
 <li>尽量用finally语句释放占用的资源</li>
 </ol>
-<h2 id="C2Java中的字符串"><a href="#C2Java中的字符串" class="headerlink" title="C2Java中的字符串"></a>C2Java中的字符串</h2><h4 id="字符串是什么"><a href="#字符串是什么" class="headerlink" title="字符串是什么"></a>字符串是什么</h4><p><code>String</code>对象位于<code>java.lang</code>包中, 默认情况下该包自动导入所有的程序<br>创建<code>String</code>对象方法:</p>
+<h2 id="C2-Java中的字符串"><a href="#C2-Java中的字符串" class="headerlink" title="C2-Java中的字符串"></a>C2-Java中的字符串</h2><h4 id="字符串是什么"><a href="#字符串是什么" class="headerlink" title="字符串是什么"></a>字符串是什么</h4><p><code>String</code>对象位于<code>java.lang</code>包中, 默认情况下该包自动导入所有的程序<br>创建<code>String</code>对象方法:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String s1 = <span class="string">"imooc"</span>;</span><br><span class="line">String s2 = <span class="keyword">new</span> String();</span><br><span class="line">String s3 = <span class="keyword">new</span> String(<span class="string">"imooc"</span>);</span><br></pre></td></tr></table></figure>
 
 <h4 id="字符串的不变性"><a href="#字符串的不变性" class="headerlink" title="字符串的不变性"></a>字符串的不变性</h4><p><code>String</code>对象创建后不能修改, 只能直接改变指向的内存, 相当于整个变量对应的内容换掉<br>如果需要可以改变的字符串,可以使用<code>StringBuffer</code>或者<code>StringBuilder</code><br>每次<code>new</code>一个<code>String</code>就是一个新的对象, 所以<code>==</code>的结果为<code>flase</code>, 比较两个字符串内容是否相同时, 应该使用<code>equals()</code>方法, 注意区分<code>==</code>和<code>equals()</code></p>
@@ -203,6 +203,46 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">StringBuilder str1 = <span class="keyword">new</span> StringBuilder();  <span class="comment">// 参数""可选</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="StringBuilder类的常用方法"><a href="#StringBuilder类的常用方法" class="headerlink" title="StringBuilder类的常用方法"></a><code>StringBuilder类</code>的常用方法</h4><p><code>append()</code>, <code>inset()</code>方法比较常用<br>同样, 可以参照菜鸟教程:<br><a href="https://www.runoob.com/java/java-stringbuffer.html" target="_blank" rel="noopener">https://www.runoob.com/java/java-stringbuffer.html</a></p>
+<h2 id="C3-Java中的常用类"><a href="#C3-Java中的常用类" class="headerlink" title="C3-Java中的常用类"></a>C3-Java中的常用类</h2><h4 id="包装类"><a href="#包装类" class="headerlink" title="包装类"></a>包装类</h4><p>为了让基本数据类型(<code>int</code> <code>double</code> <code>float</code>等)具备<strong>对象的特性</strong>, 如属性方法等, Java提供的<strong>类</strong>, (变量由一个数值变成对象)</p>
+<h6 id="包装类主要提供两大方法"><a href="#包装类主要提供两大方法" class="headerlink" title="包装类主要提供两大方法:"></a>包装类主要提供两大方法:</h6><ol>
+<li>将本类型和其它基本类型进行转换</li>
+<li>将字符串和本类型即包装类互相转换</li>
+</ol>
+<h4 id="基本类型和包装类之间的转换"><a href="#基本类型和包装类之间的转换" class="headerlink" title="基本类型和包装类之间的转换"></a>基本类型和包装类之间的转换</h4><p>装箱: 把<strong>基本类型</strong>转换为包装类, 有<strong>手动装箱</strong>(<code>包装类 x = new 包装类(i)</code>)和<strong>自动装箱</strong>(<code>包装类 x = i</code>)<br>拆箱: 把<strong>包装类对象</strong>转换为<strong>基本类型</strong>, 也有手动(<code>int x = j.intValue()</code>)和自动(<code>int x = j</code>)  ps: <code>.intValue()</code>转为整数, <code>.doubleValue()</code>转为双精度<br>pps: 自动转换只能在一种基本类型和与之对应的包装类之间进行转换</p>
+<h4 id="基本类型和字符串之间的转换"><a href="#基本类型和字符串之间的转换" class="headerlink" title="基本类型和字符串之间的转换"></a>基本类型和字符串之间的转换</h4><h6 id="基本类型转换为字符串"><a href="#基本类型转换为字符串" class="headerlink" title="基本类型转换为字符串:"></a>基本类型转换为字符串:</h6><ol>
+<li>使用包装类的toString()方法</li>
+<li>使用String类的valueOf()方法</li>
+<li>用空字符串加上基本类型, 隐式转换为字符串</li>
+</ol>
+<h6 id="将字符串转换为基本类型"><a href="#将字符串转换为基本类型" class="headerlink" title="将字符串转换为基本类型:"></a>将字符串转换为基本类型:</h6><ol>
+<li>调用包装类的<code>ParseXxx</code>静态方法  (比如: <code>int a = Integer.parseInt(str);</code>)</li>
+<li>调用包装类的<code>valueOf()</code>方法转换为对应的包装类, 再自动拆箱  (比如: <code>int a = Integer.valueOf(str);</code>)</li>
+</ol>
+<h4 id="使用Date和SimpleDateFormat类表示时间"><a href="#使用Date和SimpleDateFormat类表示时间" class="headerlink" title="使用Date和SimpleDateFormat类表示时间"></a>使用<code>Date</code>和<code>SimpleDateFormat</code>类表示时间</h4><p><code>Date类</code>在<code>java.util</code>包中, 用于获取当前时间, <strong>默认无参构造方法初始化</strong><br><code>SimpleDateFormat类</code>在<code>java.text</code>包中, 可以将日期转换为指定格式的文本<br>示例:</p>
+<ol>
+<li><p>使用<code>format()</code>转换日期的显示格式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Date d = <span class="keyword">new</span> Date();</span><br><span class="line">SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line">String today = sdf.format(d);</span><br><span class="line">System.out.println(today);</span><br></pre></td></tr></table></figure>
+
+<p><code>&quot;yyyy-MM-dd HH:mm:ss&quot;</code>指定日期格式, 读取时期, 把日期转化为指定的格式</p>
+<p>“yyyy-MM-dd HH:mm:ss”指定日期格式, 读取时期, 把日期转化为指定的格式</p>
+</li>
+<li><p>使用<code>parse()</code>方法将文本转换为日期</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String day = <span class="string">"2020年8月28日 11:48:16"</span></span><br><span class="line">SimpleDateFormat df = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy年MM月dd日 HH:mm:ss"</span>);</span><br><span class="line">Date date = df.parse(day);</span><br><span class="line">System.out.println(date);</span><br></pre></td></tr></table></figure>
+
+<p><code>parse</code>根据指定的格式<strong>反过来读取字符串, 从而获得日期</strong></p>
+<p>ps: 调用<code>SimpleDateFormat</code>对象的<code>parse()</code>方法可能会出现<strong>转换异常</strong>, <code>ParseException</code>, 因此<strong>需要异常处理</strong><br>使用<code>Date类</code>需要导入<code>java.util</code>包, 使用<code>SimpleDateFormat类</code>需要导入<code>java.text</code>包</p>
+<p>parse根据指定的格式反过来读取字符串, 从而获得日期<br>ps:<br>调用SimpleDateFormat对象的parse()方法可能会出现转换异常, ParseException, 因此需要异常处理<br>使用Date类需要导入java.util包, 使用SimpleDateFormat类需要导入java.text包</p>
+</li>
+</ol>
+<h4 id="Calendar类的应用"><a href="#Calendar类的应用" class="headerlink" title="Calendar类的应用"></a><code>Calendar类</code>的应用</h4><p><code>Date类</code>只要用于获取当前时间, <strong>推荐使用<code>Calendar类</code>进行时间和日期的处理</strong><br><code>java.util.Calendar类</code>是一个<strong>抽象类</strong>, 可调用<code>getInstance()</code>静态方法获取<code>Calendar对象</code>, 如 <code>Calendar c = Calenar.getInstance();</code></p>
+<h6 id="常用方法和属性"><a href="#常用方法和属性" class="headerlink" title="常用方法和属性:"></a>常用方法和属性:</h6><ol>
+<li><code>Calendar类</code>有<code>YEAR</code>,<code>MONTH</code>,<code>DAY_OF_MONTH</code>等静态常量, </li>
+<li>调用<code>getInstance()</code>获取一个实例, </li>
+<li>调用<code>get()</code>方法获取日期信息, <code>getTime()</code>方法获取<code>Date对象</code>, </li>
+<li>通过<code>getTimeInMillis()</code>方法获取<code>Calendar</code>时间值(以毫秒为单位)</li>
+</ol>
+<h4 id="使用Math类操作数据"><a href="#使用Math类操作数据" class="headerlink" title="使用Math类操作数据"></a>使用Math类操作数据</h4><p><code>java.lang.Math类</code>包含基本数学运算的方法, 因为所有方法都是<strong>静态方法</strong>, 所以可以直接按 ``类名.方法名` 使用</p>
+<h6 id="可以参照一下菜鸟教程的相关介绍"><a href="#可以参照一下菜鸟教程的相关介绍" class="headerlink" title="可以参照一下菜鸟教程的相关介绍:"></a>可以参照一下菜鸟教程的相关介绍:</h6><p><a href="https://www.runoob.com/java/java-number.html" target="_blank" rel="noopener">https://www.runoob.com/java/java-number.html</a></p>
 <p>未完待续</p>
 
       
@@ -1420,6 +1460,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">概要</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">教程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
@@ -1428,23 +1480,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">教程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Java</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">概要</a>
               </li>
              
               <li class="article-tag-list-item">
