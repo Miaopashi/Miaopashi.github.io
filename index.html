@@ -243,6 +243,49 @@
 </ol>
 <h4 id="使用Math类操作数据"><a href="#使用Math类操作数据" class="headerlink" title="使用Math类操作数据"></a>使用Math类操作数据</h4><p><code>java.lang.Math类</code>包含基本数学运算的方法, 因为所有方法都是<strong>静态方法</strong>, 所以可以直接按 ``类名.方法名` 使用</p>
 <h6 id="可以参照一下菜鸟教程的相关介绍"><a href="#可以参照一下菜鸟教程的相关介绍" class="headerlink" title="可以参照一下菜鸟教程的相关介绍:"></a>可以参照一下菜鸟教程的相关介绍:</h6><p><a href="https://www.runoob.com/java/java-number.html" target="_blank" rel="noopener">https://www.runoob.com/java/java-number.html</a></p>
+<h2 id="C4-Java中的集合框架-上"><a href="#C4-Java中的集合框架-上" class="headerlink" title="C4  Java中的集合框架(上)"></a>C4  Java中的集合框架(上)</h2><h4 id="集合框架概述"><a href="#集合框架概述" class="headerlink" title="集合框架概述"></a>集合框架概述</h4><p><strong>容器的概念:</strong>  把若干种属性(数目, 种类不一定)存储起来, 就是集合, 是一种工具类存储共同属性种类的对象<br><strong>容器的作用:</strong></p>
+<ol>
+<li>在类的内部, 对组织数据</li>
+<li>简单快速的都说大量条目</li>
+<li>一个序列, 方便插入取出某些属性</li>
+<li>有的集合提供了映射关系(类似py的字典), 方便了查询</li>
+</ol>
+<p><strong>java提供集合的接口</strong></p>
+<ol>
+<li><code>Collection</code>: <code>List</code> -<code>ArrayList</code>, <code>Set</code> -<code>HashSet</code>, <code>Queue</code> -<code>LinkedList</code>  (存储的元素是对象)</li>
+<li><code>Map</code>: <code>HashMap</code> (存储的元素是键值对, <code>Entry</code>)</li>
+</ol>
+<h4 id="Collection接口-子接口和实现类-看看前面复习一下什么是接口"><a href="#Collection接口-子接口和实现类-看看前面复习一下什么是接口" class="headerlink" title="Collection接口, 子接口和实现类 (看看前面复习一下什么是接口)"></a>Collection接口, 子接口和实现类 (看看前面复习一下什么是接口)</h4><p>Collection集合中, 讲一下List子接口和Set子接口</p>
+<h4 id="List接口："><a href="#List接口：" class="headerlink" title="List接口："></a>List接口：</h4><p>List接口的实现类-<code>ArrayList类</code>(类似python列表)<br><code>ArrayList</code>是<strong>数组</strong>序列, 接口和实现类的关系可以参照: </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List test = <span class="keyword">new</span> ArrayList();</span><br></pre></td></tr></table></figure>
+
+<h5 id="下面说明一下List增删改查用到的方法"><a href="#下面说明一下List增删改查用到的方法" class="headerlink" title="下面说明一下List增删改查用到的方法:"></a>下面说明一下List增删改查用到的方法:</h5><h5 id="1-为列表添加对象"><a href="#1-为列表添加对象" class="headerlink" title="1. 为列表添加对象:"></a>1. 为列表添加对象:</h5><p><code>&lt;ls&gt;.add()</code>方法可以把一个对象添加到List中,<br><code>&lt;ls&gt;.get()</code>方法可以根据索引从List中取出对象,<br>※ 使用add方法, 把对象存入集合时, 默认会变成Object类型.<br>※ 所以get方法取出对象时, 需要类型转化, 在前面加 (强转类型)<br><code>&lt;ls&gt;.add(index, element)</code>方法可以把对象添加到指定的位置<br>※ 如果index大于ls的长度, 会报错IndexOutOfBoundException<br><code>&lt;ls&gt;.addAll()</code>方法可以把一个List添加到ls中,<br><code>Arrays.asList()</code>方法可以把一个数组转化为一个List.<br><code>&lt;ls&gt;.addAll(index, List)</code> 可以指定List插入的位置</p>
+<h5 id="2-为列表修改对象"><a href="#2-为列表修改对象" class="headerlink" title="2. 为列表修改对象:"></a>2. 为列表修改对象:</h5><h6 id="遍历列表的三个方法"><a href="#遍历列表的三个方法" class="headerlink" title="遍历列表的三个方法:"></a><strong>遍历列表的三个方法:</strong></h6><ol>
+<li><p><code>&lt;ls&gt;.size()</code>方法可以取得List的长度, 用于遍历List;</p>
+</li>
+<li><p>通过迭代器遍历List, 使用<code>Iterator</code>接口, <code>Iterator it = &lt;ls&gt;.iterator()</code> 获取迭代器, </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用while循环遍历List迭代器中的对象</span></span><br><span class="line"><span class="keyword">while</span>(it.hasNext()) &#123;&lt;Class&gt; temp = (Class) it.next();&#125;</span><br></pre></td></tr></table></figure>
+
+<p>※ 集合都具有iterator方法, 迭代器依赖集合存在</p>
+</li>
+<li><p>使用<code>forEach</code>方法遍历List, 由于在没有指定泛型时, 对象存放在集合中, 会变成Object, 所以应该用 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (Object obj: &lt;ls&gt;) &#123;<span class="comment">// 记得使用类型强转&#125;.</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h6 id="修改List的元素"><a href="#修改List的元素" class="headerlink" title="修改List的元素"></a><strong>修改List的元素</strong></h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;ls&gt;.set(index, element);  <span class="comment">// 把相应位置的对象修改成新的对象</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="3-为列表删除对象"><a href="#3-为列表删除对象" class="headerlink" title="3. 为列表删除对象:"></a>3. 为列表删除对象:</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;ls&gt;.remove(index);  <span class="comment">// 删除相应索引位置的元素, 不能超出长度范围</span></span><br><span class="line">&lt;ls&gt;.remove(element);  <span class="comment">// 删除指定的对象</span></span><br><span class="line">&lt;ls&gt;.removeAll(Collection ls)  <span class="comment">// 删除指定集合的所有元素, 类似求差</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="使用泛型-Generic-为列表处理不是对象的变量-比如字符串等等"><a href="#使用泛型-Generic-为列表处理不是对象的变量-比如字符串等等" class="headerlink" title="使用泛型(Generic), 为列表处理不是对象的变量(比如字符串等等):"></a>使用泛型(Generic), 为列表处理不是对象的变量(比如字符串等等):</h4><p><code>&lt;ls&gt;.add(OtherClass)</code> 不会报错, 但是后面使用<code>forEach</code>打印的时候, 使用了<strong>强制类型转换</strong>, <code>String</code>不能转化为<code>Course</code>, 所以还是会报错. <strong>为了能够避免向集合加入其它类型的对象, 就要使用到泛型.</strong><br>※ 集合中的元素, 可以使用<strong>任意类型</strong>的对象(对象的引用), 把放入的对象当做<code>Object</code>处理; <strong>泛型</strong>则是规定了某个<strong>集合只可以存放特定类型</strong>的对象及其子类型的对象, 可以<strong>直接指定类型</strong>获取集合元素.<br>定义: </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;Class&gt; ls;  <span class="comment">// 使用&lt;Class&gt;指定泛型类型, 界定符一般要使用private</span></span><br></pre></td></tr></table></figure>
+
+<p>初始化: </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.ls = <span class="keyword">new</span> ArrayList&lt;Class&gt;();  <span class="comment">// 初始化的时候仍然需要指明泛型</span></span><br></pre></td></tr></table></figure>
+
+<p>※ 此时<code>get()</code>方法或者遍历ls时, 不需要强制转换类型了<br>※ 指定泛型之后的集合, 还能存储泛型的<strong>子类型</strong>的对象实例, 即可以<code>&lt;ls&gt;.add(new 
+ChildClass());</code><br>※ <strong>泛型只能使用引用类型</strong>, 不能使用基本类型(int,char …), 如果有必要也只能用包装类, 指定泛型为包装类之后<code>&lt;ls&gt;.add(temp)</code> 会对<u>基本类型temp变量</u>进行<strong>隐式</strong>类型转换 (比如 int 变成 Interger).</p>
+<h4 id="Set接口："><a href="#Set接口：" class="headerlink" title="Set接口："></a>Set接口：</h4><p><code>Set</code>接口实现类–<code>HashSet类</code>(类似数学里面的集合)<br>※ Set<strong>无序</strong>并且<strong>不可重复</strong><br>※ Set接口同样提供<code>add()</code>, <code>remove()</code>, <code>removeAll()</code>, <code>size()</code>等方法.<br>※ 但是由于Set无序, 所以<u>不提供<code>set()</code>方法和<code>get()</code>方法</u>, 如果想要调用Set内部的元素, 可以使用<code>foreach</code>和<code>Iterator</code>的方式遍历Set, 不过要注意Set是无序的, 多次遍历的顺序会改变.<br>※ Set也可以使用泛型, 使用方法同Collection<br>※ Set中可以添加空对象null</p>
 <p>未完待续</p>
 
       
@@ -1460,14 +1503,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">概要</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">教程</a>
               </li>
              
@@ -1489,6 +1524,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">科普</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">概要</a>
               </li>
             
             <div class="clearfix"></div>
