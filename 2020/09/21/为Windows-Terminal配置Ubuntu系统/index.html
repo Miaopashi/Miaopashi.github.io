@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>MPS的个人博客</title>
+  <title>为Windows Terminal配置Ubuntu系统 | MPS的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="MPS的个人博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="最近掘金上看了一篇文章，简单介绍了安装WindowsTerminal以及LinuxUbuntu之后，进行基本配置改善shell外观。我原来也用过windows的ubuntu子系统，抱着改善一下shell外观的念头，大概跟着做了一下，遇到了一些问题，记录一下。  掘金文章链接：https://juejin.im/post/6865596788490338311  ​      首先，安装Window">
+<meta name="keywords" content="WSL,博客搬运">
+<meta property="og:type" content="article">
+<meta property="og:title" content="为Windows Terminal配置Ubuntu系统">
+<meta property="og:url" content="http://yoursite.com/2020/09/21/为Windows-Terminal配置Ubuntu系统/index.html">
 <meta property="og:site_name" content="MPS的个人博客">
+<meta property="og:description" content="最近掘金上看了一篇文章，简单介绍了安装WindowsTerminal以及LinuxUbuntu之后，进行基本配置改善shell外观。我原来也用过windows的ubuntu子系统，抱着改善一下shell外观的念头，大概跟着做了一下，遇到了一些问题，记录一下。  掘金文章链接：https://juejin.im/post/6865596788490338311  ​      首先，安装Window">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-09-21T12:29:01.677Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MPS的个人博客">
+<meta name="twitter:title" content="为Windows Terminal配置Ubuntu系统">
+<meta name="twitter:description" content="最近掘金上看了一篇文章，简单介绍了安装WindowsTerminal以及LinuxUbuntu之后，进行基本配置改善shell外观。我原来也用过windows的ubuntu子系统，抱着改善一下shell外观的念头，大概跟着做了一下，遇到了一些问题，记录一下。  掘金文章链接：https://juejin.im/post/6865596788490338311  ​      首先，安装Window">
   
     <link rel="alternative" href="/atom.xml" title="MPS的个人博客" type="application/atom+xml">
   
@@ -150,16 +155,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-为Windows-Terminal配置Ubuntu系统" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-为Windows-Terminal配置Ubuntu系统" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/21/为Windows-Terminal配置Ubuntu系统/">为Windows Terminal配置Ubuntu系统</a>
+    <h1 class="article-title" itemprop="name">
+      为Windows Terminal配置Ubuntu系统
     </h1>
   
 
@@ -236,6 +239,27 @@
       
 
       
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>感谢你请我喝咖啡~<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
     </div>
     <div class="article-info article-info-index">
       
@@ -258,16 +282,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/21/为Windows-Terminal配置Ubuntu系统/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/09/21/为Windows-Terminal配置Ubuntu系统/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/09/16/大数据架构作业-简答题1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">大数据架构作业--简答题1</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -287,1424 +370,14 @@
 
 
 
-
   
-    <article id="post-大数据架构作业-简答题1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/16/大数据架构作业-简答题1/">大数据架构作业--简答题1</a>
-    </h1>
   
 
-        
-        <a href="/2020/09/16/大数据架构作业-简答题1/" class="archive-article-date">
-  	<time datetime="2020-09-16T08:10:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>写在前面：最近选了大数据架构技术的课，开始学习云计算以及大数据平台的架构。于是记录一下课堂布置的一道作业题。</em></p>
-<blockquote>
-<p>作业题目：简要回答云计算的三类服务产品及各自的特点，调研各类云计算服务厂商及其产品, 给出产品列表, 说明各类产品的云服务类别,功能,特性,应用场景等。</p>
-</blockquote>
-<p>​     </p>
-<h2 id="云计算的三类服务产品及各自的特点："><a href="#云计算的三类服务产品及各自的特点：" class="headerlink" title="云计算的三类服务产品及各自的特点："></a>云计算的三类服务产品及各自的特点：</h2><blockquote>
-<p><strong>云计算按照服务类型可以分为三类：<code>Iaas</code>, <code>Paas</code>, <code>Saas</code>。</strong><br><code>Iaas</code> ：将基础设施作为服务，将硬件设备等基础资源封装成服务供用户使用。<br><code>Paas</code>：将平台作为服务，提供用户应用程序的运行环境。<br><code>Saas</code>：将软件作为服务，只提供某些专门用途的服务供应用调用。</p>
-</blockquote>
-<p>​     </p>
-<h2 id="阿里云"><a href="#阿里云" class="headerlink" title="阿里云"></a>阿里云</h2><h3 id="一、弹性计算（Iaas）："><a href="#一、弹性计算（Iaas）：" class="headerlink" title="一、弹性计算（Iaas）："></a>一、弹性计算（Iaas）：</h3><ol>
-<li>云服务器 ECS- 一种弹性可伸缩的计算服务</li>
-<li>(高性能计算HPC)超级计算集群（Super Computing Cluster，SCC）- 使用高速RDMA网络互联的CPU以及GPU等异构加速设备，面向高性能计算、人工智能/机器学习、科学/工程计算、数据分析、音视频处理等应用，提供极致计算性能和并行效率的计算集群服务。</li>
-<li>容器服务ACS- 提供高性能可伸缩的容器应用管理能力，支持企业级容器化应用的全生命周期管理。整合阿里云虚拟化、存储、网络和安全能力，打造云端最佳容器化应用运行环境。</li>
-</ol>
-<h3 id="二、存储服务（Iaas）："><a href="#二、存储服务（Iaas）：" class="headerlink" title="二、存储服务（Iaas）："></a>二、存储服务（Iaas）：</h3><ol>
-<li>对象存储 OSS- 海量、安全、低成本、高可靠的云存储服务，提供99.9999999999%(12个9)的数据持久性。</li>
-<li>块存储- 为云服务器ECS提供的低时延、持久性、高可靠的数据块级随机存储。块存储支持在可用区内自动复制您的数据，防止意外硬件故障导致的数据不可用，保护您的业务免于组件故障的威胁。</li>
-</ol>
-<h3 id="三、CDN与边缘服务（saas）："><a href="#三、CDN与边缘服务（saas）：" class="headerlink" title="三、CDN与边缘服务（saas）："></a>三、CDN与边缘服务（saas）：</h3><ol>
-<li>CDN- 将源站内容分发至最接近用户的节点，使用户可就近取得所需内容，提高用户访问的响应速度和成功率。</li>
-<li>边缘节点服务（Edge Node Service, ENS）- 基于运营商边缘节点和网络构建，一站式提供“融合、开放、联动、弹性”的分布式算力资源，帮助用户业务下沉至运营商侧边缘，有效降低计算时延和成本。</li>
-</ol>
-<h3 id="四、数据库服务（Paas）："><a href="#四、数据库服务（Paas）：" class="headerlink" title="四、数据库服务（Paas）："></a>四、数据库服务（Paas）：</h3><p>云数据库专属集群MyBase- MyBase是阿里云专为企业级用户定制优化的解决方案，支持MySQL、PostgreSQL、SQL Server、Redis数据库。具有云资源独享、支持资源超分配，自主可运维、开放部分数据库和OS权限等特点。</p>
-<p>​     </p>
-<p>​     </p>
-<h2 id="腾讯云产品"><a href="#腾讯云产品" class="headerlink" title="腾讯云产品"></a>腾讯云产品</h2><h3 id="一、腾讯云CVM服务器（Iaas）："><a href="#一、腾讯云CVM服务器（Iaas）：" class="headerlink" title="一、腾讯云CVM服务器（Iaas）："></a>一、腾讯云CVM服务器（Iaas）：</h3><p>为用户提供通用和标准的云虚拟机服务，同时依据不同的业务需求还提供GPU服务器，FPGA服务器，专用宿主机，黑石物理服务器等。</p>
-<h3 id="二、腾讯云存储（Iaas）："><a href="#二、腾讯云存储（Iaas）：" class="headerlink" title="二、腾讯云存储（Iaas）："></a>二、腾讯云存储（Iaas）：</h3><p>包括对象存储、文件存储、归档存储、存储网关以及私有云存储服务。若企业要实现将文件存储到云端，那么就可以选择文件存储；如果企业的文件包括大量的视频和图片，就可以选择对象存储；而如果企业有将文档进行归档的需求，就可以选择归档存储，对需要实现本地和云端混合存储的企业，存储网关会是一个很好的选择，此外企业还可以根据需求选择私有云存储。</p>
-<h3 id="三、腾讯云数据库（Paas）："><a href="#三、腾讯云数据库（Paas）：" class="headerlink" title="三、腾讯云数据库（Paas）："></a>三、腾讯云数据库（Paas）：</h3><p>提供<code>mysql</code> ，<code>sqlserver</code>  <code>mariaDB</code>， <code>postgresql</code> 等不同的数据库产品和数据库平台服务。</p>
-<h2 id="亚马逊AWS"><a href="#亚马逊AWS" class="headerlink" title="亚马逊AWS"></a>亚马逊AWS</h2><p><em>主要类别：虚拟机服务、容器服务、非服务器服务、边缘和混合服务、成本和容器管理服务</em></p>
-<h3 id="一、虚拟机服务：（Iaas）"><a href="#一、虚拟机服务：（Iaas）" class="headerlink" title="一、虚拟机服务：（Iaas）"></a>一、虚拟机服务：（Iaas）</h3><ol>
-<li>Amazon Elastic Compute Cloud(EC2)- 一种Web服务, 可在云中提供安全并且可以调节大小的计算容量(虚拟服务器).</li>
-<li>Amazon Lightsail- 易于使用的云平台，用于构建应用程序或网站</li>
-</ol>
-<h3 id="二、容器服务：（Iaas）"><a href="#二、容器服务：（Iaas）" class="headerlink" title="二、容器服务：（Iaas）"></a>二、容器服务：（Iaas）</h3><ol>
-<li>Amazon Elastic Container Service (ECS)- 运行和管理Docker容器，运行容器的高度安全、可靠且可扩展的方式</li>
-<li>Amazon Elastic Container Registry (ECR)- 存储和检索Docker镜像，轻松存储、管理和部署容器映像</li>
-<li>Amazon Elastic Kubernetes Service (EKS)- 在AWS上运行托管的 Kubernetes，完全托管的 Kubernetes 服务</li>
-</ol>
-<h3 id="三、非服务器服务：（Iaas）"><a href="#三、非服务器服务：（Iaas）" class="headerlink" title="三、非服务器服务：（Iaas）"></a>三、非服务器服务：（Iaas）</h3><ol>
-<li>AWS Lambda- 运行代码，无需预置或管理服务器，无需考虑服务器即可运行代码仅按消耗的计算时间付费</li>
-<li>AWS Fargate- 无需管理服务器或集群即可运行容器，适用于容器的无服务器计算</li>
-</ol>
-<h3 id="四、边缘和混合服务："><a href="#四、边缘和混合服务：" class="headerlink" title="四、边缘和混合服务："></a>四、边缘和混合服务：</h3><ol>
-<li>AWS Outposts- 完全托管的服务 可将AWS基础设施、AWS服务、API和工具扩展到几乎任何数据中心、共处空间或本地设施，以实现真正一致的混合体验，运行本地 AWS基础设施和服务以获得真正一致的混合体验</li>
-<li>AWS Snow 系列- Snow系列由AWS Snowcone和AWS Snowball组成，可以提供各种具备内置计算功能的物理设备和容量点，用于收集和处理耐用环境或连接断开的边缘环境中的数据</li>
-<li>AWS Wavelength- 构建能够为移动设备和最终用户交付低于10毫秒的延迟的应用程序，为5G设备交付超低延迟应用程序</li>
-<li>VMware Cloud on AWS- 无需自定义硬件即可构建混合云，快速将 VMware 环境扩展、迁移到 AWS 云并予以保护</li>
-<li>AWS 本地扩展区- 可以在特定区域以对最终用户和资源本地执行的方式轻松运行应用程序延迟敏感的部分，从而提供低于10毫秒的延迟，在更靠近最终用户的位置运行对延迟敏感的应用程序</li>
-</ol>
-<h3 id="五、成本和容器管理服务：（Iaas）"><a href="#五、成本和容器管理服务：（Iaas）" class="headerlink" title="五、成本和容器管理服务：（Iaas）"></a>五、成本和容器管理服务：（Iaas）</h3><ol>
-<li>Amazon EC2 Spot- 充分利用 AWS 云中未使用的 EC2 容量。与按需实例的价格相比，使用 Spot 实例最高可以享受 90% 的折扣，运行容错工作负载，节省高达 90%</li>
-<li>Amazon EC2 Autoscaling- 保持应用程序的可用性，根据您定义的条件自动添加或删除 EC2 实例，自动添加或删除计算容量以应对需求变化</li>
-<li>AWS Batch- 运行任意规模的批处理作业，任意规模的完全托管式批处理</li>
-<li>AWS Compute Optimizer- 确定最佳的 AWS 计算资源，为工作负载推荐最佳的 AWS 计算资源，以降低成本并提高性能</li>
-<li>AWS Elastic Beanstalk- 运行和管理 Web 应用程序，易于使用的服务，可用于部署和扩展 Web 应用程序和服务</li>
-<li>EC2 Image Builder- 构建和维护安全映像，构建和维护安全的 Linux 或 Windows Server 映像</li>
-<li>Elastic Load Balancing- 通过确保可扩展性、性能和安全性，让任何应用程序都获得容错能力，在多个目标间自动分配传入的应用程序流量</li>
-</ol>
-<p>​      </p>
-<p>​     </p>
-<h2 id="微软Azure"><a href="#微软Azure" class="headerlink" title="微软Azure"></a>微软Azure</h2><h3 id="一、虚拟桌面服务：（Iaas）"><a href="#一、虚拟桌面服务：（Iaas）" class="headerlink" title="一、虚拟桌面服务：（Iaas）"></a>一、虚拟桌面服务：（Iaas）</h3><p>Windows 虚拟桌面- 在云中运行的综合桌面和应用虚拟化服务。它是提供简化管理、多会话 Windows 10、适用于企业的 Microsoft 365 应用优化和远程桌面服务 (RDS) 环境支持的唯一的虚拟桌面基础结构 (VDI)。只需几分钟即可在 Azure 上部署和扩展 Windows 桌面和应用，并获得内置的安全性和符合性功能</p>
-<h3 id="二、存储服务：（Iaas）"><a href="#二、存储服务：（Iaas）" class="headerlink" title="二、存储服务：（Iaas）"></a>二、存储服务：（Iaas）</h3><ol>
-<li>Avere vFXT for Azure- 先进的高性能计算让数据存储变得更快、更轻松，可以保护基础结构投资，同时轻松管理新需求。使用智能缓存以高效、经济实惠的方式灵活放置数据，无延迟地运行 NFS 和/或 SMB 工作负荷，并根据需求进行缩放。</li>
-<li>Azure Data Lake Storage- 大规模可缩放且安全的数据湖，适用于高性能分析工作负载，使用单个存储平台消除数据孤岛。通过分层存储和策略管理优化成本。使用 Azure Active Directory (Azure AD) 和基于角色的访问控制 (RBAC) 对数据进行身份验证。借助静态加密和高级威胁防护等安全功能，帮助保护数据。</li>
-</ol>
-<h3 id="三、数据库服务：（Paas）"><a href="#三、数据库服务：（Paas）" class="headerlink" title="三、数据库服务：（Paas）"></a>三、数据库服务：（Paas）</h3><p>Azure Cache for Redis- 完全托管且兼容开源的内存中数据存储服务，为可缩放的高速应用程序提供支持。</p>
-<h3 id="四、容器服务：（Iaas）"><a href="#四、容器服务：（Iaas）" class="headerlink" title="四、容器服务：（Iaas）"></a>四、容器服务：（Iaas）</h3><p>Azure Kubernetes 服务 (AKS)- 使用完全托管的 Kubernetes 服务，更轻松地部署和管理容器化应用程序。Azure Kubernetes 服务 (AKS) 提供无服务器 Kubernetes（一种整合的持续集成和持续交付 (CI/CD) 体验）以及企业级安全性和治理。将开发和运营团队统一到一个平台上，放心地快速生成、交付和缩放应用程序。</p>
-<h3 id="五、弹性计算：（Iaas）"><a href="#五、弹性计算：（Iaas）" class="headerlink" title="五、弹性计算：（Iaas）"></a>五、弹性计算：（Iaas）</h3><ol>
-<li>Azure 应用服务- 一个用于构建、部署和缩放 Web 应用的完全托管平台。根据自身情况快速构建、部署和缩放 Web 应用和 API。使用容器中或在 Windows/Linux 上 运行的 .NET、NET Core、Node.js、Java、Python 或 PHP。</li>
-<li>Azure CycleCloud- 创建、管理、操作并优化任何规模的 HPC 和大型计算群集。</li>
-</ol>
-<p>​     </p>
-<p>​     </p>
-<h2 id="Google-Cloud产品："><a href="#Google-Cloud产品：" class="headerlink" title="Google Cloud产品："></a>Google Cloud产品：</h2><ol>
-<li>Compute Engine-  可扩缩的高性能通用虚拟机。常见用途：业务线(LOB)应用、往回走哪托管、数据库、大多数工作负载。应用行业：教育、能源、金融、游戏、政府、医疗、生命科学、娱乐媒体、零售、电信。（Iaas）</li>
-<li>Migrate for Compute Engine-  可将服务器和虚拟机迁移到Compute Engine的服务(原Velostrata)。常见用途：将应用从本地、多个数据中心或云端迁移到Google Cloud。（Iaas）</li>
-<li>Cloud GPU-  可用于机器学习、科学计算和3D可视化的GPU硬件。常见用途：机器学习、医学分析、地震勘探、视频转码、图形可视化、科学模拟。应用行业：游戏、信息技术、生命科学、娱乐媒体。（Iaas）</li>
-<li>抢占式虚拟机-  适合批处理作业和容错工作负载的短期运行计算实例，经济实惠。常见用途：短期运行或具备容错性的工作负载、金融建模、渲染、媒体转码、可制造性设计、Hadoop和大数据、持续集成、Web抓取。应用行业：能源、金融、医疗、娱乐媒体、制药。（Iaas）</li>
-<li>安全强化型虚拟机-  更加安全的虚拟机。常见用途：抵御rootkit和bootkit攻击、保护企业工作负载、防范远程攻击、权限提升和恶意内部人员。应用行业：金融、物流、制造、娱乐媒体、零售、供应链。（Iaas）</li>
-<li>单租户节点-  符合用户的法规遵从需求、许可需求和管理需求的专用硬件。常见用途：自带许可(BYOL)、工作股灾的专用计算能力、助力满足安全和合规需求、满足每个插槽或每个核心的许可需求、查看物理核心的使用情况信息。应用行业：金融、物流、制造、娱乐媒体、零售、供应链。（Iaas）</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">大数据架构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">作业</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/16/大数据架构作业-简答题1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-入门JavaSE-进阶篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/27/入门JavaSE-进阶篇/">入门JavaSE-进阶篇</a>
-    </h1>
   
 
-        
-        <a href="/2020/08/27/入门JavaSE-进阶篇/" class="archive-article-date">
-  	<time datetime="2020-08-27T08:53:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>趁热打铁，开始看进阶篇，快速入门。希望能早一点接触<code>Springboot</code>！</p>
-<h2 id="javase入门-进阶"><a href="#javase入门-进阶" class="headerlink" title="javase入门 进阶"></a>javase入门 进阶</h2><p><a href="https://www.imooc.com/learn/110" target="_blank" rel="noopener">https://www.imooc.com/learn/110</a></p>
-<h2 id="C1-异常与异常处理"><a href="#C1-异常与异常处理" class="headerlink" title="C1-异常与异常处理"></a>C1-异常与异常处理</h2><h4 id="异常简介"><a href="#异常简介" class="headerlink" title="异常简介"></a>异常简介</h4><p>有错误出现，阻止当前方法或作用域<br><code>Throwable</code>所有异常的父类, 有两个子类</p>
-<ol>
-<li>Error 虚拟机错误，线程死锁</li>
-<li>Exception runtime异常（非检查异常），检查异常</li>
-</ol>
-<h4 id="处理异常-捕获异常"><a href="#处理异常-捕获异常" class="headerlink" title="处理异常(捕获异常)"></a>处理异常(捕获异常)</h4><p><code>try-catch</code>以及<code>try-catch-finally</code>，<code>catch</code>语句捕获异常进行处理，可以有多个<code>catch</code>语句块，先<code>catch</code>异常子类再<code>catch</code>异常的父类，<code>finally</code>是异常处理完之后再执行的语句块。<br>ps：打印异常可以用 <code>e.printStackTrace();</code><br>pps: 原来输入法可以切换中英文标点, 不需要整个输入法切换成英文!</p>
-<h4 id="异常抛出以及自定义异常"><a href="#异常抛出以及自定义异常" class="headerlink" title="异常抛出以及自定义异常"></a>异常抛出以及自定义异常</h4><p><strong>异常抛出</strong><br><code>throws</code> 声明僬侥抛出何种类型的异常(声明)<br><code>throw</code> 将产生的异常抛出(动作)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 抛出异常方法示例:</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> 方法名(参数列表) <span class="keyword">throws</span> 异常列表 &#123;</span><br><span class="line">		<span class="comment">//调用会抛出异常的方法或者throw new Exception();</span></span><br><span class="line">		<span class="comment">//处理没有预先规定的异常种类</span></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-<p>ps: 异常的处理是多样化的, 捕获异常(try-catch)和抛出异常(throws)只是两种方式,抛出异常一般处理</p>
-<p><strong>自定义的异常</strong><br>自定义异常: 自定义一个自己编写的异常种类<br>语法: <code>public class MyException extends Exception {}</code><br>ps: 注意要编写构造方法, 另外父类必须为Exception或者其它子类<br>pps: Exception构造方法输入参数作为报错的名称</p>
-<p>ps: 异常的处理是多样化的, 捕获异常(try-catch)和抛出异常(throws)只是两种方式,抛出异常一般处理自定义的异常<br>自定义异常<br>自定义一个自己编写的异常种类<br>语法: public class MyException extends Exception {}<br>ps: 注意要编写构造方法, 另外父类必须为Exception或者其它子类<br>pps: Exception构造方法输入参数作为报错的名称</p>
-<h4 id="异常链"><a href="#异常链" class="headerlink" title="异常链"></a>异常链</h4><p>目的: 用于推测出最初发生异常的位置<br>示例: 自定义一个异常(喝大了), 一个方法(test1)抛出自定义的异常, 另一个方法(test2)调用这个会抛出异常的方法(test1),捕获异常(喝大了)从而再抛出一个异常(运行时异常), 最后在其它方法调用后一个方法, 则形成了一个异常链(由喝大了引发的运行时异常)<br>ps: throw抛出异常之前必须先throws声明异常<br>pps: 异常使用initCase方法, 引用原始异常</p>
-<h4 id="经验总结"><a href="#经验总结" class="headerlink" title="经验总结"></a>经验总结</h4><ol>
-<li>运行时异常, 采用逻辑规避, 用try-catch辅助处理</li>
-<li>多重catch块后面, 可以catch(Exception)处理可能遗漏的异常</li>
-<li>try-catch,处理潜在的异常</li>
-<li>积极根据业务需求和异常类型处理异常, 不要简单打印异常</li>
-<li>尽量用finally语句释放占用的资源</li>
-</ol>
-<h2 id="C2-Java中的字符串"><a href="#C2-Java中的字符串" class="headerlink" title="C2-Java中的字符串"></a>C2-Java中的字符串</h2><h4 id="字符串是什么"><a href="#字符串是什么" class="headerlink" title="字符串是什么"></a>字符串是什么</h4><p><code>String</code>对象位于<code>java.lang</code>包中, 默认情况下该包自动导入所有的程序<br>创建<code>String</code>对象方法:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String s1 = <span class="string">"imooc"</span>;</span><br><span class="line">String s2 = <span class="keyword">new</span> String();</span><br><span class="line">String s3 = <span class="keyword">new</span> String(<span class="string">"imooc"</span>);</span><br></pre></td></tr></table></figure>
-
-<h4 id="字符串的不变性"><a href="#字符串的不变性" class="headerlink" title="字符串的不变性"></a>字符串的不变性</h4><p><code>String</code>对象创建后不能修改, 只能直接改变指向的内存, 相当于整个变量对应的内容换掉<br>如果需要可以改变的字符串,可以使用<code>StringBuffer</code>或者<code>StringBuilder</code><br>每次<code>new</code>一个<code>String</code>就是一个新的对象, 所以<code>==</code>的结果为<code>flase</code>, 比较两个字符串内容是否相同时, 应该使用<code>equals()</code>方法, 注意区分<code>==</code>和<code>equals()</code></p>
-<h4 id="String类常用的方法"><a href="#String类常用的方法" class="headerlink" title="String类常用的方法"></a><code>String</code>类常用的方法</h4><p><code>String</code>类提供了很多处理字符串的方法, 获取长度,截取字符串,字符串转换为大小写,字符串分割等等<br>可以参照菜鸟教程的<code>Java中String类</code>的说明:<br><a href="https://www.runoob.com/java/java-string.html" target="_blank" rel="noopener">https://www.runoob.com/java/java-string.html</a><br>ps: <code>equals()</code>, <code>indexOf()</code>, <code>substring()</code>, <code>charAt()</code>用的比较多<br>pps: <code>==</code>判断两个对象内存的地址是否相同, <code>equals()</code>比较两个对象的内容是否相等<br>关于<code>getBytes()</code>方法, 由于汉字有两个字节而且会溢出, 所以转换后得到的字节数是两个负数, <code>asc码</code>则转化为一个数</p>
-<h4 id="StringBuilder类"><a href="#StringBuilder类" class="headerlink" title="StringBuilder类"></a><code>StringBuilder</code>类</h4><p>修改字符串时不会额外创建一个对象, <code>StringBuffer</code>是线程安全的, <code>StringBuilder</code>则没有但性能更高, 一般课表字符串对象优先考虑<code>StringBuilder</code><br>定义: </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">StringBuilder str1 = <span class="keyword">new</span> StringBuilder();  <span class="comment">// 参数""可选</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="StringBuilder类的常用方法"><a href="#StringBuilder类的常用方法" class="headerlink" title="StringBuilder类的常用方法"></a><code>StringBuilder类</code>的常用方法</h4><p><code>append()</code>, <code>inset()</code>方法比较常用<br>同样, 可以参照菜鸟教程:<br><a href="https://www.runoob.com/java/java-stringbuffer.html" target="_blank" rel="noopener">https://www.runoob.com/java/java-stringbuffer.html</a></p>
-<h2 id="C3-Java中的常用类"><a href="#C3-Java中的常用类" class="headerlink" title="C3-Java中的常用类"></a>C3-Java中的常用类</h2><h4 id="包装类"><a href="#包装类" class="headerlink" title="包装类"></a>包装类</h4><p>为了让基本数据类型(<code>int</code> <code>double</code> <code>float</code>等)具备<strong>对象的特性</strong>, 如属性方法等, Java提供的<strong>类</strong>, (变量由一个数值变成对象)</p>
-<h6 id="包装类主要提供两大方法"><a href="#包装类主要提供两大方法" class="headerlink" title="包装类主要提供两大方法:"></a>包装类主要提供两大方法:</h6><ol>
-<li>将本类型和其它基本类型进行转换</li>
-<li>将字符串和本类型即包装类互相转换</li>
-</ol>
-<h4 id="基本类型和包装类之间的转换"><a href="#基本类型和包装类之间的转换" class="headerlink" title="基本类型和包装类之间的转换"></a>基本类型和包装类之间的转换</h4><p>装箱: 把<strong>基本类型</strong>转换为包装类, 有<strong>手动装箱</strong>(<code>包装类 x = new 包装类(i)</code>)和<strong>自动装箱</strong>(<code>包装类 x = i</code>)<br>拆箱: 把<strong>包装类对象</strong>转换为<strong>基本类型</strong>, 也有手动(<code>int x = j.intValue()</code>)和自动(<code>int x = j</code>)  ps: <code>.intValue()</code>转为整数, <code>.doubleValue()</code>转为双精度<br>pps: 自动转换只能在一种基本类型和与之对应的包装类之间进行转换</p>
-<h4 id="基本类型和字符串之间的转换"><a href="#基本类型和字符串之间的转换" class="headerlink" title="基本类型和字符串之间的转换"></a>基本类型和字符串之间的转换</h4><h6 id="基本类型转换为字符串"><a href="#基本类型转换为字符串" class="headerlink" title="基本类型转换为字符串:"></a>基本类型转换为字符串:</h6><ol>
-<li>使用包装类的toString()方法</li>
-<li>使用String类的valueOf()方法</li>
-<li>用空字符串加上基本类型, 隐式转换为字符串</li>
-</ol>
-<h6 id="将字符串转换为基本类型"><a href="#将字符串转换为基本类型" class="headerlink" title="将字符串转换为基本类型:"></a>将字符串转换为基本类型:</h6><ol>
-<li>调用包装类的<code>ParseXxx</code>静态方法  (比如: <code>int a = Integer.parseInt(str);</code>)</li>
-<li>调用包装类的<code>valueOf()</code>方法转换为对应的包装类, 再自动拆箱  (比如: <code>int a = Integer.valueOf(str);</code>)</li>
-</ol>
-<h4 id="使用Date和SimpleDateFormat类表示时间"><a href="#使用Date和SimpleDateFormat类表示时间" class="headerlink" title="使用Date和SimpleDateFormat类表示时间"></a>使用<code>Date</code>和<code>SimpleDateFormat</code>类表示时间</h4><p><code>Date类</code>在<code>java.util</code>包中, 用于获取当前时间, <strong>默认无参构造方法初始化</strong><br><code>SimpleDateFormat类</code>在<code>java.text</code>包中, 可以将日期转换为指定格式的文本<br>示例:</p>
-<ol>
-<li><p>使用<code>format()</code>转换日期的显示格式</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Date d = <span class="keyword">new</span> Date();</span><br><span class="line">SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line">String today = sdf.format(d);</span><br><span class="line">System.out.println(today);</span><br></pre></td></tr></table></figure>
-
-<p><code>&quot;yyyy-MM-dd HH:mm:ss&quot;</code>指定日期格式, 读取时期, 把日期转化为指定的格式</p>
-<p>“yyyy-MM-dd HH:mm:ss”指定日期格式, 读取时期, 把日期转化为指定的格式</p>
-</li>
-<li><p>使用<code>parse()</code>方法将文本转换为日期</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String day = <span class="string">"2020年8月28日 11:48:16"</span></span><br><span class="line">SimpleDateFormat df = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy年MM月dd日 HH:mm:ss"</span>);</span><br><span class="line">Date date = df.parse(day);</span><br><span class="line">System.out.println(date);</span><br></pre></td></tr></table></figure>
-
-<p><code>parse</code>根据指定的格式<strong>反过来读取字符串, 从而获得日期</strong></p>
-<p>ps: 调用<code>SimpleDateFormat</code>对象的<code>parse()</code>方法可能会出现<strong>转换异常</strong>, <code>ParseException</code>, 因此<strong>需要异常处理</strong><br>使用<code>Date类</code>需要导入<code>java.util</code>包, 使用<code>SimpleDateFormat类</code>需要导入<code>java.text</code>包</p>
-<p>parse根据指定的格式反过来读取字符串, 从而获得日期<br>ps:<br>调用SimpleDateFormat对象的parse()方法可能会出现转换异常, ParseException, 因此需要异常处理<br>使用Date类需要导入java.util包, 使用SimpleDateFormat类需要导入java.text包</p>
-</li>
-</ol>
-<h4 id="Calendar类的应用"><a href="#Calendar类的应用" class="headerlink" title="Calendar类的应用"></a><code>Calendar类</code>的应用</h4><p><code>Date类</code>只要用于获取当前时间, <strong>推荐使用<code>Calendar类</code>进行时间和日期的处理</strong><br><code>java.util.Calendar类</code>是一个<strong>抽象类</strong>, 可调用<code>getInstance()</code>静态方法获取<code>Calendar对象</code>, 如 <code>Calendar c = Calenar.getInstance();</code></p>
-<h6 id="常用方法和属性"><a href="#常用方法和属性" class="headerlink" title="常用方法和属性:"></a>常用方法和属性:</h6><ol>
-<li><code>Calendar类</code>有<code>YEAR</code>,<code>MONTH</code>,<code>DAY_OF_MONTH</code>等静态常量, </li>
-<li>调用<code>getInstance()</code>获取一个实例, </li>
-<li>调用<code>get()</code>方法获取日期信息, <code>getTime()</code>方法获取<code>Date对象</code>, </li>
-<li>通过<code>getTimeInMillis()</code>方法获取<code>Calendar</code>时间值(以毫秒为单位)</li>
-</ol>
-<h4 id="使用Math类操作数据"><a href="#使用Math类操作数据" class="headerlink" title="使用Math类操作数据"></a>使用Math类操作数据</h4><p><code>java.lang.Math类</code>包含基本数学运算的方法, 因为所有方法都是<strong>静态方法</strong>, 所以可以直接按 ``类名.方法名` 使用</p>
-<h6 id="可以参照一下菜鸟教程的相关介绍"><a href="#可以参照一下菜鸟教程的相关介绍" class="headerlink" title="可以参照一下菜鸟教程的相关介绍:"></a>可以参照一下菜鸟教程的相关介绍:</h6><p><a href="https://www.runoob.com/java/java-number.html" target="_blank" rel="noopener">https://www.runoob.com/java/java-number.html</a></p>
-<h2 id="C4-Java中的集合框架-上"><a href="#C4-Java中的集合框架-上" class="headerlink" title="C4  Java中的集合框架(上)"></a>C4  Java中的集合框架(上)</h2><h4 id="集合框架概述"><a href="#集合框架概述" class="headerlink" title="集合框架概述"></a>集合框架概述</h4><p><strong>容器的概念:</strong>  把若干种属性(数目, 种类不一定)存储起来, 就是集合, 是一种工具类存储共同属性种类的对象<br><strong>容器的作用:</strong></p>
-<ol>
-<li>在类的内部, 对组织数据</li>
-<li>简单快速的都说大量条目</li>
-<li>一个序列, 方便插入取出某些属性</li>
-<li>有的集合提供了映射关系(类似py的字典), 方便了查询</li>
-</ol>
-<p><strong>java提供集合的接口</strong></p>
-<ol>
-<li><code>Collection</code>: <code>List</code> -<code>ArrayList</code>, <code>Set</code> -<code>HashSet</code>, <code>Queue</code> -<code>LinkedList</code>  (存储的元素是对象)</li>
-<li><code>Map</code>: <code>HashMap</code> (存储的元素是键值对, <code>Entry</code>)</li>
-</ol>
-<h4 id="Collection接口-子接口和实现类-看看前面复习一下什么是接口"><a href="#Collection接口-子接口和实现类-看看前面复习一下什么是接口" class="headerlink" title="Collection接口, 子接口和实现类 (看看前面复习一下什么是接口)"></a>Collection接口, 子接口和实现类 (看看前面复习一下什么是接口)</h4><p>Collection集合中, 讲一下List子接口和Set子接口</p>
-<h4 id="List接口："><a href="#List接口：" class="headerlink" title="List接口："></a>List接口：</h4><p>List接口的实现类-<code>ArrayList类</code>(类似python列表)<br><code>ArrayList</code>是<strong>数组</strong>序列, 接口和实现类的关系可以参照: </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List test = <span class="keyword">new</span> ArrayList();</span><br></pre></td></tr></table></figure>
-
-<h5 id="下面说明一下List增删改查用到的方法"><a href="#下面说明一下List增删改查用到的方法" class="headerlink" title="下面说明一下List增删改查用到的方法:"></a>下面说明一下List增删改查用到的方法:</h5><h5 id="1-为列表添加对象"><a href="#1-为列表添加对象" class="headerlink" title="1. 为列表添加对象:"></a>1. 为列表添加对象:</h5><p><code>&lt;ls&gt;.add()</code>方法可以把一个对象添加到List中,<br><code>&lt;ls&gt;.get()</code>方法可以根据索引从List中取出对象,<br>※ 使用add方法, 把对象存入集合时, 默认会变成Object类型.<br>※ 所以get方法取出对象时, 需要类型转化, 在前面加 (强转类型)<br><code>&lt;ls&gt;.add(index, element)</code>方法可以把对象添加到指定的位置<br>※ 如果index大于ls的长度, 会报错IndexOutOfBoundException<br><code>&lt;ls&gt;.addAll()</code>方法可以把一个List添加到ls中,<br><code>Arrays.asList()</code>方法可以把一个数组转化为一个List.<br><code>&lt;ls&gt;.addAll(index, List)</code> 可以指定List插入的位置</p>
-<h5 id="2-为列表修改对象"><a href="#2-为列表修改对象" class="headerlink" title="2. 为列表修改对象:"></a>2. 为列表修改对象:</h5><h6 id="遍历列表的三个方法"><a href="#遍历列表的三个方法" class="headerlink" title="遍历列表的三个方法:"></a><strong>遍历列表的三个方法:</strong></h6><ol>
-<li><p><code>&lt;ls&gt;.size()</code>方法可以取得List的长度, 用于遍历List;</p>
-</li>
-<li><p>通过迭代器遍历List, 使用<code>Iterator</code>接口, <code>Iterator it = &lt;ls&gt;.iterator()</code> 获取迭代器, </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用while循环遍历List迭代器中的对象</span></span><br><span class="line"><span class="keyword">while</span>(it.hasNext()) &#123;&lt;Class&gt; temp = (Class) it.next();&#125;</span><br></pre></td></tr></table></figure>
-
-<p>※ 集合都具有iterator方法, 迭代器依赖集合存在</p>
-</li>
-<li><p>使用<code>forEach</code>方法遍历List, 由于在没有指定泛型时, 对象存放在集合中, 会变成Object, 所以应该用 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (Object obj: &lt;ls&gt;) &#123;<span class="comment">// 记得使用类型强转&#125;.</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h6 id="修改List的元素"><a href="#修改List的元素" class="headerlink" title="修改List的元素"></a><strong>修改List的元素</strong></h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;ls&gt;.set(index, element);  <span class="comment">// 把相应位置的对象修改成新的对象</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="3-为列表删除对象"><a href="#3-为列表删除对象" class="headerlink" title="3. 为列表删除对象:"></a>3. 为列表删除对象:</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;ls&gt;.remove(index);  <span class="comment">// 删除相应索引位置的元素, 不能超出长度范围</span></span><br><span class="line">&lt;ls&gt;.remove(element);  <span class="comment">// 删除指定的对象</span></span><br><span class="line">&lt;ls&gt;.removeAll(Collection ls)  <span class="comment">// 删除指定集合的所有元素, 类似求差</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="使用泛型-Generic-为列表处理不是对象的变量-比如字符串等等"><a href="#使用泛型-Generic-为列表处理不是对象的变量-比如字符串等等" class="headerlink" title="使用泛型(Generic), 为列表处理不是对象的变量(比如字符串等等):"></a>使用泛型(Generic), 为列表处理不是对象的变量(比如字符串等等):</h4><p><code>&lt;ls&gt;.add(OtherClass)</code> 不会报错, 但是后面使用<code>forEach</code>打印的时候, 使用了<strong>强制类型转换</strong>, <code>String</code>不能转化为<code>Course</code>, 所以还是会报错. <strong>为了能够避免向集合加入其它类型的对象, 就要使用到泛型.</strong><br>※ 集合中的元素, 可以使用<strong>任意类型</strong>的对象(对象的引用), 把放入的对象当做<code>Object</code>处理; <strong>泛型</strong>则是规定了某个<strong>集合只可以存放特定类型</strong>的对象及其子类型的对象, 可以<strong>直接指定类型</strong>获取集合元素.<br>定义: </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;Class&gt; ls;  <span class="comment">// 使用&lt;Class&gt;指定泛型类型, 界定符一般要使用private</span></span><br></pre></td></tr></table></figure>
-
-<p>初始化: </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.ls = <span class="keyword">new</span> ArrayList&lt;Class&gt;();  <span class="comment">// 初始化的时候仍然需要指明泛型</span></span><br></pre></td></tr></table></figure>
-
-<p>※ 此时<code>get()</code>方法或者遍历ls时, 不需要强制转换类型了<br>※ 指定泛型之后的集合, 还能存储泛型的<strong>子类型</strong>的对象实例, 即可以<code>&lt;ls&gt;.add(new 
-ChildClass());</code><br>※ <strong>泛型只能使用引用类型</strong>, 不能使用基本类型(int,char …), 如果有必要也只能用包装类, 指定泛型为包装类之后<code>&lt;ls&gt;.add(temp)</code> 会对<u>基本类型temp变量</u>进行<strong>隐式</strong>类型转换 (比如 int 变成 Interger).</p>
-<h4 id="Set接口："><a href="#Set接口：" class="headerlink" title="Set接口："></a>Set接口：</h4><p><code>Set</code>接口实现类–<code>HashSet类</code>(类似数学里面的集合)<br>※ Set<strong>无序</strong>并且<strong>不可重复</strong><br>※ Set接口同样提供<code>add()</code>, <code>remove()</code>, <code>removeAll()</code>, <code>size()</code>等方法.<br>※ 但是由于Set无序, 所以<u>不提供<code>set()</code>方法和<code>get()</code>方法</u>, 如果想要调用Set内部的元素, 可以使用<code>foreach</code>和<code>Iterator</code>的方式遍历Set, 不过要注意Set是无序的, 多次遍历的顺序会改变.<br>※ Set也可以使用泛型, 使用方法同Collection<br>※ Set中可以添加空对象null</p>
-<p>未完待续</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/27/入门JavaSE-进阶篇/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-入门JavaSE-中级篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/26/入门JavaSE-中级篇/">入门JavaSE-中级篇</a>
-    </h1>
   
 
-        
-        <a href="/2020/08/26/入门JavaSE-中级篇/" class="archive-article-date">
-  	<time datetime="2020-08-26T09:58:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>刚看完中级篇的慕课，记录一下笔记。</p>
-<h1 id="Javase入门-中级"><a href="#Javase入门-中级" class="headerlink" title="Javase入门 中级"></a>Javase入门 中级</h1><p><a href="https://www.imooc.com/learn/124" target="_blank" rel="noopener">https://www.imooc.com/learn/124</a></p>
-<h2 id="C1-类和对象"><a href="#C1-类和对象" class="headerlink" title="C1 类和对象"></a>C1 类和对象</h2><h4 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h4><p>类 对象  方法</p>
-<h4 id="定义类-（属性-方法）"><a href="#定义类-（属性-方法）" class="headerlink" title="定义类 （属性 方法）"></a>定义类 （属性 方法）</h4><ol>
-<li>定义类名(大写)  <code>public class 类名 {</code></li>
-<li>属性也叫做实例变量   <code>// 定义属性 （默认为零）</code></li>
-<li>方法                              <code>// 定义方法（参照上面，但不用写public等）}</code></li>
-<li>ps：注意和 <code>public static void main {}</code> 的区别</li>
-</ol>
-<h4 id="使用对象的步骤："><a href="#使用对象的步骤：" class="headerlink" title="使用对象的步骤："></a>使用对象的步骤：</h4><ol>
-<li>创建对象 <code>type name = new type();</code></li>
-<li>调用对象 <code>name.***</code></li>
-<li>ps: 同一个包的类，可以在不同的java文件中使用</li>
-</ol>
-<h4 id="成员变量"><a href="#成员变量" class="headerlink" title="成员变量"></a>成员变量</h4><p>类中定义，描述对象的作用<br>作用在本类和其他类的方法 默认初始值为零</p>
-<h4 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h4><p>在方法中定义，在方法中保存临时数据<br>只作用在本类的方法 不会有默认值</p>
-<p>（其实就是作用域的不同）<br><strong>局部变量的优先级更高</strong></p>
-<h4 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h4><p>ps: 使用 new+构造方法 创建一个新的对象 </p>
-<p>构造方法的名称<strong>与类名相同</strong>，没有返回值<br>没有指定构造方法时，默认有一个“空”的构造方法<br>一旦指定了构造方法，系统就不会生成默认构造方法<br><strong>语法：</strong><code>public 构造方法名() {}</code><br>有无参数的构造方法都是可以并存的（重载）</p>
-<h4 id="Java中的static-静态"><a href="#Java中的static-静态" class="headerlink" title="Java中的static(静态)"></a>Java中的static(静态)</h4><p><code>static</code>可以实现同一种<code>类</code>的多个<code>对象</code>共用同一个成员(属性)<br>定义：<code>static 类型 变量名 = ***;</code><br>ps: 静态成员可以直接用类名调用, 也可以用对象名调用 后面加<code>.</code>就行</p>
-<p><strong>static修饰方法</strong>: 在返回值类型之前 加<code>static</code><br>如： <code>public static void main() {};</code></p>
-<ul>
-<li>静态方法中可以直接使用静态成员</li>
-<li>静态方法调用非静态成员时，需要献出案件类的对象，在访问非静态变量</li>
-<li>普通方法则能照抄使用所有成员</li>
-<li>静态方法中能直接调用静态方法，非静态方法必须创建对象来访问</li>
-</ul>
-<p><strong>static 初始化块</strong><br>初始化块: 用于给已经定义了的变量初始化（赋值） 用<code>{}</code>框柱赋值的语句<br>ps：看上去有点low？<br>静态初始化块: 就是在{}前面加 static</p>
-<h2 id="C2-封装"><a href="#C2-封装" class="headerlink" title="C2 封装"></a>C2 封装</h2><p>ps 面向对象三大特性： 封装、 继承、 多态<br><strong>封装</strong>：将类的概念隐藏在内部，不允许外部程序访问，通过类的方法，操作和访问隐藏概念</p>
-<h4 id="封装的步骤："><a href="#封装的步骤：" class="headerlink" title="封装的步骤："></a>封装的步骤：</h4><ol>
-<li>在变量的变量类型前面加 private</li>
-<li>创建getter/setter 等类似方法访问属性，返回需要的变量（相当于一个接口）可以用ide自动生动生成</li>
-<li>给上述方法加合理性判断（if语句等）</li>
-</ol>
-<h4 id="使用包管理java类"><a href="#使用包管理java类" class="headerlink" title="使用包管理java类"></a>使用包管理java类</h4><p>包的作用： 管理Java文件、解决同名文件冲突<br>定义包：<code>package &lt;包名&gt;;</code>  放在源程序第一行，包名之间用<code>.</code>隔开，相当于文件层次<br>使用包： <code>import &lt;包名&gt;;</code> 后面加<code>*</code>表示导入子目录的所包<br>ps: 包一般使用 全小写 命名</p>
-<h4 id="访问修饰符"><a href="#访问修饰符" class="headerlink" title="访问修饰符"></a>访问修饰符</h4><table>
-<thead>
-<tr>
-<th align="center">访问范围</th>
-<th align="center">本类</th>
-<th align="center">同包</th>
-<th align="center">子类</th>
-<th align="center">其它</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">private</td>
-<td align="center">√</td>
-<td align="center">×</td>
-<td align="center">×</td>
-<td align="center">×</td>
-</tr>
-<tr>
-<td align="center">默认</td>
-<td align="center">√</td>
-<td align="center">√</td>
-<td align="center">×</td>
-<td align="center">×</td>
-</tr>
-<tr>
-<td align="center">protected</td>
-<td align="center">√</td>
-<td align="center">√</td>
-<td align="center">√</td>
-<td align="center">×</td>
-</tr>
-<tr>
-<td align="center">public</td>
-<td align="center">√</td>
-<td align="center">√</td>
-<td align="center">√</td>
-<td align="center">√</td>
-</tr>
-</tbody></table>
-<h4 id="this关键字"><a href="#this关键字" class="headerlink" title="this关键字"></a>this关键字</h4><p>this代表当前对象，封装对象属性的时候经常使用</p>
-<ol>
-<li>区分属性和参数的概念（同名区分）</li>
-<li>调用当前对象的方法    </li>
-</ol>
-<h4 id="内部类-Inner-Class"><a href="#内部类-Inner-Class" class="headerlink" title="内部类 Inner Class"></a>内部类 Inner Class</h4><p>定义：一个类内部，再定义类，提供更好的封装（套娃）<br>种类：成员、静态、方法、匿名内部类</p>
-<p><strong>成员内部类</strong> 也叫做普通内部类<br>初始化的时候要用 ``&lt;内部类&gt; &lt;对象名&gt; = &lt;外部类&gt;.new &lt;内部类()&gt;<code>成员内部类可以使用外部和内部的所有数据，但外部类不能使用内部成员，如果内外部有同名的变量，内部需要使用外部变量时，需要</code>this<code>关键字(</code>Outer.this.变量名<code>)
-ps: 编译程序之后会出现多个</code>.class`文件</p>
-<p><strong>静态内部类</strong><br>用static修饰的内部类<br>不能直接访问外部类的 非静态成员，通过 <code>new Outer().成员</code> 访问<br>如果内外部静态成员<strong>同名</strong>，可以通过 <code>Outer.静态成员</code> 访问外部 静态成员，而是不用this关键字<br>创建静态内部类对象的时候，<code>&lt;内部类&gt; &lt;对象名&gt; = new &lt;内部类()&gt;</code> 即可</p>
-<p><strong>方法内部类</strong><br>内部类定义在外部类的方法中，只在该方法类可以使用</p>
-<h2 id="C3继承"><a href="#C3继承" class="headerlink" title="C3继承"></a>C3继承</h2><h4 id="Java中的继承"><a href="#Java中的继承" class="headerlink" title="Java中的继承"></a>Java中的继承</h4><p>类与类的关系，Java使用单继承，一个子类只有一个父类<br>子类拥有父类的所有属性和方法（<strong>不能是private</strong>）<br>语法： <code>class 子类 extends 父类</code> </p>
-<h4 id="Java中方法的重写"><a href="#Java中方法的重写" class="headerlink" title="Java中方法的重写"></a>Java中方法的重写</h4><p>子类可以<strong>重写</strong>继承父类的方法<br>ps: 重写的方法对应的 返回值 方法名 参数列表种类顺序 要和父类相同</p>
-<h4 id="继承的初始化顺序"><a href="#继承的初始化顺序" class="headerlink" title="继承的初始化顺序"></a>继承的初始化顺序</h4><p>先初始化父类在初始化子类<br>先进行<strong>属性</strong>的初始化，再进行<strong>构造方法</strong>的初始化（同一变量定义时的赋值会被构造方法的赋值覆盖掉）</p>
-<h4 id="final关键字"><a href="#final关键字" class="headerlink" title="final关键字"></a>final关键字</h4><p>可以修饰类、方法、属性、变量</p>
-<ul>
-<li>修饰类 该类不能被继承</li>
-<li>修饰方法 该方法不能被重写</li>
-<li>修饰属性 属性只能在在构造方法或者显示初始化（不能默认隐式初始化）</li>
-<li>修饰变量 该变量只能被赋值一次 常量</li>
-</ul>
-<h4 id="super关键字"><a href="#super关键字" class="headerlink" title="super关键字"></a>super关键字</h4><p>对象内部使用，可以代表父类对象，用于访问父类对象的属性和方法<br>语法: <code>super.&lt;父类的属性和方法&gt;</code><br><strong>super的应用</strong></p>
-<ol>
-<li>子类的构造过程中必须调用父类的构造方法 </li>
-<li>super();隐式表达  显示表达要放在子类的构造方法的第一行</li>
-<li>系统默认调用无参父类构造方法，如果没有无参构造方法，则报错</li>
-</ol>
-<h4 id="Java的Object类"><a href="#Java的Object类" class="headerlink" title="Java的Object类"></a>Java的Object类</h4><p>Object类是所有类的父类，默认的继承类（没有指定继承对象）<br><strong>Object类定义的属性方法</strong></p>
-<ol>
-<li><code>toString()</code> 返回对象的哈希code码（内存地址），可以重写成返回对象的属性，ide Source提供了toString的快速重写</li>
-<li><code>equals()</code> 比较对象是否指向同一块内存地址，可以重写成比较两个对象的值是否相等，同样ide 提供了快速重写 (利用”==”)<br>ps: 默认的参数是Object obj，访问对象的属性的时候，需要声明为当前对象的类型 (Dog other = (Dog) obj;)<br>pps: 类对象指obj.getClass() 返回类的类型，类的对象指obj类的变量值</li>
-</ol>
-<h2 id="C4多态"><a href="#C4多态" class="headerlink" title="C4多态"></a>C4多态</h2><h4 id="Java中的多态"><a href="#Java中的多态" class="headerlink" title="Java中的多态"></a>Java中的多态</h4><p><strong>对象的多种形态:</strong> </p>
-<ol>
-<li>引用多态 父类的对象可以引用本类和子类的对象，反则不行。 (相当于可以用bus初始化交通工具对象 Transp obj = new bus();)</li>
-<li>方法多态 创建本类对象时调用本类的方法，引用子类的对象是调用子类重写或者继承之后的方法</li>
-</ol>
-<h4 id="多态的引用类型转换"><a href="#多态的引用类型转换" class="headerlink" title="多态的引用类型转换"></a>多态的引用类型转换</h4><p>引用类型转换:</p>
-<ol>
-<li>向上类型转换(隐式/自动 小到大) 上面的父类引用子类对象</li>
-<li>向下类型转换(大到小) 有风险 可以加 (类型) 强制类型转换</li>
-<li>使用<code>instanceof</code>运算符 避免引用类型转换的安全性问题<br>如: <code>if (animal instanceof Cat) {Cat cat = (Cat) animal}</code> (向下转换)</li>
-</ol>
-<h4 id="Java的抽象类"><a href="#Java的抽象类" class="headerlink" title="Java的抽象类"></a>Java的抽象类</h4><p>关注子类应该有什么方法，不关注方法的实现，只关注子类的特征<br>抽象类的规则:</p>
-<ol>
-<li>abstract定义抽象类 public abstract class Obj{};</li>
-<li>abstract定义方法，只有声明</li>
-<li>抽象类可包含普通方法，可没有抽象方法</li>
-<li>抽象类不能直接创建，可以定义引用变量</li>
-</ol>
-<h4 id="Java的接口"><a href="#Java的接口" class="headerlink" title="Java的接口"></a>Java的接口</h4><p>类是具体实体，接口是类需要遵守的<strong>规范</strong>，提供抽象方法和常量，把具有共同特征的类联系在一起<br>定义: <code>[修饰符] interface 接口名 [extends 父接口1, 父接口2 ...] {}</code><br>系统隐式添加<code>abstract</code>关键字 接口的内容为若干个常量<code>public static final</code>或者若干个抽象方法 <code>public abstract</code><br>调用接口: 类通过<code>implements</code>关键字使用多个接口 ※关键字接在父类的后面<br>ps: 接口命名通常名字前面加 <code>I</code><br>使用接口： 接口可以指向对象，如  <code>IPlayGame ip1 = new SmartPhone();</code> ，即可使用该类的方法，但是要注意指向的类要调用了该接口<br>ps: <strong>接口经常和匿名内部类使用，匿名内部类就是没有名字的内部类</strong><br><strong>语法格式:</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Interface i = <span class="keyword">new</span> Interface()&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> noid <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">	System.out.println(<span class="string">"匿名内部类实现接口的方式"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">i.method();  <span class="comment">// 直接调用方法</span></span><br></pre></td></tr></table></figure>
-
-<p>也可以在new语句后面的分号之前，直接<code>.method()</code>调用方法</p>
-<p>可以在new语句后面的分号之前，直接<code>.method()</code>调用方法</p>
-<h4 id="UML简介"><a href="#UML简介" class="headerlink" title="UML简介"></a>UML简介</h4><p>编写代码之前设计代码，支持模型化和软件系统开发的图形化语言<br><strong>常用UML图</strong></p>
-<ol>
-<li>用例图 对象需要的功能</li>
-<li>序列图 事件的发生顺序，对象的交互</li>
-<li>类图 业务逻辑 类和类的关系</li>
-</ol>
-<p><strong>UML建模工具</strong></p>
-<p>Visio、Rational、Rose…</p>
-<h2 id="C5阶段练习"><a href="#C5阶段练习" class="headerlink" title="C5阶段练习"></a>C5阶段练习</h2><p>利用继承和重写实现中国人和美国人对象讲不同的语言</p>
-<h2 id="C6综合练习"><a href="#C6综合练习" class="headerlink" title="C6综合练习"></a>C6综合练习</h2><p>项目分析：<br>    数据模型分析 抽象实体分析约束条件<br>    业务模型分析 需要实现的功能 如何实现<br>    显示和流程分析 划分显示部分，分析不同流程</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/26/入门JavaSE-中级篇/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-入门JavaSE-初级篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/21/入门JavaSE-初级篇/">入门JavaSE----初级篇</a>
-    </h1>
-  
-
-        
-        <a href="/2020/08/21/入门JavaSE-初级篇/" class="archive-article-date">
-  	<time datetime="2020-08-21T08:56:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>最近计划学习一下JavaSE，在爱慕课上找到了三个入门javase的视频，分为初级、中级和进阶。</em></p>
-<p><em>下面记录一下听课的笔记。</em></p>
-<h1 id="javase入门-初级"><a href="#javase入门-初级" class="headerlink" title="javase入门 初级"></a>javase入门 初级</h1><p><a href="https://www.imooc.com/learn/85" target="_blank" rel="noopener">https://www.imooc.com/learn/85</a></p>
-<h2 id="C1-java初体验"><a href="#C1-java初体验" class="headerlink" title="C1 java初体验"></a>C1 java初体验</h2><h4 id="jvm是java虚拟机"><a href="#jvm是java虚拟机" class="headerlink" title="jvm是java虚拟机"></a>jvm是java虚拟机</h4><p>​    相关概念：源文件 编译器 字节码 解释器（jvm包括解释器）</p>
-<h4 id="jdk是java开发工具包"><a href="#jdk是java开发工具包" class="headerlink" title="jdk是java开发工具包"></a>jdk是java开发工具包</h4><h4 id="jre是java运行环境"><a href="#jre是java运行环境" class="headerlink" title="jre是java运行环境"></a>jre是java运行环境</h4><h4 id="三者的集合关系：jvm-lt-jre-lt-jdk"><a href="#三者的集合关系：jvm-lt-jre-lt-jdk" class="headerlink" title="三者的集合关系：jvm &lt; jre &lt; jdk"></a>三者的集合关系：jvm &lt; jre &lt; jdk</h4><h2 id="java开发环境"><a href="#java开发环境" class="headerlink" title="java开发环境"></a>java开发环境</h2><h4 id="安装java-jdk后的文件目录"><a href="#安装java-jdk后的文件目录" class="headerlink" title="安装java_jdk后的文件目录"></a>安装java_jdk后的文件目录</h4><blockquote>
-<p>jdk<br>    bin<br>        java<br>        javac<br>    lib(库文件)</p>
-</blockquote>
-<p>其中，java是解释器，javac是编译器，lib存放java的库</p>
-<h4 id="设置环境变量（这里可以参照菜鸟教程）"><a href="#设置环境变量（这里可以参照菜鸟教程）" class="headerlink" title="设置环境变量（这里可以参照菜鸟教程）"></a>设置环境变量（这里可以参照菜鸟教程）</h4><ol>
-<li>java_home  jdk路径</li>
-<li>path  jdk命令文件</li>
-<li>classpath  类库文件的位置</li>
-<li>java命令后不能跟文件后缀</li>
-</ol>
-<h4 id="使用IDE开发java程序"><a href="#使用IDE开发java程序" class="headerlink" title="使用IDE开发java程序"></a>使用IDE开发java程序</h4><p>开发步骤</p>
-<ol>
-<li>创建java项目</li>
-<li>创建程序包  右击src new 命名 一般为域名的反向</li>
-<li>编写java源程序</li>
-<li>运行java程序</li>
-</ol>
-<h4 id="程序的移植-拷贝项目到另一台电脑导入-（有点low）"><a href="#程序的移植-拷贝项目到另一台电脑导入-（有点low）" class="headerlink" title="程序的移植  拷贝项目到另一台电脑导入 （有点low）"></a>程序的移植  拷贝项目到另一台电脑导入 （有点low）</h4><h4 id="基本经验：多练-多问-动手-总结"><a href="#基本经验：多练-多问-动手-总结" class="headerlink" title="基本经验：多练 多问 动手 总结"></a>基本经验：多练 多问 动手 总结</h4><h2 id="C2-变量和常量"><a href="#C2-变量和常量" class="headerlink" title="C2 变量和常量"></a>C2 变量和常量</h2><h4 id="java的变量命名"><a href="#java的变量命名" class="headerlink" title="java的变量命名"></a>java的变量命名</h4><p>只能以字母 _ $ 开头，不能包含除了_ $ 以外的特殊字符</p>
-<h4 id="java变量的种类有-基本变量-和-引用变量"><a href="#java变量的种类有-基本变量-和-引用变量" class="headerlink" title="java变量的种类有 基本变量 和 引用变量"></a>java变量的种类有 基本变量 和 引用变量</h4><ul>
-<li>str就是一个典型的<strong>引用型变量</strong>，还有class interface 等</li>
-<li><strong>基本变量</strong>和c/c++差不多 但是布尔类型为boolean</li>
-<li>基本类型分为 <strong>数值型 字符型 布尔型</strong></li>
-<li>ps： 给<strong>float型变量</strong>赋值的时候需要<strong>加f</strong>，否则会默认成double</li>
-</ul>
-<h4 id="java用final表示常量-一般用大写命名"><a href="#java用final表示常量-一般用大写命名" class="headerlink" title="java用final表示常量 一般用大写命名"></a>java用final表示常量 一般用大写命名</h4><h4 id="java的注释（和c有点不一样）"><a href="#java的注释（和c有点不一样）" class="headerlink" title="java的注释（和c有点不一样）"></a>java的注释（和c有点不一样）</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 单行注释 </span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 文档注释</span></span><br><span class="line"><span class="comment"> * 可以使用 javadoc 从java文件中提取文档的内容</span></span><br><span class="line"><span class="comment"> * 可以使用 javadoc 标记 生成更加信息的文档信息</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 多行注释</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/* 单行注释的另一种写法 */</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="C3-常用运算符"><a href="#C3-常用运算符" class="headerlink" title="C3 常用运算符"></a>C3 常用运算符</h2><h4 id="种类"><a href="#种类" class="headerlink" title="种类"></a>种类</h4><ul>
-<li>算术: <code>+</code> <code>-</code> <code>*</code> <code>/</code> <code>%</code> <code>++</code> <code>--</code> 自运算放左边是先运算再赋值 反则先赋值后运算</li>
-<li>赋值: <code>=</code> <code>+=</code> <code>-=</code> <code>*=</code> <code>/=</code> <code>%=</code></li>
-<li>比较: <code>&gt;</code> <code>&lt;</code> <code>&gt;=</code> <code>&lt;=</code> 只能是数值类型 <code>==</code> <code>!=</code> 可以使引用类型</li>
-<li>逻辑: <code>&amp;&amp;</code> <code>||</code> <code>!</code> <code>^</code>(异或(两者只有一个为真才为真))</li>
-<li>条件: 双目表达式 <code>*** ? ** : **</code> 和 c++ 类似</li>
-<li>ps: 优先级和c++类似 建议查表</li>
-<li>ps: java中 <code>/</code> 是整除</li>
-</ul>
-<h2 id="C4-流程控制"><a href="#C4-流程控制" class="headerlink" title="C4 流程控制"></a>C4 流程控制</h2><h4 id="if-条件判断和c类似"><a href="#if-条件判断和c类似" class="headerlink" title="if 条件判断和c类似"></a>if 条件判断和c类似</h4><ul>
-<li>if (){}  else if(){}  else{}  只有一行语句的时候可以不用{}</li>
-<li>if 可以嵌套使用</li>
-<li>ps:equals()方法用于判断字符串的内容是否相等</li>
-</ul>
-<h4 id="switch-判断和c类似"><a href="#switch-判断和c类似" class="headerlink" title="switch 判断和c类似"></a>switch 判断和c类似</h4><ul>
-<li>switch (){ case &lt;&gt;: &lt;&gt; break; … default: &lt;&gt; }</li>
-<li>当switch的值和case的值相等时，开始往下执行，如果没有break会一直向下</li>
-<li>switch的表达式必须是整型或字符型 case后面可以是常量或者常量表达式</li>
-<li>相同功能的case可以放在一起 后面接同一段代码</li>
-</ul>
-<h4 id="while循环-do-while循环-for循环-同c-c"><a href="#while循环-do-while循环-for循环-同c-c" class="headerlink" title="while循环  do while循环  for循环 (同c/c++)"></a>while循环  do while循环  for循环 (同c/c++)</h4><h4 id="break跳出整个循环-continue跳出当前循环"><a href="#break跳出整个循环-continue跳出当前循环" class="headerlink" title="break跳出整个循环 continue跳出当前循环"></a>break跳出整个循环 continue跳出当前循环</h4><p>ps: 循环可以嵌套</p>
-<h2 id="C5-程序编写小试"><a href="#C5-程序编写小试" class="headerlink" title="C5 程序编写小试"></a>C5 程序编写小试</h2><h4 id="ps-快捷键"><a href="#ps-快捷键" class="headerlink" title="ps: 快捷键"></a>ps: 快捷键</h4><p><code>&#39;syso&#39; alt+/ = System.out.println()</code><br><code>&#39;main&#39; alt+/</code></p>
-<h4 id="获取用户输入-Scanner-工具类-java-util-包-需要导入"><a href="#获取用户输入-Scanner-工具类-java-util-包-需要导入" class="headerlink" title="获取用户输入 Scanner 工具类 java.util 包 需要导入"></a>获取用户输入 Scanner 工具类 java.util 包 需要导入</h4><ol>
-<li>导入包    import java.util.Scanner;</li>
-<li>创建对象    Scanner input = new Scanner(System.in);</li>
-<li>调用方法函数    int score = input.nextInt();</li>
-<li>ps: println 和 print 不同 前者会换行</li>
-</ol>
-<h4 id="调试程序"><a href="#调试程序" class="headerlink" title="调试程序"></a>调试程序</h4><p>可以利用断点（一个小红点） 使用debug模式 stepover进行下一行代码的执行</p>
-<h4 id="经验总结-debug"><a href="#经验总结-debug" class="headerlink" title="经验总结 debug"></a>经验总结 debug</h4><p>通过分析明确需求 整理相关知识点 实例实现流程 借助“断点调试”</p>
-<h2 id="C6-数组-（和c-c-很像）"><a href="#C6-数组-（和c-c-很像）" class="headerlink" title="C6 数组 （和c/c++很像）"></a>C6 数组 （和c/c++很像）</h2><h4 id="数组的声明和初始化"><a href="#数组的声明和初始化" class="headerlink" title="数组的声明和初始化"></a>数组的声明和初始化</h4><ul>
-<li>声明+初始化  &lt;类型&gt;[] 数组名 = {…}; 等价于  &lt;类型&gt;[] 数组名 = new &lt;类型&gt;[] {…};</li>
-<li>可以使用索引 从零开始</li>
-<li>分配空间   &lt;类型&gt;[] 数组名 = new &lt;类型&gt;[数组长度];</li>
-<li>ps: [ ] 可以在类型或数组名后面加</li>
-</ul>
-<h4 id="使用-Arrays类造作java中的数组"><a href="#使用-Arrays类造作java中的数组" class="headerlink" title="使用 Arrays类造作java中的数组"></a>使用 Arrays类造作java中的数组</h4><h5 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h5><ol>
-<li>排序 <code>Arrays.sort(数组名);</code>  ps: 记得import java.util.Arrays;</li>
-<li>转换为字符串 <code>Arrays.toString(数组名);</code></li>
-<li><code>数组名.length</code> 可以获取数组的长度</li>
-</ol>
-<h5 id="使用foreach操纵数组"><a href="#使用foreach操纵数组" class="headerlink" title="使用foreach操纵数组"></a>使用foreach操纵数组</h5><p>foreach 是 for 语句的简化版本<br>语法：<code>for (元素类型 元素变量: 遍历对象) {};</code></p>
-<h4 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义并且初始化二维数组</span></span><br><span class="line">type [][] arrayName = <span class="keyword">new</span> type [rowNum][colNum];</span><br><span class="line">type [][] arrayName = &#123;&#123;...&#125;, ...&#125;;</span><br><span class="line"><span class="comment">// 赋值 </span></span><br><span class="line">arrayName[row][col] = value;</span><br><span class="line"><span class="comment">// 声明的时候可以不指名列数，后面再具体给各行分配列数</span></span><br></pre></td></tr></table></figure>
-
-<p>​    </p>
-<h2 id="C7-方法"><a href="#C7-方法" class="headerlink" title="C7 方法"></a>C7 方法</h2><p>一个功能模块，用于解决某个具体问题的代码序列组合</p>
-<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><p><code>访问修饰符 返回值类型 方法名(参数列表) {方法体}</code><br>访问修饰符指定访问权限范围如：<code>public</code>, <code>protected</code>, <code>private</code><br>根据 <strong>返回值类型</strong> 和 <strong>参数列表</strong> 方法可以分为： 无参无返 有参无返 无参有返 有参有返</p>
-<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><ol>
-<li>定义方法， 参照上面语法</li>
-<li>定义一个方法所在的类的对象</li>
-<li>用对象调用类里面定义的方法</li>
-<li>对于有返回值的方法，一般要定义一个变量接收返回值，变量类型要对应</li>
-<li>对于没有返回值的方法，不能加return语句</li>
-<li>对于有参数的方法，参数的类型顺序数量要与形参对应 形参要标类型</li>
-</ol>
-<h4 id="方法的重载"><a href="#方法的重载" class="headerlink" title="方法的重载"></a>方法的重载</h4><p>同一个类中可以有多个同名的方法，但必须形参的数量类型顺序不一样，和返回值没有关系</p>
-<h6 id="建立动态数组-int-nums-new-int-length"><a href="#建立动态数组-int-nums-new-int-length" class="headerlink" title="建立动态数组 int[] nums = new int[length];"></a>建立动态数组 <code>int[] nums = new int[length];</code></h6><h6 id="生成-100-以内的随机数（用到math类）-int-Math-random-100"><a href="#生成-100-以内的随机数（用到math类）-int-Math-random-100" class="headerlink" title="生成 100 以内的随机数（用到math类） (int)(Math.random() * 100)"></a>生成 100 以内的随机数（用到math类） <code>(int)(Math.random() * 100)</code></h6>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/21/入门JavaSE-初级篇/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-使用photomosaic库实现马赛克拼图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/21/使用photomosaic库实现马赛克拼图/">使用photomosaic库实现马赛克拼图</a>
-    </h1>
-  
-
-        
-        <a href="/2020/08/21/使用photomosaic库实现马赛克拼图/" class="archive-article-date">
-  	<time datetime="2020-08-21T08:53:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近看到有软件实现了用多张图片拼成指定的某一张图片。</p>
-<p>基于好奇心理，想自己实现一个，功能类似的程序。（本来是想做成自己头像的）</p>
-<p>于是，搜索了一下相关的程序，果然有不少别人已经写好的程序。</p>
-<p>其中看到某个效果很好，用cpp实现的程序，基于本人太菜，没怎么看。</p>
-<p>转而看到python可以通过photomosaic库，几行代码就可以实现功能，于是立马就自己试了一试。</p>
-<p>简单捣腾几下就实现了需要的效果，果然还是python用起来香。不过东西学起来蜻蜓点水，笔者对于函数的实现原理是一窍不通的。</p>
-<p>下面是效果图：</p>
-<p><img src="../pictures/%E4%BD%BF%E7%94%A8photomosaic%E5%BA%93%E5%AE%9E%E7%8E%B0%E9%A9%AC%E8%B5%9B%E5%85%8B%E6%8B%BC%E5%9B%BE/hdog.jpg" alt="hdog"></p>
-<p>怎样有无心动？</p>
-<p>下面先贴出代码：</p>
-<p>文件结构：</p>
-<blockquote>
-<p>MakingChatHeads/</p>
-<p>​    i_env/</p>
-<p>​    srcHead/</p>
-<p>​    srcpool/</p>
-<p>​    Head.jpg</p>
-<p>​    main.py</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># main.py源代码</span></span><br><span class="line"><span class="keyword">import</span> photomosaic <span class="keyword">as</span> pm</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">'''根据一张图，用多张其它图片拼凑为一张马赛克图'''</span></span><br><span class="line"><span class="comment"># 读取图片</span></span><br><span class="line">image = pm.imread(<span class="string">'./srcHead/head.jpg'</span>)</span><br><span class="line"><span class="comment"># 定义照片库</span></span><br><span class="line">pool = pm.make_pool(<span class="string">'./srcpool/*.jpg'</span>)</span><br><span class="line"><span class="comment"># 制作马赛克图</span></span><br><span class="line">mosaic = pm.basic_mosaic(image, pool, (<span class="number">220</span>, <span class="number">170</span>))</span><br><span class="line"><span class="comment"># 保存图片</span></span><br><span class="line">pm.imsave(<span class="string">'./HEAD.jpg'</span>, mosaic)</span><br></pre></td></tr></table></figure>
-
-<p>代码可以说非常简单了，这里简单提一下主要流程：</p>
-<ol>
-<li>导入photomosaic库</li>
-<li>加载需要拼接出来的底图，比如上面图片原来就是一张doge抱着锦鲤的图片</li>
-<li>加载拼图的时候使用的素材图，这里需要的图片数目比较多，读取的时候也只需要给出图片统一存放的文件夹</li>
-<li>利用多张素材图生成指定底图的马赛克拼接图，其中的参数是横向和纵向拼接图片的数目</li>
-<li>保存拼接出来的图片</li>
-</ol>
-<p>下面说一下个人拼图的一点心得：</p>
-<ol>
-<li>根据底图的颜色选择颜色相近的图片，否则出来的效果不太好</li>
-<li>素材图的质量不需要很好，否则读取图片的时间会很长很长</li>
-<li>拼接的图不要太多，否则看上去会像十字绣；不过拼图数不够多的话，会完全看不出来原图……</li>
-<li>尽量选择颜色鲜艳的图片拼图</li>
-</ol>
-<p>再来介绍一下photomosaic库：</p>
-<p>photomosaic库主要使用机器学习和相似性搜索算法实现，可以根据给定的图片马赛克化，并且可以使用指定的图片进行马赛克填充。</p>
-<p>相关函数的用法相信读者光看源代码就能看懂，毕竟python的优势一直是白嫖大佬的函数，所以调用库之后的代码量小的令人发指。</p>
-<p>作者python项目的github-url：<a href="https://github.com/danielballan/photomosaic" target="_blank" rel="noopener">https://github.com/danielballan/photomosaic</a></p>
-<p>由于创作者的python文档404了，我暂时没能深入了解这个库的其它函数和精细设置的其它参数。（貌似是由于弗洛伊德事件后的美国暴动，导致微软的服务器被偷了？）</p>
-<p>另外，有大佬做出了一个Docker化的photomosaic项目。可以通过–randomness, –opacity, –best-k等参数实现更好的马赛克拼接效果。</p>
-<p>url：<a href="https://cloud.tencent.com/developer/news/375609" target="_blank" rel="noopener">https://cloud.tencent.com/developer/news/375609</a></p>
-<p>最后谈谈自己对这个算法的一些看法：</p>
-<p>这个库提供了高度集成的函数，几行代码就可以实现马赛克拼图功能。对于新手来说非常友好。不过，由于函数大部分已经由对方写好。所以，用户不能根据自己的需求，实现自定义的功能。</p>
-<p>另外，目前的代码拼接出的拼图会使用大量重复的图片，这一点不知道是素材图太少，还是函数有其它参数需要调整，还有有待发掘。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">图像处理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/21/使用photomosaic库实现马赛克拼图/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-关于学校校园网挂VPN解决断网问题的个人解读" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/28/关于学校校园网挂VPN解决断网问题的个人解读/">关于学校校园网挂VPN解决断网问题的个人解读</a>
-    </h1>
-  
-
-        
-        <a href="/2020/06/28/关于学校校园网挂VPN解决断网问题的个人解读/" class="archive-article-date">
-  	<time datetime="2020-06-28T11:59:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>从上个学期开始，学校推展网络一体化，三家运营商的网络归入CUMT_STU，师生通过身份认证上网。</p>
-<p>一体化之后，宿舍里三家运营商的wifi合并到一起，插网线也只需要往同一排插口接就可以了</p>
-<p>而且全校基本实现wifi覆盖，特别宿舍的wifi质量非常好（有爽到）</p>
-<p>​    </p>
-<p>不过一体化之后，<strong>学校突然限制了同学的上网时段</strong>（工作日晚十一点半后禁网）</p>
-<p>不少深夜奋战的同学<strong>只能选择手机开热点</strong></p>
-<p>气抖冷，青年何时才能站起来？（不是）</p>
-<p>​    </p>
-<p>正值众同学半夜断网大喊卧槽之际</p>
-<p>有同学发现</p>
-<p>在断网时段之前，如果<strong>连接校园网，再挂学校的vpn</strong></p>
-<p>居然可以实现 <strong>在禁网时段，照常使用学校的网络上网</strong>！</p>
-<p>​    </p>
-<p>最近刚学了计算机网络，觉得这个操作应该可以用课本的知识解释。</p>
-<p>于是便有了这篇博客。</p>
-<p>​    </p>
-<p>要解释这个问题，本文打算先说三个基础知识：</p>
-<p>终端如何访问外网、学校的网络情况、vpn的原理</p>
-<p>然后再结合以上三点，具体说明校园网挂vpn是如何无视时段禁网的。</p>
-<p>​    </p>
-<p>下面是正文</p>
-<p>​    </p>
-<p>​    </p>
-<h2 id="三个基本的原理"><a href="#三个基本的原理" class="headerlink" title="三个基本的原理"></a>三个基本的原理</h2><p>​    </p>
-<h3 id="原理一：终端通过路由器访问外网"><a href="#原理一：终端通过路由器访问外网" class="headerlink" title="原理一：终端通过路由器访问外网"></a>原理一：终端通过路由器访问外网</h3><p>我们常用的家庭网络都是通过双绞线或者wifi，将手机、pc和ipad等终端连接到路由器，才能上网的。</p>
-<p><strong>也就是说，如果要上外网，必须要有路由器！</strong></p>
-<p><strong>而通过一个一个的路由器，我们最后就可以访问到某个地点放置的服务器！</strong></p>
-<p>​    </p>
-<p>​    </p>
-<h3 id="原理二：学校的CUMT-STU使用多个路由器供学生上网"><a href="#原理二：学校的CUMT-STU使用多个路由器供学生上网" class="headerlink" title="原理二：学校的CUMT_STU使用多个路由器供学生上网"></a>原理二：学校的CUMT_STU使用多个路由器供学生上网</h3><p>在校园内，虽然会有多个同学都使用CUMT_STU上网</p>
-<p><strong>但根据认证页面选择的运营商的不同，我们可以选择不同的路由器上网</strong></p>
-<p>​    </p>
-<p>下面给出上述结论的依据</p>
-<p>​    </p>
-<p>以下是分别使用，校园网和联通，访问外网的经过的ip地址：</p>
-<p><img src="../pictures/%E5%85%B3%E4%BA%8E%E5%AD%A6%E6%A0%A1%E6%A0%A1%E5%9B%AD%E7%BD%91%E6%8C%82VPN%E8%A7%A3%E5%86%B3%E6%96%AD%E7%BD%91%E9%97%AE%E9%A2%98%E7%9A%84%E4%B8%AA%E4%BA%BA%E8%A7%A3%E8%AF%BB/%E6%A0%A1%E5%9B%AD%E7%BD%91tracert.png" alt="校园网tracert"></p>
-<p><em>使用校园网访问百度经过的路由器（ip地址），可以看到校园网路由器使用的ip地址为 202.119.203.65</em></p>
-<p>​    </p>
-<p><img src="../pictures/%E5%85%B3%E4%BA%8E%E5%AD%A6%E6%A0%A1%E6%A0%A1%E5%9B%AD%E7%BD%91%E6%8C%82VPN%E8%A7%A3%E5%86%B3%E6%96%AD%E7%BD%91%E9%97%AE%E9%A2%98%E7%9A%84%E4%B8%AA%E4%BA%BA%E8%A7%A3%E8%AF%BB/%E8%81%94%E9%80%9Atracert.png" alt="联通tracert"></p>
-<p><em>使用联通访问百度经过的路由器（ip地址），可以看到联通的路由器使用的ip地址为 112.85.229.157</em></p>
-<p>​    </p>
-<p>可以看到，<u>由于选择的两个运营商不同，访问外网使用的ip地址/路由器也完全不同</u>。</p>
-<p>另外，<strong>ip地址是对应到路由器的</strong>，注意这点后面我们会用到。</p>
-<p>​    </p>
-<p>简单来说，就是在学校，只要是通过wifi或者网线，连接到CUMT_STU的同学</p>
-<p>根据他们的选择，一共可以连接到<strong>4个路由器</strong>：</p>
-<p>移动的、电信的、联通的、校园网的，用于访问外网。</p>
-<p>​    </p>
-<p>然后，<strong>到了禁网的时段，路由器就不会帮我们向外部发消息，请求服务，所以我们就没法上网了</strong>。</p>
-<p>因为在禁网时段，我们没办法进行网络认证，路由器就不会帮我们给<strong>“外部”</strong>发信息。<em>（注意这个外部是伏笔）</em></p>
-<p>（这个认证，每隔一段时间都要进行一次，不单单是首次登录就完事的了）</p>
-<p>​    </p>
-<p>​    </p>
-<h3 id="原理三：虚拟专用网VPN的基本原理"><a href="#原理三：虚拟专用网VPN的基本原理" class="headerlink" title="原理三：虚拟专用网VPN的基本原理"></a>原理三：虚拟专用网VPN的基本原理</h3><p>在原理一我们提到：如果要上外网，必须要有路由器。</p>
-<p>但是路由器只是上外网的<strong>必要条件</strong>，如果要访问外部网站还有其他条件，比如<strong>访问权限</strong>。</p>
-<p>​    </p>
-<p>如果所有人都可以随便访问外网的每一个服务器，那互联网大企供内部人员访问的数据库，估计没几分钟就给各路人马给白嫖完了…</p>
-<p>​    </p>
-<p>所以，<u>当我们访问外部的主机的时候，目标路由器还会判断我们是否有资格访问。</u></p>
-<p>​    </p>
-<p>当然，比如百度、微博这些网站是不需要特殊权限的，村里通网了就可以访问。</p>
-<p>​    </p>
-<p>​    </p>
-<h4 id="那我们如何获得访问权限？"><a href="#那我们如何获得访问权限？" class="headerlink" title="那我们如何获得访问权限？"></a>那我们如何获得访问权限？</h4><ol>
-<li>专门连一条专用的网线过去，其他人不能用（成本高而且浪费资源); ×</li>
-<li><strong>使用虚拟专用网VPN！</strong>（终于到重点了！）√</li>
-</ol>
-<p>​    </p>
-<p>vpn的原理很简单，就是把终端发送的信息进行加密，</p>
-<p>而只有目标终端那边的路由器才能解密</p>
-<p>中间路过的所有路由器都无法解密，（为何中间会有路由器出现，具体见原理一的加粗字）</p>
-<p>因此，中间路由器无法截取发送的信息，保证信息中途不会泄露。（只能当纯工具人）</p>
-<p>​    </p>
-<p>另外，通过vpn，不管我们访问哪个ip地址，我们都会把<strong>所有的网络请求</strong>都先发给目标路由器！</p>
-<p>​    </p>
-<p><strong>这点非常重要，可以理解为：</strong></p>
-<p><strong>通过vpn我们不仅有了访问其他组织内网的通道，我们还获取了<u>连接其他外网的新的路径</u>！</strong></p>
-<p>以上就是我们要讲的三个原理，下面就是重点的分析了</p>
-<p>​    </p>
-<p>​    </p>
-<p>​    </p>
-<h2 id="具体分析"><a href="#具体分析" class="headerlink" title="具体分析"></a>具体分析</h2><p>​        </p>
-<p>上面说了一大堆，那到底为什么校园网挂vpn可以无视时段禁网？？？</p>
-<p>​    </p>
-<h4 id="现在咱们就来分析一下"><a href="#现在咱们就来分析一下" class="headerlink" title="现在咱们就来分析一下"></a>现在咱们就来分析一下</h4><blockquote>
-<p>​    先来看两个结论：<br>​    首先，根据原理二，我们通过校园网认证页面可以选择不同的运营商，<strong>选择不同的路由器</strong>，访问外网；<br>​    其次，根据原理三，我们挂vpn的时候，会把上网的<strong>所有请求</strong>，<u>从自己的路由器发送到学校的路由器</u>；</p>
-</blockquote>
-<p>​        </p>
-<p>下面就是重点了！</p>
-<p>​    </p>
-<p>我们来看一下，联通挂vpn和我们使用校园网，分别访问百度的截图：</p>
-<p><img src="../pictures/%E5%85%B3%E4%BA%8E%E5%AD%A6%E6%A0%A1%E6%A0%A1%E5%9B%AD%E7%BD%91%E6%8C%82VPN%E8%A7%A3%E5%86%B3%E6%96%AD%E7%BD%91%E9%97%AE%E9%A2%98%E7%9A%84%E4%B8%AA%E4%BA%BA%E8%A7%A3%E8%AF%BB/%E8%81%94%E9%80%9A%E6%8C%82VPNtracert.png" alt="联通挂VPNtracert"></p>
-<p><em>联通挂vpn上网，离开本地的第一个ip地址【2】，即vpn访问的目标路由器地址，为202.119.203.1</em></p>
-<p>​    </p>
-<p><img src="../pictures/%E5%85%B3%E4%BA%8E%E5%AD%A6%E6%A0%A1%E6%A0%A1%E5%9B%AD%E7%BD%91%E6%8C%82VPN%E8%A7%A3%E5%86%B3%E6%96%AD%E7%BD%91%E9%97%AE%E9%A2%98%E7%9A%84%E4%B8%AA%E4%BA%BA%E8%A7%A3%E8%AF%BB/%E6%A0%A1%E5%9B%AD%E7%BD%91tracert.png" alt="校园网tracert"></p>
-<p><em>使用校园网上网，离开本地的第一个ip地址【3】，即用户使用的路由器地址，为202.119.203.65</em></p>
-<p>​    </p>
-<p><strong>有没有发现什么？</strong></p>
-<p><strong>校园网和vpn链接过去的ip地址前面的网络号是一样的</strong>！</p>
-<p>​    </p>
-<p><strong>也就是说，<u>校园网用的路由器 和 vpn的目标路由器 是同一个</u>！！</strong></p>
-<p><strong>我们使用校园网和vpn就是通过”同一个路由器”的”不同子网ip”对外网进行访问！</strong></p>
-<p>​    </p>
-<p>有的同学可能就会问：“那有怎么样？到点了不还是禁网吗？”</p>
-<p>​    </p>
-<p>然而，根据原理二，在禁网时段，路由器不会帮我们给<strong>“外部”</strong>发信息，但是我们仍然可以<strong>发信息</strong>给路由器。</p>
-<p>​    </p>
-<p>信息传递给路由器之后，由于我们挂了vpn</p>
-<p>校园网路由器就会给目标路由器发认证消息</p>
-<p>​    </p>
-<p>而vpn的<strong>目标路由器</strong>和<strong>我们使用的路由器</strong>又恰巧是同一个</p>
-<p>所以<strong>学校的路由器会自己把认证消息发给自己看</strong>，不需要访问外部的路由器，所以直接无视断网时间段！</p>
-<p>​    </p>
-<p>最后，我们肯定是可以通过vpn的认证的</p>
-<p>​    </p>
-<p>于是我们就从子网：202.119.203.65（校园网的ip），<strong>跳到了子网：202.119.203.1（学校教学用的ip）</strong></p>
-<p>​    </p>
-<p>注意这里的两个子网是<strong>同一个路由器</strong>里的ip地址</p>
-<p><strong>而这个过程是无视断网时段的</strong></p>
-<p>​    </p>
-<p>路由器当然不会在禁网时段内，允许我们使用202.119.203.65访问外网</p>
-<p>毕竟我们的校园认证在该时段会失效</p>
-<p>​    </p>
-<p><strong>可是，通过vpn，我们就可以使用202.119.203.1访问外网</strong>。</p>
-<p>​    </p>
-<p>而202.119.203.1是一般情况是不会断网的</p>
-<p>否则整个学校教学使用的网络都会断掉！</p>
-<p>所以这条路线是非常稳定的。</p>
-<p>​    </p>
-<p><strong>所以，根据断网前不同的操作，在禁网的时段，我们访问外网（比如说上B站），就经历如下流程：</strong></p>
-<blockquote>
-<p><strong>①不挂vpn，随便选一个运营商的路由器（包括校园网、移动、联通、电信）：</strong></p>
-<p>机子:”我要上B站！” –&gt; </p>
-<p>运营商的路由器:”我不认识你，凭什么帮你发消息？” –&gt; </p>
-<p>机子:”上不了网了，该歇了~”</p>
-</blockquote>
-<p>​    </p>
-<blockquote>
-<p><strong>②挂校园vpn，但是选移动、联通、电信的路由器：</strong><br>机子:”歪？（打电话给运营商的路由器）帮我找学校的路由器，我要上B站！” –&gt; </p>
-<p>运营商的路由器:”我不认识你，凭什么帮你转接？” –&gt; </p>
-<p>机子:”上不了网了，该歇了~”</p>
-</blockquote>
-<p>​    </p>
-<blockquote>
-<p><strong>③挂别的vpn，用校园网：</strong><br>机子:”歪？（打电话给校园网的路由器）帮我找学校的路由器！我要上B站！” –&gt; </p>
-<p>校园网的路由器:”我不认识你，凭什么帮你转接？” （连不到vpn的目标路由器）–&gt; </p>
-<p>机子:”上不了网了，该歇了~”</p>
-</blockquote>
-<p>​    </p>
-<blockquote>
-<p><strong>④挂校园vpn，用校园网：</strong><br>机子:”歪？帮我找学校的路由器！我要上B站！” –&gt; </p>
-<p>校园网的路由器:”我不认识你，凭什么……” –&gt; </p>
-<p><strong>校园网的路由器:”等等，学校路由器不就是我吗？你等下，我看下你是不是会员哈”</strong> –&gt; </p>
-<p>“vpn认证成功 “–&gt; </p>
-<p>校园网的路由器:”尊贵的客户…您向B站的请求已发出~ “ –&gt; </p>
-<p>机子:”收到B站返回的信息，正在生成网页” –&gt; </p>
-<p>我:”up主更新啦！爷青回！不歇了！”</p>
-</blockquote>
-<p>​    </p>
-<p>看这里你可能会担心vpn上网的速度可能不能满足普通的上网需求</p>
-<p>​    </p>
-<p>其实由于此时vpn链接的两个路由器其实是同一个路由器，不用绕远路找目标路由器</p>
-<p>这样就能够省去的大量的中间时间，因此速度还是可以的。</p>
-<p>​    </p>
-<p>最后发一下正常连联通，和挂vpn的校园网速度对比：</p>
-<p><img src="../pictures/%E5%85%B3%E4%BA%8E%E5%AD%A6%E6%A0%A1%E6%A0%A1%E5%9B%AD%E7%BD%91%E6%8C%82VPN%E8%A7%A3%E5%86%B3%E6%96%AD%E7%BD%91%E9%97%AE%E9%A2%98%E7%9A%84%E4%B8%AA%E4%BA%BA%E8%A7%A3%E8%AF%BB/%E8%81%94%E9%80%9Aspeedtest.png" alt="联通speedtest"></p>
-<p><em>使用联通上网用speedtest测试，速度还是非常可观的</em></p>
-<p>​    </p>
-<p><img src="../pictures/%E5%85%B3%E4%BA%8E%E5%AD%A6%E6%A0%A1%E6%A0%A1%E5%9B%AD%E7%BD%91%E6%8C%82VPN%E8%A7%A3%E5%86%B3%E6%96%AD%E7%BD%91%E9%97%AE%E9%A2%98%E7%9A%84%E4%B8%AA%E4%BA%BA%E8%A7%A3%E8%AF%BB/%E6%A0%A1%E5%9B%AD%E7%BD%91%E6%8C%82VPNspeedtest.png" alt="校园网挂VPNspeedtest"></p>
-<p><em>使用校园网挂vpn好吧……不过，这个速度其实还是够用的了</em></p>
-<p>​    </p>
-<p>​    </p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>自此，我尽我所能，大概讲了一下我的理解。由于基本功不扎实，上面的说法应该有不少问题，希望大佬及时指正！</p>
-<p>如有错误，还请各位读者原谅……</p>
-<p>​    </p>
-<p>​    </p>
-<p>​    </p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">科普</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/28/关于学校校园网挂VPN解决断网问题的个人解读/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-使用Heroku部署网页" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/17/使用Heroku部署网页/">使用Heroku部署网页</a>
-    </h1>
-  
-
-        
-        <a href="/2019/12/17/使用Heroku部署网页/" class="archive-article-date">
-  	<time datetime="2019-12-17T08:12:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-安装必要的包"><a href="#1-安装必要的包" class="headerlink" title="1.安装必要的包"></a>1.安装必要的包</h2><blockquote>
-<p>如：<br>dj-database-url<br>dj-static<br>static3<br>gunicorn</p>
-</blockquote>
-<h2 id="2-创建记录包列表的文件-requirements-txt"><a href="#2-创建记录包列表的文件-requirements-txt" class="headerlink" title="2.创建记录包列表的文件 requirements.txt"></a>2.创建记录包列表的文件 requirements.txt</h2><p><code>$ pip freeze &gt; requirements.txt</code></p>
-<h3 id="记得加入-psycopg2-gt-lt-2-6-1-gt"><a href="#记得加入-psycopg2-gt-lt-2-6-1-gt" class="headerlink" title="记得加入 psycopg2&gt;=&lt;2.6.1&gt;"></a>记得加入 psycopg2&gt;=&lt;2.6.1&gt;</h3><p>// &lt;&gt;表示不一定是版本号</p>
-<p>ps: windows系统好像不太一样</p>
-<h2 id="3-在-runtime-txt-指定-python-的版本"><a href="#3-在-runtime-txt-指定-python-的版本" class="headerlink" title="3.在 runtime.txt 指定 python 的版本"></a>3.在 runtime.txt 指定 python 的版本</h2><ul>
-<li>python –version    查看版本</li>
-<li>写进 runtime, 注意用小写</li>
-</ul>
-<h2 id="4-修改-settings-py-保证能够在-heroku-的服务器跑起来"><a href="#4-修改-settings-py-保证能够在-heroku-的服务器跑起来" class="headerlink" title="4.修改 settings.py 保证能够在 heroku 的服务器跑起来"></a>4.修改 settings.py 保证能够在 heroku 的服务器跑起来</h2><p>可以参照一下我在 learning_log 项目写的设置：</p>
-<pre><code>#Heroku设置
-if os.environ[&apos;HOME&apos;] == &apos;/app&apos;:
-    import dj_database_url
-    DATABASES = {
-        &apos;default&apos;: dj_database_url.config(default=&apos;postgres://localhost&apos;)
-    }
-
-    #让request.is_secure()承认X_Forward_Proto头
-    SECURE_PROXY_SSL_HEADER = (&apos;HTTP_X_FORWARDED_PROTO&apos;, &apos;https&apos;)
-
-    #支持所有的主机头(host header)
-    ALLOWED_HOSTS = [&apos;*&apos;]
-
-    #静态资产配置
-    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-    STATIC_URL = &apos;static/&apos;
-    STATIC_ROOT = os.path.join(PROJECT_ROOT, &apos;static&apos;)</code></pre><h2 id="5-创建启动进程的-Procfile"><a href="#5-创建启动进程的-Procfile" class="headerlink" title="5.创建启动进程的 Procfile"></a>5.创建启动进程的 Procfile</h2><p>不指定扩展名，P为大写</p>
-<pre><code>web: gunicorn learning_log.wsgi --log-file -</code></pre><ul>
-<li>指定服务器为 gunicorn，</li>
-<li>并且使用 wsgi.py 中的设置，</li>
-<li>告诉 Heroku 什么类型的事件写进日志<h2 id="6-创建静态文件目录"><a href="#6-创建静态文件目录" class="headerlink" title="6.创建静态文件目录"></a>6.创建静态文件目录</h2></li>
-</ul>
-<p>1.在 &lt;learning_log/learning_log/&gt; 中创建文件夹 static，<br>2.并且用 placeholder.txt 占位 // &lt;&gt;表示不一定为这个路径<br>3.txt 的内容随便写</p>
-<h2 id="7-使用-git-（没有的就先看怎么安装，这里不赘述）"><a href="#7-使用-git-（没有的就先看怎么安装，这里不赘述）" class="headerlink" title="7.使用 git （没有的就先看怎么安装，这里不赘述）"></a>7.使用 git （没有的就先看怎么安装，这里不赘述）</h2><p>编写 <code>.gitignore</code>文件，内容如下</p>
-<blockquote>
-<p>11_env/<br><strong>pycache</strong>/<br>*.sqlite3<br>// 内容不唯一</p>
-</blockquote>
-<p>再一顿基操：</p>
-<blockquote>
-<p>git init<br>git add .<br>git commit -am “”<br>git status<br>// 如果 app 已经创建好了<br>git push heroku master</p>
-</blockquote>
-<h2 id="8-推送到-Heroku"><a href="#8-推送到-Heroku" class="headerlink" title="8.推送到 Heroku"></a>8.推送到 Heroku</h2><p>代码如下：</p>
-<pre><code>heroku login
-// 登录之后
-heroku create
-git push heroku master</code></pre><h2 id="9-建立数据库"><a href="#9-建立数据库" class="headerlink" title="9.建立数据库"></a>9.建立数据库</h2><h3 id="code"><a href="#code" class="headerlink" title="code:"></a>code:</h3><pre><code>heroku run python manage.py migrate</code></pre><h3 id="10-有时候直接用-heroku-命令会报错，可以加-–remote-heroku-解决"><a href="#10-有时候直接用-heroku-命令会报错，可以加-–remote-heroku-解决" class="headerlink" title="10.有时候直接用 heroku 命令会报错，可以加 –remote heroku 解决"></a>10.有时候直接用 heroku 命令会报错，可以加 –remote heroku 解决</h3><h2 id="11-改进-Heroku-部署"><a href="#11-改进-Heroku-部署" class="headerlink" title="11.改进 Heroku 部署"></a>11.改进 Heroku 部署</h2><h3 id="创建超级用户"><a href="#创建超级用户" class="headerlink" title="创建超级用户"></a>创建超级用户</h3><h3 id="code-1"><a href="#code-1" class="headerlink" title="code:"></a>code:</h3><pre><code>heroku run bash
-ls
-python manage.py creaetesuperuser
-balabala...
-exit</code></pre><h3 id="优化-URL"><a href="#优化-URL" class="headerlink" title="优化 URL"></a>优化 URL</h3><pre><code>heroku apps:rename &lt;mps-learning-log&gt; // &lt;&gt;表示不唯一</code></pre><h2 id="12-确保项目安全"><a href="#12-确保项目安全" class="headerlink" title="12.确保项目安全"></a>12.确保项目安全</h2><h4 id="在setting-py中关闭调试模式，只允许-Heroku-托管"><a href="#在setting-py中关闭调试模式，只允许-Heroku-托管" class="headerlink" title="在setting.py中关闭调试模式，只允许 Heroku 托管"></a>在setting.py中关闭调试模式，只允许 Heroku 托管</h4><pre><code>#只允许 Heroku 托管这个项目
-ALLOWED_HOSTS = [&apos;*&apos;]
-DABUG = False</code></pre><p>推送并提交修改</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/17/使用Heroku部署网页/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-《算法图解》内容概要" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/17/《算法图解》内容概要/">《算法图解》内容概要</a>
-    </h1>
-  
-
-        
-        <a href="/2019/12/17/《算法图解》内容概要/" class="archive-article-date">
-  	<time datetime="2019-12-17T06:50:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="浅谈一下《算法图解》"><a href="#浅谈一下《算法图解》" class="headerlink" title="浅谈一下《算法图解》"></a>浅谈一下《算法图解》</h1><p><em>打算系统的学一下算法，上个月刚看完《算法图解》，这周刚好抽出时间，来写一写该书的总结。</em></p>
-<p><em>本文打算先大致谈谈本书的特点和大概内容，对于个人比较感兴趣的地方再稍微做展开，最后谈谈本书给我的感受</em></p>
-<h2 id="本书特点"><a href="#本书特点" class="headerlink" title="本书特点"></a>本书特点</h2><h3 id="作为一本面向完全初学者的算法书，本书旨在，用最简单的表达，为读者介绍算法学习中常见的几个概念，并且介绍了几个比较基础的算法，最后再简要提及了几个算法，引导读者进一步学习。"><a href="#作为一本面向完全初学者的算法书，本书旨在，用最简单的表达，为读者介绍算法学习中常见的几个概念，并且介绍了几个比较基础的算法，最后再简要提及了几个算法，引导读者进一步学习。" class="headerlink" title="作为一本面向完全初学者的算法书，本书旨在，用最简单的表达，为读者介绍算法学习中常见的几个概念，并且介绍了几个比较基础的算法，最后再简要提及了几个算法，引导读者进一步学习。"></a>作为一本面向完全初学者的算法书，本书旨在，用最简单的表达，为读者介绍算法学习中常见的几个概念，并且介绍了几个比较基础的算法，最后再简要提及了几个算法，引导读者进一步学习。</h3><h2 id="大致内容"><a href="#大致内容" class="headerlink" title="大致内容"></a>大致内容</h2><h3 id="全书分为11章，脉络清晰。"><a href="#全书分为11章，脉络清晰。" class="headerlink" title="全书分为11章，脉络清晰。"></a>全书分为11章，脉络清晰。</h3><ul>
-<li>第一章介绍了一下<code>大O表示法</code>和<code>二分查找</code>；</li>
-<li>第二章开始解释<code>选择排序</code>，并且解释了一下内存的工作原理，以及<code>数组</code>和<code>链表</code>的概念；</li>
-<li>第三章开始介绍的简洁优雅的基础算法—— <code>递归</code>；</li>
-<li>第四章用<code>快速排序</code>算法的例子，介绍了一下 <code>分而治之</code> 的算法思想；</li>
-<li>第五章主要介绍了<code>散列表</code>的算法实现（通讯录）；</li>
-<li>第六章介绍了<code>广度优先搜索</code>算法，顺便解释了“<code>图</code>”的概念；</li>
-<li>第七章趁热打铁，介绍了<code>狄克斯特拉</code>算法，作为广度优先搜索的进阶算法；</li>
-<li>第八章又介绍了另外一种耳熟能详的算法——<code>贪婪算法</code>；</li>
-<li>第九章以背包问题的优化入手，介绍了<code>动态规划</code>的算法思想；</li>
-<li>第十章介绍了<code>k最邻算法</code>，这个算法是很多推荐系统和机器学习的基础算法；</li>
-<li>第十一章的内容比较杂，简单介绍了很多进阶的算法概念，为读者提供了进一步学习的方向。</li>
-</ul>
-<h3 id="下面贴上我的思维导图"><a href="#下面贴上我的思维导图" class="headerlink" title="下面贴上我的思维导图"></a>下面贴上我的思维导图</h3><p><img src="../pictures/%E3%80%8A%E7%AE%97%E6%B3%95%E5%9B%BE%E8%A7%A3%E3%80%8B%E5%86%85%E5%AE%B9%E6%A6%82%E8%A6%81/%E5%AF%BC%E5%9B%BE.png" alt="《算法图解》导图"></p>
-<h5 id="该图作为参考脉络，对于有兴趣的概念各位可以逐一去了解。"><a href="#该图作为参考脉络，对于有兴趣的概念各位可以逐一去了解。" class="headerlink" title="该图作为参考脉络，对于有兴趣的概念各位可以逐一去了解。"></a>该图作为参考脉络，对于有兴趣的概念各位可以逐一去了解。</h5><h2 id="下面来聊一聊几个有趣的点"><a href="#下面来聊一聊几个有趣的点" class="headerlink" title="下面来聊一聊几个有趣的点"></a>下面来聊一聊几个有趣的点</h2><h2 id="大O表示法"><a href="#大O表示法" class="headerlink" title="大O表示法"></a>大O表示法</h2><blockquote>
-<h4 id="大O表示法是一种描述算法运行速度的方法。它指出了最坏的情况下算法运算量与数据量之间的关系。我们一般通过它来比较不同算法的运行效率。常见表示为O-p-n"><a href="#大O表示法是一种描述算法运行速度的方法。它指出了最坏的情况下算法运算量与数据量之间的关系。我们一般通过它来比较不同算法的运行效率。常见表示为O-p-n" class="headerlink" title="大O表示法是一种描述算法运行速度的方法。它指出了最坏的情况下算法运算量与数据量之间的关系。我们一般通过它来比较不同算法的运行效率。常见表示为O(p(n))"></a>大O表示法是一种描述算法运行速度的方法。它指出了最坏的情况下算法运算量与数据量之间的关系。我们一般通过它来比较不同算法的运行效率。常见表示为<code>O(p(n))</code></h4><p>ps:所以为什么是用“O”？</p>
-</blockquote>
-<h5 id="举个例子："><a href="#举个例子：" class="headerlink" title="举个例子："></a>举个例子：</h5><blockquote>
-<p>如果我要在一张纸上画四个方格，最笨的方法是在纸上一个格子一个格子的画，比较好的方法是将整张纸对折两次。</p>
-</blockquote>
-<p>于是前者的大O表示为<code>O(n)</code>；后者的大O表示为<code>O(log n)</code></p>
-<h6 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h6><ul>
-<li>“n”表示数据量，比如本问的n=4，O(n)表示第一种方法的运行时间为n</li>
-<li>“log n”表示底数为2的对数函数，比如本问第二种方法的运算时间为”log 4” = “2” （很多算法问题用到的底数都是2）</li>
-<li>大O表示法不考虑常数，比如说问题变成“在两张纸上各画四个方格”那么上述两种方法的大O表示法不变</li>
-</ul>
-<p>显然，<code>O(log n)</code>要比<code>O(n)</code>简单地多。实际上，<code>O(log n)</code>已经是运算量非常小的算法了。</p>
-<h5 id="常见的大O表示法"><a href="#常见的大O表示法" class="headerlink" title="常见的大O表示法"></a>常见的大O表示法</h5><p>这样看来大O表示法的种类有很多，但是常见的大O表示法其实并不太多，下面大致罗列一下。</p>
-<ul>
-<li>O(log n) 对数时间，比如二分查找就是这种算法</li>
-<li>O(n) 线性时间</li>
-<li>O(n * log n) 这样的算法包括快速排序，后面会讲到</li>
-<li>O(n ^ 2) 包括选择排序，后面也会讲到</li>
-<li>O(n!) n的阶乘，一种非常慢的算法，但是对于NP问题无可奈何的时候也可以采用的方法，但也可以用贪婪算法等近似求解代替正解</li>
-</ul>
-<h6 id="关于大O表示法还有很多概念这里不一一展开，希望感兴趣的同学自行了解。"><a href="#关于大O表示法还有很多概念这里不一一展开，希望感兴趣的同学自行了解。" class="headerlink" title="关于大O表示法还有很多概念这里不一一展开，希望感兴趣的同学自行了解。"></a>关于大O表示法还有很多概念这里不一一展开，希望感兴趣的同学自行了解。</h6><h2 id="聊聊排序"><a href="#聊聊排序" class="headerlink" title="聊聊排序"></a>聊聊排序</h2><blockquote>
-<p>给定一个无序的数组，怎样才能得到一个排好序的数组呢？这是很常见的一个问题。<br>这个问题看似简单但是处理起来很麻烦，因为我们必须逐个逐个元素进行确认。</p>
-</blockquote>
-<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><p>比较简单的一个方法是<code>选择排序</code>。它的原理如下：</p>
-<p>比如数组为{2, 6, 8, 9, 5, 7}，需要从大到小进行排序。可以对数组中的每个元素进行比较，得到最大值，放到新数组的首位；后面对剩下的元素重复上诉操作，把得到的最大值放在新数组的后一位。于是我们就得到了拍过序的新数组{9, 8, 7, 5, 6, 2}。</p>
-<h6 id="这种排序方法就是选择排序"><a href="#这种排序方法就是选择排序" class="headerlink" title="这种排序方法就是选择排序"></a>这种排序方法就是选择排序</h6><p>由于这种算法需要找n次最值，每次找最值需要比较n次，所以它的运行时间为<code>O(n ^ 2)</code>。<br>那么问题来了：各位同学可能觉得这个结果不太对劲。因为找完一次最值之后，下一次只需比较n-1次就可以了，所以运行时间应该为<code>O(n + (n-1) + (n-2) + ... + 1)</code>才对<br>而<code>(n + (n-1) + (n-2) + ... + 1)</code>是有个等差数列，等效于<code>(n * (n+1) / 2)</code>，由于大O表示法无视常数，所以最后的运算时间则为<code>O(n * n)</code><br>看到这里，你可能会觉得大O表示法不科学，因为它无法准确表示运算时间，但是大O表示法旨在表示算法复杂度，不够抽象反而有失偏颇。<br>另外，大O表示法表示算法最遭的运行时间，而实际计算时间的时候会用“平均运行时间”来表示，有兴趣的同学可以了解一下。</p>
-<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">概要</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/12/17/《算法图解》内容概要/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/25/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/25/hello-world/" class="archive-article-date">
-  	<time datetime="2019-10-25T14:28:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>非常感谢你点进了这个网站，点开了这篇博客。希望这个博客以后更新的文章，可以对你提供帮助。</em></p>
-<h1 id="Q-为什么要写博客？"><a href="#Q-为什么要写博客？" class="headerlink" title="Q:为什么要写博客？"></a>Q:为什么要写博客？</h1><p>####1. 记录一下自己的学习路程，分享一下个人经验。<br>####2. 总结一下自己某个时段做过的事情，类似个人笔记。<br>####3. 避免自己咕咕咕，给自己一个继续学习的理由。</p>
-<h1 id="Q-在这里你能看到什么"><a href="#Q-在这里你能看到什么" class="headerlink" title="Q:在这里你能看到什么?"></a>Q:在这里你能看到什么?</h1><p>####1. 关于各种乱七八糟的计算机技术类的帖子<br>####2. 关于我杂七杂八学习的总结笔记<br>####3. 个人的读书笔记或者随笔<code>一般是ACG相关</code></p>
-<p>\</p>
-<blockquote>
-<p>最后，路漫漫其修远兮，吾将上下而求索！</p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/25/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -1727,8 +400,8 @@ DABUG = False</code></pre><p>推送并提交修改</p>
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
