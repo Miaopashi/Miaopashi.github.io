@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>为Windows Terminal配置Ubuntu系统 | MPS的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近掘金上看了一篇文章，简单介绍了安装WindowsTerminal以及LinuxUbuntu之后，进行基本配置改善shell外观。我原来也用过windows的ubuntu子系统，抱着改善一下shell外观的念头，大概跟着做了一下，遇到了一些问题，记录一下。  掘金文章链接：https://juejin.im/post/6865596788490338311  ​      首先，安装Window">
+  <meta name="description" content="最近掘金上看了一篇文章，简单介绍了安装WindowsTerminal以及LinuxUbuntu之后，进行基本配置改善shell外观。我原来也用过windows的ubuntu子系统，抱着改善一下shell外观的念头，大概跟着做了一下，遇到了一些问题，记录一下。  文章链接：https://juejin.im/post/6865596788490338311  ​      第一步，安装Windows">
 <meta name="keywords" content="WSL,博客搬运">
 <meta property="og:type" content="article">
 <meta property="og:title" content="为Windows Terminal配置Ubuntu系统">
 <meta property="og:url" content="http://yoursite.com/2020/09/21/为Windows-Terminal配置Ubuntu系统/index.html">
 <meta property="og:site_name" content="MPS的个人博客">
-<meta property="og:description" content="最近掘金上看了一篇文章，简单介绍了安装WindowsTerminal以及LinuxUbuntu之后，进行基本配置改善shell外观。我原来也用过windows的ubuntu子系统，抱着改善一下shell外观的念头，大概跟着做了一下，遇到了一些问题，记录一下。  掘金文章链接：https://juejin.im/post/6865596788490338311  ​      首先，安装Window">
+<meta property="og:description" content="最近掘金上看了一篇文章，简单介绍了安装WindowsTerminal以及LinuxUbuntu之后，进行基本配置改善shell外观。我原来也用过windows的ubuntu子系统，抱着改善一下shell外观的念头，大概跟着做了一下，遇到了一些问题，记录一下。  文章链接：https://juejin.im/post/6865596788490338311  ​      第一步，安装Windows">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-09-21T12:29:01.677Z">
+<meta property="og:updated_time" content="2020-09-22T05:56:24.614Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="为Windows Terminal配置Ubuntu系统">
-<meta name="twitter:description" content="最近掘金上看了一篇文章，简单介绍了安装WindowsTerminal以及LinuxUbuntu之后，进行基本配置改善shell外观。我原来也用过windows的ubuntu子系统，抱着改善一下shell外观的念头，大概跟着做了一下，遇到了一些问题，记录一下。  掘金文章链接：https://juejin.im/post/6865596788490338311  ​      首先，安装Window">
+<meta name="twitter:description" content="最近掘金上看了一篇文章，简单介绍了安装WindowsTerminal以及LinuxUbuntu之后，进行基本配置改善shell外观。我原来也用过windows的ubuntu子系统，抱着改善一下shell外观的念头，大概跟着做了一下，遇到了一些问题，记录一下。  文章链接：https://juejin.im/post/6865596788490338311  ​      第一步，安装Windows">
   
     <link rel="alternative" href="/atom.xml" title="MPS的个人博客" type="application/atom+xml">
   
@@ -177,16 +177,16 @@
       
         <p><em>最近掘金上看了一篇文章，简单介绍了安装WindowsTerminal以及LinuxUbuntu之后，进行基本配置改善shell外观。我原来也用过windows的ubuntu子系统，抱着改善一下shell外观的念头，大概跟着做了一下，遇到了一些问题，记录一下。</em></p>
 <blockquote>
-<p>掘金文章链接：<a href="https://juejin.im/post/6865596788490338311" target="_blank" rel="noopener">https://juejin.im/post/6865596788490338311</a></p>
+<p>文章链接：<a href="https://juejin.im/post/6865596788490338311" target="_blank" rel="noopener">https://juejin.im/post/6865596788490338311</a></p>
 </blockquote>
 <p>​     </p>
-<p>首先，安装WindowsTerminal和Ubuntu是没有问题的。打开控制面板里面的Linux子系统功能也没有问题。另外说一下，我安装的是Ubuntu20.04，毕竟技术学新不学旧嘛。</p>
-<p>微软商店安装完上面两个应用之后，打开WindowsTerminal，就可以选择Ubuntu窗口了。于是下一步就是更换ubuntu的软件源，换上镜像源。</p>
+<p>第一步，安装WindowsTerminal和Ubuntu是没有问题的。打开控制面板里面的Linux子系统功能也没有问题。另外说一下，我安装的是Ubuntu20.04，毕竟技术学新不学旧嘛。</p>
+<p>微软商店安装完上面两个应用之后，打开WindowsTerminal，就可以选择Ubuntu窗口了。于是下一步，给ubuntu的软件源换上镜像源。</p>
 <p>​     </p>
-<h2 id="关于linux的vi文本编辑器的使用方法"><a href="#关于linux的vi文本编辑器的使用方法" class="headerlink" title="关于linux的vi文本编辑器的使用方法"></a>关于linux的vi文本编辑器的使用方法</h2><p>在linux下可以使用vi或者vim，进行文本编辑。大名鼎鼎的vim自然不用说，鉴于这款上古神器出名的难度，我选择这次先学习一下vi。</p>
+<h2 id="关于linux的vi文本编辑器的使用方法"><a href="#关于linux的vi文本编辑器的使用方法" class="headerlink" title="关于linux的vi文本编辑器的使用方法"></a>关于linux的vi文本编辑器的使用方法</h2><p>在linux下可以使用vi或者vim，进行文本编辑。大名鼎鼎的vim自然不用说，vim和vi的基本操作基本一致，但是前者的特殊操作多得多而且非常复杂，我选择这次先学习一下vi。</p>
 <p>找到了一篇指导博客，整理了Linux的文件编辑命令。<br>博客地址：<a href="https://blog.csdn.net/u013142781/article/details/50735470" target="_blank" rel="noopener">https://blog.csdn.net/u013142781/article/details/50735470</a></p>
 <p>​     </p>
-<p>关于这篇博客简单概括一下。</p>
+<p>关于上面这篇博客简单概括一下。</p>
 <p>vi编辑器有3种编辑模式：命令行模式、文本输入模式、末行模式。</p>
 <p>使用vi命令打开文本之后，默认进入命令行模式。</p>
 <p>命令行模式下，输入文本命令（i、l、a等等）会跳转至对应的文本输入模式，此时就可以开始文本编辑了。</p>
@@ -199,10 +199,16 @@
 <p>然后，我要输入指定软件源的语句，于是按下i进入文本输入模式<br><code>i</code><br>接着，在合适的位置把复制的文本粘贴进去<br><code>Linux按右键粘贴</code><br>如果想要删除多行，可以在末行模式使用命令<br><code>：m, n de</code><br>即可删除m到n行的文本<br>最后，写入文件并且退出<br><code>:wq!</code></p>
 <p>然后，我要输入指定软件源的语句，于是按下i进入文本输入模式<br>i<br>接着，在合适的位置把复制的文本粘贴进去<br>Linux按右键粘贴<br>如果想要删除多行，可以在末行模式使用命令<br>：m, n de<br>即可删除m到n行的文本<br>最后，写入文件并且退出<br>:wq!</p>
 <p>​     </p>
-<p>添加了软件源之后，开始安装shell终端，很简单 sudo apt install zsh 即可。<strong>开始安装oh-my-zsh，这里开始遇到了一些问题。</strong></p>
-<p>安装oh-my-zsh:<br>sh -c “$(curl -fsSL <a href="https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;" target="_blank" rel="noopener">https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</a></p>
-<p>​     </p>
-<h2 id="报错：github：443端口拒绝访问"><a href="#报错：github：443端口拒绝访问" class="headerlink" title="报错：github：443端口拒绝访问"></a>报错：github：443端口拒绝访问</h2><p>一开始，我以为是这个地址有问题。上github的ohMyZsh项目上看了一下，发现命令没有问题。<br>然后发现原来curl的地址被墙了……</p>
+<p>添加了软件源之后，开始安装shell终端，很简单 sudo apt install zsh 即可。</p>
+<p>然后这里我遇到了一个小问题，系统提示找不到zsh这个包。搜索了一下，发现新装的Ubuntu需要更新下apt的repository cache。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
+
+<p>然后再安装即可~</p>
+<p>参考文章：<a href="https://itsfoss.com/unable-to-locate-package-error-ubuntu/" target="_blank" rel="noopener">https://itsfoss.com/unable-to-locate-package-error-ubuntu/</a></p>
+<h2 id="安装oh-my-zsh时，又遇到了一些问题。"><a href="#安装oh-my-zsh时，又遇到了一些问题。" class="headerlink" title="安装oh-my-zsh时，又遇到了一些问题。"></a><strong>安装oh-my-zsh时，又遇到了一些问题。</strong></h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</span><br></pre></td></tr></table></figure>
+
+<p><strong>这里直接报错：github：443端口拒绝访问</strong></p>
+<p>一开始，我以为是这个地址有问题。上github的ohMyZsh项目上看了一下，发现命令没有问题。<br>然后发现原来curl的地址被墙了……</p>
 <p>但是我明明是开着梯子的，为啥就没法curl下来？？</p>
 <p>原来shell窗口需要自己设置代理，根据另外一篇博客，终于解决了我的问题。<br>shell设置代理参考文章：<a href="https://zhuanlan.zhihu.com/p/115450863" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/115450863</a></p>
 <p>​     </p>
@@ -479,6 +485,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">教程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
@@ -492,10 +502,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">教程</a>
               </li>
              
               <li class="article-tag-list-item">
