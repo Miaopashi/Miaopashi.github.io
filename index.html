@@ -498,10 +498,14 @@
 <h2 id="C2-Java中的字符串"><a href="#C2-Java中的字符串" class="headerlink" title="C2-Java中的字符串"></a>C2-Java中的字符串</h2><h4 id="字符串是什么"><a href="#字符串是什么" class="headerlink" title="字符串是什么"></a>字符串是什么</h4><p><code>String</code>对象位于<code>java.lang</code>包中, 默认情况下该包自动导入所有的程序<br>创建<code>String</code>对象方法:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String s1 = <span class="string">"imooc"</span>;</span><br><span class="line">String s2 = <span class="keyword">new</span> String();</span><br><span class="line">String s3 = <span class="keyword">new</span> String(<span class="string">"imooc"</span>);</span><br></pre></td></tr></table></figure>
 
+
+
 <h4 id="字符串的不变性"><a href="#字符串的不变性" class="headerlink" title="字符串的不变性"></a>字符串的不变性</h4><p><code>String</code>对象创建后不能修改, 只能直接改变指向的内存, 相当于整个变量对应的内容换掉<br>如果需要可以改变的字符串,可以使用<code>StringBuffer</code>或者<code>StringBuilder</code><br>每次<code>new</code>一个<code>String</code>就是一个新的对象, 所以<code>==</code>的结果为<code>flase</code>, 比较两个字符串内容是否相同时, 应该使用<code>equals()</code>方法, 注意区分<code>==</code>和<code>equals()</code></p>
 <h4 id="String类常用的方法"><a href="#String类常用的方法" class="headerlink" title="String类常用的方法"></a><code>String</code>类常用的方法</h4><p><code>String</code>类提供了很多处理字符串的方法, 获取长度,截取字符串,字符串转换为大小写,字符串分割等等<br>可以参照菜鸟教程的<code>Java中String类</code>的说明:<br><a href="https://www.runoob.com/java/java-string.html" target="_blank" rel="noopener">https://www.runoob.com/java/java-string.html</a><br>ps: <code>equals()</code>, <code>indexOf()</code>, <code>substring()</code>, <code>charAt()</code>用的比较多<br>pps: <code>==</code>判断两个对象内存的地址是否相同, <code>equals()</code>比较两个对象的内容是否相等<br>关于<code>getBytes()</code>方法, 由于汉字有两个字节而且会溢出, 所以转换后得到的字节数是两个负数, <code>asc码</code>则转化为一个数</p>
 <h4 id="StringBuilder类"><a href="#StringBuilder类" class="headerlink" title="StringBuilder类"></a><code>StringBuilder</code>类</h4><p>修改字符串时不会额外创建一个对象, <code>StringBuffer</code>是线程安全的, <code>StringBuilder</code>则没有但性能更高, 一般课表字符串对象优先考虑<code>StringBuilder</code><br>定义: </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">StringBuilder str1 = <span class="keyword">new</span> StringBuilder();  <span class="comment">// 参数""可选</span></span><br></pre></td></tr></table></figure>
+
+
 
 <h4 id="StringBuilder类的常用方法"><a href="#StringBuilder类的常用方法" class="headerlink" title="StringBuilder类的常用方法"></a><code>StringBuilder类</code>的常用方法</h4><p><code>append()</code>, <code>inset()</code>方法比较常用<br>同样, 可以参照菜鸟教程:<br><a href="https://www.runoob.com/java/java-stringbuffer.html" target="_blank" rel="noopener">https://www.runoob.com/java/java-stringbuffer.html</a></p>
 <h2 id="C3-Java中的常用类"><a href="#C3-Java中的常用类" class="headerlink" title="C3-Java中的常用类"></a>C3-Java中的常用类</h2><h4 id="包装类"><a href="#包装类" class="headerlink" title="包装类"></a>包装类</h4><p>为了让基本数据类型(<code>int</code> <code>double</code> <code>float</code>等)具备<strong>对象的特性</strong>, 如属性方法等, Java提供的<strong>类</strong>, (变量由一个数值变成对象)</p>
@@ -519,6 +523,7 @@
 <li>调用包装类的<code>ParseXxx</code>静态方法  (比如: <code>int a = Integer.parseInt(str);</code>)</li>
 <li>调用包装类的<code>valueOf()</code>方法转换为对应的包装类, 再自动拆箱  (比如: <code>int a = Integer.valueOf(str);</code>)</li>
 </ol>
+<p>​    </p>
 <h4 id="使用Date和SimpleDateFormat类表示时间"><a href="#使用Date和SimpleDateFormat类表示时间" class="headerlink" title="使用Date和SimpleDateFormat类表示时间"></a>使用<code>Date</code>和<code>SimpleDateFormat</code>类表示时间</h4><p><code>Date类</code>在<code>java.util</code>包中, 用于获取当前时间, <strong>默认无参构造方法初始化</strong><br><code>SimpleDateFormat类</code>在<code>java.text</code>包中, 可以将日期转换为指定格式的文本<br>示例:</p>
 <ol>
 <li><p>使用<code>format()</code>转换日期的显示格式</p>
@@ -535,6 +540,7 @@
 <p>parse根据指定的格式反过来读取字符串, 从而获得日期<br>ps:<br>调用SimpleDateFormat对象的parse()方法可能会出现转换异常, ParseException, 因此需要异常处理<br>使用Date类需要导入java.util包, 使用SimpleDateFormat类需要导入java.text包</p>
 </li>
 </ol>
+<p>​    </p>
 <h4 id="Calendar类的应用"><a href="#Calendar类的应用" class="headerlink" title="Calendar类的应用"></a><code>Calendar类</code>的应用</h4><p><code>Date类</code>只要用于获取当前时间, <strong>推荐使用<code>Calendar类</code>进行时间和日期的处理</strong><br><code>java.util.Calendar类</code>是一个<strong>抽象类</strong>, 可调用<code>getInstance()</code>静态方法获取<code>Calendar对象</code>, 如 <code>Calendar c = Calenar.getInstance();</code></p>
 <h6 id="常用方法和属性"><a href="#常用方法和属性" class="headerlink" title="常用方法和属性:"></a>常用方法和属性:</h6><ol>
 <li><code>Calendar类</code>有<code>YEAR</code>,<code>MONTH</code>,<code>DAY_OF_MONTH</code>等静态常量, </li>
@@ -560,6 +566,8 @@
 <h4 id="List接口："><a href="#List接口：" class="headerlink" title="List接口："></a>List接口：</h4><p>List接口的实现类-<code>ArrayList类</code>(类似python列表)<br><code>ArrayList</code>是<strong>数组</strong>序列, 接口和实现类的关系可以参照: </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List test = <span class="keyword">new</span> ArrayList();</span><br></pre></td></tr></table></figure>
 
+
+
 <h5 id="下面说明一下List增删改查用到的方法"><a href="#下面说明一下List增删改查用到的方法" class="headerlink" title="下面说明一下List增删改查用到的方法:"></a>下面说明一下List增删改查用到的方法:</h5><h5 id="1-为列表添加对象"><a href="#1-为列表添加对象" class="headerlink" title="1. 为列表添加对象:"></a>1. 为列表添加对象:</h5><p><code>&lt;ls&gt;.add()</code>方法可以把一个对象添加到List中,<br><code>&lt;ls&gt;.get()</code>方法可以根据索引从List中取出对象,<br>※ 使用add方法, 把对象存入集合时, 默认会变成Object类型.<br>※ 所以get方法取出对象时, 需要类型转化, 在前面加 (强转类型)<br><code>&lt;ls&gt;.add(index, element)</code>方法可以把对象添加到指定的位置<br>※ 如果index大于ls的长度, 会报错IndexOutOfBoundException<br><code>&lt;ls&gt;.addAll()</code>方法可以把一个List添加到ls中,<br><code>Arrays.asList()</code>方法可以把一个数组转化为一个List.<br><code>&lt;ls&gt;.addAll(index, List)</code> 可以指定List插入的位置</p>
 <h5 id="2-为列表修改对象"><a href="#2-为列表修改对象" class="headerlink" title="2. 为列表修改对象:"></a>2. 为列表修改对象:</h5><h6 id="遍历列表的三个方法"><a href="#遍历列表的三个方法" class="headerlink" title="遍历列表的三个方法:"></a><strong>遍历列表的三个方法:</strong></h6><ol>
 <li><p><code>&lt;ls&gt;.size()</code>方法可以取得List的长度, 用于遍历List;</p>
@@ -578,6 +586,8 @@
 
 <h5 id="3-为列表删除对象"><a href="#3-为列表删除对象" class="headerlink" title="3. 为列表删除对象:"></a>3. 为列表删除对象:</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;ls&gt;.remove(index);  <span class="comment">// 删除相应索引位置的元素, 不能超出长度范围</span></span><br><span class="line">&lt;ls&gt;.remove(element);  <span class="comment">// 删除指定的对象</span></span><br><span class="line">&lt;ls&gt;.removeAll(Collection ls)  <span class="comment">// 删除指定集合的所有元素, 类似求差</span></span><br></pre></td></tr></table></figure>
 
+
+
 <h4 id="使用泛型-Generic-为列表处理不是对象的变量-比如字符串等等"><a href="#使用泛型-Generic-为列表处理不是对象的变量-比如字符串等等" class="headerlink" title="使用泛型(Generic), 为列表处理不是对象的变量(比如字符串等等):"></a>使用泛型(Generic), 为列表处理不是对象的变量(比如字符串等等):</h4><p><code>&lt;ls&gt;.add(OtherClass)</code> 不会报错, 但是后面使用<code>forEach</code>打印的时候, 使用了<strong>强制类型转换</strong>, <code>String</code>不能转化为<code>Course</code>, 所以还是会报错. <strong>为了能够避免向集合加入其它类型的对象, 就要使用到泛型.</strong><br>※ 集合中的元素, 可以使用<strong>任意类型</strong>的对象(对象的引用), 把放入的对象当做<code>Object</code>处理; <strong>泛型</strong>则是规定了某个<strong>集合只可以存放特定类型</strong>的对象及其子类型的对象, 可以<strong>直接指定类型</strong>获取集合元素.<br>定义: </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;Class&gt; ls;  <span class="comment">// 使用&lt;Class&gt;指定泛型类型, 界定符一般要使用private</span></span><br></pre></td></tr></table></figure>
 
@@ -587,7 +597,54 @@
 <p>※ 此时<code>get()</code>方法或者遍历ls时, 不需要强制转换类型了<br>※ 指定泛型之后的集合, 还能存储泛型的<strong>子类型</strong>的对象实例, 即可以<code>&lt;ls&gt;.add(new 
 ChildClass());</code><br>※ <strong>泛型只能使用引用类型</strong>, 不能使用基本类型(int,char …), 如果有必要也只能用包装类, 指定泛型为包装类之后<code>&lt;ls&gt;.add(temp)</code> 会对<u>基本类型temp变量</u>进行<strong>隐式</strong>类型转换 (比如 int 变成 Interger).</p>
 <h4 id="Set接口："><a href="#Set接口：" class="headerlink" title="Set接口："></a>Set接口：</h4><p><code>Set</code>接口实现类–<code>HashSet类</code>(类似数学里面的集合)<br>※ Set<strong>无序</strong>并且<strong>不可重复</strong><br>※ Set接口同样提供<code>add()</code>, <code>remove()</code>, <code>removeAll()</code>, <code>size()</code>等方法.<br>※ 但是由于Set无序, 所以<u>不提供<code>set()</code>方法和<code>get()</code>方法</u>, 如果想要调用Set内部的元素, 可以使用<code>foreach</code>和<code>Iterator</code>的方式遍历Set, 不过要注意Set是无序的, 多次遍历的顺序会改变.<br>※ Set也可以使用泛型, 使用方法同Collection<br>※ Set中可以添加空对象null</p>
-<p>未完待续</p>
+<p>​          </p>
+<h2 id="C5-Java中的集合框架-中"><a href="#C5-Java中的集合框架-中" class="headerlink" title="C5  Java中的集合框架(中)"></a>C5  Java中的集合框架(中)</h2><h3 id="Map-amp-HashMap"><a href="#Map-amp-HashMap" class="headerlink" title="Map &amp; HashMap"></a>Map &amp; HashMap</h3><p><code>Map接口</code>提供了映射关系(键值对), 键值对以<code>Entry类</code>存在, <code>key</code>不可重复, <code>Map</code>支持泛型 比如: <code>Map&lt;typeOfK, typeOfV&gt;</code><br><code>HashMap类</code>是<code>Map</code>的一个实现类, <code>HashMap</code>中的<code>Entry对象（单个键值对）</code>无序排列, 基于哈希表实现, <code>Key</code>和<code>value</code>值可以为null, 不过Key为null时不能重复.</p>
+<h3 id="Map-的增删改查"><a href="#Map-的增删改查" class="headerlink" title="Map 的增删改查:"></a>Map 的增删改查:</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;map&gt;.get(Key);  <span class="comment">// 返回Key的索引结果, 没有找到Key则放回null</span></span><br><span class="line">&lt;map&gt;.put(Key, value);  <span class="comment">// 添加映射, 注意要符合原来定义的泛型</span></span><br><span class="line">&lt;map&gt;.size();  <span class="comment">// 返回map的容量</span></span><br><span class="line">&lt;map&gt;.keySet();  <span class="comment">// 返回map中所有key的Set集合</span></span><br></pre></td></tr></table></figure>
+
+<p>※ keySet方法返回Set对象(有序)之后, 可以进一步用来遍历等操作<br>※ keyList()等方法的用法类似</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;map&gt;.remove(key);  <span class="comment">// 删除Map中的映射</span></span><br><span class="line">&lt;map&gt;.entrySet();  <span class="comment">// 返回所有键值对的Set集合</span></span><br></pre></td></tr></table></figure>
+
+<p>※ 使用entrySet()返回的对象需要制定泛型, 比如: <code>Set&lt;Entry&lt;String, Student&gt;&gt; entrySet = students.entrySet();</code><br>※ 当一个类类型定义过泛型之后, 每次调用该类都要注意是否有写该类的泛型<br>※ <code>Entry</code>对象, 使用<code>getKey()</code>方法获取键, 使用<code>getValue()</code>方法获取值, 一个entry就是一个键值对</p>
+<p>​                </p>
+<h2 id="C6-Java中的集合框架-下"><a href="#C6-Java中的集合框架-下" class="headerlink" title="C6  Java中的集合框架(下)"></a>C6  Java中的集合框架(下)</h2><h3 id="检测某个对象是否包含在序列内"><a href="#检测某个对象是否包含在序列内" class="headerlink" title="检测某个对象是否包含在序列内"></a>检测某个对象是否包含在序列内</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;ls&gt;.contains(obj);  <span class="comment">// 检测一个List内是否包含对象obj, 存储的内容相同不代表对象相同</span></span><br></pre></td></tr></table></figure>
+
+<p>※ <code>List</code>对象的<code>contains()</code>方法 相当于遍历序列, 把序列中的每一个元素使用一次<code>equals(obj)</code>, 进行判断, <code>equals方法</code>可以参照前面第二季的笔记<br>※ 可以通过重写(<code>@override</code>)<code>equals()</code>改变<code>contains()</code>的判断逻辑, 比如说比较两个对象的<code>name属性</code>是否相等, 从而找到序列中有相同name属性的元素<br>※ 使用<code>&lt;ls&gt;.containsAll(Collection&lt;?&gt; c)</code>可以实现检测一个序列内是否包含多个对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;set&gt;.contains(obj);  <span class="comment">// 检测一个Set内是否包含对象obj</span></span><br></pre></td></tr></table></figure>
+
+<p>※ 注意<code>Set</code>对象的<code>contains</code>方法, 会先调用<code>hashCode</code>方法。<strong>在判断两个对象的哈希码是否相同的情况下,  再调用equals方法判断两个对象的值是否相等</strong>.<br>※ 同样可以通过重写的<code>hashCode方法</code>和<code>equals方法</code>, 自定义的Set对象的contains方法.<br>※ <code>IDE</code>可以提供<code>hashCode</code>和<code>equals</code>方法的<em>重写模板</em></p>
+<h3 id="获取序列中元素的位置"><a href="#获取序列中元素的位置" class="headerlink" title="获取序列中元素的位置"></a>获取序列中元素的位置</h3><p>使用<code>indexOf方法</code>，<em>获取序列中某元素的索引位置</em></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;collection&gt;.indexOf(sth1)</span><br></pre></td></tr></table></figure>
+
+<h5 id="indexOf方法实现机制："><a href="#indexOf方法实现机制：" class="headerlink" title="indexOf方法实现机制："></a>indexOf方法实现机制：</h5><ol>
+<li>遍历序列内部的元素，调用equals方法；</li>
+<li>如果出现了相同的元素，就放回序列中首个对应元素的索引。</li>
+<li>如果无匹配结果，则返回-1。<br>ps: 使用lastIndexOf方法，获取序列中某个元素最后一次出现的索引位置。</li>
+</ol>
+<h3 id="判断某个映射是否包含在Map内"><a href="#判断某个映射是否包含在Map内" class="headerlink" title="判断某个映射是否包含在Map内"></a>判断某个映射是否包含在Map内</h3><p>在<code>Map</code>中，使用<code>containsKey</code>方法，判断<code>Map</code>是否包含某个<code>Key</code>；使用<code>containsValue</code>方法判断是否包含某个<code>Value</code>值。返回<code>true</code> or <code>false</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;map&gt;.containsKey(Key)</span><br><span class="line">&lt;map&gt;.containsValue(Value)</span><br></pre></td></tr></table></figure>
+
+<p>※ <code>containsValue</code>方法的实现机制类似于<code>set</code>对象中的<code>contains</code>方法，先调用<code>hashCode</code>方法再调用<code>equals</code>方法。所以一般也需要重写这两个方法。</p>
+<h3 id="给List对象排序"><a href="#给List对象排序" class="headerlink" title="给List对象排序"></a>给List对象排序</h3><p><code>Collections工具类</code>（相当于Arrays工具类，提供特定功能的方法，需要<code>import</code>）<br><strong>使用sort方法，对<code>List&lt;Intiger, String&gt;</code>进行排序：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Collections.sort(ls)  <span class="comment">//默认升序排序，判断依据：整数的大小、字符串的靠前的字符的asc码。</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="给非一般泛型的List对象排序（List的元素不是Integer、String等常见类型）："><a href="#给非一般泛型的List对象排序（List的元素不是Integer、String等常见类型）：" class="headerlink" title="给非一般泛型的List对象排序（List的元素不是Integer、String等常见类型）："></a>给非一般泛型的List对象排序（List的元素不是Integer、String等常见类型）：</h3><p>首先，直接使用<code>collections.sort(OtherObj)</code>会报错，因为<code>sort</code>方法只能给<code>Comparable</code>接口的实现类进行排序，而<code>OtherObj</code>不是<code>comparable</code>接口的实现类。<br>Collections类提供的两个接口：</p>
+<ol>
+<li>Comparable接口—-提供默认比较规则，实现类要实现compareTo方法，返回值的正负表示两个值的比较结果。</li>
+<li>Comparator接口—-提供临时比较规则，实现类要实现compare方法。<br>所以想要给存储其它元素的<code>List</code>对象排序，需要给该对象提供<code>comparable</code>接口，重写对应的<code>compareTo</code>方法。<br>ps：重写<code>compareTo</code>方法时，_可以调用默认的<code>compareTo</code>方法，减少工作量_。（善用this指针）<br>※ 给存放<strong>数字字符串的List对象</strong>排序的时候（如：”45688”, “7856”），要注意排序依据还是靠前字符的asc码大小，因此”7856”会排在前面。<br>另外，<code>Collections</code>工具类提供了<code>sort</code>的重载方法。使用<code>Collection.sort(List, Comparator&lt;T&gt; c)</code>，按照<code>Comparator</code>的实现类定义的<code>compare</code>方法进行排序。注意这个实现类很可能是需要自己编写的。（回顾第二季多态中接口实现类的编写）</li>
+</ol>
+<h3 id="回顾本章："><a href="#回顾本章：" class="headerlink" title="回顾本章："></a>回顾本章：</h3><p>集合分为Collection和Map接口</p>
+<p>Collection代表序列，其子接口有List和Set<br>List的经典实现类是ArrayList<br>Set的经典实现类是HashSet</p>
+<p>Map代表存储键值对的集合，键值对又叫做<code>Entry&lt;Key, Value&gt;</code><br>Map的子接口有HashMap</p>
+<p>Collections工具类的sort方法用于给序列排序，介绍了两个接口Comparable和Comparator</p>
+<p>​    </p>
+<h3 id="扑克牌小程序思路（洗牌发牌）"><a href="#扑克牌小程序思路（洗牌发牌）" class="headerlink" title="扑克牌小程序思路（洗牌发牌）"></a>扑克牌小程序思路（洗牌发牌）</h3><h5 id="功能描述："><a href="#功能描述：" class="headerlink" title="功能描述："></a>功能描述：</h5><ol>
+<li>创建扑克牌—-List</li>
+<li>玩家需要有手牌（扑克牌的集合）—-编写玩家类，属性：id、name、cardList</li>
+<li>洗牌（打乱顺序）—-Collections.shuffle</li>
+<li>发牌—-get(), add()</li>
+<li>游戏（比较大小）—-sort(), compare()</li>
+</ol>
+<h2 id="结语："><a href="#结语：" class="headerlink" title="结语："></a>结语：</h2><p>至此，本次java入门课程的笔记到此结束。</p>
 
       
 
@@ -1804,18 +1861,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">WSL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">博客搬运</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">教程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
@@ -1824,11 +1869,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
+                <a href="javascript:void(0)" class="js-tag color3">教程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1840,7 +1881,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1849,6 +1894,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">作业</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">WSL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">博客搬运</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
             
             <div class="clearfix"></div>
