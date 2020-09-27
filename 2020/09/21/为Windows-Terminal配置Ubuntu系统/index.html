@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="MPS的个人博客">
 <meta property="og:description" content="最近掘金上看了一篇文章，简单介绍了安装WindowsTerminal以及LinuxUbuntu之后，进行基本配置改善shell外观。我原来也用过windows的ubuntu子系统，抱着改善一下shell外观的念头，大概跟着做了一下，遇到了一些问题，记录一下。  文章链接：https://juejin.im/post/6865596788490338311    第一步，安装WindowsTermi">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-09-26T11:21:25.506Z">
+<meta property="og:updated_time" content="2020-09-27T02:23:04.985Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="为Windows Terminal配置Ubuntu系统">
 <meta name="twitter:description" content="最近掘金上看了一篇文章，简单介绍了安装WindowsTerminal以及LinuxUbuntu之后，进行基本配置改善shell外观。我原来也用过windows的ubuntu子系统，抱着改善一下shell外观的念头，大概跟着做了一下，遇到了一些问题，记录一下。  文章链接：https://juejin.im/post/6865596788490338311    第一步，安装WindowsTermi">
@@ -210,6 +210,12 @@
 
 <p>关于这个软件源，我后面发现安装东西的时候出了些问题。</p>
 <p><strong>这里备一份默认的软件源！</strong></p>
+<p>另外，有一个恢复原来的源的命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -ra /etc/apt/sources.list /etc/apt/sources.list.bak</span><br></pre></td></tr></table></figure>
+
+<p>另另外，Ubuntu每个版本都有一个代号。比如20.04（LTS）版本的代号是Focal Fossa（专注的马达加斯加长尾狸猫）。代号可以用来区分Ubuntu的源的版本。有命令可以查看当前Ubuntu的代号（Description）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsb_release -a</span><br></pre></td></tr></table></figure>
+
 <p>github上找到的默认软件源：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">deb http://archive.ubuntu.com/ubuntu/ focal main restricted universe multiverse</span><br><span class="line">deb-src http://archive.ubuntu.com/ubuntu/ focal main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://archive.ubuntu.com/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line">deb-src http://archive.ubuntu.com/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://archive.ubuntu.com/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line">deb-src http://archive.ubuntu.com/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://archive.ubuntu.com/ubuntu/ focal-backports main restricted universe multiverse</span><br><span class="line">deb-src http://archive.ubuntu.com/ubuntu/ focal-backports main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://archive.canonical.com/ubuntu focal partner</span><br><span class="line">deb-src http://archive.canonical.com/ubuntu focal partner</span><br></pre></td></tr></table></figure>
 
@@ -511,15 +517,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">教程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">WSL</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">博客搬运</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">教程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -531,15 +537,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -551,15 +549,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">概要</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
             
             <div class="clearfix"></div>

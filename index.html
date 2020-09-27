@@ -152,6 +152,96 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-大数据架构作业-简答题2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/26/大数据架构作业-简答题2/">大数据架构作业-简答题2</a>
+    </h1>
+  
+
+        
+        <a href="/2020/09/26/大数据架构作业-简答题2/" class="archive-article-date">
+  	<time datetime="2020-09-26T12:05:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>大数据架构第二次作业出来了，照旧记录一下。</em></p>
+<br>
+
+<h2 id="02-容器化技术的核心原理"><a href="#02-容器化技术的核心原理" class="headerlink" title="02-容器化技术的核心原理"></a>02-容器化技术的核心原理</h2><blockquote>
+<p>题目：请从网络下载<code>virtualbox</code>软件并安装，然后在<code>virtualbox</code>中创建一台或多台虚拟机，尝试在虚拟机中安装<code>CentOS</code>或者<code>Ubuntu</code>等Linux操作系统。在Linux操作系统中，测试实现容器的核心技术：<code>namespace</code>和<code>cgroups</code>两项内核功能，最后在答案部分陈述实验过程、遇到的问题和解决思路、技术原理和实验体会等。</p>
+</blockquote>
+<br>
+
+<h3 id="使用virtualbox创建Ubuntu虚拟机"><a href="#使用virtualbox创建Ubuntu虚拟机" class="headerlink" title="使用virtualbox创建Ubuntu虚拟机"></a>使用virtualbox创建Ubuntu虚拟机</h3><p>首先在官网下载并安装<code>virtualbox</code>，到<code>Ubuntu</code>官网下载20.04版本的<code>Ubuntu</code> <code>iOS</code>文件。然后参考博客安装<code>Ubuntu</code>系统。</p>
+<p>安装的速度比较慢，有可能是因为机子的配置不够。安装系统提示仍需8h的时候，我直接睡觉了…</p>
+<p>参考博客：<a href="https://blog.csdn.net/u012732259/article/details/70172704" target="_blank" rel="noopener">https://blog.csdn.net/u012732259/article/details/70172704</a></p>
+<br>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">大数据架构</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">作业</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/09/26/大数据架构作业-简答题2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-入门JavaSE-进阶篇" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -536,6 +626,12 @@ ChildClass());</code><br>※ <strong>泛型只能使用引用类型</strong>, �
 
 <p>关于这个软件源，我后面发现安装东西的时候出了些问题。</p>
 <p><strong>这里备一份默认的软件源！</strong></p>
+<p>另外，有一个恢复原来的源的命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -ra /etc/apt/sources.list /etc/apt/sources.list.bak</span><br></pre></td></tr></table></figure>
+
+<p>另另外，Ubuntu每个版本都有一个代号。比如20.04（LTS）版本的代号是Focal Fossa（专注的马达加斯加长尾狸猫）。代号可以用来区分Ubuntu的源的版本。有命令可以查看当前Ubuntu的代号（Description）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsb_release -a</span><br></pre></td></tr></table></figure>
+
 <p>github上找到的默认软件源：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">deb http://archive.ubuntu.com/ubuntu/ focal main restricted universe multiverse</span><br><span class="line">deb-src http://archive.ubuntu.com/ubuntu/ focal main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://archive.ubuntu.com/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line">deb-src http://archive.ubuntu.com/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://archive.ubuntu.com/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line">deb-src http://archive.ubuntu.com/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://archive.ubuntu.com/ubuntu/ focal-backports main restricted universe multiverse</span><br><span class="line">deb-src http://archive.ubuntu.com/ubuntu/ focal-backports main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://archive.canonical.com/ubuntu focal partner</span><br><span class="line">deb-src http://archive.canonical.com/ubuntu focal partner</span><br></pre></td></tr></table></figure>
 
@@ -1804,75 +1900,10 @@ DABUG = False</code></pre><p>推送并提交修改</p>
 
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/25/hello-world/">Hello World</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/25/hello-world/" class="archive-article-date">
-  	<time datetime="2019-10-25T14:28:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>非常感谢你点进了这个网站，点开了这篇博客。希望这个博客以后更新的文章，可以对你提供帮助。</em></p>
-<h1 id="Q-为什么要写博客？"><a href="#Q-为什么要写博客？" class="headerlink" title="Q:为什么要写博客？"></a>Q:为什么要写博客？</h1><p>####1. 记录一下自己的学习路程，分享一下个人经验。<br>####2. 总结一下自己某个时段做过的事情，类似个人笔记。<br>####3. 避免自己咕咕咕，给自己一个继续学习的理由。</p>
-<h1 id="Q-在这里你能看到什么"><a href="#Q-在这里你能看到什么" class="headerlink" title="Q:在这里你能看到什么?"></a>Q:在这里你能看到什么?</h1><p>####1. 关于各种乱七八糟的计算机技术类的帖子<br>####2. 关于我杂七杂八学习的总结笔记<br>####3. 个人的读书笔记或者随笔<code>一般是ACG相关</code></p>
-<p>\</p>
-<blockquote>
-<p>最后，路漫漫其修远兮，吾将上下而求索！</p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/25/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 
 
@@ -1966,15 +1997,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">教程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">WSL</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">博客搬运</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">教程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1986,15 +2017,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2006,15 +2029,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">概要</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">图像处理</a>
               </li>
             
             <div class="clearfix"></div>
