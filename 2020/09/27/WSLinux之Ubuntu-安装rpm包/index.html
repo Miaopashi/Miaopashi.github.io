@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | MPS的个人博客</title>
+  <title>WSLinux之Ubuntu安装rpm包 | MPS的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="MPS的个人博客">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="最近在看《springboot实战》。 看到springbootCLI的时候，想要在windos子系统的Ubuntu上学习一下，所以想要安装java。 从同学那里要到了rpm包之后，发现Ubuntu居然不能直接安装rpm包！ 查看社区发现Ubuntu是基于Debian的系统，不同于CentOS, RHEL or Fedora。 Ubuntu不能直接使用rpm命令，而是要通过alien命令。   安">
+<meta name="keywords" content="WSL,搬运,Ubuntu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WSLinux之Ubuntu安装rpm包">
+<meta property="og:url" content="http://yoursite.com/2020/09/27/WSLinux之Ubuntu-安装rpm包/index.html">
 <meta property="og:site_name" content="MPS的个人博客">
+<meta property="og:description" content="最近在看《springboot实战》。 看到springbootCLI的时候，想要在windos子系统的Ubuntu上学习一下，所以想要安装java。 从同学那里要到了rpm包之后，发现Ubuntu居然不能直接安装rpm包！ 查看社区发现Ubuntu是基于Debian的系统，不同于CentOS, RHEL or Fedora。 Ubuntu不能直接使用rpm命令，而是要通过alien命令。   安">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-09-27T08:55:47.565Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MPS的个人博客">
+<meta name="twitter:title" content="WSLinux之Ubuntu安装rpm包">
+<meta name="twitter:description" content="最近在看《springboot实战》。 看到springbootCLI的时候，想要在windos子系统的Ubuntu上学习一下，所以想要安装java。 从同学那里要到了rpm包之后，发现Ubuntu居然不能直接安装rpm包！ 查看社区发现Ubuntu是基于Debian的系统，不同于CentOS, RHEL or Fedora。 Ubuntu不能直接使用rpm命令，而是要通过alien命令。   安">
   
     <link rel="alternative" href="/atom.xml" title="MPS的个人博客" type="application/atom+xml">
   
@@ -150,36 +155,111 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-WSLinux之Ubuntu-安装rpm包" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/27/WSLinux之Ubuntu-安装rpm包/" class="archive-article-date">
-  	<time datetime="2020-09-27T02:28:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-27</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/27/WSLinux之Ubuntu-安装rpm包/">WSLinux之Ubuntu安装rpm包</a>
+    <h1 class="article-title" itemprop="name">
+      WSLinux之Ubuntu安装rpm包
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/09/27/WSLinux之Ubuntu-安装rpm包/" class="archive-article-date">
+  	<time datetime="2020-09-27T02:28:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在看<strong>《springboot实战》</strong>。</p>
+<p>看到<strong>springbootCLI</strong>的时候，想要在<strong>windos</strong>子系统的<strong>Ubuntu</strong>上学习一下，所以想要安装<strong>java</strong>。</p>
+<p>从同学那里要到了rpm包之后，发现<strong>Ubuntu</strong>居然不能直接安装<strong>rpm</strong>包！</p>
+<p>查看社区发现<strong>Ubuntu</strong>是基于<strong>Debian</strong>的系统，不同于<strong>CentOS, RHEL or Fedora</strong>。</p>
+<p><strong>Ubuntu</strong>不能直接使用<strong>rpm</strong>命令，而是要通过<strong>alien命令</strong>。</p>
+<br>
+
+<h2 id="安装alien可分为三个步骤："><a href="#安装alien可分为三个步骤：" class="headerlink" title="安装alien可分为三个步骤："></a>安装alien可分为三个步骤：</h2><h3 id="一、添加Universe-distribution-component（渣翻：universe组成元件，用于连接universe仓库）"><a href="#一、添加Universe-distribution-component（渣翻：universe组成元件，用于连接universe仓库）" class="headerlink" title="一、添加Universe distribution component（渣翻：universe组成元件，用于连接universe仓库）"></a>一、添加Universe distribution component（渣翻：universe组成元件，用于连接universe仓库）</h3><p>仓库提供软件安装的地址。除了<strong>universe</strong>以外，<strong>Ubuntu</strong>还有<strong>Main</strong>、<strong>Restricted</strong>、Multiverse等仓库。</p>
+<p><strong>Universe</strong>仓库提供由社区主导，并且完全开源的软件。这里的alien安装就需要<strong>Universe</strong>仓库。</p>
+<p>添加远程仓库：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository universe</span><br></pre></td></tr></table></figure>
+
+<p>另外，在命令里添加-r选项，可以移除仓库。</p>
+<p><strong>注意，如果网络速度太慢可能会导致部分安装错误，最后无法安装alien！所以安装之前先考虑一下网络，有可能需要科学上网。</strong></p>
+<br>
+
+<h3 id="二、更新apt的cache"><a href="#二、更新apt的cache" class="headerlink" title="二、更新apt的cache"></a>二、更新apt的cache</h3><p>更新了仓库之后，还要更新<strong>apt</strong>的<strong>cache</strong>才能查找到需要的软件。apt的<strong>cache</strong>用于提供软件安装的地址，如果不更新就自然就找不到对应的包。另外，系统新装的时候也需要更新一下apt。</p>
+<p>更新apt：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
+
+<p><strong>update</strong>命令并不会直接<strong>apt</strong>安装所有软件。如果需要进一步更新软件需要使用upgrade命令。</p>
+<br>
+
+<h3 id="三、安装alien包"><a href="#三、安装alien包" class="headerlink" title="三、安装alien包"></a>三、安装alien包</h3><p><strong>alien</strong>用于安装rpm包，具体的安装方法有两种，第四点会一一介绍。</p>
+<p>安装<strong>alien</strong>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install alien</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="四、安装rpm包"><a href="#四、安装rpm包" class="headerlink" title="四、安装rpm包"></a>四、安装rpm包</h3><p>安装了<strong>alien</strong>之后就可以愉快地安装rpm包。但是这里在说一下，安装<strong>rpm</strong>包有两种方式。</p>
+<ol>
+<li>把<strong>rpm</strong>转换成deb包再安装</li>
+</ol>
+<p><strong>alien</strong>命令可以把rpm包变成<strong>deb</strong>包，再安装。这种方法比较推荐。</p>
+<p>把当前目录<strong>cd</strong>到<strong>rpm</strong>包所在的目录下，按一下命令执行即可安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo alien packagename.rpm</span><br><span class="line"></span><br><span class="line">sudo dpkg -i packagename.deb</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>直接安装<strong>rpm</strong>包</li>
+</ol>
+<p>alien也可直接<strong>rpm</strong>包。但是需要注意，这个方法不是<strong>native</strong>（原生）的所以可能会出现一点问题。</p>
+<p>直接安装<strong>rpm</strong>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo alien -i packagename.rpm</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<br>
+
+<p>好了，到这里本次分享已经结束。希望能够帮助你。</p>
+<br>
+
+<p>参考文章：</p>
+<ol>
+<li><a href="https://phoenixnap.com/kb/install-rpm-packages-on-ubuntu" target="_blank" rel="noopener">https://phoenixnap.com/kb/install-rpm-packages-on-ubuntu</a></li>
+<li><a href="https://help.ubuntu.com/community/Repositories/Ubuntu" target="_blank" rel="noopener">https://help.ubuntu.com/community/Repositories/Ubuntu</a></li>
+</ol>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>感谢你请我喝咖啡~<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -199,402 +279,105 @@
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/26/大数据架构作业-简答题2/" class="archive-article-date">
-  	<time datetime="2020-09-26T12:05:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/26/大数据架构作业-简答题2/">大数据架构作业-简答题2</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">大数据架构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">作业</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/23/入门JavaSE-进阶篇/" class="archive-article-date">
-  	<time datetime="2020-09-23T10:36:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/23/入门JavaSE-进阶篇/">入门JavaSE-进阶篇</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/21/为Windows-Terminal配置Ubuntu系统/" class="archive-article-date">
-  	<time datetime="2020-09-21T12:19:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/21/为Windows-Terminal配置Ubuntu系统/">为Windows Terminal配置Ubuntu系统</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">WSL</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">博客搬运</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/09/16/大数据架构作业-简答题1/" class="archive-article-date">
-  	<time datetime="2020-09-16T08:10:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/16/大数据架构作业-简答题1/">大数据架构作业--简答题1</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">大数据架构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">作业</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/26/入门JavaSE-中级篇/" class="archive-article-date">
-  	<time datetime="2020-08-26T09:58:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/26/入门JavaSE-中级篇/">入门JavaSE-中级篇</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/21/入门JavaSE-初级篇/" class="archive-article-date">
-  	<time datetime="2020-08-21T08:56:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/21/入门JavaSE-初级篇/">入门JavaSE----初级篇</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/21/使用photomosaic库实现马赛克拼图/" class="archive-article-date">
-  	<time datetime="2020-08-21T08:53:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/21/使用photomosaic库实现马赛克拼图/">使用photomosaic库实现马赛克拼图</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">图像处理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/28/关于学校校园网挂VPN解决断网问题的个人解读/" class="archive-article-date">
-  	<time datetime="2020-06-28T11:59:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/28/关于学校校园网挂VPN解决断网问题的个人解读/">关于学校校园网挂VPN解决断网问题的个人解读</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">科普</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/17/使用Heroku部署网页/" class="archive-article-date">
-  	<time datetime="2019-12-17T08:12:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/17/使用Heroku部署网页/">使用Heroku部署网页</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/09/27/WSLinux之Ubuntu-安装rpm包/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/09/26/大数据架构作业-简答题2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">大数据架构作业-简答题2</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -618,8 +401,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
