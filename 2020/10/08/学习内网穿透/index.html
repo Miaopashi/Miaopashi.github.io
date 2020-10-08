@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="MPS的个人博客">
 <meta property="og:description" content="需要设备 学校分发的虚拟机 一个云服务器      熟悉云服务器学生优惠购买了一个实例设置实例密码使用vnc链接服务器，发现login incorrect，原来是实例密码跟服务器密码不一样，要自己设置一个…通过阿里云的控制台修改服务器密码，重启机子，然后就可以链接啦~后面了解到可以使用Xshell代替workbench链接到自己的服务器，这个教程很多随便百度都能找到ps: 通过下文问题一了解到，阿">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-10-08T02:42:48.655Z">
+<meta property="og:updated_time" content="2020-10-08T02:48:03.890Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="学习内网穿透">
 <meta name="twitter:description" content="需要设备 学校分发的虚拟机 一个云服务器      熟悉云服务器学生优惠购买了一个实例设置实例密码使用vnc链接服务器，发现login incorrect，原来是实例密码跟服务器密码不一样，要自己设置一个…通过阿里云的控制台修改服务器密码，重启机子，然后就可以链接啦~后面了解到可以使用Xshell代替workbench链接到自己的服务器，这个教程很多随便百度都能找到ps: 通过下文问题一了解到，阿">
@@ -147,12 +147,6 @@
 <p>出现<strong>start</strong>字样，说明<strong>frps</strong>服务启动成功</p>
 <br>
 
-<p>出现start字样，说明frps服务启动成功</p>
-<p>然后启动frps：<br>./frps -c frps.ini<br>出现start字样，说明frps服务启动成功</p>
-<p>编辑完成之后保存:<br>:wq<br>然后启动frps：<br>./frps -c frps.ini<br>出现start字样，说明frps服务启动成功</p>
-<p>文件格式大致如下：<br>[common]<br>bind_port = 7000<br>vhost_http_port = 10080<br>vhost_https_port = 100443<br>dashboard_port = 7500<br>token = <strong>**</strong><br>dashboard_user = ms<br>dashboard_pwd = qq<strong>**</strong><br>编辑完成之后保存:<br>:wq<br>然后启动frps：<br>./frps -c frps.ini<br>出现start字样，说明frps服务启动成功</p>
-<p>检查文件发现目录内除了fprs文件还有frpc文件，使用rm命令将frpc文件一一删除<br>然后修改frps.ini文件：<br>vim frps.ini<br>文件格式大致如下：<br>[common]<br>bind_port = 7000<br>vhost_http_port = 10080<br>vhost_https_port = 100443<br>dashboard_port = 7500<br>token = <strong>**</strong><br>dashboard_user = ms<br>dashboard_pwd = qq<strong>**</strong><br>编辑完成之后保存:<br>:wq<br>然后启动frps：<br>./frps -c frps.ini<br>出现start字样，说明frps服务启动成功</p>
-<p>然后cd进该目录：<br>cd frp_0.34.0_linux_amd64<br>检查文件发现目录内除了fprs文件还有frpc文件，使用rm命令将frpc文件一一删除<br>然后修改frps.ini文件：<br>vim frps.ini<br>文件格式大致如下：<br>[common]<br>bind_port = 7000<br>vhost_http_port = 10080<br>vhost_https_port = 100443<br>dashboard_port = 7500<br>token = <strong><strong>**</strong></strong><br>dashboard_user = m<strong><strong>s<br>dashboard_pwd = qq<strong>**</strong></strong></strong><br>编辑完成之后保存:<br>:wq<br>然后启动frps：<br>./frps -c frps.ini<br>出现start字样，说明frps服务启动成功</p>
 <h4 id="问题一：x-x-x-xxx-7500无法连接至控制页面"><a href="#问题一：x-x-x-xxx-7500无法连接至控制页面" class="headerlink" title="问题一：x.x.x.xxx:7500无法连接至控制页面"></a>问题一：x.x.x.xxx:7500无法连接至控制页面</h4><p>运行<strong>frps</strong>之后，使用浏览器访问对应的地址无响应…<br>根据博客2，发现原来是防火墙没有开放服务器指定的端口！<br>查看端口是否开放: </p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --query-port=7500/tcp --zone=public</span><br></pre></td></tr></table></figure>
 
@@ -192,8 +186,6 @@
 <p>进程正常启动，和<strong>frps</strong>端类似，使用nohup把进程挂起，<strong>frpc</strong>端配置就完成了！</p>
 <br>
 
-<p>说明: 这里的local_port是指frpc机子上web进程使用的端口; custom_domains是frps端的ip地址或者域名，由于我还没买域名，所以这里就填了自己的ip<br>保存之后启动进程: ./frpc -c frpc.ini<br>进程正常启动，和frps端类似，使用nohup把进程挂起，frpc端配置就完成了！</p>
-<p>文件的格式大致如下:<br>[common]<br>server_addr = x.x.x.x<br>server_port = 7000<br>token = <strong><strong>**</strong></strong><br>[web]<br>type = http<br>local_port = 5000<br>custom_domains = x.x.x.x<br>说明: 这里的local_port是指frpc机子上web进程使用的端口; custom_domains是frps端的ip地址或者域名，由于我还没买域名，所以这里就填了自己的ip<br>保存之后启动进程: ./frpc -c frpc.ini<br>进程正常启动，和frps端类似，使用nohup把进程挂起，frpc端配置就完成了！</p>
 <h4 id="编写一个最简单的web"><a href="#编写一个最简单的web" class="headerlink" title="编写一个最简单的web"></a>编写一个最简单的web</h4><p>现在<strong>frpc</strong>端已经配置完成，还需要写一个web测试一下，<strong>web</strong>服务能否被正常访问<br>远程控制学校分配的虚拟机，使用<strong>python</strong>的flask框架编写一个简单的应用</p>
 <br>
 
@@ -216,9 +208,8 @@
 <p>启动web:</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export FLASK_APP=app.py</span><br><span class="line">python3 -m flask run</span><br></pre></td></tr></table></figure>
 
-<p>然后使用自己的机子访问<strong>x.x.x.x:10080</strong>，显示<strong>‘frp sucess!!!’</strong>，说明内网穿透成功！<br>参考文章：</p>
-<p>然后使用自己的机子访问x.x.x.x:10080，显示’frp sucess!!!’，说明内网穿透成功！<br>参考文章：</p>
-<p>然后保存  –:wq<br>启动web:<br>export FLASK_APP=app.py<br>python3 -m flask run<br>然后使用自己的机子访问x.x.x.x:10080，显示’frp sucess!!!’，说明内网穿透成功！<br>参考文章：</p>
+<p>然后使用自己的机子访问<strong>x.x.x.x:10080</strong>，显示<strong>‘frp sucess!!!’</strong>，说明内网穿透成功！</p>
+<p>参考文章：</p>
 <ol>
 <li><a href="https://dormousehole.readthedocs.io/en/latest/quickstart.html#id2" target="_blank" rel="noopener">https://dormousehole.readthedocs.io/en/latest/quickstart.html#id2</a></li>
 </ol>
@@ -231,7 +222,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/10/08/学习内网穿透/" data-id="ckg07uh4j000hvwujg83vpxlz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/10/08/学习内网穿透/" data-id="ckg0815d3001e88ujshkjfsb2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frp/">frp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/内网穿透/">内网穿透</a></li></ul>
