@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>大数据架构作业-简答题3 | MPS的个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="大数据架构第三次作业，依然记录一下。   第一问 假设一个企业网需要建设一个后端的缓存集群，用于缓存用户数据加速用户访问速度，因此希望每个特定的用户最好每次都访问一台固定的服务器节点，方法是将n台服务器节点编号为0~(n-1)，通过[用户账户 % n]得到访问的服务器编号。但是，如果集群中某台服务器宕机了，则n就变成了n-1，于是取余计算就很可能得不到正确的服务器编号，导致用户请求定位到错误的服务">
+<meta name="keywords" content="大数据架构,作业">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大数据架构作业-简答题3">
+<meta property="og:url" content="http://yoursite.com/2020/11/04/大数据架构作业-简答题3/index.html">
+<meta property="og:site_name" content="MPS的个人博客">
+<meta property="og:description" content="大数据架构第三次作业，依然记录一下。   第一问 假设一个企业网需要建设一个后端的缓存集群，用于缓存用户数据加速用户访问速度，因此希望每个特定的用户最好每次都访问一台固定的服务器节点，方法是将n台服务器节点编号为0~(n-1)，通过[用户账户 % n]得到访问的服务器编号。但是，如果集群中某台服务器宕机了，则n就变成了n-1，于是取余计算就很可能得不到正确的服务器编号，导致用户请求定位到错误的服务">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://p.ananas.chaoxing.com/star3/origin/a95fbf4d53abf8c7c4c453ff77d8cccd.png">
+<meta property="og:image" content="https://p.ananas.chaoxing.com/star3/origin/088f1789610696a20ba27c290c5c6c05.png">
+<meta property="og:image" content="https://p.ananas.chaoxing.com/star3/origin/cb9b0ad7e65cfebdba2c659972542141">
+<meta property="og:updated_time" content="2020-11-04T06:53:06.409Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="大数据架构作业-简答题3">
+<meta name="twitter:description" content="大数据架构第三次作业，依然记录一下。   第一问 假设一个企业网需要建设一个后端的缓存集群，用于缓存用户数据加速用户访问速度，因此希望每个特定的用户最好每次都访问一台固定的服务器节点，方法是将n台服务器节点编号为0~(n-1)，通过[用户账户 % n]得到访问的服务器编号。但是，如果集群中某台服务器宕机了，则n就变成了n-1，于是取余计算就很可能得不到正确的服务器编号，导致用户请求定位到错误的服务">
+<meta name="twitter:image" content="https://p.ananas.chaoxing.com/star3/origin/a95fbf4d53abf8c7c4c453ff77d8cccd.png">
+  
+    <link rel="alternate" href="/atom.xml" title="MPS的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">MPS的个人博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-大数据架构作业-简答题3" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/04/大数据架构作业-简答题3/" class="article-date">
+  <time datetime="2020-11-04T06:45:47.000Z" itemprop="datePublished">2020-11-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      大数据架构作业-简答题3
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>大数据架构第三次作业，依然记录一下。</em></p>
+<br>
+
+<h2 id="第一问"><a href="#第一问" class="headerlink" title="第一问"></a>第一问</h2><blockquote>
+<p>假设一个企业网需要建设一个后端的缓存集群，用于缓存用户数据加速用户访问速度，因此希望<strong>每个特定的用户最好每次都访问一台固定的服务器节点</strong>，方法是将n台服务器节点编号为0~(n-1)，通过[用户账户 % n]得到访问的服务器编号。但是，如果集群中某台服务器宕机了，则n就变成了n-1，于是取余计算就很可能得不到正确的服务器编号，导致用户请求定位到错误的服务器编号，造成大量的缓存失效。</p>
+<p>请设计一种方案来改善这种情况，使得<strong>集群中部分服务器失效后不会造成大面积的缓存失效</strong>；（2）原有的访问大部分还是保持在同一台服务器节点上；（3）负载尽量均衡。</p>
+</blockquote>
+<p>这里我的思路是，使用<strong>一致性哈希</strong>进行数据分片。</p>
+<p>首先，将n个服务器节点，根据对应的编号计算相应的hash值，映射到一个首尾相接的hash环上；然后，再将用户，按照用户账户计算hash值，映射到同一个hash环上；这样，当用户发起访问请求的时候时，根据用户账户在hash环的位置，将用户的请求交给环上顺时针数到的第一个服务器节点。</p>
+<p>为了实现要求(3)，需要根据用户账户的hash映射情况，设计合理的hash算法，把n个服务器以对于用户相对均匀地映射到hash环上。</p>
+<p>为了实现要求(2)和要求(1)，当一个服务器宕机之后，需要及时在宕机节点的位置，设置一个新的虚拟分身节点。虚拟分身节点对应的物理节点不应该取宕机服务器附近的节点，避免出现数据倾斜和节点雪崩。</p>
+<br>
+
+<br>
+
+<h2 id="第二问"><a href="#第二问" class="headerlink" title="第二问"></a>第二问</h2><blockquote>
+<p>简要说明分布式系统中的副本建立策略以及各种策略存在的问题。</p>
+</blockquote>
+<p>建立副本的策略及其存在问题</p>
+<ol>
+<li>单主复制，有且仅有一个master副本，其它都是备用的slave副本，维护master副本的节点作为中心节点，负责维护数据更新、并发控制、协调副本的一致性。</li>
+</ol>
+<ul>
+<li>单主复制的问题。可用性问题，master宕机之后，slave竞选、服务切换到新的master都需要时间，这段时间内系统拥塞，无法提供服务；一致性问题，master宕机之后，通过slave竞选出新的master，此时新旧master之间存在尚未同步的数据，导致数据不一致。</li>
+</ul>
+<ol start="2">
+<li>多主复制，所有副本都是master，副本之间户为主从。</li>
+</ol>
+<ul>
+<li>多主复制的问题，在并发操作时，存在数据不一致性问题。</li>
+</ul>
+<ol start="3">
+<li>无主复制，不区分master和slave副本，客户端向多个副本同时发送请求。</li>
+</ol>
+<ul>
+<li>无主复制的问题，尽管客户端可以进行数据补偿，但是依然存在数据不一致性问题。</li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="第三问"><a href="#第三问" class="headerlink" title="第三问"></a>第三问</h2><blockquote>
+<p>分布式系统中是否能够在保证副本强一致性的前提下，同时可以获得高可用和容错性。请简要阐述CAP定理和BASE理论的内容和作用。</p>
+</blockquote>
+<p><strong>CAP定理</strong>：<strong>一个分布式系统不可能同时满足一致性、可用和分区容错性，最多只能满足其中两项。</strong>一致性，所有数据副本的数据都是一致的；可用性，所有请求都能获取正确的响应；分区容错性，即使发生了网络分区，系统也能对外提供满足一致性和可用性的服务。</p>
+<p>CAP定理指出了，在分布式系统的设计中，由于分区容错性不能舍弃，因此只能在一致性和可用性之间做出妥协，不能同时兼得三大特性，该定理给出了简明并且可以理解的证明。</p>
+<p><strong>BASE原理</strong>：弱化一致性，追求分区容错性和可用性。基本可用，要求系统能够基本运行，一直提供服务，在出现不可预知故障的时候， 允许损失部分可用性，如响应延时或者服务降级；软状态，允许系统中的数据存在中间状态，并认为该状态不影响系统的整体可 用性，即允许不同节点的副本之间存在暂时的不一致情况；最终一致性，要求数据不能一直处于软状态，必须在一段时间后达到一致，保证所 有副本中的数据一致性。</p>
+<p>BASE理论的作用，保证最终一致性，对可用性做出让步，代表了追求可用性和分区容错性的分布式系统设计哲学。这种设计模式，对可用性要求比较高但一致性要求不是特别高的应用场景下，提供了高效的理论指导。</p>
+<br>
+
+<br>
+
+<h2 id="第四问"><a href="#第四问" class="headerlink" title="第四问"></a>第四问</h2><blockquote>
+<p>学习Basic Paxos算法，针对5个节点的集群，模仿算法执行过程。假设集群需要完成来自客户端的如下命令，针对该命令模仿说明算法达成一致性的过程。</p>
+<p>Put(“x”, 3)</p>
+<p>要求仿真出如下场景：（1）节点故障（3）并发操作请求（4）网络分区。</p>
+</blockquote>
+<p>假设场景：目前有五个节点，分别为node1、node2、node3、node4、node5；其中节点1、2和3和节点4和5进行了网络分区；同一时刻有两个客户端对集群发出并发请求Put(“x”, 3)；目前node3出现了故障，无法响应客户端的请求。</p>
+<p>假设node1首先接收到client1的请求，node4首先接收到client2的请求，而且node1比node4更早收到请求。如下图所示</p>
+<p><img src="https://p.ananas.chaoxing.com/star3/origin/a95fbf4d53abf8c7c4c453ff77d8cccd.png" alt="发送请求.png"></p>
+<p>node1和node4接收到请求之后成为提案者，开始Basic Paxos算法的准备阶段。node1开始向各个节点发送prepare请求，K值为1。由于各个节点此前还没有进行过同步操作，所以各个节点的MaxN都小于1，则各个节点都会回应pok。但是，由于node3节点故障，无法响应node1的请求，所以node3没有响应。node4节点上的情景和node1相类似，不再重复说明。如下图所示</p>
+<p><img src="https://p.ananas.chaoxing.com/star3/origin/088f1789610696a20ba27c290c5c6c05.png" alt="Prepare.png"></p>
+<p>各节点返回pok之后，算法开始第二阶段接收阶段。node1收到了超过半数的pok，开始向各节点发送accept请求，accept(1, Put(“x”, 3))。但是，由于其他节点已经接收了node4的Prepare(2)请求，所以不会再接收提案编号小于2的accept请求，因此其它节点不会响应node1的请求。另一方面，node4发送的accept(2, Put(“x”, 3))，则会被除了目前故障的node3以外的其他节点接收。如下图所示</p>
+<p><img src="https://p.ananas.chaoxing.com/star3/origin/cb9b0ad7e65cfebdba2c659972542141" alt="img"></p>
+<p>完成了如上两个阶段之后，所有非故障节点会主动同步提案2到本地，完成Put(“x”, 3)的一致性修改。</p>
+<br>
+
+<br>
+
+<h2 id="第五问"><a href="#第五问" class="headerlink" title="第五问"></a>第五问</h2><blockquote>
+<p>简述分布式系统中建立逻辑时钟的两种方法。</p>
+</blockquote>
+<p><strong>Lamport时间戳原理规则</strong>：</p>
+<ol>
+<li><p>每个节点本地都有一个时间戳，初始值为0。</p>
+</li>
+<li><p>若事件在节点内发生，本地时间戳加1。</p>
+</li>
+<li><p>若是发送事件，本地时间戳加1并在消息中带上该时间戳。</p>
+</li>
+<li><p>若是接收事件，本地时间戳 = Max(本地时间戳，消息中的时间戳)+1。</p>
+</li>
+</ol>
+<p><strong>Lamport时间戳具体操作</strong>：</p>
+<ol>
+<li>假设事件a和b分别发生在节点5和节点3上，时间戳为L(a)和L(b)。</li>
+<li>如果L(a) &lt; L(b)，则a发生在b之前，记作 a-&gt;b。</li>
+<li>如果L(a) = L(b)，则按事件发生的节点编号排序，3&lt;5，故 b-&gt;a。</li>
+</ol>
+<br>
+
+<p><strong>向量时钟具体操作:</strong></p>
+<ol>
+<li>事件a、b分别在节点P、Q上发生，Vector clock分别为Ta、Tb，如果 Tb[Q] &gt; Ta[Q]并且 Tb[P] &gt;= Ta[P]，则a发生于b之前，记作 a -&gt; b。</li>
+<li>如果 Tb[Q] &gt; Ta[Q] 并且 Tb[P] &lt; Ta[P]，则认为a、b同时发生，记作 a &lt;-&gt; b。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/11/04/大数据架构作业-简答题3/" data-id="ckh31oe4y00125cujtb7676ps" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/作业/">作业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据架构/">大数据架构</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/10/08/学习内网穿透/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">学习内网穿透</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WSL/">WSL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frp/">frp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/作业/">作业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/内网穿透/">内网穿透</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像处理/">图像处理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大数据架构/">大数据架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搬运/">搬运</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教程/">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/概要/">概要</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科普/">科普</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/WSL/" style="font-size: 15px;">WSL</a> <a href="/tags/frp/" style="font-size: 10px;">frp</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/作业/" style="font-size: 20px;">作业</a> <a href="/tags/内网穿透/" style="font-size: 10px;">内网穿透</a> <a href="/tags/图像处理/" style="font-size: 10px;">图像处理</a> <a href="/tags/大数据架构/" style="font-size: 20px;">大数据架构</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/搬运/" style="font-size: 15px;">搬运</a> <a href="/tags/教程/" style="font-size: 10px;">教程</a> <a href="/tags/概要/" style="font-size: 10px;">概要</a> <a href="/tags/科普/" style="font-size: 10px;">科普</a> <a href="/tags/笔记/" style="font-size: 15px;">笔记</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/11/04/大数据架构作业-简答题3/">大数据架构作业-简答题3</a>
+          </li>
+        
+          <li>
+            <a href="/2020/10/08/学习内网穿透/">学习内网穿透</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/27/WSLinux之Ubuntu-安装rpm包/">WSLinux之Ubuntu安装rpm包</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/26/大数据架构作业-简答题2/">大数据架构作业-简答题2</a>
+          </li>
+        
+          <li>
+            <a href="/2020/09/23/入门JavaSE-进阶篇/">入门JavaSE-进阶篇</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Miaopashi<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
