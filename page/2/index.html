@@ -62,6 +62,130 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-入门JavaSE-初级篇" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/21/入门JavaSE-初级篇/" class="article-date">
+  <time datetime="2020-08-21T08:56:42.000Z" itemprop="datePublished">2020-08-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/21/入门JavaSE-初级篇/">入门JavaSE----初级篇</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>最近计划学习一下JavaSE，在爱慕课上找到了三个入门javase的视频，分为初级、中级和进阶。</em></p>
+<p><em>下面记录一下听课的笔记。</em></p>
+<h1 id="javase入门-初级"><a href="#javase入门-初级" class="headerlink" title="javase入门 初级"></a>javase入门 初级</h1><p><a href="https://www.imooc.com/learn/85" target="_blank" rel="noopener">https://www.imooc.com/learn/85</a></p>
+<h2 id="C1-java初体验"><a href="#C1-java初体验" class="headerlink" title="C1 java初体验"></a>C1 java初体验</h2><h4 id="jvm是java虚拟机"><a href="#jvm是java虚拟机" class="headerlink" title="jvm是java虚拟机"></a>jvm是java虚拟机</h4><p>​    相关概念：源文件 编译器 字节码 解释器（jvm包括解释器）</p>
+<h4 id="jdk是java开发工具包"><a href="#jdk是java开发工具包" class="headerlink" title="jdk是java开发工具包"></a>jdk是java开发工具包</h4><h4 id="jre是java运行环境"><a href="#jre是java运行环境" class="headerlink" title="jre是java运行环境"></a>jre是java运行环境</h4><h4 id="三者的集合关系：jvm-lt-jre-lt-jdk"><a href="#三者的集合关系：jvm-lt-jre-lt-jdk" class="headerlink" title="三者的集合关系：jvm &lt; jre &lt; jdk"></a>三者的集合关系：jvm &lt; jre &lt; jdk</h4><h2 id="java开发环境"><a href="#java开发环境" class="headerlink" title="java开发环境"></a>java开发环境</h2><h4 id="安装java-jdk后的文件目录"><a href="#安装java-jdk后的文件目录" class="headerlink" title="安装java_jdk后的文件目录"></a>安装java_jdk后的文件目录</h4><blockquote>
+<p>jdk<br>    bin<br>        java<br>        javac<br>    lib(库文件)</p>
+</blockquote>
+<p>其中，java是解释器，javac是编译器，lib存放java的库</p>
+<h4 id="设置环境变量（这里可以参照菜鸟教程）"><a href="#设置环境变量（这里可以参照菜鸟教程）" class="headerlink" title="设置环境变量（这里可以参照菜鸟教程）"></a>设置环境变量（这里可以参照菜鸟教程）</h4><ol>
+<li>java_home  jdk路径</li>
+<li>path  jdk命令文件</li>
+<li>classpath  类库文件的位置</li>
+<li>java命令后不能跟文件后缀</li>
+</ol>
+<h4 id="使用IDE开发java程序"><a href="#使用IDE开发java程序" class="headerlink" title="使用IDE开发java程序"></a>使用IDE开发java程序</h4><p>开发步骤</p>
+<ol>
+<li>创建java项目</li>
+<li>创建程序包  右击src new 命名 一般为域名的反向</li>
+<li>编写java源程序</li>
+<li>运行java程序</li>
+</ol>
+<h4 id="程序的移植-拷贝项目到另一台电脑导入-（有点low）"><a href="#程序的移植-拷贝项目到另一台电脑导入-（有点low）" class="headerlink" title="程序的移植  拷贝项目到另一台电脑导入 （有点low）"></a>程序的移植  拷贝项目到另一台电脑导入 （有点low）</h4><h4 id="基本经验：多练-多问-动手-总结"><a href="#基本经验：多练-多问-动手-总结" class="headerlink" title="基本经验：多练 多问 动手 总结"></a>基本经验：多练 多问 动手 总结</h4><h2 id="C2-变量和常量"><a href="#C2-变量和常量" class="headerlink" title="C2 变量和常量"></a>C2 变量和常量</h2><h4 id="java的变量命名"><a href="#java的变量命名" class="headerlink" title="java的变量命名"></a>java的变量命名</h4><p>只能以字母 _ $ 开头，不能包含除了_ $ 以外的特殊字符</p>
+<h4 id="java变量的种类有-基本变量-和-引用变量"><a href="#java变量的种类有-基本变量-和-引用变量" class="headerlink" title="java变量的种类有 基本变量 和 引用变量"></a>java变量的种类有 基本变量 和 引用变量</h4><ul>
+<li>str就是一个典型的<strong>引用型变量</strong>，还有class interface 等</li>
+<li><strong>基本变量</strong>和c/c++差不多 但是布尔类型为boolean</li>
+<li>基本类型分为 <strong>数值型 字符型 布尔型</strong></li>
+<li>ps： 给<strong>float型变量</strong>赋值的时候需要<strong>加f</strong>，否则会默认成double</li>
+</ul>
+<h4 id="java用final表示常量-一般用大写命名"><a href="#java用final表示常量-一般用大写命名" class="headerlink" title="java用final表示常量 一般用大写命名"></a>java用final表示常量 一般用大写命名</h4><h4 id="java的注释（和c有点不一样）"><a href="#java的注释（和c有点不一样）" class="headerlink" title="java的注释（和c有点不一样）"></a>java的注释（和c有点不一样）</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 单行注释 </span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 文档注释</span></span><br><span class="line"><span class="comment"> * 可以使用 javadoc 从java文件中提取文档的内容</span></span><br><span class="line"><span class="comment"> * 可以使用 javadoc 标记 生成更加信息的文档信息</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 多行注释</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">/* 单行注释的另一种写法 */</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="C3-常用运算符"><a href="#C3-常用运算符" class="headerlink" title="C3 常用运算符"></a>C3 常用运算符</h2><h4 id="种类"><a href="#种类" class="headerlink" title="种类"></a>种类</h4><ul>
+<li>算术: <code>+</code> <code>-</code> <code>*</code> <code>/</code> <code>%</code> <code>++</code> <code>--</code> 自运算放左边是先运算再赋值 反则先赋值后运算</li>
+<li>赋值: <code>=</code> <code>+=</code> <code>-=</code> <code>*=</code> <code>/=</code> <code>%=</code></li>
+<li>比较: <code>&gt;</code> <code>&lt;</code> <code>&gt;=</code> <code>&lt;=</code> 只能是数值类型 <code>==</code> <code>!=</code> 可以使引用类型</li>
+<li>逻辑: <code>&amp;&amp;</code> <code>||</code> <code>!</code> <code>^</code>(异或(两者只有一个为真才为真))</li>
+<li>条件: 双目表达式 <code>*** ? ** : **</code> 和 c++ 类似</li>
+<li>ps: 优先级和c++类似 建议查表</li>
+<li>ps: java中 <code>/</code> 是整除</li>
+</ul>
+<h2 id="C4-流程控制"><a href="#C4-流程控制" class="headerlink" title="C4 流程控制"></a>C4 流程控制</h2><h4 id="if-条件判断和c类似"><a href="#if-条件判断和c类似" class="headerlink" title="if 条件判断和c类似"></a>if 条件判断和c类似</h4><ul>
+<li>if (){}  else if(){}  else{}  只有一行语句的时候可以不用{}</li>
+<li>if 可以嵌套使用</li>
+<li>ps:equals()方法用于判断字符串的内容是否相等</li>
+</ul>
+<h4 id="switch-判断和c类似"><a href="#switch-判断和c类似" class="headerlink" title="switch 判断和c类似"></a>switch 判断和c类似</h4><ul>
+<li>switch (){ case &lt;&gt;: &lt;&gt; break; … default: &lt;&gt; }</li>
+<li>当switch的值和case的值相等时，开始往下执行，如果没有break会一直向下</li>
+<li>switch的表达式必须是整型或字符型 case后面可以是常量或者常量表达式</li>
+<li>相同功能的case可以放在一起 后面接同一段代码</li>
+</ul>
+<h4 id="while循环-do-while循环-for循环-同c-c"><a href="#while循环-do-while循环-for循环-同c-c" class="headerlink" title="while循环  do while循环  for循环 (同c/c++)"></a>while循环  do while循环  for循环 (同c/c++)</h4><h4 id="break跳出整个循环-continue跳出当前循环"><a href="#break跳出整个循环-continue跳出当前循环" class="headerlink" title="break跳出整个循环 continue跳出当前循环"></a>break跳出整个循环 continue跳出当前循环</h4><p>ps: 循环可以嵌套</p>
+<h2 id="C5-程序编写小试"><a href="#C5-程序编写小试" class="headerlink" title="C5 程序编写小试"></a>C5 程序编写小试</h2><h4 id="ps-快捷键"><a href="#ps-快捷键" class="headerlink" title="ps: 快捷键"></a>ps: 快捷键</h4><p><code>&#39;syso&#39; alt+/ = System.out.println()</code><br><code>&#39;main&#39; alt+/</code></p>
+<h4 id="获取用户输入-Scanner-工具类-java-util-包-需要导入"><a href="#获取用户输入-Scanner-工具类-java-util-包-需要导入" class="headerlink" title="获取用户输入 Scanner 工具类 java.util 包 需要导入"></a>获取用户输入 Scanner 工具类 java.util 包 需要导入</h4><ol>
+<li>导入包    import java.util.Scanner;</li>
+<li>创建对象    Scanner input = new Scanner(System.in);</li>
+<li>调用方法函数    int score = input.nextInt();</li>
+<li>ps: println 和 print 不同 前者会换行</li>
+</ol>
+<h4 id="调试程序"><a href="#调试程序" class="headerlink" title="调试程序"></a>调试程序</h4><p>可以利用断点（一个小红点） 使用debug模式 stepover进行下一行代码的执行</p>
+<h4 id="经验总结-debug"><a href="#经验总结-debug" class="headerlink" title="经验总结 debug"></a>经验总结 debug</h4><p>通过分析明确需求 整理相关知识点 实例实现流程 借助“断点调试”</p>
+<h2 id="C6-数组-（和c-c-很像）"><a href="#C6-数组-（和c-c-很像）" class="headerlink" title="C6 数组 （和c/c++很像）"></a>C6 数组 （和c/c++很像）</h2><h4 id="数组的声明和初始化"><a href="#数组的声明和初始化" class="headerlink" title="数组的声明和初始化"></a>数组的声明和初始化</h4><ul>
+<li>声明+初始化  &lt;类型&gt;[] 数组名 = {…}; 等价于  &lt;类型&gt;[] 数组名 = new &lt;类型&gt;[] {…};</li>
+<li>可以使用索引 从零开始</li>
+<li>分配空间   &lt;类型&gt;[] 数组名 = new &lt;类型&gt;[数组长度];</li>
+<li>ps: [ ] 可以在类型或数组名后面加</li>
+</ul>
+<h4 id="使用-Arrays类造作java中的数组"><a href="#使用-Arrays类造作java中的数组" class="headerlink" title="使用 Arrays类造作java中的数组"></a>使用 Arrays类造作java中的数组</h4><h5 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h5><ol>
+<li>排序 <code>Arrays.sort(数组名);</code>  ps: 记得import java.util.Arrays;</li>
+<li>转换为字符串 <code>Arrays.toString(数组名);</code></li>
+<li><code>数组名.length</code> 可以获取数组的长度</li>
+</ol>
+<h5 id="使用foreach操纵数组"><a href="#使用foreach操纵数组" class="headerlink" title="使用foreach操纵数组"></a>使用foreach操纵数组</h5><p>foreach 是 for 语句的简化版本<br>语法：<code>for (元素类型 元素变量: 遍历对象) {};</code></p>
+<h4 id="二维数组"><a href="#二维数组" class="headerlink" title="二维数组"></a>二维数组</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义并且初始化二维数组</span></span><br><span class="line">type [][] arrayName = <span class="keyword">new</span> type [rowNum][colNum];</span><br><span class="line">type [][] arrayName = &#123;&#123;...&#125;, ...&#125;;</span><br><span class="line"><span class="comment">// 赋值 </span></span><br><span class="line">arrayName[row][col] = value;</span><br><span class="line"><span class="comment">// 声明的时候可以不指名列数，后面再具体给各行分配列数</span></span><br></pre></td></tr></table></figure>
+
+<p>​    </p>
+<h2 id="C7-方法"><a href="#C7-方法" class="headerlink" title="C7 方法"></a>C7 方法</h2><p>一个功能模块，用于解决某个具体问题的代码序列组合</p>
+<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><p><code>访问修饰符 返回值类型 方法名(参数列表) {方法体}</code><br>访问修饰符指定访问权限范围如：<code>public</code>, <code>protected</code>, <code>private</code><br>根据 <strong>返回值类型</strong> 和 <strong>参数列表</strong> 方法可以分为： 无参无返 有参无返 无参有返 有参有返</p>
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><ol>
+<li>定义方法， 参照上面语法</li>
+<li>定义一个方法所在的类的对象</li>
+<li>用对象调用类里面定义的方法</li>
+<li>对于有返回值的方法，一般要定义一个变量接收返回值，变量类型要对应</li>
+<li>对于没有返回值的方法，不能加return语句</li>
+<li>对于有参数的方法，参数的类型顺序数量要与形参对应 形参要标类型</li>
+</ol>
+<h4 id="方法的重载"><a href="#方法的重载" class="headerlink" title="方法的重载"></a>方法的重载</h4><p>同一个类中可以有多个同名的方法，但必须形参的数量类型顺序不一样，和返回值没有关系</p>
+<h6 id="建立动态数组-int-nums-new-int-length"><a href="#建立动态数组-int-nums-new-int-length" class="headerlink" title="建立动态数组 int[] nums = new int[length];"></a>建立动态数组 <code>int[] nums = new int[length];</code></h6><h6 id="生成-100-以内的随机数（用到math类）-int-Math-random-100"><a href="#生成-100-以内的随机数（用到math类）-int-Math-random-100" class="headerlink" title="生成 100 以内的随机数（用到math类） (int)(Math.random() * 100)"></a>生成 100 以内的随机数（用到math类） <code>(int)(Math.random() * 100)</code></h6>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/08/21/入门JavaSE-初级篇/" data-id="ckh6ct71x000to0ujrvcljvw3" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-使用photomosaic库实现马赛克拼图" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/08/21/使用photomosaic库实现马赛克拼图/" class="article-date">
@@ -134,7 +258,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/08/21/使用photomosaic库实现马赛克拼图/" data-id="ckh4s2nd0000au8ujvce6h4yo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/08/21/使用photomosaic库实现马赛克拼图/" data-id="ckh6ct71m000ho0uj04l87hni" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图像处理/">图像处理</a></li></ul>
@@ -349,7 +473,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/06/28/关于学校校园网挂VPN解决断网问题的个人解读/" data-id="ckh4s2nd6000fu8uj5dxmdatf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/06/28/关于学校校园网挂VPN解决断网问题的个人解读/" data-id="ckh6ct75k001wo0uj9vlyg5nd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/科普/">科普</a></li></ul>
@@ -440,7 +564,7 @@ DABUG = False</code></pre><p>推送并提交修改</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/17/使用Heroku部署网页/" data-id="ckh4s2ncu0003u8uj410hzycb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/12/17/使用Heroku部署网页/" data-id="ckh6ct70s0002o0ujnsdrjlhu" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/教程/">教程</a></li></ul>
@@ -521,7 +645,7 @@ DABUG = False</code></pre><p>推送并提交修改</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/17/《算法图解》内容概要/" data-id="ckh4s2ncw0005u8ujsxpw6gmf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/12/17/《算法图解》内容概要/" data-id="ckh6ct71l000go0ujar1a76tf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/概要/">概要</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -566,7 +690,7 @@ DABUG = False</code></pre><p>推送并提交修改</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/25/hello-world/" data-id="ckh4s2ncr0001u8uj7iuicyzd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/25/hello-world/" data-id="ckh6ct70g0000o0uj81jthp5y" class="article-share-link">Share</a>
       
       
     </footer>
@@ -594,7 +718,7 @@ DABUG = False</code></pre><p>推送并提交修改</p>
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WSL/">WSL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frp/">frp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/作业/">作业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/内网穿透/">内网穿透</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像处理/">图像处理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大数据架构/">大数据架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搬运/">搬运</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教程/">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/概要/">概要</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科普/">科普</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/">SpringBoot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WSL/">WSL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frp/">frp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssl证书/">ssl证书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/作业/">作业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/内网穿透/">内网穿透</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像处理/">图像处理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大数据架构/">大数据架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搬运/">搬运</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教程/">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/概要/">概要</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科普/">科普</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li></ul>
     </div>
   </div>
 
@@ -604,7 +728,7 @@ DABUG = False</code></pre><p>推送并提交修改</p>
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/WSL/" style="font-size: 13.33px;">WSL</a> <a href="/tags/frp/" style="font-size: 10px;">frp</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/作业/" style="font-size: 20px;">作业</a> <a href="/tags/内网穿透/" style="font-size: 10px;">内网穿透</a> <a href="/tags/图像处理/" style="font-size: 10px;">图像处理</a> <a href="/tags/大数据架构/" style="font-size: 20px;">大数据架构</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/搬运/" style="font-size: 13.33px;">搬运</a> <a href="/tags/教程/" style="font-size: 10px;">教程</a> <a href="/tags/概要/" style="font-size: 10px;">概要</a> <a href="/tags/科普/" style="font-size: 10px;">科普</a> <a href="/tags/笔记/" style="font-size: 13.33px;">笔记</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
+      <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/SpringBoot/" style="font-size: 10px;">SpringBoot</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/WSL/" style="font-size: 13.33px;">WSL</a> <a href="/tags/frp/" style="font-size: 10px;">frp</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/ssl证书/" style="font-size: 10px;">ssl证书</a> <a href="/tags/作业/" style="font-size: 20px;">作业</a> <a href="/tags/内网穿透/" style="font-size: 10px;">内网穿透</a> <a href="/tags/图像处理/" style="font-size: 10px;">图像处理</a> <a href="/tags/大数据架构/" style="font-size: 20px;">大数据架构</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/搬运/" style="font-size: 13.33px;">搬运</a> <a href="/tags/教程/" style="font-size: 10px;">教程</a> <a href="/tags/概要/" style="font-size: 10px;">概要</a> <a href="/tags/科普/" style="font-size: 10px;">科普</a> <a href="/tags/笔记/" style="font-size: 13.33px;">笔记</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a>
     </div>
   </div>
 
@@ -626,6 +750,10 @@ DABUG = False</code></pre><p>推送并提交修改</p>
       <ul>
         
           <li>
+            <a href="/2020/11/06/使用SpringBoot编写一个https网站/">使用SpringBoot编写一个https网站</a>
+          </li>
+        
+          <li>
             <a href="/2020/11/05/大数据架构作业-简答题4/">大数据架构作业-简答题4</a>
           </li>
         
@@ -639,10 +767,6 @@ DABUG = False</code></pre><p>推送并提交修改</p>
         
           <li>
             <a href="/2020/09/27/WSLinux之Ubuntu-安装rpm包/">WSLinux之Ubuntu安装rpm包</a>
-          </li>
-        
-          <li>
-            <a href="/2020/09/26/大数据架构作业-简答题2/">大数据架构作业-简答题2</a>
           </li>
         
       </ul>
