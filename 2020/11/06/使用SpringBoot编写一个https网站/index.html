@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="MPS的个人博客">
 <meta property="og:description" content="本周的任务：使用springboot编写一个helloworld网站，并且部署到服务器上。然后配置ssl正式，建立https站点。   先看第一个任务，编写helloWeb并且部署。 步骤：  下载并且安装IDEA旗舰版 查看springboot官方文档，根据教程新建hello项目 修改hello项目开放的端口，把项目打包成jar包 配置服务器端的java环境，让项目在服务器上运行    下载并且">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-11-06T14:28:05.605Z">
+<meta property="og:updated_time" content="2020-11-07T14:45:27.190Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用SpringBoot编写一个https网站">
 <meta name="twitter:description" content="本周的任务：使用springboot编写一个helloworld网站，并且部署到服务器上。然后配置ssl正式，建立https站点。   先看第一个任务，编写helloWeb并且部署。 步骤：  下载并且安装IDEA旗舰版 查看springboot官方文档，根据教程新建hello项目 修改hello项目开放的端口，把项目打包成jar包 配置服务器端的java环境，让项目在服务器上运行    下载并且">
@@ -120,18 +120,19 @@
 <h3 id="配置服务器端的java环境，让项目在服务器上运行"><a href="#配置服务器端的java环境，让项目在服务器上运行" class="headerlink" title="配置服务器端的java环境，让项目在服务器上运行"></a>配置服务器端的java环境，让项目在服务器上运行</h3><p>下面使用Xshell控制阿里云的服务器，配置java环境。</p>
 <p>具体步骤：</p>
 <ol>
-<li>本地下载jdk，使用Xshell传输jdk和前面写好的jar包</li>
-<li>服务器端解压包，安装jdk-8u261</li>
+<li>在Xshell使用rz命令，传输jdk和前面写好的jar包</li>
+<li>tar命令解压jdk的tar包，安装jdk-8u261</li>
 <li>使用vim命令，配置java环境变量</li>
-<li>运行jar包</li>
+<li>运行jar包（可以使用nohup在后台运行）</li>
 </ol>
 <h4 id="使用Xshell传输jdk和jar包"><a href="#使用Xshell传输jdk和jar包" class="headerlink" title="使用Xshell传输jdk和jar包"></a>使用Xshell传输jdk和jar包</h4><p>这里已经提前再本地下载了jdk1.8.0_261-liunx-x64的tar包了，可以自行访问官网下载。</p>
 <p>我使用Xshell对购买的阿里服务器进行操作，下面对于服务器的操作将使用Xshell完成。</p>
 <p>服务器安装lrzsz用于传输jdk以便服务器安装。</p>
 <p>$ yum install lrzsz -y</p>
-<p>安装完成之后，cd到需要存放文件的目录，再使用rz命令会Xshell会弹出文件传输窗口，此时可以选择本地下载的jdk1.8-linux-x64以及前面打包好的jar包，传输到服务器了。</p>
+<p>安装完成之后，cd到需要存放文件的目录，再使用rz命令会Xshell会弹出文件传输窗口。</p>
 <p>$ cd</p>
 <p>$ rz</p>
+<p>弹窗出现之后，可以选择本地下载的jdk1.8-linux-x64.tar以及前面打包好的jar包，传输到服务器。</p>
 <p>另外，学长推荐使用Xftp传输速度更快，下次有机会可以试试。</p>
 <h4 id="服务器端解压包，安装jdk-8u261"><a href="#服务器端解压包，安装jdk-8u261" class="headerlink" title="服务器端解压包，安装jdk-8u261"></a>服务器端解压包，安装jdk-8u261</h4><p>使用tar命令，解压刚刚传输的jdk包，到/usr/local/java目录。java目录可以使用mkdir新建。</p>
 <p>$ mkdir /usr/local/java</p>
@@ -154,11 +155,62 @@
 <p>$ java -jar &lt;jar包名&gt;</p>
 <p>在本地打开浏览器，输入xxx.xxx.xxx.xxx:10066/hello，成功访问hello网站。</p>
 <p>说明项目部署成功！</p>
+<br>
+
+<p>开始配置ssl之前，需要购买一个域名。</p>
+<p>进入阿里云页面，进入产品选项卡，搜索域名注册。</p>
+<p>在万网寻找合适的后缀以及关键字，找到心仪的域名，加入清单。</p>
+<p>结算清单，完善个人信息模板，产品支付，域名购买成功。</p>
+<p>花了5块钱买了一个域名，yysy.xyz感觉还行。</p>
+<br>
+
+<p>购买域名之后，还要等待一下审核。</p>
+<p>再把helloWeb解析到前面购买的域名上。</p>
+<p>打开阿里云的云解析DNS控制台，点击购买的域名，添加记录，选择对应参数即可解析。</p>
+<p>现在可以访问<a href="http://www.yysy.xyz:10066/hello，访问hello网站了。" target="_blank" rel="noopener">www.yysy.xyz:10066/hello，访问hello网站了。</a></p>
+<br>
+
+<p>下面再看第二个任务，配置ssl证书，令项目可以在https协议下运行。实现用户的安全访问。</p>
+<p>步骤：</p>
+<ol>
+<li>申请ssl证书</li>
+<li>配置ssl证书</li>
+</ol>
+<br>
+
+<h3 id="申请SSL证书"><a href="#申请SSL证书" class="headerlink" title="申请SSL证书"></a>申请SSL证书</h3><p>要配置ssl证书，首先需要先申请一个证书。</p>
+<p>进入阿里云控制台&gt;SSL证书管理控制台，点击购买证书服务（先别慌）；</p>
+<p>选择单个域名、DV域名级SSL、免费版、一年，可以看到费用直接归零，于是可以白嫖了。</p>
+<p>白嫖ssl证书之后，还要进行证书申请，填写个人信息。</p>
+<p>由于我的域名是阿里云买的，所以可以自动DNS验证，验证也是自动完成，证书很快就签发成功了。</p>
+<br>
+
+<h3 id="配置SSL证书"><a href="#配置SSL证书" class="headerlink" title="配置SSL证书"></a>配置SSL证书</h3><p>SSL证书签发之后，开始配置证书。</p>
+<br>
+
+<p><em>发现问题：</em></p>
+<p><em>查看阿里云的SSL证书配置文档，发现SSL证书部署在Nginx、Tomcat、Apache服务器上；</em></p>
+<p><em>而目前的helloWeb是直接是机器终端的java命令跑起来的，没有包装在服务器内；</em></p>
+<p><em>没有报错，是因为SpringBoot内置的一个Tomcat。</em></p>
+<p><em>既然这个Tomcat是内置的，就很难修改它的配置，部署SSL证书。</em></p>
+<br>
+
+<p>这里还是规范一点，先给阿里云的机子安装下Tomcat，使用外部的Tomcat服务器，运行项目。</p>
+<p>本地访问Apache Tomcat，下载9.0.39。另外，把helloWeb打包成war包。</p>
+<p>后面把两个包传输到阿里云的机子上，为了方便文件传输，建议下载Xftp传输文件。</p>
+<h4 id="传输tomcat后，tar解压tomcat包到-usr-local-mytomcat，然后重命名为tomcat。"><a href="#传输tomcat后，tar解压tomcat包到-usr-local-mytomcat，然后重命名为tomcat。" class="headerlink" title="传输tomcat后，tar解压tomcat包到/usr/local/mytomcat，然后重命名为tomcat。"></a>传输tomcat后，tar解压tomcat包到/usr/local/mytomcat，然后重命名为tomcat。</h4><p>$ mkdir /usr/local/mytomcat</p>
+<p>$ tar -zxvf apache-tomcat-9.0.39.tar.gz -C /usr/local/mytomcat</p>
+<p>$ cd /usr/local/mytomcat</p>
+<p>$ mv apache-tomcat-9.0.39 tomcat</p>
+<p>运行tomcat/bin/startup.sh，出现Tomcat started字样说明安装成功。</p>
+<h4 id="现在使用IDEA把原来的项目打包成war包并且传输："><a href="#现在使用IDEA把原来的项目打包成war包并且传输：" class="headerlink" title="现在使用IDEA把原来的项目打包成war包并且传输："></a>现在使用IDEA把原来的项目打包成war包并且传输：</h4><p>点击File&gt;Project Struct&gt;Artifacts，根据自己的需要修改名字，右击项目选择Put into Output Root，点击OK；</p>
+<p>点击Bulid&gt;Build Artifacts&gt;hello&gt;Build，打包之后可以在out目录看到war包；</p>
+<p>把war包用Xftp传输到阿里云机子的Tomcat/webapps/下，启动Tomcat</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/06/使用SpringBoot编写一个https网站/" data-id="ckh6ct70v0004o0ujzw0aqchz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/06/使用SpringBoot编写一个https网站/" data-id="ckh7svs6l000220ujtfx31dss" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SpringBoot/">SpringBoot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssl证书/">ssl证书</a></li></ul>
