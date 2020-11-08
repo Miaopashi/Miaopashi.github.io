@@ -7,18 +7,18 @@
   
   <title>使用SpringBoot编写一个https网站 | MPS的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本周的任务：使用springboot编写一个helloworld网站，并且部署到服务器上。然后配置ssl正式，建立https站点。   先看第一个任务，编写helloWeb并且部署。 步骤：  下载并且安装IDEA旗舰版 查看springboot官方文档，根据教程新建hello项目 修改hello项目开放的端口，把项目打包成jar包 配置服务器端的java环境，让项目在服务器上运行    下载并且">
+  <meta name="description" content="本周的任务：使用springboot编写一个helloworld网站，并且部署到服务器上。然后配置ssl正式，建立https站点。   先看第一个任务，编写helloWeb并且部署。步骤： 下载并且安装IDEA旗舰版 查看springboot官方文档，根据教程新建hello项目 修改hello项目开放的端口，把项目打包成jar包 配置服务器端的java环境，让项目在服务器上运行    下载并且安装">
 <meta name="keywords" content="SpringBoot,ssl证书">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用SpringBoot编写一个https网站">
 <meta property="og:url" content="http://yoursite.com/2020/11/06/使用SpringBoot编写一个https网站/index.html">
 <meta property="og:site_name" content="MPS的个人博客">
-<meta property="og:description" content="本周的任务：使用springboot编写一个helloworld网站，并且部署到服务器上。然后配置ssl正式，建立https站点。   先看第一个任务，编写helloWeb并且部署。 步骤：  下载并且安装IDEA旗舰版 查看springboot官方文档，根据教程新建hello项目 修改hello项目开放的端口，把项目打包成jar包 配置服务器端的java环境，让项目在服务器上运行    下载并且">
+<meta property="og:description" content="本周的任务：使用springboot编写一个helloworld网站，并且部署到服务器上。然后配置ssl正式，建立https站点。   先看第一个任务，编写helloWeb并且部署。步骤： 下载并且安装IDEA旗舰版 查看springboot官方文档，根据教程新建hello项目 修改hello项目开放的端口，把项目打包成jar包 配置服务器端的java环境，让项目在服务器上运行    下载并且安装">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-11-07T14:45:27.190Z">
+<meta property="og:updated_time" content="2020-11-08T07:50:19.827Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用SpringBoot编写一个https网站">
-<meta name="twitter:description" content="本周的任务：使用springboot编写一个helloworld网站，并且部署到服务器上。然后配置ssl正式，建立https站点。   先看第一个任务，编写helloWeb并且部署。 步骤：  下载并且安装IDEA旗舰版 查看springboot官方文档，根据教程新建hello项目 修改hello项目开放的端口，把项目打包成jar包 配置服务器端的java环境，让项目在服务器上运行    下载并且">
+<meta name="twitter:description" content="本周的任务：使用springboot编写一个helloworld网站，并且部署到服务器上。然后配置ssl正式，建立https站点。   先看第一个任务，编写helloWeb并且部署。步骤： 下载并且安装IDEA旗舰版 查看springboot官方文档，根据教程新建hello项目 修改hello项目开放的端口，把项目打包成jar包 配置服务器端的java环境，让项目在服务器上运行    下载并且安装">
   
     <link rel="alternate" href="/atom.xml" title="MPS的个人博客" type="application/atom+xml">
   
@@ -90,9 +90,7 @@
         <p><em>本周的任务：使用springboot编写一个helloworld网站，并且部署到服务器上。然后配置ssl正式，建立https站点。</em></p>
 <br>
 
-<p>先看第一个任务，编写helloWeb并且部署。</p>
-<p>步骤：</p>
-<ol>
+<h2 id="先看第一个任务，编写helloWeb并且部署。"><a href="#先看第一个任务，编写helloWeb并且部署。" class="headerlink" title="先看第一个任务，编写helloWeb并且部署。"></a>先看第一个任务，编写helloWeb并且部署。</h2><h3 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h3><ol>
 <li>下载并且安装IDEA旗舰版</li>
 <li>查看springboot官方文档，根据教程新建hello项目</li>
 <li>修改hello项目开放的端口，把项目打包成jar包</li>
@@ -170,9 +168,8 @@
 <p>现在可以访问<a href="http://www.yysy.xyz:10066/hello，访问hello网站了。" target="_blank" rel="noopener">www.yysy.xyz:10066/hello，访问hello网站了。</a></p>
 <br>
 
-<p>下面再看第二个任务，配置ssl证书，令项目可以在https协议下运行。实现用户的安全访问。</p>
-<p>步骤：</p>
-<ol>
+<h2 id="下面再看第二个任务，配置SSL证书"><a href="#下面再看第二个任务，配置SSL证书" class="headerlink" title="下面再看第二个任务，配置SSL证书"></a>下面再看第二个任务，配置SSL证书</h2><p>令项目可以在https协议下运行，实现用户安全访问。</p>
+<h3 id="步骤：-1"><a href="#步骤：-1" class="headerlink" title="步骤："></a>步骤：</h3><ol>
 <li>申请ssl证书</li>
 <li>配置ssl证书</li>
 </ol>
@@ -185,32 +182,44 @@
 <p>由于我的域名是阿里云买的，所以可以自动DNS验证，验证也是自动完成，证书很快就签发成功了。</p>
 <br>
 
-<h3 id="配置SSL证书"><a href="#配置SSL证书" class="headerlink" title="配置SSL证书"></a>配置SSL证书</h3><p>SSL证书签发之后，开始配置证书。</p>
+<h3 id="配置SSL证书之前，先解决一个问题："><a href="#配置SSL证书之前，先解决一个问题：" class="headerlink" title="配置SSL证书之前，先解决一个问题："></a>配置SSL证书之前，先解决一个问题：</h3><p>SSL证书签发之后，开始配置证书。</p>
+<p>查看阿里云的SSL证书配置文档，发现SSL证书要部署在Nginx、Tomcat、Apache服务器上，而目前的helloWeb是直接是机器终端的java命令跑起来的，似乎没有包装在上述服务器内。</p>
+<p>原来SpringBoot项目内置了一个Tomcat服务器，让网站项目可以直接以jar包的形式跑起来，而不需要借助外部服务器。</p>
+<p>既然这个SpringBoot项目的Tomcat是内置的，就很难修改它的配置，更难部署SSL证书。</p>
+<p>所以配置SSL证书之前，需要先给机器弄一个正式的服务器。</p>
+<p>现在给机器配置一个Nginx服务器，顺便实现二级域名映射，摆脱<a href="http://www.yysy.xyz:10066网址后面端口号的束缚。" target="_blank" rel="noopener">www.yysy.xyz:10066网址后面端口号的束缚。</a></p>
+<p>安装Nignx</p>
+<p>$ sudo yum -y install nginx   # 安装 nginx<br>$ sudo yum remove nginx  # 卸载 nginx</p>
+<p>配置Nginx服务</p>
+<p>$ sudo systemctl enable nginx # 设置开机启动<br>$ sudo service nginx start # 启动 nginx 服务<br>$ sudo service nginx stop # 停止 nginx 服务<br>$ sudo service nginx restart # 重启 nginx 服务<br>$ sudo service nginx reload # 重新加载配置，一般是在修改过 nginx 配置文件时使用。</p>
+<p>查看Nginx运行状态</p>
+<p>$ sudo systemctl status nginx</p>
+<p>在本地使用浏览器访问机器ip，如果无法访问可以看看是不是阿里云机器的80和443端口没有开放。</p>
+<p>在/etc/nginx/nginx.conf修改配置文件，这里先不展开，下面配置ssl证书才详细讲。</p>
+<p>现在直接访问<a href="http://www.yysy.xyz/hello，就可以访问到helloWeb啦！" target="_blank" rel="noopener">www.yysy.xyz/hello，就可以访问到helloWeb啦！</a></p>
 <br>
 
-<p><em>发现问题：</em></p>
-<p><em>查看阿里云的SSL证书配置文档，发现SSL证书部署在Nginx、Tomcat、Apache服务器上；</em></p>
-<p><em>而目前的helloWeb是直接是机器终端的java命令跑起来的，没有包装在服务器内；</em></p>
-<p><em>没有报错，是因为SpringBoot内置的一个Tomcat。</em></p>
-<p><em>既然这个Tomcat是内置的，就很难修改它的配置，部署SSL证书。</em></p>
+<h3 id="配置SSL证书"><a href="#配置SSL证书" class="headerlink" title="配置SSL证书"></a>配置SSL证书</h3><p>安装了Nginx服务器之后，就可以正式开始配置SSL证书了。</p>
+<p>具体步骤：</p>
+<ol>
+<li>登录阿里云SSL证书控制台，下载Nginx证书；</li>
+<li>创建/etc/nginx/cert目录，把下载的pem和key文件拉到cert目录；</li>
+<li>修改Nginx配置文件，如下所示</li>
+</ol>
+<p>$ vim /etc/nginx/nginx.conf</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#以下属性中以ssl开头的属性代表与证书配置有关，其他属性请根据自己的需要进行配置。</span><br><span class="line">server &#123;</span><br><span class="line">         listen 443 ssl; #配置HTTPS的默认访问端口号为443。此处如果未配置HTTPS的默认访问端口，可能会造成Nginx无法启动。Nginx 1.15.0以上版本请使用listen 443 ssl代替listen 443 ssl和ssl on。</span><br><span class="line">         server_name www.certificatestests.com; #将www.certificatestests.com修改为您证书绑定的域名，例如：www.example.com。如果您购买的是通配符域名证书，要修改为通配符域名，例如：*.aliyun.com。</span><br><span class="line">         root html;</span><br><span class="line">         index index.html index.htm;</span><br><span class="line">         ssl_certificate cert/domain name.pem;  #将domain name.pem替换成您证书的文件名称。</span><br><span class="line">         ssl_certificate_key cert/domain name.key; #将domain name.key替换成您证书的密钥文件名称。</span><br><span class="line">         ssl_session_timeout 5m;</span><br><span class="line">         ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4; #使用此加密套件。</span><br><span class="line">         ssl_protocols TLSv1 TLSv1.1 TLSv1.2; #使用该协议进行配置。</span><br><span class="line">         ssl_prefer_server_ciphers on;</span><br><span class="line">         location / &#123;</span><br><span class="line">         root html;  #站点目录。</span><br><span class="line">         index index.html index.htm;</span><br><span class="line">                    &#125;</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+
+<p>最后重启一下Nginx就完成配置了~</p>
 <br>
 
-<p>这里还是规范一点，先给阿里云的机子安装下Tomcat，使用外部的Tomcat服务器，运行项目。</p>
-<p>本地访问Apache Tomcat，下载9.0.39。另外，把helloWeb打包成war包。</p>
-<p>后面把两个包传输到阿里云的机子上，为了方便文件传输，建议下载Xftp传输文件。</p>
-<h4 id="传输tomcat后，tar解压tomcat包到-usr-local-mytomcat，然后重命名为tomcat。"><a href="#传输tomcat后，tar解压tomcat包到-usr-local-mytomcat，然后重命名为tomcat。" class="headerlink" title="传输tomcat后，tar解压tomcat包到/usr/local/mytomcat，然后重命名为tomcat。"></a>传输tomcat后，tar解压tomcat包到/usr/local/mytomcat，然后重命名为tomcat。</h4><p>$ mkdir /usr/local/mytomcat</p>
-<p>$ tar -zxvf apache-tomcat-9.0.39.tar.gz -C /usr/local/mytomcat</p>
-<p>$ cd /usr/local/mytomcat</p>
-<p>$ mv apache-tomcat-9.0.39 tomcat</p>
-<p>运行tomcat/bin/startup.sh，出现Tomcat started字样说明安装成功。</p>
-<h4 id="现在使用IDEA把原来的项目打包成war包并且传输："><a href="#现在使用IDEA把原来的项目打包成war包并且传输：" class="headerlink" title="现在使用IDEA把原来的项目打包成war包并且传输："></a>现在使用IDEA把原来的项目打包成war包并且传输：</h4><p>点击File&gt;Project Struct&gt;Artifacts，根据自己的需要修改名字，右击项目选择Put into Output Root，点击OK；</p>
-<p>点击Bulid&gt;Build Artifacts&gt;hello&gt;Build，打包之后可以在out目录看到war包；</p>
-<p>把war包用Xftp传输到阿里云机子的Tomcat/webapps/下，启动Tomcat</p>
+<p>配置SSL证书之后，还要进行网站备案。前面已经完成了域名信息的填写和域名持有者的实名认证，但是还没有进行域名持有者过户。</p>
+<p>打开阿里云的域名控制台，管理yysy.xyz域名，选择域名持有者过户填写相关信息。</p>
+<p>目前还在等待审核……</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/06/使用SpringBoot编写一个https网站/" data-id="ckh7svs6l000220ujtfx31dss" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/06/使用SpringBoot编写一个https网站/" data-id="ckh8kl3n10005lsujis558tsa" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SpringBoot/">SpringBoot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssl证书/">ssl证书</a></li></ul>
