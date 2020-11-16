@@ -85,6 +85,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><em>第六次作业又快截止了，DDL驱动的课程作业…</em></p>
+<br>
+
 <blockquote>
 <h2 id="1-简述大数据处理的三类场景，说明Spark对这三类典型场景的支持。"><a href="#1-简述大数据处理的三类场景，说明Spark对这三类典型场景的支持。" class="headerlink" title="1 简述大数据处理的三类场景，说明Spark对这三类典型场景的支持。"></a>1 简述大数据处理的三类场景，说明Spark对这三类典型场景的支持。</h2></blockquote>
 <h3 id="大数据处理的三类场景："><a href="#大数据处理的三类场景：" class="headerlink" title="大数据处理的三类场景："></a>大数据处理的三类场景：</h3><ol>
@@ -92,11 +94,17 @@
 <li>基于历史数据的交互式查询；</li>
 <li>基于实时数据流的数据处理。</li>
 </ol>
+<br>
+
 <h3 id="Spark对于以上三类场景的支持："><a href="#Spark对于以上三类场景的支持：" class="headerlink" title="Spark对于以上三类场景的支持："></a>Spark对于以上三类场景的支持：</h3><ol>
 <li>对于小时级的复杂批量数据处理，可以把批量数据，以有限数据流的形式，使用Spark进行计算处理；</li>
 <li>对于分钟级和秒级的已与历史数据的交互式查询，可以使用Spark SQL组件；</li>
 <li>对于毫秒级基于实时数据流的数据处理，可以使用Spark Streaming组件。</li>
 </ol>
+<br>
+
+<br>
+
 <blockquote>
 <h2 id="2-简要陈述Spark的运行架构和基本流程。"><a href="#2-简要陈述Spark的运行架构和基本流程。" class="headerlink" title="2 简要陈述Spark的运行架构和基本流程。"></a>2 简要陈述Spark的运行架构和基本流程。</h2></blockquote>
 <h3 id="Spark运行架构包括："><a href="#Spark运行架构包括：" class="headerlink" title="Spark运行架构包括："></a>Spark运行架构包括：</h3><ol>
@@ -105,6 +113,8 @@
 <li>每个应用的任务控制节点（Driver）；</li>
 <li>工作节点上负责具体任务的执行进程（Executor）。</li>
 </ol>
+<br>
+
 <h3 id="Spark运行基本流程："><a href="#Spark运行基本流程：" class="headerlink" title="Spark运行基本流程："></a>Spark运行基本流程：</h3><ol>
 <li>由Driver创建一个SparkContext，进行资源申请、任务分配和监控，为应用构建基本运行环境；</li>
 <li>资源管理为Executor分配资源，启动Executor进程；</li>
@@ -112,18 +122,30 @@
 <li>Executor向SparkContext申请Task，TaskScheduler将Task发放给Executor运行，并且提供应用程序代码；</li>
 <li>Task在Executor上运行，把执行结果反馈给TaskScheduler，然后反馈给DAGScheduler，运行完毕写入数据并释放所有资源。</li>
 </ol>
+<br>
+
+<br>
+
 <blockquote>
 <h2 id="3-简要说明Spark中“stage”的概念及其划分方法。"><a href="#3-简要说明Spark中“stage”的概念及其划分方法。" class="headerlink" title="3 简要说明Spark中“stage”的概念及其划分方法。"></a>3 简要说明Spark中“stage”的概念及其划分方法。</h2></blockquote>
 <h3 id="Spark中Stage的概念："><a href="#Spark中Stage的概念：" class="headerlink" title="Spark中Stage的概念："></a>Spark中Stage的概念：</h3><p>Stage是Job的基本调度单位。一个Job可分为多组Task，每一组Task被称为一个Stage或者TaskSet。任务集包含的各项任务之间，相互关联但是没有Shuffle依赖。</p>
+<br>
+
 <h3 id="Stage的划分方法："><a href="#Stage的划分方法：" class="headerlink" title="Stage的划分方法："></a>Stage的划分方法：</h3><ol>
 <li>DAGScheduler在DAG进行反向解析，遇到宽依赖就断开；</li>
 <li>解析过程中，遇到窄依赖就把当前的包含的RDD加入到Stage中；</li>
 <li>将窄依赖进项划分到同一个Stage中，以便实现流水线计算。</li>
 </ol>
+<br>
+
 <h3 id="关于宽依赖和窄依赖："><a href="#关于宽依赖和窄依赖：" class="headerlink" title="关于宽依赖和窄依赖："></a>关于宽依赖和窄依赖：</h3><ol>
 <li>宽依赖表现为，一个父RDD的单个分区映射到一个子RDD的多个分区；</li>
 <li>窄依赖表现为，一个父RDD的单个分区映射到一个子RDD的单个分组，或者多个父RDD的单个分区映射到一个子RDD的单个分区。</li>
 </ol>
+<br>
+
+<br>
+
 <blockquote>
 <h2 id="4-Spark部署在YARN集群上，运行程序有两种模式，请简要叙述。"><a href="#4-Spark部署在YARN集群上，运行程序有两种模式，请简要叙述。" class="headerlink" title="4 Spark部署在YARN集群上，运行程序有两种模式，请简要叙述。"></a>4 Spark部署在YARN集群上，运行程序有两种模式，请简要叙述。</h2></blockquote>
 <h3 id="Spark-on-YARN运行程序有两种模式："><a href="#Spark-on-YARN运行程序有两种模式：" class="headerlink" title="Spark on YARN运行程序有两种模式："></a>Spark on YARN运行程序有两种模式：</h3><ol>
@@ -134,7 +156,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/16/大数据架构作业-简答题6/" data-id="ckhk7ypvl000lugujlmz1ir0c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/16/大数据架构作业-简答题6/" data-id="ckhk89hk5000sroujlop0e07t" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/作业/">作业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据架构/">大数据架构</a></li></ul>
@@ -279,7 +301,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/12/大数据架构作业-简答题5/" data-id="ckhk7ypvm000ougujifvddcrj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/12/大数据架构作业-简答题5/" data-id="ckhk89hk4000qrouj9sn2p2pf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/作业/">作业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据架构/">大数据架构</a></li></ul>
@@ -445,7 +467,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/06/使用SpringBoot编写一个https网站/" data-id="ckhk7ypv9000bugujw3ifxmyj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/06/使用SpringBoot编写一个https网站/" data-id="ckhk89hjp0007rouj3o4q8kg8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SpringBoot/">SpringBoot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssl证书/">ssl证书</a></li></ul>
@@ -510,7 +532,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/05/大数据架构作业-简答题4/" data-id="ckhk7ypvi000jugujxz95nb5s" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/05/大数据架构作业-简答题4/" data-id="ckhk89hk2000nroujctfd9nke" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/作业/">作业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据架构/">大数据架构</a></li></ul>
@@ -644,7 +666,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/04/大数据架构作业-简答题3/" data-id="ckhk7ypwe0022ugujc7mffeqz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/04/大数据架构作业-简答题3/" data-id="ckhk89hk1000mroujalsh3r4a" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/作业/">作业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据架构/">大数据架构</a></li></ul>
@@ -811,7 +833,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/10/08/学习内网穿透/" data-id="ckhk7ypwd0020uguj791uea30" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/10/08/学习内网穿透/" data-id="ckhk89hk7000urouj74u6ovmo" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frp/">frp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/内网穿透/">内网穿透</a></li></ul>
@@ -905,7 +927,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/09/27/WSLinux之Ubuntu-安装rpm包/" data-id="ckhk7ypv00003ugujg0wotrwt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/09/27/WSLinux之Ubuntu-安装rpm包/" data-id="ckhk89hjf0002roujvt3yw4km" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WSL/">WSL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/搬运/">搬运</a></li></ul>
@@ -967,7 +989,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/09/26/大数据架构作业-简答题2/" data-id="ckhk7ypw9001yugujc1ls7htx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/09/26/大数据架构作业-简答题2/" data-id="ckhk89hk0000kroujddcoifcs" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/作业/">作业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据架构/">大数据架构</a></li></ul>
@@ -1257,7 +1279,7 @@ ChildClass());</code><br>※ <strong>泛型只能使用引用类型</strong>, �
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/09/23/入门JavaSE-进阶篇/" data-id="ckhk7ypve000eugujmrv9znip" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/09/23/入门JavaSE-进阶篇/" data-id="ckhk89hjw000drouj5g40tbih" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
@@ -1393,7 +1415,7 @@ ChildClass());</code><br>※ <strong>泛型只能使用引用类型</strong>, �
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/09/21/为Windows-Terminal配置Ubuntu系统/" data-id="ckhk7ypv40005ugujgryei7qw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/09/21/为Windows-Terminal配置Ubuntu系统/" data-id="ckhk89hjo0006roujcpor0qjz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WSL/">WSL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/搬运/">搬运</a></li></ul>
