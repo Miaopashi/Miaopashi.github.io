@@ -5,15 +5,20 @@
   
 
   
-  <title>Archives: 2020/11 | MPS的个人博客</title>
+  <title>关于DAO模式的小记录 | MPS的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="MPS的个人博客">
-<meta property="og:url" content="http://yoursite.com/archives/2020/11/index.html">
+  <meta name="description" content="上周学习SpringBoot编写用户登录系统，提到了DAO模式。   于是网上找了一下具体概念：  Data Access Object Pattern or DAO pattern is used to separate low level data accessing API or operations from high level business services. Following">
+<meta name="keywords" content="Spring Boot,设计模式,DAO模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于DAO模式的小记录">
+<meta property="og:url" content="http://yoursite.com/2020/11/17/关于DAO模式的小记录/index.html">
 <meta property="og:site_name" content="MPS的个人博客">
+<meta property="og:description" content="上周学习SpringBoot编写用户登录系统，提到了DAO模式。   于是网上找了一下具体概念：  Data Access Object Pattern or DAO pattern is used to separate low level data accessing API or operations from high level business services. Following">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-11-17T13:35:35.644Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MPS的个人博客">
+<meta name="twitter:title" content="关于DAO模式的小记录">
+<meta name="twitter:description" content="上周学习SpringBoot编写用户登录系统，提到了DAO模式。   于是网上找了一下具体概念：  Data Access Object Pattern or DAO pattern is used to separate low level data accessing API or operations from high level business services. Following">
   
     <link rel="alternate" href="/atom.xml" title="MPS的个人博客" type="application/atom+xml">
   
@@ -60,135 +65,86 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/11/17/关于DAO模式的小记录/" class="archive-article-date">
-  <time datetime="2020-11-17T13:34:09.000Z" itemprop="datePublished">Nov 17</time>
+        <section id="main"><article id="post-关于DAO模式的小记录" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/17/关于DAO模式的小记录/" class="article-date">
+  <time datetime="2020-11-17T13:34:09.000Z" itemprop="datePublished">2020-11-17</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/17/关于DAO模式的小记录/">关于DAO模式的小记录</a>
+    <h1 class="article-title" itemprop="name">
+      关于DAO模式的小记录
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/11/16/大数据架构作业-简答题6/" class="archive-article-date">
-  <time datetime="2020-11-16T07:19:44.000Z" itemprop="datePublished">Nov 16</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/16/大数据架构作业-简答题6/">大数据架构作业-简答题6</a>
-    </h1>
-  
+        <p>上周学习SpringBoot编写用户登录系统，提到了DAO模式。</p>
+<br>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/11/12/大数据架构作业-简答题5/" class="archive-article-date">
-  <time datetime="2020-11-12T08:17:20.000Z" itemprop="datePublished">Nov 12</time>
-</a>
+<p>于是网上找了一下<strong>具体概念</strong>：</p>
+<blockquote>
+<p>Data Access Object Pattern or DAO pattern is used to separate low level data accessing API or operations from high level business services. Following are the participants in Data Access Object Pattern.</p>
+<ul>
+<li><strong>Data Access Object Interface</strong> - This interface defines the standard operations to be performed on a model object(s).</li>
+<li><strong>Data Access Object concrete class</strong> - This class implements above interface. This class is responsible to get data from a data source which can be database / xml or any other storage mechanism.</li>
+<li><strong>Model Object or Value Object</strong> - This object is simple POJO containing get/set methods to store data retrieved using DAO class.</li>
+</ul>
+</blockquote>
+<br>
+
+<p><em>渣渣翻译一下</em>：</p>
+<p><strong>DAO模式用于应用的数据操作，实现了底层数据操作和高层业务的分离。</strong></p>
+<br>
+
+<p>它分为以下三个组成部分：</p>
+<ol>
+<li><strong>DAO接口</strong> - 定义了对于底层模式对象应该有的规范化操作；</li>
+<li><strong>DAO实体类</strong> - 具体实现DAO接口里面定义的操作，<strong>负责从数据库或其它形式的数据存储中读取数据</strong>；</li>
+<li><strong>Model模式对象</strong> - 这是一个简单的<strong>POJO</strong>(<strong>Plain Old Java Object</strong>，持久化类)，用于定义需要存储的数据的格式。这个类里面，有许多<strong>get/set方法</strong>，这些方法使用DAO实体类，实现对应数据的存储和修改。</li>
+</ol>
+<br>
+
+<p>关于上述引用的具体内容，可以看看<a href="https://www.tutorialspoint.com/design_pattern/data_access_object_pattern.htm" target="_blank" rel="noopener">这个网页</a>。</p>
+<br>
+
+<p><strong>小结：</strong></p>
+<p>DAO模式是一种将底层数据结构和高层数据操作描述分离的设计模式。</p>
+<p>通过使用该模式，可以简化用户开发难度，分层进行应用开发。</p>
+<p>用户可以从底层的数据存储解放出来（直接定义POJO），从而更加专注于业务需要的数据操作的具体实现上（编写DAO实体类）。</p>
+
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/12/大数据架构作业-简答题5/">大数据架构作业-简答题5</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/11/06/使用SpringBoot编写一个https网站/" class="archive-article-date">
-  <time datetime="2020-11-06T14:26:11.000Z" itemprop="datePublished">Nov 6</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/11/17/关于DAO模式的小记录/" data-id="ckhm0rylv000cm8uj5cqp9opw" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/06/使用SpringBoot编写一个https网站/">使用SpringBoot编写一个https网站</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/11/05/大数据架构作业-简答题4/" class="archive-article-date">
-  <time datetime="2020-11-05T11:57:57.000Z" itemprop="datePublished">Nov 5</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/05/大数据架构作业-简答题4/">大数据架构作业-简答题4</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DAO模式/">DAO模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
 
-    </header>
+    </footer>
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/11/04/大数据架构作业-简答题3/" class="archive-article-date">
-  <time datetime="2020-11-04T06:45:47.000Z" itemprop="datePublished">Nov 4</time>
-</a>
-      
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/04/大数据架构作业-简答题3/">大数据架构作业-简答题3</a>
-    </h1>
   
+    <a href="/2020/11/16/大数据架构作业-简答题6/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">大数据架构作业-简答题6</div>
+    </a>
+  
+</nav>
 
-    </header>
-  </div>
+  
 </article>
-  
-  
-    </div></section>
-  
-
 
 </section>
         
