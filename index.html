@@ -62,6 +62,147 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-使用Spring-Boot-Spring-Security-Hibernate-Bootstrap-JSP-Spring-Data-JPA-MySQL实现的登陆注册系统" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/17/使用Spring-Boot-Spring-Security-Hibernate-Bootstrap-JSP-Spring-Data-JPA-MySQL实现的登陆注册系统/" class="article-date">
+  <time datetime="2020-11-17T13:50:08.000Z" itemprop="datePublished">2020-11-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/17/使用Spring-Boot-Spring-Security-Hibernate-Bootstrap-JSP-Spring-Data-JPA-MySQL实现的登陆注册系统/">使用Spring Boot, Spring Security, Hibernate, Bootstrap, JSP, Spring Data JPA, MySQL实现的登陆注册系统</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="本周任务："><a href="#本周任务：" class="headerlink" title="本周任务："></a>本周任务：</h2><p>使用Spring Boot实现一个简单的用户登录系统，并且部署在服务器上。</p>
+<br>
+
+<br>
+
+<h2 id="使用工具以及运行环境："><a href="#使用工具以及运行环境：" class="headerlink" title="使用工具以及运行环境："></a>使用工具以及运行环境：</h2><ol>
+<li>Spring Boot</li>
+<li>Spring Security</li>
+<li>Spring Data JPA</li>
+<li>Hibernate</li>
+<li>JDK 8</li>
+<li>Maven 3.6.3</li>
+<li>MySQL Server 5.7</li>
+<li>Bootstrap</li>
+<li>JSP</li>
+<li>IDEA</li>
+</ol>
+<p><br><br></p>
+<h2 id="文件目录树："><a href="#文件目录树：" class="headerlink" title="文件目录树："></a>文件目录树：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">│  pom.xml</span><br><span class="line">│  </span><br><span class="line">└─src</span><br><span class="line">    └─main</span><br><span class="line">        ├─java</span><br><span class="line">        │  └─com</span><br><span class="line">        │      └─yysy</span><br><span class="line">        │          └─auth</span><br><span class="line">        │              │  WebApplication.java</span><br><span class="line">        │              │  WebSecurityConfig.java</span><br><span class="line">        │              │  </span><br><span class="line">        │              ├─model</span><br><span class="line">        │              │      Role.java</span><br><span class="line">        │              │      User.java</span><br><span class="line">        │              │      </span><br><span class="line">        │              ├─repository</span><br><span class="line">        │              │      RoleRepository.java</span><br><span class="line">        │              │      UserRepository.java</span><br><span class="line">        │              │      </span><br><span class="line">        │              ├─service</span><br><span class="line">        │              │      SecurityService.java</span><br><span class="line">        │              │      SecurityServiceImpl.java</span><br><span class="line">        │              │      UserDetailsServiceImpl.java</span><br><span class="line">        │              │      UserService.java</span><br><span class="line">        │              │      UserServiceImpl.java</span><br><span class="line">        │              │      </span><br><span class="line">        │              ├─validator</span><br><span class="line">        │              │      UserValidator.java</span><br><span class="line">        │              │      </span><br><span class="line">        │              └─web</span><br><span class="line">        │                      UserController.java</span><br><span class="line">        │                      </span><br><span class="line">        ├─resources</span><br><span class="line">        │      application.properties</span><br><span class="line">        │      validation.properties</span><br><span class="line">        │      </span><br><span class="line">        └─webapp</span><br><span class="line">            │  login.jsp</span><br><span class="line">            │  registration.jsp</span><br><span class="line">            │  welcome.jsp</span><br><span class="line">            │  </span><br><span class="line">            └─resources</span><br><span class="line">                ├─css</span><br><span class="line">                │      bootstrap.min.css</span><br><span class="line">                │      common.css</span><br><span class="line">                │      </span><br><span class="line">                └─js</span><br><span class="line">                        bootstrap.min.js</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<br>
+
+<h2 id="实现步骤："><a href="#实现步骤：" class="headerlink" title="实现步骤："></a>实现步骤：</h2><ol>
+<li>使用Maven新建一个项目，也可以使用spring initializr等工具生成项目。</li>
+<li>配置项目依赖，修改pom.xml文件，添加上述的各种依赖。</li>
+<li>定义JPA和Hibernate的实体，编写<code>User.java</code>和<code>Role.java</code>，这里属于DAO模式的Model层。</li>
+<li>编写Spring Data JPA仓库，编写<code>UserRepository.java</code>和<code>RoleRepository.java</code>，实现DAO模式的接口层。</li>
+<li>编写几个Service类，实现用户验证功能。<ol>
+<li>编写<code>UserDetailsServiceImpl.java</code>，实现Spring Security中的<code>UserDetailsService</code>接口，下面的<code>SecurityServiceImpl</code>会用到；</li>
+<li>编写<code>SecurityService</code>接口以及实现类，主要实现用户的身份验证，即实现用户的登陆功能；</li>
+<li>编写<code>UserService</code>接口类以及实现类，主要实现用户的注册功能；</li>
+</ol>
+</li>
+<li>编写<code>UserValidator</code>类，用于注册表单信息的校验；<ol>
+<li>主要实现的校验有：<ol>
+<li>用户名长度不符合规范</li>
+<li>用户名已被使用</li>
+<li>用户密码太短</li>
+<li>用户密码二次输入错误（二次输入是为了注册时确认密码）</li>
+</ol>
+</li>
+<li>校验的错误信息可以在<code>validation.properties</code>中定义；</li>
+<li><code>Validator</code>从<code>Spring.validation</code>导入，已实现了很多常用方法；</li>
+<li>登录页面的的错误比较单一，可以直接在Controller中定义；</li>
+</ol>
+</li>
+<li>编写<code>WebController.java</code>，处理各种url请求的响应；</li>
+<li>使用Bootstrap编写登录、注册和欢迎的JSP页面；</li>
+<li>编写properties文件，包括上面提到的<code>validation.properties</code>和<code>application.properties</code>。<ol>
+<li>validation定义注册表单报错的具体信息</li>
+<li>application指定的属性如下：<ol>
+<li>指定数据库的来源</li>
+<li>指定JPA、Hibernate的选项</li>
+<li>指定mvc的一些选项，以及监听端口等等</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>编写<code>WebSecurityConfig.java</code>，其中定义了受保护的页面以及需要的角色。</li>
+</ol>
+<br>
+
+<h2 id="踩到的坑："><a href="#踩到的坑：" class="headerlink" title="踩到的坑："></a>踩到的坑：</h2><ol>
+<li><h3 id="下载Maven配置到IDEA，项目使用Maven下载依赖包速度很慢。"><a href="#下载Maven配置到IDEA，项目使用Maven下载依赖包速度很慢。" class="headerlink" title="下载Maven配置到IDEA，项目使用Maven下载依赖包速度很慢。"></a>下载Maven配置到IDEA，项目使用Maven下载依赖包速度很慢。</h3><p>下载Maven之后，还要修改<code>Setting.xml</code>，添加国内的镜像。（<a href="https://blog.csdn.net/Hello_World_QWP/article/details/82459915" target="_blank" rel="noopener">Maven镜像配置参考</a>）</p>
+<br>
+</li>
+<li><h3 id="application-properties中指定的DataSource无法访问。"><a href="#application-properties中指定的DataSource无法访问。" class="headerlink" title="application.properties中指定的DataSource无法访问。"></a><code>application.properties</code>中指定的<code>DataSource</code>无法访问。</h3><p><code>spring.datasource.url</code>可以指定使用数据库的地址，有时候会遇到数据库的时区和应用的时区不同步的问题；</p>
+<p>需要使用相关参数指明时区</p>
+<p>使用参数<code>serverTimezone=UTC</code>，规定时区为世界标准时间</p>
+<p>参数与参数之间使用<code>&amp;</code>符号进行连接</p>
+<br>
+</li>
+<li><h3 id="JSP中文乱码问题"><a href="#JSP中文乱码问题" class="headerlink" title="JSP中文乱码问题"></a>JSP中文乱码问题</h3><p>JSP是一个java文件，当应用在JVM中运行的时候需要被编译，如果在jsp文件中写了中文，就需要事先指定；</p>
+<p>否则，jsp被编译之后会直接乱码，编码说明代码如下（指定jsp文件使用utf-8编码）</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page contentType=<span class="string">"text/html; charset=utf-8"</span>%&gt;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.cnblogs.com/chengkai/articles/2171848.html" target="_blank" rel="noopener">参考博客</a>。</p>
+<br>
+</li>
+<li><h3 id="项目在IDEA可以运行，达成jar包之后页面404了"><a href="#项目在IDEA可以运行，达成jar包之后页面404了" class="headerlink" title="项目在IDEA可以运行，达成jar包之后页面404了"></a>项目在IDEA可以运行，达成jar包之后页面404了</h3><p>这是因为maven没有把<code>jsp</code>等静态资源打包进jar包，需要在<code>pom</code>文件的<code>build</code>中，指定项目所需静态文件的存储位置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/webapp<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--这里必须是META-INF/resources--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">targetPath</span>&gt;</span>META-INF/resources<span class="tag">&lt;/<span class="name">targetPath</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/**<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>true<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/**<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 404解决方案之一 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.4.2.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是，使用的spring-boot-maven版本好像只能为1.4.2，否则无法正常把文件打包进去。</p>
+<br>
+</li>
+<li><h3 id="jar包部署到服务器之后，访问页面不知道为什么一直加载不出来（这个是个大坑）"><a href="#jar包部署到服务器之后，访问页面不知道为什么一直加载不出来（这个是个大坑）" class="headerlink" title="jar包部署到服务器之后，访问页面不知道为什么一直加载不出来（这个是个大坑）"></a>jar包部署到服务器之后，访问页面不知道为什么一直加载不出来（这个是个大坑）</h3><blockquote>
+<p>Linux使用<code>NativePRNG</code>算法生成<code>SecureRandom</code>，如果调用<code>generateSeed()</code>方法，这个方法会读取Linux系统的<code>/dev/random</code>文件，这个文件在<code>JAVA_HOME/jre/lib/securiy/java.security</code>里面有默认定义。而<code>/dev/random</code>文件是动态生成的，如果没有数据，就会阻塞！</p>
+</blockquote>
+<h4 id="个人猜测："><a href="#个人猜测：" class="headerlink" title="个人猜测："></a>个人猜测：</h4><p>​    由于使用<code>SpringSecurity</code>需要生成随机数，进而JVM调用了<code>/dev/random</code>没有结果，于是发生阻塞，毕竟同样的问题在Win下没有出现。</p>
+<h4 id="把JAVA-HOME-jre-lib-securiy-java-security中的securerandom改为urandom即可解决问题！"><a href="#把JAVA-HOME-jre-lib-securiy-java-security中的securerandom改为urandom即可解决问题！" class="headerlink" title="把JAVA_HOME/jre/lib/securiy/java.security中的securerandom改为urandom即可解决问题！"></a>把<code>JAVA_HOME/jre/lib/securiy/java.security</code>中的<code>securerandom</code>改为<code>urandom</code>即可解决问题！</h4><p><a href="https://www.cnblogs.com/it-deepinmind/p/13344558.html" target="_blank" rel="noopener">参考博客</a></p>
+</li>
+</ol>
+<br>
+
+<br>
+
+<h2 id="小结："><a href="#小结：" class="headerlink" title="小结："></a>小结：</h2><p>这个项目其实是参考网上的已有项目修改下来的。</p>
+<p>但是，读项目源码的过程中，还是学习到了一个Spring Boot项目该有的体系结构和开发流程。</p>
+<p>特别是认识到了Spring Security的强大功能，后面还会继续学习记录Spring Security的相关内容。</p>
+<p>另外，这次学习没有好好看hibernate框架，后面也要抽时间好好补课，希望不会鸽掉。</p>
+<p>Spring Validation提供了常用的用户校验功能，但是hibernate validation似乎能够实现效果更好的自定义校验功能，希望今后有机会可以学习学习。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/11/17/使用Spring-Boot-Spring-Security-Hibernate-Bootstrap-JSP-Spring-Data-JPA-MySQL实现的登陆注册系统/" data-id="ckhm1du7r00084kujjbenls36" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JPA/">JPA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Security/">Spring Security</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-关于DAO模式的小记录" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/11/17/关于DAO模式的小记录/" class="article-date">
@@ -121,7 +262,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/17/关于DAO模式的小记录/" data-id="ckhm0rylv000cm8uj5cqp9opw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/17/关于DAO模式的小记录/" data-id="ckhm1du80000i4kuj1mtotyax" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DAO模式/">DAO模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -227,7 +368,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/16/大数据架构作业-简答题6/" data-id="ckhm0rymd000rm8ujkjg0r81n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/16/大数据架构作业-简答题6/" data-id="ckhm1du89000w4kujlkfzlty7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/作业/">作业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据架构/">大数据架构</a></li></ul>
@@ -372,7 +513,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/12/大数据架构作业-简答题5/" data-id="ckhm0rymf000tm8ujqf0t8oq2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/12/大数据架构作业-简答题5/" data-id="ckhm1du87000t4kuj3nw9ckaa" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/作业/">作业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据架构/">大数据架构</a></li></ul>
@@ -538,7 +679,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/06/使用SpringBoot编写一个https网站/" data-id="ckhm0rym0000hm8uj0v2ogoe3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/06/使用SpringBoot编写一个https网站/" data-id="ckhm1du7q00074kuj1gn5iwni" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SpringBoot/">SpringBoot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssl证书/">ssl证书</a></li></ul>
@@ -603,7 +744,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/05/大数据架构作业-简答题4/" data-id="ckhm0rymb000pm8ujjb5wcgq5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/05/大数据架构作业-简答题4/" data-id="ckhm1du86000s4kujqukilw0j" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/作业/">作业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据架构/">大数据架构</a></li></ul>
@@ -737,7 +878,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/04/大数据架构作业-简答题3/" data-id="ckhm0rynu002gm8ujgcxsg387" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/04/大数据架构作业-简答题3/" data-id="ckhm1du85000r4kujiujpimim" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/作业/">作业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据架构/">大数据架构</a></li></ul>
@@ -904,7 +1045,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/10/08/学习内网穿透/" data-id="ckhm0rynf002bm8uj4xle3n3k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/10/08/学习内网穿透/" data-id="ckhm1du97002n4kuj8zuyde4y" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frp/">frp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/内网穿透/">内网穿透</a></li></ul>
@@ -998,7 +1139,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/09/27/WSLinux之Ubuntu-安装rpm包/" data-id="ckhm0rylj0004m8ujhwyfxn25" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/09/27/WSLinux之Ubuntu-安装rpm包/" data-id="ckhm1du7c00004kujnvgrlgle" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WSL/">WSL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/搬运/">搬运</a></li></ul>
@@ -1060,300 +1201,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/09/26/大数据架构作业-简答题2/" data-id="ckhm0rym4000km8ujglnemthe" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/09/26/大数据架构作业-简答题2/" data-id="ckhm1du84000o4kujjabqgtnp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/作业/">作业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据架构/">大数据架构</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-入门JavaSE-进阶篇" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/09/23/入门JavaSE-进阶篇/" class="article-date">
-  <time datetime="2020-09-23T10:36:08.000Z" itemprop="datePublished">2020-09-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/23/入门JavaSE-进阶篇/">入门JavaSE-进阶篇</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>趁热打铁，开始看进阶篇，快速入门。</p>
-<h2 id="javase入门-进阶"><a href="#javase入门-进阶" class="headerlink" title="javase入门 进阶"></a>javase入门 进阶</h2><p><a href="https://www.imooc.com/learn/110" target="_blank" rel="noopener">https://www.imooc.com/learn/110</a><br><br><br><br></p>
-<h2 id="C1-异常与异常处理"><a href="#C1-异常与异常处理" class="headerlink" title="C1-异常与异常处理"></a>C1-异常与异常处理</h2><h3 id="异常简介"><a href="#异常简介" class="headerlink" title="异常简介"></a>异常简介</h3><p>有错误出现，阻止当前方法或作用域<br><code>Throwable</code>所有异常的父类, 有两个子类</p>
-<ol>
-<li>Error 虚拟机错误，线程死锁</li>
-<li>Exception runtime异常（非检查异常），检查异常</li>
-</ol>
-<br>
-
-<br>
-
-<h3 id="处理异常-捕获异常"><a href="#处理异常-捕获异常" class="headerlink" title="处理异常(捕获异常)"></a>处理异常(捕获异常)</h3><p><code>try-catch</code>以及<code>try-catch-finally</code>，<code>catch</code>语句捕获异常进行处理，可以有多个<code>catch</code>语句块，先<code>catch</code>异常子类再<code>catch</code>异常的父类，<code>finally</code>是异常处理完之后再执行的语句块。<br>ps：打印异常可以用 <code>e.printStackTrace();</code><br>pps: 原来输入法可以切换中英文标点, 不需要整个输入法切换成英文!</p>
-<br>
-
-<h3 id="异常抛出以及自定义异常"><a href="#异常抛出以及自定义异常" class="headerlink" title="异常抛出以及自定义异常"></a>异常抛出以及自定义异常</h3><h4 id="异常抛出"><a href="#异常抛出" class="headerlink" title="异常抛出"></a>异常抛出</h4><p><code>throws</code> 声明僬侥抛出何种类型的异常(声明)<br><code>throw</code> 将产生的异常抛出(动作)</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 抛出异常方法示例:</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> 方法名(参数列表) <span class="keyword">throws</span> 异常列表 &#123;</span><br><span class="line">		<span class="comment">//调用会抛出异常的方法或者throw new Exception();</span></span><br><span class="line">		<span class="comment">//处理没有预先规定的异常种类</span></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-
-<p>ps: 异常的处理是多样化的, 捕获异常(try-catch)和抛出异常(throws)只是两种方式,抛出异常一般处理<br><br></p>
-<h4 id="自定义的异常"><a href="#自定义的异常" class="headerlink" title="自定义的异常"></a>自定义的异常</h4><p>自定义异常: 自定义一个自己编写的异常种类<br>语法: <code>public class MyException extends Exception {}</code><br>ps: 注意要编写构造方法, 另外父类必须为Exception或者其它子类<br>pps: Exception构造方法输入参数作为报错的名称</p>
-<p>ps: 异常的处理是多样化的, 捕获异常(try-catch)和抛出异常(throws)只是两种方式,抛出异常一般处理自定义的异常<br>自定义异常<br>自定义一个自己编写的异常种类<br>语法: public class MyException extends Exception {}<br>ps: 注意要编写构造方法, 另外父类必须为Exception或者其它子类<br>pps: Exception构造方法输入参数作为报错的名称</p>
-<br>
-
-<h3 id="异常链"><a href="#异常链" class="headerlink" title="异常链"></a>异常链</h3><p>目的: 用于推测出最初发生异常的位置<br>示例: 自定义一个异常(喝大了), 一个方法(test1)抛出自定义的异常, 另一个方法(test2)调用这个会抛出异常的方法(test1),捕获异常(喝大了)从而再抛出一个异常(运行时异常), 最后在其它方法调用后一个方法, 则形成了一个异常链(由喝大了引发的运行时异常)<br>ps: throw抛出异常之前必须先throws声明异常<br>pps: 异常使用initCase方法, 引用原始异常</p>
-<br>
-
-<h3 id="经验总结"><a href="#经验总结" class="headerlink" title="经验总结"></a>经验总结</h3><ol>
-<li>运行时异常, 采用逻辑规避, 用try-catch辅助处理</li>
-<li>多重catch块后面, 可以catch(Exception)处理可能遗漏的异常</li>
-<li>try-catch,处理潜在的异常</li>
-<li>积极根据业务需求和异常类型处理异常, 不要简单打印异常</li>
-<li>尽量用finally语句释放占用的资源</li>
-</ol>
-<br>
-
-<br>
-
-<br>
-
-<h2 id="C2-Java中的字符串"><a href="#C2-Java中的字符串" class="headerlink" title="C2-Java中的字符串"></a>C2-Java中的字符串</h2><h3 id="字符串什么"><a href="#字符串什么" class="headerlink" title="字符串什么"></a>字符串什么</h3><p><code>String</code>对象位于<code>java.lang</code>包中, 默认情况下该包自动导入所有的程序<br>创建<code>String</code>对象方法:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String s1 = <span class="string">"imooc"</span>;</span><br><span class="line">String s2 = <span class="keyword">new</span> String();</span><br><span class="line">String s3 = <span class="keyword">new</span> String(<span class="string">"imooc"</span>);</span><br></pre></td></tr></table></figure>
-
-<br>
-
-<h3 id="字符串的不变性"><a href="#字符串的不变性" class="headerlink" title="字符串的不变性"></a>字符串的不变性</h3><p><code>String</code>对象创建后不能修改, 只能直接改变指向的内存, 相当于整个变量对应的内容换掉<br>如果需要可以改变的字符串,可以使用<code>StringBuffer</code>或者<code>StringBuilder</code><br>每次<code>new</code>一个<code>String</code>就是一个新的对象, 所以<code>==</code>的结果为<code>flase</code>, 比较两个字符串内容是否相同时, 应该使用<code>equals()</code>方法, 注意区分<code>==</code>和<code>equals()</code></p>
-<br>
-
-<h3 id="String类常用的方法"><a href="#String类常用的方法" class="headerlink" title="String类常用的方法"></a><code>String</code>类常用的方法</h3><p><code>String</code>类提供了很多处理字符串的方法, 获取长度,截取字符串,字符串转换为大小写,字符串分割等等<br>可以参照菜鸟教程的<code>Java中String类</code>的说明:<br><a href="https://www.runoob.com/java/java-string.html" target="_blank" rel="noopener">https://www.runoob.com/java/java-string.html</a><br>ps: <code>equals()</code>, <code>indexOf()</code>, <code>substring()</code>, <code>charAt()</code>用的比较多<br>pps: <code>==</code>判断两个对象内存的地址是否相同, <code>equals()</code>比较两个对象的内容是否相等<br>关于<code>getBytes()</code>方法, 由于汉字有两个字节而且会溢出, 所以转换后得到的字节数是两个负数, <code>asc码</code>则转化为一个数</p>
-<br>
-
-<h3 id="StringBuilder类"><a href="#StringBuilder类" class="headerlink" title="StringBuilder类"></a><code>StringBuilder</code>类</h3><p>修改字符串时不会额外创建一个对象, <code>StringBuffer</code>是线程安全的, <code>StringBuilder</code>则没有但性能更高, 一般课表字符串对象优先考虑<code>StringBuilder</code><br>定义: </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">StringBuilder str1 = <span class="keyword">new</span> StringBuilder();  <span class="comment">// 参数""可选</span></span><br></pre></td></tr></table></figure>
-
-<br>
-
-<h3 id="StringBuilder类的常用方法"><a href="#StringBuilder类的常用方法" class="headerlink" title="StringBuilder类的常用方法"></a><code>StringBuilder类</code>的常用方法</h3><p><code>append()</code>, <code>inset()</code>方法比较常用<br>同样, 可以参照菜鸟教程:<br><a href="https://www.runoob.com/java/java-stringbuffer.html" target="_blank" rel="noopener">https://www.runoob.com/java/java-stringbuffer.html</a></p>
-<br>
-
-<br>
-
-<br>
-
-<h2 id="C3-Java中的常用类"><a href="#C3-Java中的常用类" class="headerlink" title="C3-Java中的常用类"></a>C3-Java中的常用类</h2><h3 id="包装类"><a href="#包装类" class="headerlink" title="包装类"></a>包装类</h3><p>为了让基本数据类型(<code>int</code> <code>double</code> <code>float</code>等)具备<strong>对象的特性</strong>, 如属性方法等, Java提供的<strong>类</strong>, (变量由一个数值变成对象)<br><br></p>
-<h4 id="包装类主要提供两大方法"><a href="#包装类主要提供两大方法" class="headerlink" title="包装类主要提供两大方法:"></a>包装类主要提供两大方法:</h4><ol>
-<li>将本类型和其它基本类型进行转换</li>
-<li>将字符串和本类型即包装类互相转换</li>
-</ol>
-<br>
-
-<br>
-
-<h3 id="基本类型和包装类之间的转换"><a href="#基本类型和包装类之间的转换" class="headerlink" title="基本类型和包装类之间的转换"></a>基本类型和包装类之间的转换</h3><p>装箱: 把<strong>基本类型</strong>转换为包装类, 有<strong>手动装箱</strong>(<code>包装类 x = new 包装类(i)</code>)和<strong>自动装箱</strong>(<code>包装类 x = i</code>)<br>拆箱: 把<strong>包装类对象</strong>转换为<strong>基本类型</strong>, 也有手动(<code>int x = j.intValue()</code>)和自动(<code>int x = j</code>)  ps: <code>.intValue()</code>转为整数, <code>.doubleValue()</code>转为双精度<br>pps: 自动转换只能在一种基本类型和与之对应的包装类之间进行转换</p>
-<br>
-
-<h3 id="基本类型和字符串之间的转换"><a href="#基本类型和字符串之间的转换" class="headerlink" title="基本类型和字符串之间的转换"></a>基本类型和字符串之间的转换</h3><h4 id="基本类型转换为字符串"><a href="#基本类型转换为字符串" class="headerlink" title="基本类型转换为字符串:"></a>基本类型转换为字符串:</h4><ol>
-<li>使用包装类的toString()方法</li>
-<li>使用String类的valueOf()方法</li>
-<li>用空字符串加上基本类型, 隐式转换为字符串</li>
-</ol>
-<br>
-
-<h4 id="将字符串转换为基本类型"><a href="#将字符串转换为基本类型" class="headerlink" title="将字符串转换为基本类型:"></a>将字符串转换为基本类型:</h4><ol>
-<li>调用包装类的<code>ParseXxx</code>静态方法  (比如: <code>int a = Integer.parseInt(str);</code>)</li>
-<li>调用包装类的<code>valueOf()</code>方法转换为对应的包装类, 再自动拆箱  (比如: <code>int a = Integer.valueOf(str);</code>)</li>
-</ol>
-<br>
-
-<br>
-
-<h3 id="使用Date和SimpleDateFormat类表示时间"><a href="#使用Date和SimpleDateFormat类表示时间" class="headerlink" title="使用Date和SimpleDateFormat类表示时间"></a>使用<code>Date</code>和<code>SimpleDateFormat</code>类表示时间</h3><p><code>Date类</code>在<code>java.util</code>包中, 用于获取当前时间, <strong>默认无参构造方法初始化</strong><br><code>SimpleDateFormat类</code>在<code>java.text</code>包中, 可以将日期转换为指定格式的文本<br>示例:</p>
-<ol>
-<li><h4 id="使用format-转换日期的显示格式"><a href="#使用format-转换日期的显示格式" class="headerlink" title="使用format()转换日期的显示格式"></a>使用<code>format()</code>转换日期的显示格式</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Date d = <span class="keyword">new</span> Date();</span><br><span class="line">SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line">String today = sdf.format(d);</span><br><span class="line">System.out.println(today);</span><br></pre></td></tr></table></figure>
-
-<p><code>&quot;yyyy-MM-dd HH:mm:ss&quot;</code>指定日期格式, 读取时期, 把日期转化为指定的格式</p>
-<p>“yyyy-MM-dd HH:mm:ss”指定日期格式, 读取时期, 把日期转化为指定的格式</p>
-</li>
-<li><h4 id="使用parse-方法将文本转换为日期"><a href="#使用parse-方法将文本转换为日期" class="headerlink" title="使用parse()方法将文本转换为日期"></a>使用<code>parse()</code>方法将文本转换为日期</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">String day = <span class="string">"2020年8月28日 11:48:16"</span></span><br><span class="line">SimpleDateFormat df = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy年MM月dd日 HH:mm:ss"</span>);</span><br><span class="line">Date date = df.parse(day);</span><br><span class="line">System.out.println(date);</span><br></pre></td></tr></table></figure>
-
-<p><code>parse</code>根据指定的格式<strong>反过来读取字符串, 从而获得日期</strong></p>
-<p>ps: 调用<code>SimpleDateFormat</code>对象的<code>parse()</code>方法可能会出现<strong>转换异常</strong>, <code>ParseException</code>, 因此<strong>需要异常处理</strong><br>使用<code>Date类</code>需要导入<code>java.util</code>包, 使用<code>SimpleDateFormat类</code>需要导入<code>java.text</code>包</p>
-<p>parse根据指定的格式反过来读取字符串, 从而获得日期<br>ps:<br>调用SimpleDateFormat对象的parse()方法可能会出现转换异常, ParseException, 因此需要异常处理<br>使用Date类需要导入java.util包, 使用SimpleDateFormat类需要导入java.text包</p>
-<p><br><br></p>
-</li>
-</ol>
-<h3 id="Calendar类的应用"><a href="#Calendar类的应用" class="headerlink" title="Calendar类的应用"></a><code>Calendar类</code>的应用</h3><p><code>Date类</code>只要用于获取当前时间, <strong>推荐使用<code>Calendar类</code>进行时间和日期的处理</strong><br><code>java.util.Calendar类</code>是一个<strong>抽象类</strong>, 可调用<code>getInstance()</code>静态方法获取<code>Calendar对象</code>, 如 <code>Calendar c = Calenar.getInstance();</code><br><br></p>
-<h4 id="常用方法和属性"><a href="#常用方法和属性" class="headerlink" title="常用方法和属性:"></a>常用方法和属性:</h4><ol>
-<li><code>Calendar类</code>有<code>YEAR</code>,<code>MONTH</code>,<code>DAY_OF_MONTH</code>等静态常量, </li>
-<li>调用<code>getInstance()</code>获取一个实例, </li>
-<li>调用<code>get()</code>方法获取日期信息, <code>getTime()</code>方法获取<code>Date对象</code>, </li>
-<li>通过<code>getTimeInMillis()</code>方法获取<code>Calendar</code>时间值(以毫秒为单位)</li>
-</ol>
-<br>
-
-<h3 id="使用Math类操作数据"><a href="#使用Math类操作数据" class="headerlink" title="使用Math类操作数据"></a>使用Math类操作数据</h3><p><code>java.lang.Math类</code>包含基本数学运算的方法, 因为所有方法都是<strong>静态方法</strong>, 所以可以直接按 ``类名.方法名` 使用<br><br></p>
-<h4 id="可以参照一下菜鸟教程的相关介绍"><a href="#可以参照一下菜鸟教程的相关介绍" class="headerlink" title="可以参照一下菜鸟教程的相关介绍:"></a>可以参照一下菜鸟教程的相关介绍:</h4><p><a href="https://www.runoob.com/java/java-number.html" target="_blank" rel="noopener">https://www.runoob.com/java/java-number.html</a></p>
-<br>
-
-<br>
-
-<br>
-
-<h2 id="C4-Java中的集合框架-上"><a href="#C4-Java中的集合框架-上" class="headerlink" title="C4  Java中的集合框架(上)"></a>C4  Java中的集合框架(上)</h2><h3 id="集合框架概述"><a href="#集合框架概述" class="headerlink" title="集合框架概述"></a>集合框架概述</h3><p><strong>容器的概念:</strong>  把若干种属性(数目, 种类不一定)存储起来, 就是集合, 是一种工具类存储共同属性种类的对象</p>
-<h4 id="容器的作用"><a href="#容器的作用" class="headerlink" title="容器的作用:"></a>容器的作用:</h4><ol>
-<li>在类的内部, 对组织数据</li>
-<li>简单快速的都说大量条目</li>
-<li>一个序列, 方便插入取出某些属性</li>
-<li>有的集合提供了映射关系(类似py的字典), 方便了查询</li>
-</ol>
-<br>
-
-<h3 id="java提供集合的接口"><a href="#java提供集合的接口" class="headerlink" title="java提供集合的接口"></a>java提供集合的接口</h3><ol>
-<li><code>Collection</code>: <code>List</code> -<code>ArrayList</code>, <code>Set</code> -<code>HashSet</code>, <code>Queue</code> -<code>LinkedList</code>  (存储的元素是对象)</li>
-<li><code>Map</code>: <code>HashMap</code> (存储的元素是键值对, <code>Entry</code>)</li>
-</ol>
-<br>
-
-<br>
-
-<h3 id="Collection接口-子接口和实现类-看看前面复习一下什么是接口"><a href="#Collection接口-子接口和实现类-看看前面复习一下什么是接口" class="headerlink" title="Collection接口, 子接口和实现类 (看看前面复习一下什么是接口)"></a>Collection接口, 子接口和实现类 (看看前面复习一下什么是接口)</h3><p>Collection集合中, 讲一下List子接口和Set子接口<br><br><br></p>
-<h3 id="List接口："><a href="#List接口：" class="headerlink" title="List接口："></a>List接口：</h3><p>List接口的实现类-<code>ArrayList类</code>(类似python列表)<br><code>ArrayList</code>是<strong>数组</strong>序列, 接口和实现类的关系可以参照: </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List test = <span class="keyword">new</span> ArrayList();</span><br></pre></td></tr></table></figure>
-
-<br>
-
-<h4 id="下面说明一下List增删改查用到的方法"><a href="#下面说明一下List增删改查用到的方法" class="headerlink" title="下面说明一下List增删改查用到的方法:"></a>下面说明一下List增删改查用到的方法:</h4><h4 id="为列表添加对象"><a href="#为列表添加对象" class="headerlink" title="+ 为列表添加对象:"></a>+ 为列表添加对象:</h4><p><code>&lt;ls&gt;.add()</code>方法可以把一个对象添加到List中,<br><code>&lt;ls&gt;.get()</code>方法可以根据索引从List中取出对象,<br>※ 使用add方法, 把对象存入集合时, 默认会变成Object类型.<br>※ 所以get方法取出对象时, 需要类型转化, 在前面加 (强转类型)<br><code>&lt;ls&gt;.add(index, element)</code>方法可以把对象添加到指定的位置<br>※ 如果index大于ls的长度, 会报错IndexOutOfBoundException<br><code>&lt;ls&gt;.addAll()</code>方法可以把一个List添加到ls中,<br><code>Arrays.asList()</code>方法可以把一个数组转化为一个List.<br><code>&lt;ls&gt;.addAll(index, List)</code> 可以指定List插入的位置</p>
-<br>
-
-<h4 id="为列表修改对象"><a href="#为列表修改对象" class="headerlink" title="+ 为列表修改对象:"></a>+ 为列表修改对象:</h4><h5 id="遍历列表的三个方法"><a href="#遍历列表的三个方法" class="headerlink" title="遍历列表的三个方法:"></a>遍历列表的三个方法:</h5><ol>
-<li><p><code>&lt;ls&gt;.size()</code>方法可以取得List的长度, 用于遍历List;</p>
-</li>
-<li><p>通过迭代器遍历List, 使用<code>Iterator</code>接口, <code>Iterator it = &lt;ls&gt;.iterator()</code> 获取迭代器, </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用while循环遍历List迭代器中的对象</span></span><br><span class="line"><span class="keyword">while</span>(it.hasNext()) &#123;&lt;Class&gt; temp = (Class) it.next();&#125;</span><br></pre></td></tr></table></figure>
-
-<p>※ 集合都具有iterator方法, 迭代器依赖集合存在</p>
-</li>
-<li><p>使用<code>forEach</code>方法遍历List, 由于在没有指定泛型时, 对象存放在集合中, 会变成Object, 所以应该用 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (Object obj: &lt;ls&gt;) &#123;<span class="comment">// 记得使用类型强转&#125;.</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h5 id="修改List的元素"><a href="#修改List的元素" class="headerlink" title="修改List的元素"></a>修改List的元素</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;ls&gt;.set(index, element);  <span class="comment">// 把相应位置的对象修改成新的对象</span></span><br></pre></td></tr></table></figure>
-
-<br>
-
-<h4 id="为列表删除对象"><a href="#为列表删除对象" class="headerlink" title="+ 为列表删除对象:"></a>+ 为列表删除对象:</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;ls&gt;.remove(index);  <span class="comment">// 删除相应索引位置的元素, 不能超出长度范围</span></span><br><span class="line">&lt;ls&gt;.remove(element);  <span class="comment">// 删除指定的对象</span></span><br><span class="line">&lt;ls&gt;.removeAll(Collection ls)  <span class="comment">// 删除指定集合的所有元素, 类似求差</span></span><br></pre></td></tr></table></figure>
-
-<br>
-
-<br>
-
-<h3 id="使用泛型-Generic-为列表处理不是对象的变量-比如字符串等等"><a href="#使用泛型-Generic-为列表处理不是对象的变量-比如字符串等等" class="headerlink" title="使用泛型(Generic), 为列表处理不是对象的变量(比如字符串等等):"></a>使用泛型(Generic), 为列表处理不是对象的变量(比如字符串等等):</h3><p><code>&lt;ls&gt;.add(OtherClass)</code> 不会报错, 但是后面使用<code>forEach</code>打印的时候, 使用了<strong>强制类型转换</strong>, <code>String</code>不能转化为<code>Course</code>, 所以还是会报错. <strong>为了能够避免向集合加入其它类型的对象, 就要使用到泛型.</strong><br>※ 集合中的元素, 可以使用<strong>任意类型</strong>的对象(对象的引用), 把放入的对象当做<code>Object</code>处理; <strong>泛型</strong>则是规定了某个<strong>集合只可以存放特定类型</strong>的对象及其子类型的对象, 可以<strong>直接指定类型</strong>获取集合元素.<br><br></p>
-<h4 id="定义"><a href="#定义" class="headerlink" title="定义:"></a>定义:</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;Class&gt; ls;  <span class="comment">// 使用&lt;Class&gt;指定泛型类型, 界定符一般要使用private</span></span><br></pre></td></tr></table></figure>
-
-<br>
-
-<h4 id="初始化"><a href="#初始化" class="headerlink" title="初始化:"></a>初始化:</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.ls = <span class="keyword">new</span> ArrayList&lt;Class&gt;();  <span class="comment">// 初始化的时候仍然需要指明泛型</span></span><br></pre></td></tr></table></figure>
-
-<p>※ 此时<code>get()</code>方法或者遍历ls时, 不需要强制转换类型了<br>※ 指定泛型之后的集合, 还能存储泛型的<strong>子类型</strong>的对象实例, 即可以<code>&lt;ls&gt;.add(new 
-ChildClass());</code><br>※ <strong>泛型只能使用引用类型</strong>, 不能使用基本类型(int,char …), 如果有必要也只能用包装类, 指定泛型为包装类之后<code>&lt;ls&gt;.add(temp)</code> 会对<u>基本类型temp变量</u>进行<strong>隐式</strong>类型转换 (比如 int 变成 Interger).<br><br></p>
-<h4 id="Set接口："><a href="#Set接口：" class="headerlink" title="Set接口："></a>Set接口：</h4><p><code>Set</code>接口实现类–<code>HashSet类</code>(类似数学里面的集合)<br>※ Set<strong>无序</strong>并且<strong>不可重复</strong><br>※ Set接口同样提供<code>add()</code>, <code>remove()</code>, <code>removeAll()</code>, <code>size()</code>等方法.<br>※ 但是由于Set无序, 所以<u>不提供<code>set()</code>方法和<code>get()</code>方法</u>, 如果想要调用Set内部的元素, 可以使用<code>foreach</code>和<code>Iterator</code>的方式遍历Set, 不过要注意Set是无序的, 多次遍历的顺序会改变.<br>※ Set也可以使用泛型, 使用方法同Collection<br>※ Set中可以添加空对象null<br><br></p>
-<br>
-
-<br>
-
-<h2 id="C5-Java中的集合框架-中"><a href="#C5-Java中的集合框架-中" class="headerlink" title="C5  Java中的集合框架(中)"></a>C5  Java中的集合框架(中)</h2><h3 id="Map-amp-HashMap"><a href="#Map-amp-HashMap" class="headerlink" title="Map &amp; HashMap"></a>Map &amp; HashMap</h3><p><code>Map接口</code>提供了映射关系(键值对), 键值对以<code>Entry类</code>存在, <code>key</code>不可重复, <code>Map</code>支持泛型 比如: <code>Map&lt;typeOfK, typeOfV&gt;</code><br><code>HashMap类</code>是<code>Map</code>的一个实现类, <code>HashMap</code>中的<code>Entry对象（单个键值对）</code>无序排列, 基于哈希表实现, <code>Key</code>和<code>value</code>值可以为null, 不过Key为null时不能重复.<br><br></p>
-<h3 id="Map-的增删改查"><a href="#Map-的增删改查" class="headerlink" title="Map 的增删改查:"></a>Map 的增删改查:</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;map&gt;.get(Key);  <span class="comment">// 返回Key的索引结果, 没有找到Key则放回null</span></span><br><span class="line">&lt;map&gt;.put(Key, value);  <span class="comment">// 添加映射, 注意要符合原来定义的泛型</span></span><br><span class="line">&lt;map&gt;.size();  <span class="comment">// 返回map的容量</span></span><br><span class="line">&lt;map&gt;.keySet();  <span class="comment">// 返回map中所有key的Set集合</span></span><br></pre></td></tr></table></figure>
-
-<p>※ keySet方法返回Set对象(有序)之后, 可以进一步用来遍历等操作<br>※ keyList()等方法的用法类似<br><br><br><br></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;map&gt;.remove(key);  <span class="comment">// 删除Map中的映射</span></span><br><span class="line">&lt;map&gt;.entrySet();  <span class="comment">// 返回所有键值对的Set集合</span></span><br></pre></td></tr></table></figure>
-
-<p>※ 使用entrySet()返回的对象需要制定泛型, 比如: <code>Set&lt;Entry&lt;String, Student&gt;&gt; entrySet = students.entrySet();</code><br>※ 当一个类类型定义过泛型之后, 每次调用该类都要注意是否有写该类的泛型<br>※ <code>Entry</code>对象, 使用<code>getKey()</code>方法获取键, 使用<code>getValue()</code>方法获取值, 一个entry就是一个键值对<br><br></p>
-<br>
-
-<br>
-
-<h2 id="C6-Java中的集合框架-下"><a href="#C6-Java中的集合框架-下" class="headerlink" title="C6  Java中的集合框架(下)"></a>C6  Java中的集合框架(下)</h2><h3 id="检测某个对象是否包含在序列内"><a href="#检测某个对象是否包含在序列内" class="headerlink" title="检测某个对象是否包含在序列内"></a>检测某个对象是否包含在序列内</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;ls&gt;.contains(obj);  <span class="comment">// 检测一个List内是否包含对象obj, 存储的内容相同不代表对象相同</span></span><br></pre></td></tr></table></figure>
-
-<p>※ <code>List</code>对象的<code>contains()</code>方法 相当于遍历序列, 把序列中的每一个元素使用一次<code>equals(obj)</code>, 进行判断, <code>equals方法</code>可以参照前面第二季的笔记<br>※ 可以通过重写(<code>@override</code>)<code>equals()</code>改变<code>contains()</code>的判断逻辑, 比如说比较两个对象的<code>name属性</code>是否相等, 从而找到序列中有相同name属性的元素<br>※ 使用<code>&lt;ls&gt;.containsAll(Collection&lt;?&gt; c)</code>可以实现检测一个序列内是否包含多个对象<br><br></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;set&gt;.contains(obj);  <span class="comment">// 检测一个Set内是否包含对象obj</span></span><br></pre></td></tr></table></figure>
-
-<p>※ 注意<code>Set</code>对象的<code>contains</code>方法, 会先调用<code>hashCode</code>方法。<strong>在判断两个对象的哈希码是否相同的情况下,  再调用equals方法判断两个对象的值是否相等</strong>.<br>※ 同样可以通过重写的<code>hashCode方法</code>和<code>equals方法</code>, 自定义的Set对象的contains方法.<br>※ <code>IDE</code>可以提供<code>hashCode</code>和<code>equals</code>方法的<em>重写模板</em><br><br></p>
-<h3 id="获取序列中元素的位置"><a href="#获取序列中元素的位置" class="headerlink" title="获取序列中元素的位置"></a>获取序列中元素的位置</h3><p>使用<code>indexOf方法</code>，<em>获取序列中某元素的索引位置</em></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;collection&gt;.indexOf(sth1)</span><br></pre></td></tr></table></figure>
-
-<h5 id="indexOf方法实现机制："><a href="#indexOf方法实现机制：" class="headerlink" title="indexOf方法实现机制："></a>indexOf方法实现机制：</h5><ol>
-<li>遍历序列内部的元素，调用equals方法；</li>
-<li>如果出现了相同的元素，就放回序列中首个对应元素的索引。</li>
-<li>如果无匹配结果，则返回-1。<br>ps: 使用lastIndexOf方法，获取序列中某个元素最后一次出现的索引位置。</li>
-</ol>
-<br>
-
-<h3 id="判断某个映射是否包含在Map内"><a href="#判断某个映射是否包含在Map内" class="headerlink" title="判断某个映射是否包含在Map内"></a>判断某个映射是否包含在Map内</h3><p>在<code>Map</code>中，使用<code>containsKey</code>方法，判断<code>Map</code>是否包含某个<code>Key</code>；使用<code>containsValue</code>方法判断是否包含某个<code>Value</code>值。返回<code>true</code> or <code>false</code>。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;map&gt;.containsKey(Key)</span><br><span class="line">&lt;map&gt;.containsValue(Value)</span><br></pre></td></tr></table></figure>
-
-<p>※ <code>containsValue</code>方法的实现机制类似于<code>set</code>对象中的<code>contains</code>方法，先调用<code>hashCode</code>方法再调用<code>equals</code>方法。所以一般也需要重写这两个方法。<br><br></p>
-<h3 id="给List对象排序"><a href="#给List对象排序" class="headerlink" title="给List对象排序"></a>给List对象排序</h3><p><code>Collections工具类</code>（相当于Arrays工具类，提供特定功能的方法，需要<code>import</code>）<br><strong>使用sort方法，对<code>List&lt;Intiger, String&gt;</code>进行排序：</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Collections.sort(ls)  <span class="comment">//默认升序排序，判断依据：整数的大小、字符串的靠前的字符的asc码。</span></span><br></pre></td></tr></table></figure>
-
-<br>
-
-<h3 id="给非一般泛型的List对象排序（List的元素不是Integer、String等常见类型）："><a href="#给非一般泛型的List对象排序（List的元素不是Integer、String等常见类型）：" class="headerlink" title="给非一般泛型的List对象排序（List的元素不是Integer、String等常见类型）："></a>给非一般泛型的List对象排序（List的元素不是Integer、String等常见类型）：</h3><p>首先，直接使用<code>collections.sort(OtherObj)</code>会报错，因为<code>sort</code>方法只能给<code>Comparable</code>接口的实现类进行排序，而<code>OtherObj</code>不是<code>comparable</code>接口的实现类。</p>
-<h4 id="Collections类提供的两个接口："><a href="#Collections类提供的两个接口：" class="headerlink" title="Collections类提供的两个接口："></a>Collections类提供的两个接口：</h4><ol>
-<li>Comparable接口—-提供默认比较规则，实现类要实现compareTo方法，返回值的正负表示两个值的比较结果。</li>
-<li>Comparator接口—-提供临时比较规则，实现类要实现compare方法。<br>所以想要给存储其它元素的<code>List</code>对象排序，需要给该对象提供<code>comparable</code>接口，重写对应的<code>compareTo</code>方法。<br>ps：重写<code>compareTo</code>方法时，_可以调用默认的<code>compareTo</code>方法，减少工作量_。（善用this指针）<br>※ 给存放<strong>数字字符串的List对象</strong>排序的时候（如：”45688”, “7856”），要注意排序依据还是靠前字符的asc码大小，因此”7856”会排在前面。<br>另外，<code>Collections</code>工具类提供了<code>sort</code>的重载方法。使用<code>Collection.sort(List, Comparator&lt;T&gt; c)</code>，按照<code>Comparator</code>的实现类定义的<code>compare</code>方法进行排序。注意这个实现类很可能是需要自己编写的。（回顾第二季多态中接口实现类的编写）</li>
-</ol>
-<br>
-
-<br>
-
-<h3 id="回顾本章："><a href="#回顾本章：" class="headerlink" title="回顾本章："></a>回顾本章：</h3><ol>
-<li>集合分为Collection和Map接口</li>
-<li>Collection代表序列，其子接口有List和Set<br>List的经典实现类是<code>ArrayList</code><br>Set的经典实现类是<code>HashSet</code></li>
-<li>Map代表存储键值对的集合，键值对又叫做<code>Entry&lt;Key, Value&gt;</code><br>Map的子接口有<code>HashMap</code></li>
-<li>Collections工具类的sort方法用于给序列排序，介绍了两个接口Comparable和Comparator</li>
-</ol>
-<br>
-
-<br>
-
-<h3 id="扑克牌小程序思路（洗牌发牌）"><a href="#扑克牌小程序思路（洗牌发牌）" class="headerlink" title="扑克牌小程序思路（洗牌发牌）"></a>扑克牌小程序思路（洗牌发牌）</h3><h5 id="功能描述："><a href="#功能描述：" class="headerlink" title="功能描述："></a>功能描述：</h5><ol>
-<li>创建扑克牌—-List</li>
-<li>玩家需要有手牌（扑克牌的集合）—-编写玩家类，属性：id、name、cardList</li>
-<li>洗牌（打乱顺序）—-Collections.shuffle</li>
-<li>发牌—-get(), add()</li>
-<li>游戏（比较大小）—-sort(), compare()   </li>
-</ol>
-<br>
-
-<br>
-
-<br>
-
-<h2 id="结语："><a href="#结语：" class="headerlink" title="结语："></a>结语：</h2><p>至此，本次java入门课程的笔记到此结束。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/09/23/入门JavaSE-进阶篇/" data-id="ckhm0ryly000fm8ujw5n51ldj" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
 
     </footer>
   </div>
@@ -1380,7 +1231,7 @@ ChildClass());</code><br>※ <strong>泛型只能使用引用类型</strong>, �
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DAO模式/">DAO模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/">SpringBoot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WSL/">WSL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frp/">frp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssl证书/">ssl证书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/作业/">作业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/内网穿透/">内网穿透</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像处理/">图像处理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大数据架构/">大数据架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搬运/">搬运</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教程/">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/概要/">概要</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科普/">科普</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DAO模式/">DAO模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JPA/">JPA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Security/">Spring Security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/">SpringBoot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WSL/">WSL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frp/">frp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssl证书/">ssl证书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/作业/">作业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/内网穿透/">内网穿透</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像处理/">图像处理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大数据架构/">大数据架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搬运/">搬运</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教程/">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/概要/">概要</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科普/">科普</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
     </div>
   </div>
 
@@ -1390,7 +1241,7 @@ ChildClass());</code><br>※ <strong>泛型只能使用引用类型</strong>, �
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/DAO模式/" style="font-size: 10px;">DAO模式</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Spring-Boot/" style="font-size: 10px;">Spring Boot</a> <a href="/tags/SpringBoot/" style="font-size: 10px;">SpringBoot</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/WSL/" style="font-size: 13.33px;">WSL</a> <a href="/tags/frp/" style="font-size: 10px;">frp</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/ssl证书/" style="font-size: 10px;">ssl证书</a> <a href="/tags/作业/" style="font-size: 20px;">作业</a> <a href="/tags/内网穿透/" style="font-size: 10px;">内网穿透</a> <a href="/tags/图像处理/" style="font-size: 10px;">图像处理</a> <a href="/tags/大数据架构/" style="font-size: 20px;">大数据架构</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/搬运/" style="font-size: 13.33px;">搬运</a> <a href="/tags/教程/" style="font-size: 10px;">教程</a> <a href="/tags/概要/" style="font-size: 10px;">概要</a> <a href="/tags/科普/" style="font-size: 10px;">科普</a> <a href="/tags/笔记/" style="font-size: 13.33px;">笔记</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
+      <a href="/tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="/tags/DAO模式/" style="font-size: 10px;">DAO模式</a> <a href="/tags/JPA/" style="font-size: 10px;">JPA</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Spring-Boot/" style="font-size: 13.33px;">Spring Boot</a> <a href="/tags/Spring-Security/" style="font-size: 10px;">Spring Security</a> <a href="/tags/SpringBoot/" style="font-size: 10px;">SpringBoot</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/WSL/" style="font-size: 13.33px;">WSL</a> <a href="/tags/frp/" style="font-size: 10px;">frp</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/ssl证书/" style="font-size: 10px;">ssl证书</a> <a href="/tags/作业/" style="font-size: 20px;">作业</a> <a href="/tags/内网穿透/" style="font-size: 10px;">内网穿透</a> <a href="/tags/图像处理/" style="font-size: 10px;">图像处理</a> <a href="/tags/大数据架构/" style="font-size: 20px;">大数据架构</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/搬运/" style="font-size: 13.33px;">搬运</a> <a href="/tags/教程/" style="font-size: 10px;">教程</a> <a href="/tags/概要/" style="font-size: 10px;">概要</a> <a href="/tags/科普/" style="font-size: 10px;">科普</a> <a href="/tags/笔记/" style="font-size: 13.33px;">笔记</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
     </div>
   </div>
 
@@ -1412,6 +1263,10 @@ ChildClass());</code><br>※ <strong>泛型只能使用引用类型</strong>, �
       <ul>
         
           <li>
+            <a href="/2020/11/17/使用Spring-Boot-Spring-Security-Hibernate-Bootstrap-JSP-Spring-Data-JPA-MySQL实现的登陆注册系统/">使用Spring Boot, Spring Security, Hibernate, Bootstrap, JSP, Spring Data JPA, MySQL实现的登陆注册系统</a>
+          </li>
+        
+          <li>
             <a href="/2020/11/17/关于DAO模式的小记录/">关于DAO模式的小记录</a>
           </li>
         
@@ -1425,10 +1280,6 @@ ChildClass());</code><br>※ <strong>泛型只能使用引用类型</strong>, �
         
           <li>
             <a href="/2020/11/06/使用SpringBoot编写一个https网站/">使用SpringBoot编写一个https网站</a>
-          </li>
-        
-          <li>
-            <a href="/2020/11/05/大数据架构作业-简答题4/">大数据架构作业-简答题4</a>
           </li>
         
       </ul>

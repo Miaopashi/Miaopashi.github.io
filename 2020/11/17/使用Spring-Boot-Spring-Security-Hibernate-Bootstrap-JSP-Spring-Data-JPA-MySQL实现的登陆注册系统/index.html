@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>使用Spring Boot, Spring Security, Hibernate, Bootstrap, JSP, Spring Data JPA, MySQL实现的登陆注册系统 | MPS的个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本周任务：使用Spring Boot实现一个简单的用户登录系统，并且部署在服务器上。     使用工具以及运行环境： Spring Boot Spring Security Spring Data JPA Hibernate JDK 8 Maven 3.6.3 MySQL Server 5.7 Bootstrap JSP IDEA   文件目录树：1234567891011121314151617">
+<meta name="keywords" content="Spring Boot,Spring Security,JPA,Bootstrap">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Spring Boot, Spring Security, Hibernate, Bootstrap, JSP, Spring Data JPA, MySQL实现的登陆注册系统">
+<meta property="og:url" content="http://yoursite.com/2020/11/17/使用Spring-Boot-Spring-Security-Hibernate-Bootstrap-JSP-Spring-Data-JPA-MySQL实现的登陆注册系统/index.html">
+<meta property="og:site_name" content="MPS的个人博客">
+<meta property="og:description" content="本周任务：使用Spring Boot实现一个简单的用户登录系统，并且部署在服务器上。     使用工具以及运行环境： Spring Boot Spring Security Spring Data JPA Hibernate JDK 8 Maven 3.6.3 MySQL Server 5.7 Bootstrap JSP IDEA   文件目录树：1234567891011121314151617">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-11-17T13:52:27.077Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用Spring Boot, Spring Security, Hibernate, Bootstrap, JSP, Spring Data JPA, MySQL实现的登陆注册系统">
+<meta name="twitter:description" content="本周任务：使用Spring Boot实现一个简单的用户登录系统，并且部署在服务器上。     使用工具以及运行环境： Spring Boot Spring Security Spring Data JPA Hibernate JDK 8 Maven 3.6.3 MySQL Server 5.7 Bootstrap JSP IDEA   文件目录树：1234567891011121314151617">
+  
+    <link rel="alternate" href="/atom.xml" title="MPS的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">MPS的个人博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-使用Spring-Boot-Spring-Security-Hibernate-Bootstrap-JSP-Spring-Data-JPA-MySQL实现的登陆注册系统" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/17/使用Spring-Boot-Spring-Security-Hibernate-Bootstrap-JSP-Spring-Data-JPA-MySQL实现的登陆注册系统/" class="article-date">
+  <time datetime="2020-11-17T13:50:08.000Z" itemprop="datePublished">2020-11-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      使用Spring Boot, Spring Security, Hibernate, Bootstrap, JSP, Spring Data JPA, MySQL实现的登陆注册系统
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="本周任务："><a href="#本周任务：" class="headerlink" title="本周任务："></a>本周任务：</h2><p>使用Spring Boot实现一个简单的用户登录系统，并且部署在服务器上。</p>
+<br>
+
+<br>
+
+<h2 id="使用工具以及运行环境："><a href="#使用工具以及运行环境：" class="headerlink" title="使用工具以及运行环境："></a>使用工具以及运行环境：</h2><ol>
+<li>Spring Boot</li>
+<li>Spring Security</li>
+<li>Spring Data JPA</li>
+<li>Hibernate</li>
+<li>JDK 8</li>
+<li>Maven 3.6.3</li>
+<li>MySQL Server 5.7</li>
+<li>Bootstrap</li>
+<li>JSP</li>
+<li>IDEA</li>
+</ol>
+<p><br><br></p>
+<h2 id="文件目录树："><a href="#文件目录树：" class="headerlink" title="文件目录树："></a>文件目录树：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">│  pom.xml</span><br><span class="line">│  </span><br><span class="line">└─src</span><br><span class="line">    └─main</span><br><span class="line">        ├─java</span><br><span class="line">        │  └─com</span><br><span class="line">        │      └─yysy</span><br><span class="line">        │          └─auth</span><br><span class="line">        │              │  WebApplication.java</span><br><span class="line">        │              │  WebSecurityConfig.java</span><br><span class="line">        │              │  </span><br><span class="line">        │              ├─model</span><br><span class="line">        │              │      Role.java</span><br><span class="line">        │              │      User.java</span><br><span class="line">        │              │      </span><br><span class="line">        │              ├─repository</span><br><span class="line">        │              │      RoleRepository.java</span><br><span class="line">        │              │      UserRepository.java</span><br><span class="line">        │              │      </span><br><span class="line">        │              ├─service</span><br><span class="line">        │              │      SecurityService.java</span><br><span class="line">        │              │      SecurityServiceImpl.java</span><br><span class="line">        │              │      UserDetailsServiceImpl.java</span><br><span class="line">        │              │      UserService.java</span><br><span class="line">        │              │      UserServiceImpl.java</span><br><span class="line">        │              │      </span><br><span class="line">        │              ├─validator</span><br><span class="line">        │              │      UserValidator.java</span><br><span class="line">        │              │      </span><br><span class="line">        │              └─web</span><br><span class="line">        │                      UserController.java</span><br><span class="line">        │                      </span><br><span class="line">        ├─resources</span><br><span class="line">        │      application.properties</span><br><span class="line">        │      validation.properties</span><br><span class="line">        │      </span><br><span class="line">        └─webapp</span><br><span class="line">            │  login.jsp</span><br><span class="line">            │  registration.jsp</span><br><span class="line">            │  welcome.jsp</span><br><span class="line">            │  </span><br><span class="line">            └─resources</span><br><span class="line">                ├─css</span><br><span class="line">                │      bootstrap.min.css</span><br><span class="line">                │      common.css</span><br><span class="line">                │      </span><br><span class="line">                └─js</span><br><span class="line">                        bootstrap.min.js</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<br>
+
+<h2 id="实现步骤："><a href="#实现步骤：" class="headerlink" title="实现步骤："></a>实现步骤：</h2><ol>
+<li>使用Maven新建一个项目，也可以使用spring initializr等工具生成项目。</li>
+<li>配置项目依赖，修改pom.xml文件，添加上述的各种依赖。</li>
+<li>定义JPA和Hibernate的实体，编写<code>User.java</code>和<code>Role.java</code>，这里属于DAO模式的Model层。</li>
+<li>编写Spring Data JPA仓库，编写<code>UserRepository.java</code>和<code>RoleRepository.java</code>，实现DAO模式的接口层。</li>
+<li>编写几个Service类，实现用户验证功能。<ol>
+<li>编写<code>UserDetailsServiceImpl.java</code>，实现Spring Security中的<code>UserDetailsService</code>接口，下面的<code>SecurityServiceImpl</code>会用到；</li>
+<li>编写<code>SecurityService</code>接口以及实现类，主要实现用户的身份验证，即实现用户的登陆功能；</li>
+<li>编写<code>UserService</code>接口类以及实现类，主要实现用户的注册功能；</li>
+</ol>
+</li>
+<li>编写<code>UserValidator</code>类，用于注册表单信息的校验；<ol>
+<li>主要实现的校验有：<ol>
+<li>用户名长度不符合规范</li>
+<li>用户名已被使用</li>
+<li>用户密码太短</li>
+<li>用户密码二次输入错误（二次输入是为了注册时确认密码）</li>
+</ol>
+</li>
+<li>校验的错误信息可以在<code>validation.properties</code>中定义；</li>
+<li><code>Validator</code>从<code>Spring.validation</code>导入，已实现了很多常用方法；</li>
+<li>登录页面的的错误比较单一，可以直接在Controller中定义；</li>
+</ol>
+</li>
+<li>编写<code>WebController.java</code>，处理各种url请求的响应；</li>
+<li>使用Bootstrap编写登录、注册和欢迎的JSP页面；</li>
+<li>编写properties文件，包括上面提到的<code>validation.properties</code>和<code>application.properties</code>。<ol>
+<li>validation定义注册表单报错的具体信息</li>
+<li>application指定的属性如下：<ol>
+<li>指定数据库的来源</li>
+<li>指定JPA、Hibernate的选项</li>
+<li>指定mvc的一些选项，以及监听端口等等</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>编写<code>WebSecurityConfig.java</code>，其中定义了受保护的页面以及需要的角色。</li>
+</ol>
+<br>
+
+<h2 id="踩到的坑："><a href="#踩到的坑：" class="headerlink" title="踩到的坑："></a>踩到的坑：</h2><ol>
+<li><h3 id="下载Maven配置到IDEA，项目使用Maven下载依赖包速度很慢。"><a href="#下载Maven配置到IDEA，项目使用Maven下载依赖包速度很慢。" class="headerlink" title="下载Maven配置到IDEA，项目使用Maven下载依赖包速度很慢。"></a>下载Maven配置到IDEA，项目使用Maven下载依赖包速度很慢。</h3><p>下载Maven之后，还要修改<code>Setting.xml</code>，添加国内的镜像。（<a href="https://blog.csdn.net/Hello_World_QWP/article/details/82459915" target="_blank" rel="noopener">Maven镜像配置参考</a>）</p>
+<br>
+</li>
+<li><h3 id="application-properties中指定的DataSource无法访问。"><a href="#application-properties中指定的DataSource无法访问。" class="headerlink" title="application.properties中指定的DataSource无法访问。"></a><code>application.properties</code>中指定的<code>DataSource</code>无法访问。</h3><p><code>spring.datasource.url</code>可以指定使用数据库的地址，有时候会遇到数据库的时区和应用的时区不同步的问题；</p>
+<p>需要使用相关参数指明时区</p>
+<p>使用参数<code>serverTimezone=UTC</code>，规定时区为世界标准时间</p>
+<p>参数与参数之间使用<code>&amp;</code>符号进行连接</p>
+<br>
+</li>
+<li><h3 id="JSP中文乱码问题"><a href="#JSP中文乱码问题" class="headerlink" title="JSP中文乱码问题"></a>JSP中文乱码问题</h3><p>JSP是一个java文件，当应用在JVM中运行的时候需要被编译，如果在jsp文件中写了中文，就需要事先指定；</p>
+<p>否则，jsp被编译之后会直接乱码，编码说明代码如下（指定jsp文件使用utf-8编码）</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page contentType=<span class="string">"text/html; charset=utf-8"</span>%&gt;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.cnblogs.com/chengkai/articles/2171848.html" target="_blank" rel="noopener">参考博客</a>。</p>
+<br>
+</li>
+<li><h3 id="项目在IDEA可以运行，达成jar包之后页面404了"><a href="#项目在IDEA可以运行，达成jar包之后页面404了" class="headerlink" title="项目在IDEA可以运行，达成jar包之后页面404了"></a>项目在IDEA可以运行，达成jar包之后页面404了</h3><p>这是因为maven没有把<code>jsp</code>等静态资源打包进jar包，需要在<code>pom</code>文件的<code>build</code>中，指定项目所需静态文件的存储位置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/webapp<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--这里必须是META-INF/resources--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">targetPath</span>&gt;</span>META-INF/resources<span class="tag">&lt;/<span class="name">targetPath</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/**<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>true<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/**<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 404解决方案之一 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.4.2.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是，使用的spring-boot-maven版本好像只能为1.4.2，否则无法正常把文件打包进去。</p>
+<br>
+</li>
+<li><h3 id="jar包部署到服务器之后，访问页面不知道为什么一直加载不出来（这个是个大坑）"><a href="#jar包部署到服务器之后，访问页面不知道为什么一直加载不出来（这个是个大坑）" class="headerlink" title="jar包部署到服务器之后，访问页面不知道为什么一直加载不出来（这个是个大坑）"></a>jar包部署到服务器之后，访问页面不知道为什么一直加载不出来（这个是个大坑）</h3><blockquote>
+<p>Linux使用<code>NativePRNG</code>算法生成<code>SecureRandom</code>，如果调用<code>generateSeed()</code>方法，这个方法会读取Linux系统的<code>/dev/random</code>文件，这个文件在<code>JAVA_HOME/jre/lib/securiy/java.security</code>里面有默认定义。而<code>/dev/random</code>文件是动态生成的，如果没有数据，就会阻塞！</p>
+</blockquote>
+<h4 id="个人猜测："><a href="#个人猜测：" class="headerlink" title="个人猜测："></a>个人猜测：</h4><p>​    由于使用<code>SpringSecurity</code>需要生成随机数，进而JVM调用了<code>/dev/random</code>没有结果，于是发生阻塞，毕竟同样的问题在Win下没有出现。</p>
+<h4 id="把JAVA-HOME-jre-lib-securiy-java-security中的securerandom改为urandom即可解决问题！"><a href="#把JAVA-HOME-jre-lib-securiy-java-security中的securerandom改为urandom即可解决问题！" class="headerlink" title="把JAVA_HOME/jre/lib/securiy/java.security中的securerandom改为urandom即可解决问题！"></a>把<code>JAVA_HOME/jre/lib/securiy/java.security</code>中的<code>securerandom</code>改为<code>urandom</code>即可解决问题！</h4><p><a href="https://www.cnblogs.com/it-deepinmind/p/13344558.html" target="_blank" rel="noopener">参考博客</a></p>
+</li>
+</ol>
+<br>
+
+<br>
+
+<h2 id="小结："><a href="#小结：" class="headerlink" title="小结："></a>小结：</h2><p>这个项目其实是参考网上的已有项目修改下来的。</p>
+<p>但是，读项目源码的过程中，还是学习到了一个Spring Boot项目该有的体系结构和开发流程。</p>
+<p>特别是认识到了Spring Security的强大功能，后面还会继续学习记录Spring Security的相关内容。</p>
+<p>另外，这次学习没有好好看hibernate框架，后面也要抽时间好好补课，希望不会鸽掉。</p>
+<p>Spring Validation提供了常用的用户校验功能，但是hibernate validation似乎能够实现效果更好的自定义校验功能，希望今后有机会可以学习学习。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/11/17/使用Spring-Boot-Spring-Security-Hibernate-Bootstrap-JSP-Spring-Data-JPA-MySQL实现的登陆注册系统/" data-id="ckhm1du7r00084kujjbenls36" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JPA/">JPA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Security/">Spring Security</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/11/17/关于DAO模式的小记录/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">关于DAO模式的小记录</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DAO模式/">DAO模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JPA/">JPA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Security/">Spring Security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/">SpringBoot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WSL/">WSL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frp/">frp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssl证书/">ssl证书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/作业/">作业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/内网穿透/">内网穿透</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像处理/">图像处理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大数据架构/">大数据架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搬运/">搬运</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教程/">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/概要/">概要</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科普/">科普</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="/tags/DAO模式/" style="font-size: 10px;">DAO模式</a> <a href="/tags/JPA/" style="font-size: 10px;">JPA</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Spring-Boot/" style="font-size: 13.33px;">Spring Boot</a> <a href="/tags/Spring-Security/" style="font-size: 10px;">Spring Security</a> <a href="/tags/SpringBoot/" style="font-size: 10px;">SpringBoot</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/WSL/" style="font-size: 13.33px;">WSL</a> <a href="/tags/frp/" style="font-size: 10px;">frp</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/ssl证书/" style="font-size: 10px;">ssl证书</a> <a href="/tags/作业/" style="font-size: 20px;">作业</a> <a href="/tags/内网穿透/" style="font-size: 10px;">内网穿透</a> <a href="/tags/图像处理/" style="font-size: 10px;">图像处理</a> <a href="/tags/大数据架构/" style="font-size: 20px;">大数据架构</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/搬运/" style="font-size: 13.33px;">搬运</a> <a href="/tags/教程/" style="font-size: 10px;">教程</a> <a href="/tags/概要/" style="font-size: 10px;">概要</a> <a href="/tags/科普/" style="font-size: 10px;">科普</a> <a href="/tags/笔记/" style="font-size: 13.33px;">笔记</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/11/17/使用Spring-Boot-Spring-Security-Hibernate-Bootstrap-JSP-Spring-Data-JPA-MySQL实现的登陆注册系统/">使用Spring Boot, Spring Security, Hibernate, Bootstrap, JSP, Spring Data JPA, MySQL实现的登陆注册系统</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/17/关于DAO模式的小记录/">关于DAO模式的小记录</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/16/大数据架构作业-简答题6/">大数据架构作业-简答题6</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/12/大数据架构作业-简答题5/">大数据架构作业-简答题5</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/06/使用SpringBoot编写一个https网站/">使用SpringBoot编写一个https网站</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Miaopashi<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
