@@ -171,9 +171,7 @@
 <p>需要注意的是，使用的spring-boot-maven版本好像只能为1.4.2，否则无法正常把文件打包进去。</p>
 <br>
 </li>
-<li><h3 id="jar包部署到服务器之后，访问页面不知道为什么一直加载不出来（这个是个大坑）"><a href="#jar包部署到服务器之后，访问页面不知道为什么一直加载不出来（这个是个大坑）" class="headerlink" title="jar包部署到服务器之后，访问页面不知道为什么一直加载不出来（这个是个大坑）"></a>jar包部署到服务器之后，访问页面不知道为什么一直加载不出来（这个是个大坑）</h3><blockquote>
-<p>Linux使用<code>NativePRNG</code>算法生成<code>SecureRandom</code>，如果调用<code>generateSeed()</code>方法，这个方法会读取Linux系统的<code>/dev/random</code>文件，这个文件在<code>JAVA_HOME/jre/lib/securiy/java.security</code>里面有默认定义。而<code>/dev/random</code>文件是动态生成的，如果没有数据，就会阻塞！</p>
-</blockquote>
+<li><h3 id="jar包部署到服务器之后，访问页面不知道为什么一直加载不出来（这个是个大坑）"><a href="#jar包部署到服务器之后，访问页面不知道为什么一直加载不出来（这个是个大坑）" class="headerlink" title="jar包部署到服务器之后，访问页面不知道为什么一直加载不出来（这个是个大坑）"></a>jar包部署到服务器之后，访问页面不知道为什么一直加载不出来（这个是个大坑）</h3><p><em>Linux使用<code>NativePRNG</code>算法生成<code>SecureRandom</code>，如果调用<code>generateSeed()</code>方法，这个方法会读取Linux系统的<code>/dev/random</code>文件，这个文件在<code>JAVA_HOME/jre/lib/securiy/java.security</code>里面有默认定义。而<code>/dev/random</code>文件是动态生成的，如果没有数据，就会阻塞！</em></p>
 <h4 id="个人猜测："><a href="#个人猜测：" class="headerlink" title="个人猜测："></a>个人猜测：</h4><p>​    由于使用<code>SpringSecurity</code>需要生成随机数，进而JVM调用了<code>/dev/random</code>没有结果，于是发生阻塞，毕竟同样的问题在Win下没有出现。</p>
 <h4 id="把JAVA-HOME-jre-lib-securiy-java-security中的securerandom改为urandom即可解决问题！"><a href="#把JAVA-HOME-jre-lib-securiy-java-security中的securerandom改为urandom即可解决问题！" class="headerlink" title="把JAVA_HOME/jre/lib/securiy/java.security中的securerandom改为urandom即可解决问题！"></a>把<code>JAVA_HOME/jre/lib/securiy/java.security</code>中的<code>securerandom</code>改为<code>urandom</code>即可解决问题！</h4><p><a href="https://www.cnblogs.com/it-deepinmind/p/13344558.html" target="_blank" rel="noopener">参考博客</a></p>
 </li>
@@ -191,7 +189,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/17/使用Spring-Boot-Spring-Security-Hibernate-Bootstrap-JSP-Spring-Data-JPA-MySQL实现的登陆注册系统/" data-id="ckhm1du7r00084kujjbenls36" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/17/使用Spring-Boot-Spring-Security-Hibernate-Bootstrap-JSP-Spring-Data-JPA-MySQL实现的登陆注册系统/" data-id="ckhn5oydg00044sujgprs4x7g" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JPA/">JPA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Security/">Spring Security</a></li></ul>
@@ -262,7 +260,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/17/关于DAO模式的小记录/" data-id="ckhm1du80000i4kuj1mtotyax" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/17/关于DAO模式的小记录/" data-id="ckhn5oydp000c4suj0ss7c1kt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DAO模式/">DAO模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -368,7 +366,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/16/大数据架构作业-简答题6/" data-id="ckhm1du89000w4kujlkfzlty7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/16/大数据架构作业-简答题6/" data-id="ckhn5oyec000q4sujdrv6bxm6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/作业/">作业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据架构/">大数据架构</a></li></ul>
@@ -513,7 +511,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/12/大数据架构作业-简答题5/" data-id="ckhm1du87000t4kuj3nw9ckaa" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/12/大数据架构作业-简答题5/" data-id="ckhn5oye9000m4sujyztwxw7u" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/作业/">作业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据架构/">大数据架构</a></li></ul>
@@ -679,7 +677,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/06/使用SpringBoot编写一个https网站/" data-id="ckhm1du7q00074kuj1gn5iwni" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/06/使用SpringBoot编写一个https网站/" data-id="ckhn5oydn000a4sujbhsyp60e" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SpringBoot/">SpringBoot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssl证书/">ssl证书</a></li></ul>
@@ -744,7 +742,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/05/大数据架构作业-简答题4/" data-id="ckhm1du86000s4kujqukilw0j" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/05/大数据架构作业-简答题4/" data-id="ckhn5oye7000k4sujqnqrayf3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/作业/">作业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据架构/">大数据架构</a></li></ul>
@@ -878,7 +876,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/04/大数据架构作业-简答题3/" data-id="ckhm1du85000r4kujiujpimim" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/04/大数据架构作业-简答题3/" data-id="ckhn5oyg6002l4suj9vcd6jad" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/作业/">作业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据架构/">大数据架构</a></li></ul>
@@ -1045,7 +1043,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/10/08/学习内网穿透/" data-id="ckhm1du97002n4kuj8zuyde4y" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/10/08/学习内网穿透/" data-id="ckhn5oyfm002e4sujh9yc1s01" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frp/">frp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/内网穿透/">内网穿透</a></li></ul>
@@ -1139,7 +1137,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/09/27/WSLinux之Ubuntu-安装rpm包/" data-id="ckhm1du7c00004kujnvgrlgle" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/09/27/WSLinux之Ubuntu-安装rpm包/" data-id="ckhn5oydc00024sujr9p3rhk7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WSL/">WSL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/搬运/">搬运</a></li></ul>
@@ -1201,7 +1199,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/09/26/大数据架构作业-简答题2/" data-id="ckhm1du84000o4kujjabqgtnp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/09/26/大数据架构作业-简答题2/" data-id="ckhn5oyeb000p4suj9rlsjl95" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/作业/">作业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据架构/">大数据架构</a></li></ul>
