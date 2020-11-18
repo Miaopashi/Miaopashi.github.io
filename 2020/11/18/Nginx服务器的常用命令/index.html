@@ -5,15 +5,20 @@
   
 
   
-  <title>Tag: DAO模式 | MPS的个人博客</title>
+  <title>Nginx服务器的常用命令 | MPS的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="MPS的个人博客">
-<meta property="og:url" content="http://yoursite.com/tags/DAO模式/index.html">
+  <meta name="description" content="上次学习Spring Boot编写Hello World网页的时候用到了Nginx服务器，为了以后使用方便，记录一下Nginx的常用命令。   Nginx的常用命令1234567891011121314151617# 设置开机启动 $ sudo systemctl enable nginx # 启动 nginx 服务$ sudo service nginx start # 停止 nginx 服务$">
+<meta name="keywords" content="Nginx,常用命令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nginx服务器的常用命令">
+<meta property="og:url" content="http://yoursite.com/2020/11/18/Nginx服务器的常用命令/index.html">
 <meta property="og:site_name" content="MPS的个人博客">
+<meta property="og:description" content="上次学习Spring Boot编写Hello World网页的时候用到了Nginx服务器，为了以后使用方便，记录一下Nginx的常用命令。   Nginx的常用命令1234567891011121314151617# 设置开机启动 $ sudo systemctl enable nginx # 启动 nginx 服务$ sudo service nginx start # 停止 nginx 服务$">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-11-18T09:17:07.840Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MPS的个人博客">
+<meta name="twitter:title" content="Nginx服务器的常用命令">
+<meta name="twitter:description" content="上次学习Spring Boot编写Hello World网页的时候用到了Nginx服务器，为了以后使用方便，记录一下Nginx的常用命令。   Nginx的常用命令1234567891011121314151617# 设置开机启动 $ sudo systemctl enable nginx # 启动 nginx 服务$ sudo service nginx start # 停止 nginx 服务$">
   
     <link rel="alternate" href="/atom.xml" title="MPS的个人博客" type="application/atom+xml">
   
@@ -60,40 +65,63 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/11/17/关于DAO模式的小记录/" class="archive-article-date">
-  <time datetime="2020-11-17T13:34:09.000Z" itemprop="datePublished">Nov 17</time>
+        <section id="main"><article id="post-Nginx服务器的常用命令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/18/Nginx服务器的常用命令/" class="article-date">
+  <time datetime="2020-11-18T09:16:30.000Z" itemprop="datePublished">2020-11-18</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/17/关于DAO模式的小记录/">关于DAO模式的小记录</a>
+    <h1 class="article-title" itemprop="name">
+      Nginx服务器的常用命令
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>上次学习Spring Boot编写Hello World网页的时候用到了Nginx服务器，为了以后使用方便，记录一下Nginx的常用命令。</em></p>
+<br>
 
+<h3 id="Nginx的常用命令"><a href="#Nginx的常用命令" class="headerlink" title="Nginx的常用命令"></a>Nginx的常用命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># 设置开机启动 </span><br><span class="line">$ sudo systemctl enable nginx </span><br><span class="line"></span><br><span class="line"># 启动 nginx 服务</span><br><span class="line">$ sudo service nginx start </span><br><span class="line"></span><br><span class="line"># 停止 nginx 服务</span><br><span class="line">$ sudo service nginx stop </span><br><span class="line"></span><br><span class="line"># 重启 nginx 服务</span><br><span class="line">$ sudo service nginx restart </span><br><span class="line"></span><br><span class="line"># 重新加载配置，一般是在修改过 nginx 配置文件时使用</span><br><span class="line">$ sudo service nginx reload </span><br><span class="line"></span><br><span class="line"># 查看Nginx运行状态</span><br><span class="line">$ sudo systemctl status nginx</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="配置文件位置"><a href="#配置文件位置" class="headerlink" title="配置文件位置"></a>配置文件位置</h3><p>使用yum安装的nginx，配置文件默认在/etc/nginx/nginx.conf。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 修改配置文件</span><br><span class="line"></span><br><span class="line">$ vim /etc/nginx/nginx.conf</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/11/18/Nginx服务器的常用命令/" data-id="ckhn6zelg0000csujs319i3s3" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/常用命令/">常用命令</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/11/17/使用Spring-Boot-Spring-Security-Hibernate-Bootstrap-JSP-Spring-Data-JPA-MySQL实现的登陆注册系统/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">使用Spring Boot, Spring Security, Hibernate, Bootstrap, JSP, Spring Data JPA, MySQL实现的登陆注册系统</div>
+    </a>
+  
+</nav>
+
+  
+</article>
 
 </section>
         

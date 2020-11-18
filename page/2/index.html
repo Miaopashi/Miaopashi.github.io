@@ -62,6 +62,68 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-大数据架构作业-简答题2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/26/大数据架构作业-简答题2/" class="article-date">
+  <time datetime="2020-09-26T12:05:46.000Z" itemprop="datePublished">2020-09-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/26/大数据架构作业-简答题2/">大数据架构作业-简答题2</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>大数据架构第二次作业出来了，这次照旧记录一下。</em></p>
+<br>
+
+<h2 id="容器化技术的核心原理"><a href="#容器化技术的核心原理" class="headerlink" title="容器化技术的核心原理"></a>容器化技术的核心原理</h2><blockquote>
+<p><strong>题目：</strong>请从网络下载<strong>virtualbox</strong>软件并安装，然后在<strong>virtualbox</strong>中创建一台或多台虚拟机，尝试在虚拟机中安装<strong>CentOS</strong>或者<strong>Ubuntu</strong>等<strong>Linux</strong>操作系统。在<strong>Linux</strong>操作系统中，测试实现容器的核心技术：<strong>namespace</strong>和<strong>cgroups</strong>两项内核功能，最后在答案部分陈述实验过程、遇到的问题和解决思路、技术原理和实验体会等。</p>
+</blockquote>
+<br>
+
+<h3 id="使用virtualbox创建Ubuntu虚拟机"><a href="#使用virtualbox创建Ubuntu虚拟机" class="headerlink" title="使用virtualbox创建Ubuntu虚拟机"></a>使用virtualbox创建Ubuntu虚拟机</h3><p>首先在官网下载并安装<strong>virtualbox</strong>，到<strong>Ubuntu</strong>官网：<a href="https://cn.ubuntu.com/download，下载20.04版本的**Ubuntu.ios**文件。然后参考博客安装**Ubuntu**系统。" target="_blank" rel="noopener">https://cn.ubuntu.com/download，下载20.04版本的**Ubuntu.ios**文件。然后参考博客安装**Ubuntu**系统。</a></p>
+<p>安装的速度比较慢，有可能是因为机子的配置不够。安装系统提示仍需<strong>8h</strong>的时候，我直接睡觉了…</p>
+<p>虚拟机的创建过程很简单，只要根据基本的操作，看看系统安装的步骤很快就可以完成。</p>
+<p>考虑到现在<strong>Win10</strong>可以安装<strong>Ubuntu</strong>子系统，其实没有必要非得装一个虚拟机去体验<strong>Linux</strong>。不过以后如果有机会，可以尝试用一下<strong>vbox</strong>安装<strong>windows-xp</strong>，玩一下不兼容的老游戏。</p>
+<p>参考博客：<a href="https://blog.csdn.net/u012732259/article/details/70172704" target="_blank" rel="noopener">https://blog.csdn.net/u012732259/article/details/70172704</a></p>
+<br>
+
+<p>学习Linux中的容器</p>
+<p>容器实现的原理：namespace（实现资源隔离）、cgroups（实现资源控制）（两者是Linux内核功能）</p>
+<p>容器是拥有单独命名空间的进程。</p>
+<p>Namespace（命名空间）</p>
+<p>Namespace定义了一个封闭的作用域范围，约定。Namespace本质是一种资源隔离方案。</p>
+<p>处于同一命名空间的进程，只能看到该名字空间下的资源，如主机名、网络、进程、用户、文件系统等。</p>
+<p>不同名字空间的进程彼此不可见，互不影响。</p>
+<p>每个进程拥有七个命名空间犹豫隔离不同类型的资源：PID Namespace（pid）、CGroup Namespace（cgroup）、IPC Namespace（ipc）、Mount Namespace（mnt）、Network Namespace（net）、User Namespace（user）、UTS Namespace（uts）。</p>
+<p>关于namespace的特性可以参考这篇博客：<a href="https://zhengyinyong.com/post/introduction-to-linux-namespace/" target="_blank" rel="noopener">https://zhengyinyong.com/post/introduction-to-linux-namespace/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/09/26/大数据架构作业-简答题2/" data-id="ckhn6zemb000qcsuj7pllqlpw" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/作业/">作业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据架构/">大数据架构</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-入门JavaSE-进阶篇" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/09/23/入门JavaSE-进阶篇/" class="article-date">
@@ -340,7 +402,7 @@ ChildClass());</code><br>※ <strong>泛型只能使用引用类型</strong>, �
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/09/23/入门JavaSE-进阶篇/" data-id="ckhn5oydz000f4suj2usgxa7d" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/09/23/入门JavaSE-进阶篇/" data-id="ckhn6zem6000kcsuj4kl9m1aj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
@@ -476,7 +538,7 @@ ChildClass());</code><br>※ <strong>泛型只能使用引用类型</strong>, �
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/09/21/为Windows-Terminal配置Ubuntu系统/" data-id="ckhn5oydi00054suj2f4f534l" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/09/21/为Windows-Terminal配置Ubuntu系统/" data-id="ckhn6zelq0003csujzgnhzmvs" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WSL/">WSL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/搬运/">搬运</a></li></ul>
@@ -595,7 +657,7 @@ ChildClass());</code><br>※ <strong>泛型只能使用引用类型</strong>, �
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/09/16/大数据架构作业-简答题1/" data-id="ckhn5oydx000d4sujvmye960s" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/09/16/大数据架构作业-简答题1/" data-id="ckhn6zem9000ocsuj0d2uste3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/作业/">作业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据架构/">大数据架构</a></li></ul>
@@ -771,7 +833,7 @@ ps: 编译程序之后会出现多个</code>.class`文件</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/08/26/入门JavaSE-中级篇/" data-id="ckhn5oydj00064sujefi9pqjv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/08/26/入门JavaSE-中级篇/" data-id="ckhn6zem0000fcsujeq1b59d4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
@@ -895,7 +957,7 @@ ps: 编译程序之后会出现多个</code>.class`文件</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/08/21/入门JavaSE-初级篇/" data-id="ckhn5oye3000i4suj72mwla5m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/08/21/入门JavaSE-初级篇/" data-id="ckhn6zem2000gcsujhvn21pd4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/笔记/">笔记</a></li></ul>
@@ -979,7 +1041,7 @@ ps: 编译程序之后会出现多个</code>.class`文件</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/08/21/使用photomosaic库实现马赛克拼图/" data-id="ckhn5oyg5002k4suj90t51x0n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/08/21/使用photomosaic库实现马赛克拼图/" data-id="ckhn6zely000ccsujzi7n7aq7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图像处理/">图像处理</a></li></ul>
@@ -1194,7 +1256,7 @@ ps: 编译程序之后会出现多个</code>.class`文件</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/06/28/关于学校校园网挂VPN解决断网问题的个人解读/" data-id="ckhn5oye1000g4sujmbnc4bqy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/06/28/关于学校校园网挂VPN解决断网问题的个人解读/" data-id="ckhn6zem8000ncsujsn4aucft" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/科普/">科普</a></li></ul>
@@ -1285,7 +1347,7 @@ DABUG = False</code></pre><p>推送并提交修改</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/17/使用Heroku部署网页/" data-id="ckhn5oyd900014sujiyoynaqf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/12/17/使用Heroku部署网页/" data-id="ckhn6zelu0007csujq3miitwy" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/教程/">教程</a></li></ul>
@@ -1366,7 +1428,7 @@ DABUG = False</code></pre><p>推送并提交修改</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/17/《算法图解》内容概要/" data-id="ckhn5oydl00094suj8py6ybio" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/12/17/《算法图解》内容概要/" data-id="ckhn6zels0005csuj0nljpsfl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/概要/">概要</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -1378,54 +1440,11 @@ DABUG = False</code></pre><p>推送并提交修改</p>
 
 
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/10/25/hello-world/" class="article-date">
-  <time datetime="2019-10-25T14:28:45.000Z" itemprop="datePublished">2019-10-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/25/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>非常感谢你点进了这个网站，点开了这篇博客。希望这个博客以后更新的文章，可以对你提供帮助。</em></p>
-<h1 id="Q-为什么要写博客？"><a href="#Q-为什么要写博客？" class="headerlink" title="Q:为什么要写博客？"></a>Q:为什么要写博客？</h1><p>####1. 记录一下自己的学习路程，分享一下个人经验。<br>####2. 总结一下自己某个时段做过的事情，类似个人笔记。<br>####3. 避免自己咕咕咕，给自己一个继续学习的理由。</p>
-<h1 id="Q-在这里你能看到什么"><a href="#Q-在这里你能看到什么" class="headerlink" title="Q:在这里你能看到什么?"></a>Q:在这里你能看到什么?</h1><p>####1. 关于各种乱七八糟的计算机技术类的帖子<br>####2. 关于我杂七杂八学习的总结笔记<br>####3. 个人的读书笔记或者随笔<code>一般是ACG相关</code></p>
-<p>\</p>
-<blockquote>
-<p>最后，路漫漫其修远兮，吾将上下而求索！</p>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/25/hello-world/" data-id="ckhn5oyd200004sujiwt8mmtj" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -1439,7 +1458,7 @@ DABUG = False</code></pre><p>推送并提交修改</p>
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DAO模式/">DAO模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JPA/">JPA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Security/">Spring Security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/">SpringBoot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WSL/">WSL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frp/">frp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssl证书/">ssl证书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/作业/">作业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/内网穿透/">内网穿透</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像处理/">图像处理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大数据架构/">大数据架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搬运/">搬运</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教程/">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/概要/">概要</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科普/">科普</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DAO模式/">DAO模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JPA/">JPA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Security/">Spring Security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/">SpringBoot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WSL/">WSL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frp/">frp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssl证书/">ssl证书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/作业/">作业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/内网穿透/">内网穿透</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像处理/">图像处理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大数据架构/">大数据架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常用命令/">常用命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搬运/">搬运</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教程/">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/概要/">概要</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科普/">科普</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
     </div>
   </div>
 
@@ -1449,7 +1468,7 @@ DABUG = False</code></pre><p>推送并提交修改</p>
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="/tags/DAO模式/" style="font-size: 10px;">DAO模式</a> <a href="/tags/JPA/" style="font-size: 10px;">JPA</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Spring-Boot/" style="font-size: 13.33px;">Spring Boot</a> <a href="/tags/Spring-Security/" style="font-size: 10px;">Spring Security</a> <a href="/tags/SpringBoot/" style="font-size: 10px;">SpringBoot</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/WSL/" style="font-size: 13.33px;">WSL</a> <a href="/tags/frp/" style="font-size: 10px;">frp</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/ssl证书/" style="font-size: 10px;">ssl证书</a> <a href="/tags/作业/" style="font-size: 20px;">作业</a> <a href="/tags/内网穿透/" style="font-size: 10px;">内网穿透</a> <a href="/tags/图像处理/" style="font-size: 10px;">图像处理</a> <a href="/tags/大数据架构/" style="font-size: 20px;">大数据架构</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/搬运/" style="font-size: 13.33px;">搬运</a> <a href="/tags/教程/" style="font-size: 10px;">教程</a> <a href="/tags/概要/" style="font-size: 10px;">概要</a> <a href="/tags/科普/" style="font-size: 10px;">科普</a> <a href="/tags/笔记/" style="font-size: 13.33px;">笔记</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
+      <a href="/tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="/tags/DAO模式/" style="font-size: 10px;">DAO模式</a> <a href="/tags/JPA/" style="font-size: 10px;">JPA</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Spring-Boot/" style="font-size: 13.33px;">Spring Boot</a> <a href="/tags/Spring-Security/" style="font-size: 10px;">Spring Security</a> <a href="/tags/SpringBoot/" style="font-size: 10px;">SpringBoot</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/WSL/" style="font-size: 13.33px;">WSL</a> <a href="/tags/frp/" style="font-size: 10px;">frp</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/ssl证书/" style="font-size: 10px;">ssl证书</a> <a href="/tags/作业/" style="font-size: 20px;">作业</a> <a href="/tags/内网穿透/" style="font-size: 10px;">内网穿透</a> <a href="/tags/图像处理/" style="font-size: 10px;">图像处理</a> <a href="/tags/大数据架构/" style="font-size: 20px;">大数据架构</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/常用命令/" style="font-size: 10px;">常用命令</a> <a href="/tags/搬运/" style="font-size: 13.33px;">搬运</a> <a href="/tags/教程/" style="font-size: 10px;">教程</a> <a href="/tags/概要/" style="font-size: 10px;">概要</a> <a href="/tags/科普/" style="font-size: 10px;">科普</a> <a href="/tags/笔记/" style="font-size: 13.33px;">笔记</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
     </div>
   </div>
 
@@ -1471,6 +1490,10 @@ DABUG = False</code></pre><p>推送并提交修改</p>
       <ul>
         
           <li>
+            <a href="/2020/11/18/Nginx服务器的常用命令/">Nginx服务器的常用命令</a>
+          </li>
+        
+          <li>
             <a href="/2020/11/17/使用Spring-Boot-Spring-Security-Hibernate-Bootstrap-JSP-Spring-Data-JPA-MySQL实现的登陆注册系统/">使用Spring Boot, Spring Security, Hibernate, Bootstrap, JSP, Spring Data JPA, MySQL实现的登陆注册系统</a>
           </li>
         
@@ -1484,10 +1507,6 @@ DABUG = False</code></pre><p>推送并提交修改</p>
         
           <li>
             <a href="/2020/11/12/大数据架构作业-简答题5/">大数据架构作业-简答题5</a>
-          </li>
-        
-          <li>
-            <a href="/2020/11/06/使用SpringBoot编写一个https网站/">使用SpringBoot编写一个https网站</a>
           </li>
         
       </ul>
