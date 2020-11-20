@@ -62,6 +62,71 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-MySQL的安装指南以及常用命令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/20/MySQL的安装指南以及常用命令/" class="article-date">
+  <time datetime="2020-11-20T06:37:42.000Z" itemprop="datePublished">2020-11-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/20/MySQL的安装指南以及常用命令/">MySQL的安装指南以及常用命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>上周学习了如何使用Spring Boot编写一个登录注册系统，采用了<code>MySQL</code>作为数据库。</em></p>
+<p>下面来记录一下，如何在<code>centOS</code>上安装<code>MySQL</code>以及<code>MySQL</code>的常用命令。</p>
+<br>
+
+<br>
+
+<h2 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h2><p>我参考的是掘金上的<a href="https://juejin.cn/post/6844903870053761037#heading-16" target="_blank" rel="noopener">这篇文章</a>。</p>
+<p>简要总结一下，关于<code>MySQL</code>在<code>centOS</code>上的安装，主要有四种方法。分别为yum安装法、rpm包安装法，直接解压tar包法和源码安装法。作者对于每种安装方法都进行了详细的讲解，这里我就不复制粘贴了。</p>
+<p>我采用的是看上去比较省事的rpm包安装法。</p>
+<br>
+
+<br>
+
+<h2 id="关于MySQL的常用命令"><a href="#关于MySQL的常用命令" class="headerlink" title="关于MySQL的常用命令"></a>关于MySQL的常用命令</h2><p>下面记录一下<code>MySQL</code>的常用命令，方便下一次使用。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 启动</span><br><span class="line">sudo systemctl start mysqld.service</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查看状态</span><br><span class="line">sudo systemctl status mysqld.service</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 停止</span><br><span class="line">sudo systemctl stop mysqld.service</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 重启</span><br><span class="line">sudo systemctl restart mysqld.service</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 进入数据库</span><br><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>进入数据库之后，在MySQL-shell中常用的命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 查看使用的端口</span><br><span class="line">show global variables like &apos;port&apos;;</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<br>
+
+<h2 id="小结："><a href="#小结：" class="headerlink" title="小结："></a>小结：</h2><p><code>MySQL</code>作为一款免费的关系数据库，是很多中小型业务首要考虑使用的数据库。但是随着当前互联网业务的不断发展壮大，关系型数据库已经不能支持很多大型项目的需求了。</p>
+<p>作为大数据系的学生，尽管<code>MySQL</code>已经可以很好的支持个人开发的小型项目了，但是还是很有必要去学习一下现在很火的其它非关系型数据库，比如：<code>Redis</code>、<code>MangoDB</code>等等。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/11/20/MySQL的安装指南以及常用命令/" data-id="ckhpw7b0700003gujm3ebvjee" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CentOS/">CentOS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/常用命令/">常用命令</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Nginx服务器的常用命令" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/11/18/Nginx服务器的常用命令/" class="article-date">
@@ -92,13 +157,13 @@
 <br>
 
 <h3 id="配置文件位置"><a href="#配置文件位置" class="headerlink" title="配置文件位置"></a>配置文件位置</h3><p>使用yum安装的nginx，配置文件默认在/etc/nginx/nginx.conf。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 修改配置文件</span><br><span class="line"></span><br><span class="line">$ vim /etc/nginx/nginx.conf</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 修改配置文件</span><br><span class="line">$ vim /etc/nginx/nginx.conf</span><br></pre></td></tr></table></figure>
 
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/18/Nginx服务器的常用命令/" data-id="ckhn6zelg0000csujs319i3s3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/18/Nginx服务器的常用命令/" data-id="ckhpw7b0h00063gujwbginisk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/常用命令/">常用命令</a></li></ul>
@@ -237,7 +302,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/17/使用Spring-Boot-Spring-Security-Hibernate-Bootstrap-JSP-Spring-Data-JPA-MySQL实现的登陆注册系统/" data-id="ckhn6zelv0008csuj8lz5thdn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/17/使用Spring-Boot-Spring-Security-Hibernate-Bootstrap-JSP-Spring-Data-JPA-MySQL实现的登陆注册系统/" data-id="ckhpw7b0o000b3guj2rib87ol" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JPA/">JPA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Security/">Spring Security</a></li></ul>
@@ -308,7 +373,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/17/关于DAO模式的小记录/" data-id="ckhn6zem4000icsujmb8jgy3p" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/17/关于DAO模式的小记录/" data-id="ckhpw7b19000u3guju0gggn20" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DAO模式/">DAO模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
@@ -414,7 +479,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/16/大数据架构作业-简答题6/" data-id="ckhn6zemg000xcsujnsdbci3m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/16/大数据架构作业-简答题6/" data-id="ckhpw7b35002z3gujgsv1pvtk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/作业/">作业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据架构/">大数据架构</a></li></ul>
@@ -559,7 +624,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/12/大数据架构作业-简答题5/" data-id="ckhn6zeme000vcsujojtlciet" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/12/大数据架构作业-简答题5/" data-id="ckhpw7b1a000w3gujibngoo8g" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/作业/">作业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据架构/">大数据架构</a></li></ul>
@@ -725,7 +790,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/06/使用SpringBoot编写一个https网站/" data-id="ckhn6zelx000acsujzfz427my" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/06/使用SpringBoot编写一个https网站/" data-id="ckhpw7b0t000e3gujvw5mudll" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SpringBoot/">SpringBoot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ssl证书/">ssl证书</a></li></ul>
@@ -790,7 +855,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/05/大数据架构作业-简答题4/" data-id="ckhn6zemc000scsuj30g7jz3n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/05/大数据架构作业-简答题4/" data-id="ckhpw7b16000r3gujbmhhu2ja" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/作业/">作业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据架构/">大数据架构</a></li></ul>
@@ -924,7 +989,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/04/大数据架构作业-简答题3/" data-id="ckhn6zemc000rcsujcnh8lwm8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/04/大数据架构作业-简答题3/" data-id="ckhpw7b18000t3gujcskyme8j" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/作业/">作业</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/大数据架构/">大数据架构</a></li></ul>
@@ -1091,104 +1156,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/10/08/学习内网穿透/" data-id="ckhn6zenj002scsujjdcmxn4m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/10/08/学习内网穿透/" data-id="ckhpw7b21002r3gujz2j4jw2f" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/frp/">frp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/内网穿透/">内网穿透</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-WSLinux之Ubuntu-安装rpm包" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/09/27/WSLinux之Ubuntu-安装rpm包/" class="article-date">
-  <time datetime="2020-09-27T02:28:09.000Z" itemprop="datePublished">2020-09-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/27/WSLinux之Ubuntu-安装rpm包/">WSLinux之Ubuntu安装rpm包</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近在看<strong>《springboot实战》</strong>。</p>
-<p>看到<strong>springbootCLI</strong>的时候，想要在<strong>windos</strong>子系统的<strong>Ubuntu</strong>上学习一下，所以想要安装<strong>java</strong>。</p>
-<p>从同学那里要到了rpm包之后，发现<strong>Ubuntu</strong>居然不能直接安装<strong>rpm</strong>包！</p>
-<p>查看社区发现<strong>Ubuntu</strong>是基于<strong>Debian</strong>的系统，不同于<strong>CentOS, RHEL or Fedora</strong>。</p>
-<p><strong>Ubuntu</strong>不能直接使用<strong>rpm</strong>命令，而是要通过<strong>alien命令</strong>。</p>
-<br>
-
-<h2 id="安装alien可分为三个步骤："><a href="#安装alien可分为三个步骤：" class="headerlink" title="安装alien可分为三个步骤："></a>安装alien可分为三个步骤：</h2><h3 id="一、添加Universe-distribution-component（渣翻：universe组成元件，用于连接universe仓库）"><a href="#一、添加Universe-distribution-component（渣翻：universe组成元件，用于连接universe仓库）" class="headerlink" title="一、添加Universe distribution component（渣翻：universe组成元件，用于连接universe仓库）"></a>一、添加Universe distribution component（渣翻：universe组成元件，用于连接universe仓库）</h3><p>仓库提供软件安装的地址。除了<strong>universe</strong>以外，<strong>Ubuntu</strong>还有<strong>Main</strong>、<strong>Restricted</strong>、Multiverse等仓库。</p>
-<p><strong>Universe</strong>仓库提供由社区主导，并且完全开源的软件。这里的alien安装就需要<strong>Universe</strong>仓库。</p>
-<p>添加远程仓库：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository universe</span><br></pre></td></tr></table></figure>
-
-<p>另外，在命令里添加-r选项，可以移除仓库。</p>
-<p><strong>注意，如果网络速度太慢可能会导致部分安装错误，最后无法安装alien！所以安装之前先考虑一下网络，有可能需要科学上网。</strong></p>
-<br>
-
-<h3 id="二、更新apt的cache"><a href="#二、更新apt的cache" class="headerlink" title="二、更新apt的cache"></a>二、更新apt的cache</h3><p>更新了仓库之后，还要更新<strong>apt</strong>的<strong>cache</strong>才能查找到需要的软件。apt的<strong>cache</strong>用于提供软件安装的地址，如果不更新就自然就找不到对应的包。另外，系统新装的时候也需要更新一下apt。</p>
-<p>更新apt：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
-
-<p><strong>update</strong>命令并不会直接<strong>apt</strong>安装所有软件。如果需要进一步更新软件需要使用upgrade命令。</p>
-<br>
-
-<h3 id="三、安装alien包"><a href="#三、安装alien包" class="headerlink" title="三、安装alien包"></a>三、安装alien包</h3><p><strong>alien</strong>用于安装rpm包，具体的安装方法有两种，第四点会一一介绍。</p>
-<p>安装<strong>alien</strong>：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install alien</span><br></pre></td></tr></table></figure>
-
-<br>
-
-<h3 id="四、安装rpm包"><a href="#四、安装rpm包" class="headerlink" title="四、安装rpm包"></a>四、安装rpm包</h3><p>安装了<strong>alien</strong>之后就可以愉快地安装rpm包。但是这里在说一下，安装<strong>rpm</strong>包有两种方式。</p>
-<ol>
-<li>把<strong>rpm</strong>转换成deb包再安装</li>
-</ol>
-<p><strong>alien</strong>命令可以把rpm包变成<strong>deb</strong>包，再安装。这种方法比较推荐。</p>
-<p>把当前目录<strong>cd</strong>到<strong>rpm</strong>包所在的目录下，按一下命令执行即可安装：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo alien packagename.rpm</span><br><span class="line"></span><br><span class="line">sudo dpkg -i packagename.deb</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>直接安装<strong>rpm</strong>包</li>
-</ol>
-<p>alien也可直接<strong>rpm</strong>包。但是需要注意，这个方法不是<strong>native</strong>（原生）的所以可能会出现一点问题。</p>
-<p>直接安装<strong>rpm</strong>：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo alien -i packagename.rpm</span><br></pre></td></tr></table></figure>
-
-<br>
-
-<br>
-
-<p>好了，到这里本次分享已经结束。希望能够帮助你。</p>
-<br>
-
-<p>参考文章：</p>
-<ol>
-<li><a href="https://phoenixnap.com/kb/install-rpm-packages-on-ubuntu" target="_blank" rel="noopener">https://phoenixnap.com/kb/install-rpm-packages-on-ubuntu</a></li>
-<li><a href="https://help.ubuntu.com/community/Repositories/Ubuntu" target="_blank" rel="noopener">https://help.ubuntu.com/community/Repositories/Ubuntu</a></li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/09/27/WSLinux之Ubuntu-安装rpm包/" data-id="ckhn6zelr0004csujz3dlzjr5" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/WSL/">WSL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/搬运/">搬运</a></li></ul>
 
     </footer>
   </div>
@@ -1215,7 +1186,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DAO模式/">DAO模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JPA/">JPA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Security/">Spring Security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/">SpringBoot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WSL/">WSL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frp/">frp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssl证书/">ssl证书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/作业/">作业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/内网穿透/">内网穿透</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像处理/">图像处理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大数据架构/">大数据架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常用命令/">常用命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搬运/">搬运</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教程/">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/概要/">概要</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科普/">科普</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CentOS/">CentOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DAO模式/">DAO模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JPA/">JPA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Security/">Spring Security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/">SpringBoot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WSL/">WSL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frp/">frp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssl证书/">ssl证书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/作业/">作业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/内网穿透/">内网穿透</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像处理/">图像处理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大数据架构/">大数据架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常用命令/">常用命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搬运/">搬运</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教程/">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/概要/">概要</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科普/">科普</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
     </div>
   </div>
 
@@ -1225,7 +1196,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="/tags/DAO模式/" style="font-size: 10px;">DAO模式</a> <a href="/tags/JPA/" style="font-size: 10px;">JPA</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Spring-Boot/" style="font-size: 13.33px;">Spring Boot</a> <a href="/tags/Spring-Security/" style="font-size: 10px;">Spring Security</a> <a href="/tags/SpringBoot/" style="font-size: 10px;">SpringBoot</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/WSL/" style="font-size: 13.33px;">WSL</a> <a href="/tags/frp/" style="font-size: 10px;">frp</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/ssl证书/" style="font-size: 10px;">ssl证书</a> <a href="/tags/作业/" style="font-size: 20px;">作业</a> <a href="/tags/内网穿透/" style="font-size: 10px;">内网穿透</a> <a href="/tags/图像处理/" style="font-size: 10px;">图像处理</a> <a href="/tags/大数据架构/" style="font-size: 20px;">大数据架构</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/常用命令/" style="font-size: 10px;">常用命令</a> <a href="/tags/搬运/" style="font-size: 13.33px;">搬运</a> <a href="/tags/教程/" style="font-size: 10px;">教程</a> <a href="/tags/概要/" style="font-size: 10px;">概要</a> <a href="/tags/科普/" style="font-size: 10px;">科普</a> <a href="/tags/笔记/" style="font-size: 13.33px;">笔记</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
+      <a href="/tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="/tags/CentOS/" style="font-size: 10px;">CentOS</a> <a href="/tags/DAO模式/" style="font-size: 10px;">DAO模式</a> <a href="/tags/JPA/" style="font-size: 10px;">JPA</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Spring-Boot/" style="font-size: 13.33px;">Spring Boot</a> <a href="/tags/Spring-Security/" style="font-size: 10px;">Spring Security</a> <a href="/tags/SpringBoot/" style="font-size: 10px;">SpringBoot</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/WSL/" style="font-size: 13.33px;">WSL</a> <a href="/tags/frp/" style="font-size: 10px;">frp</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/ssl证书/" style="font-size: 10px;">ssl证书</a> <a href="/tags/作业/" style="font-size: 20px;">作业</a> <a href="/tags/内网穿透/" style="font-size: 10px;">内网穿透</a> <a href="/tags/图像处理/" style="font-size: 10px;">图像处理</a> <a href="/tags/大数据架构/" style="font-size: 20px;">大数据架构</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/常用命令/" style="font-size: 13.33px;">常用命令</a> <a href="/tags/搬运/" style="font-size: 13.33px;">搬运</a> <a href="/tags/教程/" style="font-size: 10px;">教程</a> <a href="/tags/概要/" style="font-size: 10px;">概要</a> <a href="/tags/科普/" style="font-size: 10px;">科普</a> <a href="/tags/笔记/" style="font-size: 13.33px;">笔记</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a>
     </div>
   </div>
 
@@ -1247,6 +1218,10 @@
       <ul>
         
           <li>
+            <a href="/2020/11/20/MySQL的安装指南以及常用命令/">MySQL的安装指南以及常用命令</a>
+          </li>
+        
+          <li>
             <a href="/2020/11/18/Nginx服务器的常用命令/">Nginx服务器的常用命令</a>
           </li>
         
@@ -1260,10 +1235,6 @@
         
           <li>
             <a href="/2020/11/16/大数据架构作业-简答题6/">大数据架构作业-简答题6</a>
-          </li>
-        
-          <li>
-            <a href="/2020/11/12/大数据架构作业-简答题5/">大数据架构作业-简答题5</a>
           </li>
         
       </ul>
