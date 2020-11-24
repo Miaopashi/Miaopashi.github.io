@@ -5,15 +5,20 @@
   
 
   
-  <title>Archives | MPS的个人博客</title>
+  <title>关于Spring Security文档上密码发展史的阅读报告 | MPS的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="MPS的个人博客">
-<meta property="og:url" content="http://yoursite.com/archives/page/2/index.html">
+  <meta name="description" content="这周做实验，服务器宕机了 刚好闲着无聊，有机会看一下security的文档。 突然看到一段密码存储的发展史 个人觉得挺有意思的，记录一下     简单翻译记录一下：一开始用于用户认证的密码，是直接以文本形式存储在服务器的。 也就是说，用户的密码没有经过任何加密就直接存储在服务器的。 在这种情况下，有的黑客使用SQL inject等技术，攻击服务器，直接穷举出用户的密码。 然后利用窃取的密码，查看用">
+<meta name="keywords" content="Spring Security,读后感,密码学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于Spring Security文档上密码发展史的阅读报告">
+<meta property="og:url" content="http://yoursite.com/2020/11/24/关于Spring-Security文档上密码发展史的阅读报告/index.html">
 <meta property="og:site_name" content="MPS的个人博客">
+<meta property="og:description" content="这周做实验，服务器宕机了 刚好闲着无聊，有机会看一下security的文档。 突然看到一段密码存储的发展史 个人觉得挺有意思的，记录一下     简单翻译记录一下：一开始用于用户认证的密码，是直接以文本形式存储在服务器的。 也就是说，用户的密码没有经过任何加密就直接存储在服务器的。 在这种情况下，有的黑客使用SQL inject等技术，攻击服务器，直接穷举出用户的密码。 然后利用窃取的密码，查看用">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-11-24T11:11:09.520Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MPS的个人博客">
+<meta name="twitter:title" content="关于Spring Security文档上密码发展史的阅读报告">
+<meta name="twitter:description" content="这周做实验，服务器宕机了 刚好闲着无聊，有机会看一下security的文档。 突然看到一段密码存储的发展史 个人觉得挺有意思的，记录一下     简单翻译记录一下：一开始用于用户认证的密码，是直接以文本形式存储在服务器的。 也就是说，用户的密码没有经过任何加密就直接存储在服务器的。 在这种情况下，有的黑客使用SQL inject等技术，攻击服务器，直接穷举出用户的密码。 然后利用窃取的密码，查看用">
   
     <link rel="alternate" href="/atom.xml" title="MPS的个人博客" type="application/atom+xml">
   
@@ -60,216 +65,96 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/11/04/大数据架构作业-简答题3/" class="archive-article-date">
-  <time datetime="2020-11-04T06:45:47.000Z" itemprop="datePublished">Nov 4</time>
+        <section id="main"><article id="post-关于Spring-Security文档上密码发展史的阅读报告" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/24/关于Spring-Security文档上密码发展史的阅读报告/" class="article-date">
+  <time datetime="2020-11-24T10:43:05.000Z" itemprop="datePublished">2020-11-24</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/04/大数据架构作业-简答题3/">大数据架构作业-简答题3</a>
+    <h1 class="article-title" itemprop="name">
+      关于Spring Security文档上密码发展史的阅读报告
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/10/08/学习内网穿透/" class="archive-article-date">
-  <time datetime="2020-10-08T02:12:54.000Z" itemprop="datePublished">Oct 8</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/10/08/学习内网穿透/">学习内网穿透</a>
-    </h1>
-  
+        <p>这周做实验，服务器宕机了</p>
+<p>刚好闲着无聊，有机会看一下<a href="https://docs.spring.io/spring-security/site/docs/5.4.1/reference/html5/#features" target="_blank" rel="noopener">security的文档</a>。</p>
+<p>突然看到一段密码存储的发展史</p>
+<p>个人觉得挺有意思的，记录一下</p>
+<br>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/09/27/WSLinux之Ubuntu-安装rpm包/" class="archive-article-date">
-  <time datetime="2020-09-27T02:28:09.000Z" itemprop="datePublished">Sep 27</time>
-</a>
+<br>
+
+<h2 id="简单翻译记录一下："><a href="#简单翻译记录一下：" class="headerlink" title="简单翻译记录一下："></a>简单翻译记录一下：</h2><p>一开始用于用户认证的密码，是直接以文本形式存储在服务器的。</p>
+<p>也就是说，用户的密码没有经过任何加密就直接存储在服务器的。</p>
+<p>在这种情况下，有的黑客使用SQL inject等技术，攻击服务器，直接穷举出用户的密码。</p>
+<p>然后利用窃取的密码，查看用户持有的数据！</p>
+<p>为了应对这种情况，有开发者使用了哈希函数进行加密</p>
+<p>将用户的密码进行一次哈希加密，再存储到数据库当中</p>
+<p>这样，即便黑客通过服务器数据库穷举到了用户密码对应的哈希值，还是很难知道哈希值对应的用户密码</p>
+<p>因此，用户密码的安全性暂时得以保障。</p>
+<br>
+
+<p>可是，道高一尺魔高一丈，黑客们又开始想到了Rainbow Table技术</p>
+<p>黑客长时间穷举用户密码，并且把穷举像存储到一个彩虹表中，然后一次性攻击窃取密码</p>
+<p>为了应对RainbowTable，开发者们开始使用“腌制过的密码”存储用户密码。</p>
+<p>腌制过的密码是指，加入了salt的密码</p>
+<p>salt是每个用户特有的一串字符</p>
+<p>服务器存储的密码，通过salt和用户密码文本进行混合哈希运算，得到哈希值</p>
+<p>通过这种技术，加大了黑客穷举密码的难度~</p>
+<br>
+
+<p>但是，随着计算机硬件的不断发展。</p>
+<p>我们知道，现在的机器已经可以快速穷举256位的字符串来穷举密码了，所以”Salted Password”也不好用了</p>
+<p>现在，开发者们建议使用自适应的单射函数（adaptive one-way function）进行哈希映射</p>
+<p>这种哈希映射，可以给存储的密码提供一个工作因子（work factor）</p>
+<p>工作因子可以根据客户端的硬件水平，让用户在客户端花一秒左右的时间才能完成哈希映射</p>
+<p>通过这种技术，可以防止黑客短时间内发动多次密码穷举，保证了用户密码的安全性。</p>
+<p>而Spring Security框架可以直接使用 bcrypt, PBKDF2, scrypt和argon2等加密方式</p>
+<p>这些加密方式就是上面的加密手段，可以大大提高用户密码的安全性。</p>
+<br>
+
+<br>
+
+<h2 id="小结："><a href="#小结：" class="headerlink" title="小结："></a>小结：</h2><p>可以说这篇文档上所写的密码的发展史，是一部开发者和黑客斗智斗勇的历史</p>
+<p>当然数学家在其中也扮演了极其重要的角色</p>
+<p>随着技术的发展，我们有理由相信，新的破解技术会不断地产生，新的加密手段也会应运而生</p>
+<p>到时候，我们这些只会复制粘贴的小菜鸡应该能够看到更为精彩的现代密码学“神仙打架”啦！</p>
+
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/27/WSLinux之Ubuntu-安装rpm包/">WSLinux之Ubuntu安装rpm包</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/09/26/大数据架构作业-简答题2/" class="archive-article-date">
-  <time datetime="2020-09-26T12:05:46.000Z" itemprop="datePublished">Sep 26</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/11/24/关于Spring-Security文档上密码发展史的阅读报告/" data-id="ckhvvp5mv000oh8ujtb2wzzpb" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/26/大数据架构作业-简答题2/">大数据架构作业-简答题2</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/09/23/入门JavaSE-进阶篇/" class="archive-article-date">
-  <time datetime="2020-09-23T10:36:08.000Z" itemprop="datePublished">Sep 23</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/23/入门JavaSE-进阶篇/">入门JavaSE-进阶篇</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Security/">Spring Security</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/密码学/">密码学</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/读后感/">读后感</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/11/24/大数据架构作业-简答题7/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">大数据架构作业-简答题7</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/09/21/为Windows-Terminal配置Ubuntu系统/" class="archive-article-date">
-  <time datetime="2020-09-21T12:19:20.000Z" itemprop="datePublished">Sep 21</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/21/为Windows-Terminal配置Ubuntu系统/">为Windows Terminal配置Ubuntu系统</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/09/16/大数据架构作业-简答题1/" class="archive-article-date">
-  <time datetime="2020-09-16T08:10:58.000Z" itemprop="datePublished">Sep 16</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/09/16/大数据架构作业-简答题1/">大数据架构作业--简答题1</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/08/26/入门JavaSE-中级篇/" class="archive-article-date">
-  <time datetime="2020-08-26T09:58:24.000Z" itemprop="datePublished">Aug 26</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/26/入门JavaSE-中级篇/">入门JavaSE-中级篇</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/08/21/入门JavaSE-初级篇/" class="archive-article-date">
-  <time datetime="2020-08-21T08:56:42.000Z" itemprop="datePublished">Aug 21</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/21/入门JavaSE-初级篇/">入门JavaSE----初级篇</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/08/21/使用photomosaic库实现马赛克拼图/" class="archive-article-date">
-  <time datetime="2020-08-21T08:53:02.000Z" itemprop="datePublished">Aug 21</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/21/使用photomosaic库实现马赛克拼图/">使用photomosaic库实现马赛克拼图</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/archives/">&laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/3/">Next &raquo;</a>
-  </nav>
 
 </section>
         
