@@ -265,10 +265,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/06/28/关于学校校园网挂VPN解决断网问题的个人解读/" data-id="ckhvvp5my000th8ujwjp1bygw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/06/28/关于学校校园网挂VPN解决断网问题的个人解读/" data-id="cki8vju9a0011o0ujyuywx2tu" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/科普/">科普</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络/">网络</a></li></ul>
 
     </footer>
   </div>
@@ -299,16 +299,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-安装必要的包"><a href="#1-安装必要的包" class="headerlink" title="1.安装必要的包"></a>1.安装必要的包</h2><blockquote>
+        <p>最近学习了使用python的Django框架编写一个笔记条目记录网站。根据参考书的指导，把项目托管到了Heroku上。</p>
+<p>下面记录一下，如何把pythonWeb项目托管到Heroku上运行。</p>
+<br>
+
+<h2 id="1-安装必要的包"><a href="#1-安装必要的包" class="headerlink" title="1.安装必要的包"></a>1.安装必要的包</h2><blockquote>
 <p>如：<br>dj-database-url<br>dj-static<br>static3<br>gunicorn</p>
 </blockquote>
+<br>
+
 <h2 id="2-创建记录包列表的文件-requirements-txt"><a href="#2-创建记录包列表的文件-requirements-txt" class="headerlink" title="2.创建记录包列表的文件 requirements.txt"></a>2.创建记录包列表的文件 requirements.txt</h2><p><code>$ pip freeze &gt; requirements.txt</code></p>
+<br>
+
 <h3 id="记得加入-psycopg2-gt-lt-2-6-1-gt"><a href="#记得加入-psycopg2-gt-lt-2-6-1-gt" class="headerlink" title="记得加入 psycopg2&gt;=&lt;2.6.1&gt;"></a>记得加入 psycopg2&gt;=&lt;2.6.1&gt;</h3><p>// &lt;&gt;表示不一定是版本号</p>
 <p>ps: windows系统好像不太一样</p>
+<br>
+
 <h2 id="3-在-runtime-txt-指定-python-的版本"><a href="#3-在-runtime-txt-指定-python-的版本" class="headerlink" title="3.在 runtime.txt 指定 python 的版本"></a>3.在 runtime.txt 指定 python 的版本</h2><ul>
 <li>python –version    查看版本</li>
 <li>写进 runtime, 注意用小写</li>
 </ul>
+<br>
+
 <h2 id="4-修改-settings-py-保证能够在-heroku-的服务器跑起来"><a href="#4-修改-settings-py-保证能够在-heroku-的服务器跑起来" class="headerlink" title="4.修改 settings.py 保证能够在 heroku 的服务器跑起来"></a>4.修改 settings.py 保证能够在 heroku 的服务器跑起来</h2><p>可以参照一下我在 learning_log 项目写的设置：</p>
 <pre><code>#Heroku设置
 if os.environ[&apos;HOME&apos;] == &apos;/app&apos;:
@@ -326,40 +338,54 @@ if os.environ[&apos;HOME&apos;] == &apos;/app&apos;:
     #静态资产配置
     PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
     STATIC_URL = &apos;static/&apos;
-    STATIC_ROOT = os.path.join(PROJECT_ROOT, &apos;static&apos;)</code></pre><h2 id="5-创建启动进程的-Procfile"><a href="#5-创建启动进程的-Procfile" class="headerlink" title="5.创建启动进程的 Procfile"></a>5.创建启动进程的 Procfile</h2><p>不指定扩展名，P为大写</p>
+    STATIC_ROOT = os.path.join(PROJECT_ROOT, &apos;static&apos;)</code></pre><br>
+
+<h2 id="5-创建启动进程的-Procfile"><a href="#5-创建启动进程的-Procfile" class="headerlink" title="5.创建启动进程的 Procfile"></a>5.创建启动进程的 Procfile</h2><p>不指定扩展名，P为大写</p>
 <pre><code>web: gunicorn learning_log.wsgi --log-file -</code></pre><ul>
 <li>指定服务器为 gunicorn，</li>
 <li>并且使用 wsgi.py 中的设置，</li>
-<li>告诉 Heroku 什么类型的事件写进日志<h2 id="6-创建静态文件目录"><a href="#6-创建静态文件目录" class="headerlink" title="6.创建静态文件目录"></a>6.创建静态文件目录</h2></li>
+<li>告诉 Heroku 什么类型的事件写进日志</li>
 </ul>
-<p>1.在 &lt;learning_log/learning_log/&gt; 中创建文件夹 static，<br>2.并且用 placeholder.txt 占位 // &lt;&gt;表示不一定为这个路径<br>3.txt 的内容随便写</p>
+<br>
+
+<h2 id="6-创建静态文件目录"><a href="#6-创建静态文件目录" class="headerlink" title="6.创建静态文件目录"></a>6.创建静态文件目录</h2><p>1.在 &lt;learning_log/learning_log/&gt; 中创建文件夹 static，<br>2.并且用 placeholder.txt 占位 // &lt;&gt;表示不一定为这个路径<br>3.txt 的内容随便写</p>
+<br>
+
 <h2 id="7-使用-git-（没有的就先看怎么安装，这里不赘述）"><a href="#7-使用-git-（没有的就先看怎么安装，这里不赘述）" class="headerlink" title="7.使用 git （没有的就先看怎么安装，这里不赘述）"></a>7.使用 git （没有的就先看怎么安装，这里不赘述）</h2><p>编写 <code>.gitignore</code>文件，内容如下</p>
 <blockquote>
 <p>11_env/<br><strong>pycache</strong>/<br>*.sqlite3<br>// 内容不唯一</p>
 </blockquote>
 <p>再一顿基操：</p>
 <blockquote>
-<p>git init<br>git add .<br>git commit -am “”<br>git status<br>// 如果 app 已经创建好了<br>git push heroku master</p>
+<p>git init<br>git add .<br>git commit -am “”<br>git status<br>// 如果 app 已经创建好了<br>git push heroku master<br><br></p>
 </blockquote>
 <h2 id="8-推送到-Heroku"><a href="#8-推送到-Heroku" class="headerlink" title="8.推送到 Heroku"></a>8.推送到 Heroku</h2><p>代码如下：</p>
 <pre><code>heroku login
 // 登录之后
 heroku create
-git push heroku master</code></pre><h2 id="9-建立数据库"><a href="#9-建立数据库" class="headerlink" title="9.建立数据库"></a>9.建立数据库</h2><h3 id="code"><a href="#code" class="headerlink" title="code:"></a>code:</h3><pre><code>heroku run python manage.py migrate</code></pre><h3 id="10-有时候直接用-heroku-命令会报错，可以加-–remote-heroku-解决"><a href="#10-有时候直接用-heroku-命令会报错，可以加-–remote-heroku-解决" class="headerlink" title="10.有时候直接用 heroku 命令会报错，可以加 –remote heroku 解决"></a>10.有时候直接用 heroku 命令会报错，可以加 –remote heroku 解决</h3><h2 id="11-改进-Heroku-部署"><a href="#11-改进-Heroku-部署" class="headerlink" title="11.改进 Heroku 部署"></a>11.改进 Heroku 部署</h2><h3 id="创建超级用户"><a href="#创建超级用户" class="headerlink" title="创建超级用户"></a>创建超级用户</h3><h3 id="code-1"><a href="#code-1" class="headerlink" title="code:"></a>code:</h3><pre><code>heroku run bash
+git push heroku master</code></pre><br>
+
+<h2 id="9-建立数据库"><a href="#9-建立数据库" class="headerlink" title="9.建立数据库"></a>9.建立数据库</h2><h3 id="code"><a href="#code" class="headerlink" title="code:"></a>code:</h3><pre><code>heroku run python manage.py migrate</code></pre><br>
+
+<h3 id="10-有时候直接用-heroku-命令会报错，可以加-–remote-heroku-解决"><a href="#10-有时候直接用-heroku-命令会报错，可以加-–remote-heroku-解决" class="headerlink" title="10.有时候直接用 heroku 命令会报错，可以加 –remote heroku 解决"></a>10.有时候直接用 heroku 命令会报错，可以加 –remote heroku 解决</h3><br>
+
+<h2 id="11-改进-Heroku-部署"><a href="#11-改进-Heroku-部署" class="headerlink" title="11.改进 Heroku 部署"></a>11.改进 Heroku 部署</h2><h3 id="创建超级用户"><a href="#创建超级用户" class="headerlink" title="创建超级用户"></a>创建超级用户</h3><h3 id="code-1"><a href="#code-1" class="headerlink" title="code:"></a>code:</h3><pre><code>heroku run bash
 ls
 python manage.py creaetesuperuser
 balabala...
-exit</code></pre><h3 id="优化-URL"><a href="#优化-URL" class="headerlink" title="优化 URL"></a>优化 URL</h3><pre><code>heroku apps:rename &lt;mps-learning-log&gt; // &lt;&gt;表示不唯一</code></pre><h2 id="12-确保项目安全"><a href="#12-确保项目安全" class="headerlink" title="12.确保项目安全"></a>12.确保项目安全</h2><h4 id="在setting-py中关闭调试模式，只允许-Heroku-托管"><a href="#在setting-py中关闭调试模式，只允许-Heroku-托管" class="headerlink" title="在setting.py中关闭调试模式，只允许 Heroku 托管"></a>在setting.py中关闭调试模式，只允许 Heroku 托管</h4><pre><code>#只允许 Heroku 托管这个项目
+exit</code></pre><h3 id="优化-URL"><a href="#优化-URL" class="headerlink" title="优化 URL"></a>优化 URL</h3><pre><code>heroku apps:rename &lt;mps-learning-log&gt; // &lt;&gt;表示不唯一</code></pre><br>
+
+<h2 id="12-确保项目安全"><a href="#12-确保项目安全" class="headerlink" title="12.确保项目安全"></a>12.确保项目安全</h2><h4 id="在setting-py中关闭调试模式，只允许-Heroku-托管"><a href="#在setting-py中关闭调试模式，只允许-Heroku-托管" class="headerlink" title="在setting.py中关闭调试模式，只允许 Heroku 托管"></a>在setting.py中关闭调试模式，只允许 Heroku 托管</h4><pre><code>#只允许 Heroku 托管这个项目
 ALLOWED_HOSTS = [&apos;*&apos;]
 DABUG = False</code></pre><p>推送并提交修改</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/17/使用Heroku部署网页/" data-id="ckhvvp5mh0007h8ujfn4wq1u7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/12/17/使用Heroku部署网页/" data-id="cki8vju8w000fo0uj61rrjn8c" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/教程/">教程</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
 
     </footer>
   </div>
@@ -437,10 +463,10 @@ DABUG = False</code></pre><p>推送并提交修改</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/17/《算法图解》内容概要/" data-id="ckhvvp5mf0005h8ujtuix6rop" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/12/17/《算法图解》内容概要/" data-id="cki8vju8r0008o0ujnqimt05c" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/概要/">概要</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 
     </footer>
   </div>
@@ -482,7 +508,7 @@ DABUG = False</code></pre><p>推送并提交修改</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/25/hello-world/" data-id="ckhvvp5me0004h8uj3o7ab7xu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/25/hello-world/" data-id="cki8vju8o0006o0uj9w0a014t" class="article-share-link">Share</a>
       
       
     </footer>
@@ -510,7 +536,7 @@ DABUG = False</code></pre><p>推送并提交修改</p>
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bootstrap/">Bootstrap</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CentOS/">CentOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DAO模式/">DAO模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JPA/">JPA</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Security/">Spring Security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SpringBoot/">SpringBoot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ubuntu/">Ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WSL/">WSL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/frp/">frp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ssl证书/">ssl证书</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/作业/">作业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/内网穿透/">内网穿透</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图像处理/">图像处理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/大数据架构/">大数据架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/密码学/">密码学</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/常用命令/">常用命令</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搬运/">搬运</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/教程/">教程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/概要/">概要</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/科普/">科普</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/笔记/">笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/读后感/">读后感</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其它/">其它</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/后端/">后端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编程语言入门/">编程语言入门</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
     </div>
   </div>
 
@@ -520,7 +546,7 @@ DABUG = False</code></pre><p>推送并提交修改</p>
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="/tags/CentOS/" style="font-size: 10px;">CentOS</a> <a href="/tags/DAO模式/" style="font-size: 10px;">DAO模式</a> <a href="/tags/JPA/" style="font-size: 10px;">JPA</a> <a href="/tags/Java/" style="font-size: 16.67px;">Java</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Nginx/" style="font-size: 10px;">Nginx</a> <a href="/tags/Spring-Boot/" style="font-size: 13.33px;">Spring Boot</a> <a href="/tags/Spring-Security/" style="font-size: 13.33px;">Spring Security</a> <a href="/tags/SpringBoot/" style="font-size: 10px;">SpringBoot</a> <a href="/tags/Ubuntu/" style="font-size: 10px;">Ubuntu</a> <a href="/tags/WSL/" style="font-size: 13.33px;">WSL</a> <a href="/tags/frp/" style="font-size: 10px;">frp</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/ssl证书/" style="font-size: 10px;">ssl证书</a> <a href="/tags/作业/" style="font-size: 20px;">作业</a> <a href="/tags/内网穿透/" style="font-size: 10px;">内网穿透</a> <a href="/tags/图像处理/" style="font-size: 10px;">图像处理</a> <a href="/tags/大数据架构/" style="font-size: 20px;">大数据架构</a> <a href="/tags/学习笔记/" style="font-size: 10px;">学习笔记</a> <a href="/tags/密码学/" style="font-size: 10px;">密码学</a> <a href="/tags/常用命令/" style="font-size: 13.33px;">常用命令</a> <a href="/tags/搬运/" style="font-size: 13.33px;">搬运</a> <a href="/tags/教程/" style="font-size: 10px;">教程</a> <a href="/tags/概要/" style="font-size: 10px;">概要</a> <a href="/tags/科普/" style="font-size: 10px;">科普</a> <a href="/tags/笔记/" style="font-size: 13.33px;">笔记</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/设计模式/" style="font-size: 10px;">设计模式</a> <a href="/tags/读后感/" style="font-size: 10px;">读后感</a>
+      <a href="/tags/Linux/" style="font-size: 12.5px;">Linux</a> <a href="/tags/其它/" style="font-size: 10px;">其它</a> <a href="/tags/后端/" style="font-size: 20px;">后端</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/编程语言入门/" style="font-size: 15px;">编程语言入门</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/课程作业/" style="font-size: 17.5px;">课程作业</a>
     </div>
   </div>
 
@@ -550,7 +576,7 @@ DABUG = False</code></pre><p>推送并提交修改</p>
           </li>
         
           <li>
-            <a href="/2020/11/20/MySQL的安装指南以及常用命令/">MySQL的安装指南以及常用命令</a>
+            <a href="/2020/11/20/MySQL的安装指南以及常用命令/">关于CentOS下MySQL的安装指南以及常用命令</a>
           </li>
         
           <li>
