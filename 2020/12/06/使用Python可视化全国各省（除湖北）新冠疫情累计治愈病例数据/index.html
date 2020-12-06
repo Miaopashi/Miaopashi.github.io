@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>使用Python可视化全国各省（除湖北）新冠疫情累计治愈病例数据 | MPS的个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="这周要完成大数据可视化的第一次作业，使用python实现最近很火的条形图竞赛效果。 上知乎参考了一下已有的代码，结合自己的需求，修改了一下。 在github上找到了大佬整理丁香园的新冠疫情数据，直接fork下来了。   需要解决的问题： 根据给定数据的属性（如不同的省份）类别，生成对应的颜色方案： 我的思路是导出目标属性列，使用set集合去重，获得颜色方案的数目 使用pyplot.cm.get_c">
+<meta name="keywords" content="课程作业">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Python可视化全国各省（除湖北）新冠疫情累计治愈病例数据">
+<meta property="og:url" content="http://yoursite.com/2020/12/06/使用Python可视化全国各省（除湖北）新冠疫情累计治愈病例数据/index.html">
+<meta property="og:site_name" content="MPS的个人博客">
+<meta property="og:description" content="这周要完成大数据可视化的第一次作业，使用python实现最近很火的条形图竞赛效果。 上知乎参考了一下已有的代码，结合自己的需求，修改了一下。 在github上找到了大佬整理丁香园的新冠疫情数据，直接fork下来了。   需要解决的问题： 根据给定数据的属性（如不同的省份）类别，生成对应的颜色方案： 我的思路是导出目标属性列，使用set集合去重，获得颜色方案的数目 使用pyplot.cm.get_c">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-12-06T02:55:45.271Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用Python可视化全国各省（除湖北）新冠疫情累计治愈病例数据">
+<meta name="twitter:description" content="这周要完成大数据可视化的第一次作业，使用python实现最近很火的条形图竞赛效果。 上知乎参考了一下已有的代码，结合自己的需求，修改了一下。 在github上找到了大佬整理丁香园的新冠疫情数据，直接fork下来了。   需要解决的问题： 根据给定数据的属性（如不同的省份）类别，生成对应的颜色方案： 我的思路是导出目标属性列，使用set集合去重，获得颜色方案的数目 使用pyplot.cm.get_c">
+  
+    <link rel="alternate" href="/atom.xml" title="MPS的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">MPS的个人博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-使用Python可视化全国各省（除湖北）新冠疫情累计治愈病例数据" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/06/使用Python可视化全国各省（除湖北）新冠疫情累计治愈病例数据/" class="article-date">
+  <time datetime="2020-12-06T02:33:44.000Z" itemprop="datePublished">2020-12-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      使用Python可视化全国各省（除湖北）新冠疫情累计治愈病例数据
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这周要完成大数据可视化的第一次作业，使用python实现最近很火的条形图竞赛效果。</p>
+<p>上知乎参考了一下已有的代码，结合自己的需求，修改了一下。</p>
+<p>在github上找到了大佬整理丁香园的新冠疫情数据，直接fork下来了。</p>
+<br>
+
+<h2 id="需要解决的问题："><a href="#需要解决的问题：" class="headerlink" title="需要解决的问题："></a>需要解决的问题：</h2><ol>
+<li><h3 id="根据给定数据的属性（如不同的省份）类别，生成对应的颜色方案："><a href="#根据给定数据的属性（如不同的省份）类别，生成对应的颜色方案：" class="headerlink" title="根据给定数据的属性（如不同的省份）类别，生成对应的颜色方案："></a>根据给定数据的属性（如不同的省份）类别，生成对应的颜色方案：</h3><ol>
+<li>我的思路是导出目标属性列，使用set集合去重，获得颜色方案的数目</li>
+<li>使用<code>pyplot.cm.get_cmap()</code>方法，根据需要的配色方案，生成随机颜色</li>
+<li>把颜色和属性值映射到一个字典上，方便后续绘图调用</li>
+<li>除了这种方案，还可以生成随机数转十六进制，获取RBG颜色方案，详细见被注释起来的代码</li>
+</ol>
+</li>
+<li><h3 id="获得具体日期序列"><a href="#获得具体日期序列" class="headerlink" title="获得具体日期序列"></a>获得具体日期序列</h3><ol>
+<li>由于收集数据的dateId是整型数据，不能直接用<code>range()</code>生成序列（否则会出现20200166这种不存在的日期）</li>
+<li>可以使用datetime标准库生成某段日期之间的时间序列，指定数据中的dateId</li>
+<li>在绘图的时候，直接打印dateId的效果不太好，绘图是应该在把dateId转换为xxx年xx月xx日的中文格式</li>
+</ol>
+</li>
+<li><h3 id="关于可视化图的实现"><a href="#关于可视化图的实现" class="headerlink" title="关于可视化图的实现"></a>关于可视化图的实现</h3><ol>
+<li>可以参照具体的代码，这一部分主要是参照其它大佬的</li>
+<li>使用matplotlib的animation库多次调用绘图函数，根据不同的日期绘制动图的某一帧</li>
+<li>关于动图帧，就是根据累计治愈人数把筛选出来的数据排序，再根据省份名把颜色对应上去绘制条形图</li>
+<li>当然除了绘制条形图还要绘制个各种标签，具体实现这里不展开</li>
+</ol>
+</li>
+</ol>
+<br>
+
+<h2 id="效果图："><a href="#效果图：" class="headerlink" title="效果图："></a>效果图：</h2><p>由于目前域名还没有备案，图床暂时挂了，等元旦域名备案之后，就把图片补上来！</p>
+<br>
+
+<h2 id="具体的代码如下："><a href="#具体的代码如下：" class="headerlink" title="具体的代码如下："></a>具体的代码如下：</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib <span class="keyword">as</span> mpl</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> matplotlib.ticker <span class="keyword">as</span> ticker</span><br><span class="line"><span class="keyword">import</span> matplotlib.animation <span class="keyword">as</span> animation</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">draw_barchart</span><span class="params">(dateId)</span>:</span></span><br><span class="line">    <span class="comment"># 截取某一天的数据，并且使用value排序，保留前十项数据，用于绘制</span></span><br><span class="line">    dff = df[df[<span class="string">'dateId'</span>].eq(dateId)].sort_values(by=<span class="string">'curedCount'</span>, ascending=<span class="literal">True</span>).tail(<span class="number">10</span>)</span><br><span class="line">    ax.clear()  <span class="comment"># 清空上次绘制的图像</span></span><br><span class="line">    <span class="comment"># 根据不同城市的名字，配置不同的颜色，绘制条形图</span></span><br><span class="line">    ax.barh(dff[<span class="string">'provinceShortName'</span>], dff[<span class="string">'curedCount'</span>], color=[color_dic.get(x) <span class="keyword">for</span> x <span class="keyword">in</span> dff[<span class="string">'provinceShortName'</span>]])</span><br><span class="line">    <span class="comment"># 绘制每行的标签和属性值文本</span></span><br><span class="line">    dx = dff[<span class="string">'curedCount'</span>].max() / <span class="number">200</span>  <span class="comment"># 规定每个标签文本和条形终点的间隔</span></span><br><span class="line">    <span class="keyword">for</span> i, (curedCount, provinceShortName) <span class="keyword">in</span> enumerate(zip(dff[<span class="string">'curedCount'</span>], dff[<span class="string">'provinceShortName'</span>])):</span><br><span class="line">        ax.text(curedCount - dx, i, provinceShortName, size=<span class="number">14</span>, weight=<span class="number">600</span>, ha=<span class="string">'right'</span>, va=<span class="string">'bottom'</span>)  <span class="comment"># 绘制省份名</span></span><br><span class="line">        ax.text(curedCount + dx, i, <span class="string">f'<span class="subst">&#123;curedCount:,<span class="number">.0</span>f&#125;</span>'</span>, size=<span class="number">14</span>, ha=<span class="string">'left'</span>, va=<span class="string">'center'</span>)  <span class="comment"># 绘制属性值</span></span><br><span class="line">    <span class="comment"># 配置整体的显示效果</span></span><br><span class="line">    dateStr = str(dateId)</span><br><span class="line">    date_str_fmt = <span class="string">"&#123;0&#125;年&#123;1&#125;月&#123;2&#125;日"</span>.format(dateStr[:<span class="number">4</span>], dateStr[<span class="number">4</span>:<span class="number">6</span>], dateStr[<span class="number">6</span>:])  <span class="comment"># 把日期id转换为中文格式</span></span><br><span class="line">    ax.text(<span class="number">1</span>, <span class="number">0.2</span>, date_str_fmt, transform=ax.transAxes, color=<span class="string">'#777777'</span>, size=<span class="number">46</span>, ha=<span class="string">'right'</span>, weight=<span class="number">800</span>)  <span class="comment"># 绘制日期id</span></span><br><span class="line">    ax.text(<span class="number">0</span>, <span class="number">1.06</span>, <span class="string">'累计治愈人数(单位：人)'</span>, transform=ax.transAxes, size=<span class="number">12</span>, color=<span class="string">'#777777'</span>)  <span class="comment"># 绘制标签单位注解</span></span><br><span class="line">    ax.xaxis.set_major_formatter(ticker.StrMethodFormatter(<span class="string">'&#123;x:,.0f&#125;'</span>))</span><br><span class="line">    ax.xaxis.set_ticks_position(<span class="string">'top'</span>)</span><br><span class="line">    ax.tick_params(axis=<span class="string">'x'</span>, colors=<span class="string">'#777777'</span>, labelsize=<span class="number">12</span>)</span><br><span class="line">    ax.set_yticks([])</span><br><span class="line">    ax.margins(<span class="number">0</span>, <span class="number">0.01</span>)</span><br><span class="line">    ax.grid(which=<span class="string">'major'</span>, axis=<span class="string">'x'</span>, linestyle=<span class="string">'-'</span>)</span><br><span class="line">    ax.set_axisbelow(<span class="literal">True</span>)</span><br><span class="line">    ax.text(<span class="number">0</span>, <span class="number">1.10</span>, <span class="string">'2020年1月31日到7月2日全国(除湖北省外)各省份及地区累计新冠治愈病例可视化图'</span>,</span><br><span class="line">            transform=ax.transAxes, size=<span class="number">24</span>, weight=<span class="number">600</span>, ha=<span class="string">'left'</span>)</span><br><span class="line">    plt.box(<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">datelist</span><span class="params">(beginDate, endDate)</span>:</span></span><br><span class="line">    <span class="comment"># beginDate, endDate是形如‘20160601’的整形列表</span></span><br><span class="line">    date_l=[datetime.strftime(x,<span class="string">'%Y%m%d'</span>) <span class="keyword">for</span> x <span class="keyword">in</span> list(pd.date_range(start=beginDate, end=endDate))]</span><br><span class="line">    date_set = list()</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> date_l:</span><br><span class="line">        date_set.append(int(x))</span><br><span class="line">    <span class="keyword">return</span> date_set</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    mpl.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'FangSong'</span>]  <span class="comment"># 指定默认中文字体</span></span><br><span class="line"></span><br><span class="line">    data_route = <span class="string">'china_provincedata_without_HB.csv'</span>  <span class="comment"># 载入疫情数据，根据累计治愈，日期和省份缩写筛选三列信息</span></span><br><span class="line">    df = pd.read_csv(data_route, usecols=[<span class="string">'curedCount'</span>, <span class="string">'dateId'</span>, <span class="string">'provinceShortName'</span>])</span><br><span class="line"></span><br><span class="line">    pvc_list = list(set(df[<span class="string">'provinceShortName'</span>]))  <span class="comment"># 获取省份列表</span></span><br><span class="line">    pvc_num = len(pvc_list)</span><br><span class="line">    cmap = plt.cm.get_cmap(<span class="string">"hsv"</span>, pvc_num + <span class="number">1</span>)  <span class="comment"># 随机生成省份数目对应的配色方案</span></span><br><span class="line">    <span class="comment"># 生成配色方案字典  如：&#123;'广东': (1.0, 0.0, 0.0, 1.0)&#125;</span></span><br><span class="line">    color_dic = dict()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(pvc_num):</span><br><span class="line">        <span class="comment"># rc = lambda: random.randint(0, 255)</span></span><br><span class="line">        <span class="comment"># color_dic.update(&#123;pvc_list[i]: ('#%02X%02X%02X' % (rc(), rc(), rc()))&#125;)</span></span><br><span class="line">        color_dic.update(&#123;pvc_list[i]: cmap(i)&#125;)</span><br><span class="line"></span><br><span class="line">    fig, ax = plt.subplots(figsize=(<span class="number">15</span>, <span class="number">8</span>))  <span class="comment"># 指定生成图的尺寸</span></span><br><span class="line"></span><br><span class="line">    date_set = datelist(<span class="string">'2020/1/31'</span>, <span class="string">'2020/07/02'</span>)</span><br><span class="line">    animator = animation.FuncAnimation(fig, draw_barchart, frames=date_set)  <span class="comment"># 生成动画</span></span><br><span class="line">    animator.save(<span class="string">'新冠疫情累计治愈数据可视化.gif'</span>)  <span class="comment"># 保存gif</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/12/06/使用Python可视化全国各省（除湖北）新冠疫情累计治愈病例数据/" data-id="ckicjadc30008d8ujgxljoipi" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/11/24/关于Spring-Security文档上密码发展史的阅读报告/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">关于Spring Security文档上密码发展史的阅读报告</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其它/">其它</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/后端/">后端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编程语言入门/">编程语言入门</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/其它/" style="font-size: 10px;">其它</a> <a href="/tags/后端/" style="font-size: 20px;">后端</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/编程语言入门/" style="font-size: 16.67px;">编程语言入门</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/课程作业/" style="font-size: 20px;">课程作业</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/12/06/使用Python可视化全国各省（除湖北）新冠疫情累计治愈病例数据/">使用Python可视化全国各省（除湖北）新冠疫情累计治愈病例数据</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/24/关于Spring-Security文档上密码发展史的阅读报告/">关于Spring Security文档上密码发展史的阅读报告</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/24/大数据架构作业-简答题7/">大数据架构作业-简答题7</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/20/MySQL的安装指南以及常用命令/">关于CentOS下MySQL的安装指南以及常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2020/11/18/Nginx服务器的常用命令/">Nginx服务器的常用命令</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 Miaopashi<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

@@ -62,6 +62,104 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-使用photomosaic库实现马赛克拼图" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/08/21/使用photomosaic库实现马赛克拼图/" class="article-date">
+  <time datetime="2020-08-21T08:53:02.000Z" itemprop="datePublished">2020-08-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/08/21/使用photomosaic库实现马赛克拼图/">使用Python的photomosaic库实现马赛克拼图</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近看到有软件实现了用多张图片拼成指定的某一张图片。</p>
+<p>基于好奇心理，想自己实现一个，功能类似的程序。（本来是想做成自己头像的）</p>
+<p>于是，搜索了一下相关的程序，果然有不少别人已经写好的程序。</p>
+<br>
+
+<p>其中看到某个效果很好，用cpp实现的程序，基于本人太菜，没怎么看。</p>
+<p>转而看到python可以通过photomosaic库，几行代码就可以实现功能，于是立马就自己试了一试。</p>
+<p>简单捣腾几下就实现了需要的效果，果然还是python用起来香。不过东西学起来蜻蜓点水，笔者对于函数的实现原理是一窍不通的。</p>
+<br>
+
+<p>下面是效果图：</p>
+<p><img src="../pictures/%E4%BD%BF%E7%94%A8photomosaic%E5%BA%93%E5%AE%9E%E7%8E%B0%E9%A9%AC%E8%B5%9B%E5%85%8B%E6%8B%BC%E5%9B%BE/hdog.jpg" alt="hdog"></p>
+<p>怎样有无心动？</p>
+<br>
+
+<p>下面先贴出代码：</p>
+<p>文件结构：</p>
+<blockquote>
+<p>MakingChatHeads/</p>
+<p>​    i_env/</p>
+<p>​    srcHead/</p>
+<p>​    srcpool/</p>
+<p>​    Head.jpg</p>
+<p>​    main.py</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># main.py源代码</span></span><br><span class="line"><span class="keyword">import</span> photomosaic <span class="keyword">as</span> pm</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">'''根据一张图，用多张其它图片拼凑为一张马赛克图'''</span></span><br><span class="line"><span class="comment"># 读取图片</span></span><br><span class="line">image = pm.imread(<span class="string">'./srcHead/head.jpg'</span>)</span><br><span class="line"><span class="comment"># 定义照片库</span></span><br><span class="line">pool = pm.make_pool(<span class="string">'./srcpool/*.jpg'</span>)</span><br><span class="line"><span class="comment"># 制作马赛克图</span></span><br><span class="line">mosaic = pm.basic_mosaic(image, pool, (<span class="number">220</span>, <span class="number">170</span>))</span><br><span class="line"><span class="comment"># 保存图片</span></span><br><span class="line">pm.imsave(<span class="string">'./HEAD.jpg'</span>, mosaic)</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<p>代码可以说非常简单了，这里简单提一下主要流程：</p>
+<ol>
+<li>导入photomosaic库</li>
+<li>加载需要拼接出来的底图，比如上面图片原来就是一张doge抱着锦鲤的图片</li>
+<li>加载拼图的时候使用的素材图，这里需要的图片数目比较多，读取的时候也只需要给出图片统一存放的文件夹</li>
+<li>利用多张素材图生成指定底图的马赛克拼接图，其中的参数是横向和纵向拼接图片的数目</li>
+<li>保存拼接出来的图片</li>
+</ol>
+<br>
+
+<p>下面说一下个人拼图的一点心得：</p>
+<ol>
+<li>根据底图的颜色选择颜色相近的图片，否则出来的效果不太好</li>
+<li>素材图的质量不需要很好，否则读取图片的时间会很长很长</li>
+<li>拼接的图不要太多，否则看上去会像十字绣；不过拼图数不够多的话，会完全看不出来原图……</li>
+<li>尽量选择颜色鲜艳的图片拼图</li>
+</ol>
+<br>
+
+<p>再来介绍一下photomosaic库：</p>
+<p>photomosaic库主要使用机器学习和相似性搜索算法实现，可以根据给定的图片马赛克化，并且可以使用指定的图片进行马赛克填充。</p>
+<p>相关函数的用法相信读者光看源代码就能看懂，毕竟python的优势一直是白嫖大佬的函数，所以调用库之后的代码量小的令人发指。</p>
+<p>作者python项目的github-url：<a href="https://github.com/danielballan/photomosaic" target="_blank" rel="noopener">https://github.com/danielballan/photomosaic</a></p>
+<p>由于创作者的python文档404了，我暂时没能深入了解这个库的其它函数和精细设置的其它参数。（貌似是由于弗洛伊德事件后的美国暴动，导致微软的服务器被偷了？）</p>
+<p>另外，有大佬做出了一个Docker化的photomosaic项目。可以通过–randomness, –opacity, –best-k等参数实现更好的马赛克拼接效果。</p>
+<p>url：<a href="https://cloud.tencent.com/developer/news/375609" target="_blank" rel="noopener">https://cloud.tencent.com/developer/news/375609</a></p>
+<br>
+
+<p>最后谈谈自己对这个算法的一些看法：</p>
+<p>这个库提供了高度集成的函数，几行代码就可以实现马赛克拼图功能。对于新手来说非常友好。不过，由于函数大部分已经由对方写好。所以，用户不能根据自己的需求，实现自定义的功能。</p>
+<p>另外，目前的代码拼接出的拼图会使用大量重复的图片，这一点不知道是素材图太少，还是函数有其它参数需要调整，还有有待发掘。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/08/21/使用photomosaic库实现马赛克拼图/" data-id="ckicjadcf000id8uj6n1q95t9" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/其它/">其它</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-关于学校校园网挂VPN解决断网问题的个人解读" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/06/28/关于学校校园网挂VPN解决断网问题的个人解读/" class="article-date">
@@ -265,7 +363,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/06/28/关于学校校园网挂VPN解决断网问题的个人解读/" data-id="cki8vju9a0011o0ujyuywx2tu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/06/28/关于学校校园网挂VPN解决断网问题的个人解读/" data-id="ckicjadcr000zd8ujth2gv3mp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络/">网络</a></li></ul>
@@ -382,7 +480,7 @@ DABUG = False</code></pre><p>推送并提交修改</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/17/使用Heroku部署网页/" data-id="cki8vju8w000fo0uj61rrjn8c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/12/17/使用Heroku部署网页/" data-id="ckicjadcb000gd8ujh8qhevaz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
@@ -463,7 +561,7 @@ DABUG = False</code></pre><p>推送并提交修改</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/17/《算法图解》内容概要/" data-id="cki8vju8r0008o0ujnqimt05c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/12/17/《算法图解》内容概要/" data-id="ckicjadc20007d8uj4ae6gtx3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
@@ -508,7 +606,7 @@ DABUG = False</code></pre><p>推送并提交修改</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/25/hello-world/" data-id="cki8vju8o0006o0uj9w0a014t" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/25/hello-world/" data-id="ckicjadc50009d8uj01macb13" class="article-share-link">Share</a>
       
       
     </footer>
@@ -546,7 +644,7 @@ DABUG = False</code></pre><p>推送并提交修改</p>
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Linux/" style="font-size: 12.5px;">Linux</a> <a href="/tags/其它/" style="font-size: 10px;">其它</a> <a href="/tags/后端/" style="font-size: 20px;">后端</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/编程语言入门/" style="font-size: 15px;">编程语言入门</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/课程作业/" style="font-size: 17.5px;">课程作业</a>
+      <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/其它/" style="font-size: 10px;">其它</a> <a href="/tags/后端/" style="font-size: 20px;">后端</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/编程语言入门/" style="font-size: 16.67px;">编程语言入门</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/课程作业/" style="font-size: 20px;">课程作业</a>
     </div>
   </div>
 
@@ -555,7 +653,7 @@ DABUG = False</code></pre><p>推送并提交修改</p>
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li></ul>
     </div>
   </div>
 
@@ -566,6 +664,10 @@ DABUG = False</code></pre><p>推送并提交修改</p>
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2020/12/06/使用Python可视化全国各省（除湖北）新冠疫情累计治愈病例数据/">使用Python可视化全国各省（除湖北）新冠疫情累计治愈病例数据</a>
+          </li>
         
           <li>
             <a href="/2020/11/24/关于Spring-Security文档上密码发展史的阅读报告/">关于Spring Security文档上密码发展史的阅读报告</a>
@@ -581,10 +683,6 @@ DABUG = False</code></pre><p>推送并提交修改</p>
         
           <li>
             <a href="/2020/11/18/Nginx服务器的常用命令/">Nginx服务器的常用命令</a>
-          </li>
-        
-          <li>
-            <a href="/2020/11/17/使用Spring-Boot-Spring-Security-Hibernate-Bootstrap-JSP-Spring-Data-JPA-MySQL实现的登陆注册系统/">使用Spring Boot, Spring Security, Hibernate, Bootstrap, JSP, Spring Data JPA, MySQL实现的登陆注册系统</a>
           </li>
         
       </ul>
