@@ -62,6 +62,151 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-大数据架构作业-简答题5" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/12/大数据架构作业-简答题5/" class="article-date">
+  <time datetime="2020-11-12T08:17:20.000Z" itemprop="datePublished">2020-11-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/12/大数据架构作业-简答题5/">大数据架构作业-简答题5</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>大数据架构技术，超星第五次作业。</em></p>
+<br>
+
+<blockquote>
+<h2 id="一、简要说明Hadoop的三大核心组件及其作用。"><a href="#一、简要说明Hadoop的三大核心组件及其作用。" class="headerlink" title="一、简要说明Hadoop的三大核心组件及其作用。"></a>一、简要说明Hadoop的三大核心组件及其作用。</h2></blockquote>
+<h4 id="Hadoop的核心组件："><a href="#Hadoop的核心组件：" class="headerlink" title="Hadoop的核心组件："></a>Hadoop的核心组件：</h4><p>分布式文件系统HDFS、分布式计算框架MapReduce和资源调度框架Yarn。</p>
+<h4 id="Hadoop各核心组件的作用："><a href="#Hadoop各核心组件的作用：" class="headerlink" title="Hadoop各核心组件的作用："></a>Hadoop各核心组件的作用：</h4><ol>
+<li><p>HDFS分布式文件系统把文件分布式存储到多个计算机节点上，再由成千上万的计算机节点构成分布式存储集群。<strong>HDFS实现了如下目标：</strong></p>
+<ol>
+<li>兼容廉价的硬件设备；</li>
+<li>流数据读写；</li>
+<li>大数据集，高可扩展性；</li>
+<li>简单的文件模型；</li>
+<li>强大的跨平台兼容性</li>
+</ol>
+</li>
+<li><p>YARN框架提供资源管理与调度服务。YARN部署在集群中，为集群的各种计算框架提供统一的资源调度管理服务，并且根据各种计算框架的负载需求，调整各自占用的资源，实现集群资源共享和资源弹性收缩。同时，YARN实现了一个集群上不同应用负载混搭，有效提高了集群的利用率。另外，在YARN框架中，不同计算框架可以共享底层存储，避免了数据集跨集群移动。</p>
+</li>
+<li><p>MapReduce将大规模集群上的并行计算过程抽象为两个函数Map和Reduce。使程序员无需要掌握分布式并行编程的繁琐细节，即可把自己的程序运行在 分布式系统上，实现海量数据的计算。</p>
+</li>
+</ol>
+<br>
+
+<blockquote>
+<h2 id="二、简要说明HDFS的体系结构的组成、副本存储策略以及数据读写过程。"><a href="#二、简要说明HDFS的体系结构的组成、副本存储策略以及数据读写过程。" class="headerlink" title="二、简要说明HDFS的体系结构的组成、副本存储策略以及数据读写过程。"></a>二、简要说明HDFS的体系结构的组成、副本存储策略以及数据读写过程。</h2></blockquote>
+<h4 id="HDFS的体系结构组成："><a href="#HDFS的体系结构组成：" class="headerlink" title="HDFS的体系结构组成："></a>HDFS的体系结构组成：</h4><ol>
+<li>主节点(Master Node)，或者“名称结点”(NameNode)</li>
+<li>从节点(Slave Node)，或者“数据节点”(DataNode)</li>
+</ol>
+<h4 id="HDFS的副本存储策略："><a href="#HDFS的副本存储策略：" class="headerlink" title="HDFS的副本存储策略："></a>HDFS的副本存储策略：</h4><ol>
+<li>HDFS将文件分成多个块，以块为存储单位（默认一个块128MB）。</li>
+<li>HDFS采用多副本方式，对数据进行冗余存储，通常一个数据块的多个副本会被分布到不同的数据节点上。</li>
+<li>HDFS的数据存放：第一个副本，放置在上传文件的数据节点；第二个副本，放置在与第一个副本不同的机架的节点上；第三个副本，与第一个副本相同机架的其他节点上；更多副本，随机节点。</li>
+</ol>
+<h4 id="HDFS数据读写过程："><a href="#HDFS数据读写过程：" class="headerlink" title="HDFS数据读写过程："></a>HDFS数据读写过程：</h4><ol>
+<li><strong>HDFS读数据的过程：</strong><ol>
+<li>客户端向DFS执行打开文件操作；</li>
+<li>DFS向NameNode获取数据块信息；</li>
+<li>客户端向DFS发送文件读取请求；</li>
+<li>DFS向DataNode读取数据；</li>
+<li>如果读取失败，DFS可能会再次向NameNode获取数据块信息；</li>
+<li>如果读取失败，再次获取数据块信息之后，DFS再次向DataNode读取数据；</li>
+<li>客户端使用完文件之后，向DFS发送关闭文件请求。</li>
+</ol>
+</li>
+<li><strong>HDFS写数据的过程：</strong><ol>
+<li>客户端向DFS发送创建文件请求；</li>
+<li>DFS在NameNode创建文件元数据；</li>
+<li>客户端在DFS写入数据；</li>
+<li>DFS向DataNode写入数据包；</li>
+<li>DataNode写入数据包之后，向DFS发送确认包；</li>
+<li>客户端向DFS发送关闭文件请求；</li>
+<li>DFS向NameNode通知写操作完成。</li>
+</ol>
+</li>
+</ol>
+<br>
+
+<blockquote>
+<h2 id="三、简要陈述MapReduce的体系结构组成和工作流程。"><a href="#三、简要陈述MapReduce的体系结构组成和工作流程。" class="headerlink" title="三、简要陈述MapReduce的体系结构组成和工作流程。"></a>三、简要陈述MapReduce的体系结构组成和工作流程。</h2></blockquote>
+<h4 id="MapReduce的四个组成部分："><a href="#MapReduce的四个组成部分：" class="headerlink" title="MapReduce的四个组成部分："></a>MapReduce的四个组成部分：</h4><ol>
+<li>Client：用户编写的MapReduce程序通过Client提交到JobTracker端；</li>
+<li>JobTracker：JobTracker负责资源监控和作业调度；</li>
+<li>TaskTracker：TaskTracker周期性地通过“心跳”将本节点上资源的使用情况和任务的运行进度汇报给JobTracker，同时接收JobTracker发送过来的命令并执行相应的操作；</li>
+<li>Task：Task分为Map Task和Reduce Task，均由TaskTracker 启动。</li>
+</ol>
+<h4 id="MapReduce工作流程："><a href="#MapReduce工作流程：" class="headerlink" title="MapReduce工作流程："></a>MapReduce工作流程：</h4><p>分片（split）→本地计算（map） → 洗牌（shuffle） → 汇总计算（reduce）</p>
+<h4 id="具体工作流程如下："><a href="#具体工作流程如下：" class="headerlink" title="具体工作流程如下："></a>具体工作流程如下：</h4><ol>
+<li>划分MapReduce的基本处理单位split，将需要处理的数据分片；</li>
+<li>Hadoop为每个split创建一个Map任务，Worker接收数据并且执行Map任务，并将执行结果写入缓存（Map）；</li>
+<li>对写入缓存的数据进行溢写和文件归并等操作，把数据输入给Reduce任务（Shuffle）；</li>
+<li>Reduce领取数据先放入缓存，来自不同Map机器，先归并，再合并，写入磁盘（Reduce）；</li>
+<li>Map和Reduce阶段相互衔接，Shuffle阶段包含在两者之间。</li>
+</ol>
+<br>
+
+<blockquote>
+<h2 id="四、简要陈述YARN体系结构组成、各部分的功能及工作流程。"><a href="#四、简要陈述YARN体系结构组成、各部分的功能及工作流程。" class="headerlink" title="四、简要陈述YARN体系结构组成、各部分的功能及工作流程。"></a>四、简要陈述YARN体系结构组成、各部分的功能及工作流程。</h2></blockquote>
+<h4 id="YARN体系结构组成："><a href="#YARN体系结构组成：" class="headerlink" title="YARN体系结构组成："></a>YARN体系结构组成：</h4><ol>
+<li>ResourceManager（RM）：全局资源管理器，负责整个系统的资源管理和分配。包括两个组件：调度器 （Scheduler）和应用程序管理器（Applications Manager）；</li>
+<li>NodeManager是驻留在YARN集群中的每个节点上的代理；</li>
+<li>JobHistoryServer：统一管理YARN历史任务。</li>
+<li>WebAppProxyServer： 任务执行时的Web页面代理。</li>
+</ol>
+<h4 id="YARN工作流程："><a href="#YARN工作流程：" class="headerlink" title="YARN工作流程："></a>YARN工作流程：</h4><ol>
+<li>用户编写客户端应用程序并向YARN提交，提交内容包括ApplicationMaster程序、 启动ApplicationMaster的命令、用户程序等；</li>
+<li>YARN中的ResourceManager负责接收和处理来自客户端的请求，为应用程序分 配一个容器，在该容器中启动一个ApplicationMaster；</li>
+<li>ApplicationMaster被创建后会首先向ResourceManager注册；</li>
+<li>ApplicationMaster采用轮询的方式向ResourceManager申请资源；</li>
+<li>ResourceManager以“容器”的形式向 提出申请的ApplicationMaster分配资源；</li>
+<li>在容器中启动任务（运行环境、脚本）；</li>
+<li>各个任务向ApplicationMaster汇报自己的状态和进度；</li>
+<li>应用程序运行完成后，ApplicationMaster向ResourceManager的应用程序管理器注销并关闭自己。</li>
+</ol>
+<br>
+
+<blockquote>
+<h2 id="五、说明在Hadoop计算框架下进行程序开发的主要过程。"><a href="#五、说明在Hadoop计算框架下进行程序开发的主要过程。" class="headerlink" title="五、说明在Hadoop计算框架下进行程序开发的主要过程。"></a>五、说明在Hadoop计算框架下进行程序开发的主要过程。</h2></blockquote>
+<h4 id="开发流程："><a href="#开发流程：" class="headerlink" title="开发流程："></a>开发流程：</h4><ol>
+<li>使用 Maven 创建项目</li>
+<li>检查项目的目录结构</li>
+<li>将项目导入IDE</li>
+<li>配置Hadoop依赖</li>
+<li>编写应用逻辑代码</li>
+<li>Maven构建/编译项目</li>
+<li>提交集群运行程序</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/11/12/大数据架构作业-简答题5/" data-id="ckih19ayp00185kujbas2nuyd" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-使用SpringBoot编写一个https网站" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/11/06/使用SpringBoot编写一个https网站/" class="article-date">
@@ -216,7 +361,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/06/使用SpringBoot编写一个https网站/" data-id="ckigrcuwo000n2kujwo8u6rci" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/06/使用SpringBoot编写一个https网站/" data-id="ckih19ay8000i5kujo3900447" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
@@ -281,7 +426,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/05/大数据架构作业-简答题4/" data-id="ckigrcux100162kuj14kpzfcg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/05/大数据架构作业-简答题4/" data-id="ckih19ays001d5kuj3ew8x605" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
@@ -415,7 +560,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/04/大数据架构作业-简答题3/" data-id="ckigrcux000132kujn5abr33b" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/04/大数据架构作业-简答题3/" data-id="ckih19aym00135kujcxcmkvgd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
@@ -582,7 +727,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/10/08/学习内网穿透/" data-id="ckigrcuxy001k2kujtz3ovdvr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/10/08/学习内网穿透/" data-id="ckih19ayv001i5kujr7ou42ad" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
@@ -676,7 +821,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/09/27/WSLinux之Ubuntu-安装rpm包/" data-id="ckigrcuwk000i2kujupg9qonm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/09/27/WSLinux之Ubuntu-安装rpm包/" data-id="ckih19axu00035kuj4sekm7tj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
@@ -738,7 +883,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/09/26/大数据架构作业-简答题2/" data-id="ckigrcuwv000w2kujk8mt3gag" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/09/26/大数据架构作业-简答题2/" data-id="ckih19ayn00165kujbzvhcotu" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
@@ -1028,7 +1173,7 @@ ChildClass());</code><br>※ <strong>泛型只能使用引用类型</strong>, �
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/09/23/入门JavaSE-进阶篇/" data-id="ckigrcuwt000u2kuj06r3rowe" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/09/23/入门JavaSE-进阶篇/" data-id="ckih19ayf000s5kujd7ww7h9r" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程语言入门/">编程语言入门</a></li></ul>
@@ -1164,7 +1309,7 @@ ChildClass());</code><br>※ <strong>泛型只能使用引用类型</strong>, �
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/09/21/为Windows-Terminal配置Ubuntu系统/" data-id="ckigrcuw100062kujbde4rd7d" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/09/21/为Windows-Terminal配置Ubuntu系统/" data-id="ckih19axx00055kujfhjlivlh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
@@ -1283,186 +1428,10 @@ ChildClass());</code><br>※ <strong>泛型只能使用引用类型</strong>, �
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/09/16/大数据架构作业-简答题1/" data-id="ckigrcuy0001m2kuj52ied57s" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/09/16/大数据架构作业-简答题1/" data-id="ckih19ayj000y5kuj2xrlikz2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-入门JavaSE-中级篇" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/08/26/入门JavaSE-中级篇/" class="article-date">
-  <time datetime="2020-08-26T09:58:24.000Z" itemprop="datePublished">2020-08-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/26/入门JavaSE-中级篇/">入门Java其二</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>刚看完中级篇的慕课，记录一下笔记。</p>
-<h1 id="Javase入门-中级"><a href="#Javase入门-中级" class="headerlink" title="Javase入门 中级"></a>Javase入门 中级</h1><p><a href="https://www.imooc.com/learn/124" target="_blank" rel="noopener">https://www.imooc.com/learn/124</a></p>
-<h2 id="C1-类和对象"><a href="#C1-类和对象" class="headerlink" title="C1 类和对象"></a>C1 类和对象</h2><h4 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h4><p>类 对象  方法</p>
-<h4 id="定义类-（属性-方法）"><a href="#定义类-（属性-方法）" class="headerlink" title="定义类 （属性 方法）"></a>定义类 （属性 方法）</h4><ol>
-<li>定义类名(大写)  <code>public class 类名 {</code></li>
-<li>属性也叫做实例变量   <code>// 定义属性 （默认为零）</code></li>
-<li>方法                              <code>// 定义方法（参照上面，但不用写public等）}</code></li>
-<li>ps：注意和 <code>public static void main {}</code> 的区别</li>
-</ol>
-<h4 id="使用对象的步骤："><a href="#使用对象的步骤：" class="headerlink" title="使用对象的步骤："></a>使用对象的步骤：</h4><ol>
-<li>创建对象 <code>type name = new type();</code></li>
-<li>调用对象 <code>name.***</code></li>
-<li>ps: 同一个包的类，可以在不同的java文件中使用</li>
-</ol>
-<h4 id="成员变量"><a href="#成员变量" class="headerlink" title="成员变量"></a>成员变量</h4><p>类中定义，描述对象的作用<br>作用在本类和其他类的方法 默认初始值为零</p>
-<h4 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h4><p>在方法中定义，在方法中保存临时数据<br>只作用在本类的方法 不会有默认值</p>
-<p>（其实就是作用域的不同）<br><strong>局部变量的优先级更高</strong></p>
-<h4 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h4><p>ps: 使用 new+构造方法 创建一个新的对象 </p>
-<p>构造方法的名称<strong>与类名相同</strong>，没有返回值<br>没有指定构造方法时，默认有一个“空”的构造方法<br>一旦指定了构造方法，系统就不会生成默认构造方法<br><strong>语法：</strong><code>public 构造方法名() {}</code><br>有无参数的构造方法都是可以并存的（重载）</p>
-<h4 id="Java中的static-静态"><a href="#Java中的static-静态" class="headerlink" title="Java中的static(静态)"></a>Java中的static(静态)</h4><p><code>static</code>可以实现同一种<code>类</code>的多个<code>对象</code>共用同一个成员(属性)<br>定义：<code>static 类型 变量名 = ***;</code><br>ps: 静态成员可以直接用类名调用, 也可以用对象名调用 后面加<code>.</code>就行</p>
-<p><strong>static修饰方法</strong>: 在返回值类型之前 加<code>static</code><br>如： <code>public static void main() {};</code></p>
-<ul>
-<li>静态方法中可以直接使用静态成员</li>
-<li>静态方法调用非静态成员时，需要献出案件类的对象，在访问非静态变量</li>
-<li>普通方法则能照抄使用所有成员</li>
-<li>静态方法中能直接调用静态方法，非静态方法必须创建对象来访问</li>
-</ul>
-<p><strong>static 初始化块</strong><br>初始化块: 用于给已经定义了的变量初始化（赋值） 用<code>{}</code>框柱赋值的语句<br>ps：看上去有点low？<br>静态初始化块: 就是在{}前面加 static</p>
-<h2 id="C2-封装"><a href="#C2-封装" class="headerlink" title="C2 封装"></a>C2 封装</h2><p>ps 面向对象三大特性： 封装、 继承、 多态<br><strong>封装</strong>：将类的概念隐藏在内部，不允许外部程序访问，通过类的方法，操作和访问隐藏概念</p>
-<h4 id="封装的步骤："><a href="#封装的步骤：" class="headerlink" title="封装的步骤："></a>封装的步骤：</h4><ol>
-<li>在变量的变量类型前面加 private</li>
-<li>创建getter/setter 等类似方法访问属性，返回需要的变量（相当于一个接口）可以用ide自动生动生成</li>
-<li>给上述方法加合理性判断（if语句等）</li>
-</ol>
-<h4 id="使用包管理java类"><a href="#使用包管理java类" class="headerlink" title="使用包管理java类"></a>使用包管理java类</h4><p>包的作用： 管理Java文件、解决同名文件冲突<br>定义包：<code>package &lt;包名&gt;;</code>  放在源程序第一行，包名之间用<code>.</code>隔开，相当于文件层次<br>使用包： <code>import &lt;包名&gt;;</code> 后面加<code>*</code>表示导入子目录的所包<br>ps: 包一般使用 全小写 命名</p>
-<h4 id="访问修饰符"><a href="#访问修饰符" class="headerlink" title="访问修饰符"></a>访问修饰符</h4><table>
-<thead>
-<tr>
-<th align="center">访问范围</th>
-<th align="center">本类</th>
-<th align="center">同包</th>
-<th align="center">子类</th>
-<th align="center">其它</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">private</td>
-<td align="center">√</td>
-<td align="center">×</td>
-<td align="center">×</td>
-<td align="center">×</td>
-</tr>
-<tr>
-<td align="center">默认</td>
-<td align="center">√</td>
-<td align="center">√</td>
-<td align="center">×</td>
-<td align="center">×</td>
-</tr>
-<tr>
-<td align="center">protected</td>
-<td align="center">√</td>
-<td align="center">√</td>
-<td align="center">√</td>
-<td align="center">×</td>
-</tr>
-<tr>
-<td align="center">public</td>
-<td align="center">√</td>
-<td align="center">√</td>
-<td align="center">√</td>
-<td align="center">√</td>
-</tr>
-</tbody></table>
-<h4 id="this关键字"><a href="#this关键字" class="headerlink" title="this关键字"></a>this关键字</h4><p>this代表当前对象，封装对象属性的时候经常使用</p>
-<ol>
-<li>区分属性和参数的概念（同名区分）</li>
-<li>调用当前对象的方法    </li>
-</ol>
-<h4 id="内部类-Inner-Class"><a href="#内部类-Inner-Class" class="headerlink" title="内部类 Inner Class"></a>内部类 Inner Class</h4><p>定义：一个类内部，再定义类，提供更好的封装（套娃）<br>种类：成员、静态、方法、匿名内部类</p>
-<p><strong>成员内部类</strong> 也叫做普通内部类<br>初始化的时候要用 ``&lt;内部类&gt; &lt;对象名&gt; = &lt;外部类&gt;.new &lt;内部类()&gt;<code>成员内部类可以使用外部和内部的所有数据，但外部类不能使用内部成员，如果内外部有同名的变量，内部需要使用外部变量时，需要</code>this<code>关键字(</code>Outer.this.变量名<code>)
-ps: 编译程序之后会出现多个</code>.class`文件</p>
-<p><strong>静态内部类</strong><br>用static修饰的内部类<br>不能直接访问外部类的 非静态成员，通过 <code>new Outer().成员</code> 访问<br>如果内外部静态成员<strong>同名</strong>，可以通过 <code>Outer.静态成员</code> 访问外部 静态成员，而是不用this关键字<br>创建静态内部类对象的时候，<code>&lt;内部类&gt; &lt;对象名&gt; = new &lt;内部类()&gt;</code> 即可</p>
-<p><strong>方法内部类</strong><br>内部类定义在外部类的方法中，只在该方法类可以使用</p>
-<h2 id="C3继承"><a href="#C3继承" class="headerlink" title="C3继承"></a>C3继承</h2><h4 id="Java中的继承"><a href="#Java中的继承" class="headerlink" title="Java中的继承"></a>Java中的继承</h4><p>类与类的关系，Java使用单继承，一个子类只有一个父类<br>子类拥有父类的所有属性和方法（<strong>不能是private</strong>）<br>语法： <code>class 子类 extends 父类</code> </p>
-<h4 id="Java中方法的重写"><a href="#Java中方法的重写" class="headerlink" title="Java中方法的重写"></a>Java中方法的重写</h4><p>子类可以<strong>重写</strong>继承父类的方法<br>ps: 重写的方法对应的 返回值 方法名 参数列表种类顺序 要和父类相同</p>
-<h4 id="继承的初始化顺序"><a href="#继承的初始化顺序" class="headerlink" title="继承的初始化顺序"></a>继承的初始化顺序</h4><p>先初始化父类在初始化子类<br>先进行<strong>属性</strong>的初始化，再进行<strong>构造方法</strong>的初始化（同一变量定义时的赋值会被构造方法的赋值覆盖掉）</p>
-<h4 id="final关键字"><a href="#final关键字" class="headerlink" title="final关键字"></a>final关键字</h4><p>可以修饰类、方法、属性、变量</p>
-<ul>
-<li>修饰类 该类不能被继承</li>
-<li>修饰方法 该方法不能被重写</li>
-<li>修饰属性 属性只能在在构造方法或者显示初始化（不能默认隐式初始化）</li>
-<li>修饰变量 该变量只能被赋值一次 常量</li>
-</ul>
-<h4 id="super关键字"><a href="#super关键字" class="headerlink" title="super关键字"></a>super关键字</h4><p>对象内部使用，可以代表父类对象，用于访问父类对象的属性和方法<br>语法: <code>super.&lt;父类的属性和方法&gt;</code><br><strong>super的应用</strong></p>
-<ol>
-<li>子类的构造过程中必须调用父类的构造方法 </li>
-<li>super();隐式表达  显示表达要放在子类的构造方法的第一行</li>
-<li>系统默认调用无参父类构造方法，如果没有无参构造方法，则报错</li>
-</ol>
-<h4 id="Java的Object类"><a href="#Java的Object类" class="headerlink" title="Java的Object类"></a>Java的Object类</h4><p>Object类是所有类的父类，默认的继承类（没有指定继承对象）<br><strong>Object类定义的属性方法</strong></p>
-<ol>
-<li><code>toString()</code> 返回对象的哈希code码（内存地址），可以重写成返回对象的属性，ide Source提供了toString的快速重写</li>
-<li><code>equals()</code> 比较对象是否指向同一块内存地址，可以重写成比较两个对象的值是否相等，同样ide 提供了快速重写 (利用”==”)<br>ps: 默认的参数是Object obj，访问对象的属性的时候，需要声明为当前对象的类型 (Dog other = (Dog) obj;)<br>pps: 类对象指obj.getClass() 返回类的类型，类的对象指obj类的变量值</li>
-</ol>
-<h2 id="C4多态"><a href="#C4多态" class="headerlink" title="C4多态"></a>C4多态</h2><h4 id="Java中的多态"><a href="#Java中的多态" class="headerlink" title="Java中的多态"></a>Java中的多态</h4><p><strong>对象的多种形态:</strong> </p>
-<ol>
-<li>引用多态 父类的对象可以引用本类和子类的对象，反则不行。 (相当于可以用bus初始化交通工具对象 Transp obj = new bus();)</li>
-<li>方法多态 创建本类对象时调用本类的方法，引用子类的对象是调用子类重写或者继承之后的方法</li>
-</ol>
-<h4 id="多态的引用类型转换"><a href="#多态的引用类型转换" class="headerlink" title="多态的引用类型转换"></a>多态的引用类型转换</h4><p>引用类型转换:</p>
-<ol>
-<li>向上类型转换(隐式/自动 小到大) 上面的父类引用子类对象</li>
-<li>向下类型转换(大到小) 有风险 可以加 (类型) 强制类型转换</li>
-<li>使用<code>instanceof</code>运算符 避免引用类型转换的安全性问题<br>如: <code>if (animal instanceof Cat) {Cat cat = (Cat) animal}</code> (向下转换)</li>
-</ol>
-<h4 id="Java的抽象类"><a href="#Java的抽象类" class="headerlink" title="Java的抽象类"></a>Java的抽象类</h4><p>关注子类应该有什么方法，不关注方法的实现，只关注子类的特征<br>抽象类的规则:</p>
-<ol>
-<li>abstract定义抽象类 public abstract class Obj{};</li>
-<li>abstract定义方法，只有声明</li>
-<li>抽象类可包含普通方法，可没有抽象方法</li>
-<li>抽象类不能直接创建，可以定义引用变量</li>
-</ol>
-<h4 id="Java的接口"><a href="#Java的接口" class="headerlink" title="Java的接口"></a>Java的接口</h4><p>类是具体实体，接口是类需要遵守的<strong>规范</strong>，提供抽象方法和常量，把具有共同特征的类联系在一起<br>定义: <code>[修饰符] interface 接口名 [extends 父接口1, 父接口2 ...] {}</code><br>系统隐式添加<code>abstract</code>关键字 接口的内容为若干个常量<code>public static final</code>或者若干个抽象方法 <code>public abstract</code><br>调用接口: 类通过<code>implements</code>关键字使用多个接口 ※关键字接在父类的后面<br>ps: 接口命名通常名字前面加 <code>I</code><br>使用接口： 接口可以指向对象，如  <code>IPlayGame ip1 = new SmartPhone();</code> ，即可使用该类的方法，但是要注意指向的类要调用了该接口<br>ps: <strong>接口经常和匿名内部类使用，匿名内部类就是没有名字的内部类</strong><br><strong>语法格式:</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Interface i = <span class="keyword">new</span> Interface()&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> noid <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">	System.out.println(<span class="string">"匿名内部类实现接口的方式"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line">i.method();  <span class="comment">// 直接调用方法</span></span><br></pre></td></tr></table></figure>
-
-<p>也可以在new语句后面的分号之前，直接<code>.method()</code>调用方法</p>
-<p>可以在new语句后面的分号之前，直接<code>.method()</code>调用方法</p>
-<h4 id="UML简介"><a href="#UML简介" class="headerlink" title="UML简介"></a>UML简介</h4><p>编写代码之前设计代码，支持模型化和软件系统开发的图形化语言<br><strong>常用UML图</strong></p>
-<ol>
-<li>用例图 对象需要的功能</li>
-<li>序列图 事件的发生顺序，对象的交互</li>
-<li>类图 业务逻辑 类和类的关系</li>
-</ol>
-<p><strong>UML建模工具</strong></p>
-<p>Visio、Rational、Rose…</p>
-<h2 id="C5阶段练习"><a href="#C5阶段练习" class="headerlink" title="C5阶段练习"></a>C5阶段练习</h2><p>利用继承和重写实现中国人和美国人对象讲不同的语言</p>
-<h2 id="C6综合练习"><a href="#C6综合练习" class="headerlink" title="C6综合练习"></a>C6综合练习</h2><p>项目分析：<br>    数据模型分析 抽象实体分析约束条件<br>    业务模型分析 需要实现的功能 如何实现<br>    显示和流程分析 划分显示部分，分析不同流程</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/08/26/入门JavaSE-中级篇/" data-id="ckigrcuwg000f2kujqywav13x" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程语言入门/">编程语言入门</a></li></ul>
 
     </footer>
   </div>
@@ -1499,7 +1468,7 @@ ps: 编译程序之后会出现多个</code>.class`文件</p>
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Linux/" style="font-size: 12.5px;">Linux</a> <a href="/tags/其它/" style="font-size: 10px;">其它</a> <a href="/tags/后端/" style="font-size: 20px;">后端</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/编程语言入门/" style="font-size: 15px;">编程语言入门</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/课程作业/" style="font-size: 17.5px;">课程作业</a>
+      <a href="/tags/Linux/" style="font-size: 12.5px;">Linux</a> <a href="/tags/其它/" style="font-size: 12.5px;">其它</a> <a href="/tags/后端/" style="font-size: 20px;">后端</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/编程语言入门/" style="font-size: 15px;">编程语言入门</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/课程作业/" style="font-size: 17.5px;">课程作业</a>
     </div>
   </div>
 
@@ -1521,6 +1490,10 @@ ps: 编译程序之后会出现多个</code>.class`文件</p>
       <ul>
         
           <li>
+            <a href="/2020/12/09/使用DNS映射解决Github访问缓慢的问题/">使用DNS映射解决Github访问缓慢的问题</a>
+          </li>
+        
+          <li>
             <a href="/2020/12/09/解决无法使用Pycharm自带的pip安装第三方库的问题/">解决无法使用Pycharm自带的pip安装第三方库的问题</a>
           </li>
         
@@ -1534,10 +1507,6 @@ ps: 编译程序之后会出现多个</code>.class`文件</p>
         
           <li>
             <a href="/2020/11/24/大数据架构作业-简答题7/">大数据架构作业-简答题7</a>
-          </li>
-        
-          <li>
-            <a href="/2020/11/20/MySQL的安装指南以及常用命令/">关于CentOS下MySQL的安装指南以及常用命令</a>
           </li>
         
       </ul>

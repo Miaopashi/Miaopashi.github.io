@@ -5,15 +5,20 @@
   
 
   
-  <title>Tag: 后端 | MPS的个人博客</title>
+  <title>在Windows PowerShell安装scoop | MPS的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="MPS的个人博客">
-<meta property="og:url" content="http://yoursite.com/tags/后端/index.html">
+  <meta name="description" content="最近访问Github的频率有点多，越来越发觉国内访问Github的速度太感人了，于是开始寻找解决方案。 然后在Github上看到了一个解决这个问题的项目。 这项目会不定时地更新github的dns映射，只需要在需要访问github的时候，更新一下hosts文件，就可以利用dns映射，快速访问到github上的项目。 关于更新hosts文件，如果是手动更新，显然是难以接受的，于是该项目推荐了一个自动">
+<meta name="keywords" content="其它">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在Windows PowerShell安装scoop">
+<meta property="og:url" content="http://yoursite.com/2020/12/09/在Windows-PowerShell安装scoop/index.html">
 <meta property="og:site_name" content="MPS的个人博客">
+<meta property="og:description" content="最近访问Github的频率有点多，越来越发觉国内访问Github的速度太感人了，于是开始寻找解决方案。 然后在Github上看到了一个解决这个问题的项目。 这项目会不定时地更新github的dns映射，只需要在需要访问github的时候，更新一下hosts文件，就可以利用dns映射，快速访问到github上的项目。 关于更新hosts文件，如果是手动更新，显然是难以接受的，于是该项目推荐了一个自动">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-12-09T06:15:19.944Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MPS的个人博客">
+<meta name="twitter:title" content="在Windows PowerShell安装scoop">
+<meta name="twitter:description" content="最近访问Github的频率有点多，越来越发觉国内访问Github的速度太感人了，于是开始寻找解决方案。 然后在Github上看到了一个解决这个问题的项目。 这项目会不定时地更新github的dns映射，只需要在需要访问github的时候，更新一下hosts文件，就可以利用dns映射，快速访问到github上的项目。 关于更新hosts文件，如果是手动更新，显然是难以接受的，于是该项目推荐了一个自动">
   
     <link rel="alternate" href="/atom.xml" title="MPS的个人博客" type="application/atom+xml">
   
@@ -60,202 +65,61 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/12/09/解决无法使用Pycharm自带的pip安装第三方库的问题/" class="archive-article-date">
-  <time datetime="2020-12-09T01:42:59.000Z" itemprop="datePublished">Dec 9</time>
+        <section id="main"><article id="post-在Windows-PowerShell安装scoop" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/09/在Windows-PowerShell安装scoop/" class="article-date">
+  <time datetime="2020-12-09T04:50:00.000Z" itemprop="datePublished">2020-12-09</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/09/解决无法使用Pycharm自带的pip安装第三方库的问题/">解决无法使用Pycharm自带的pip安装第三方库的问题</a>
+    <h1 class="article-title" itemprop="name">
+      在Windows PowerShell安装scoop
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/11/24/关于Spring-Security文档上密码发展史的阅读报告/" class="archive-article-date">
-  <time datetime="2020-11-24T10:43:05.000Z" itemprop="datePublished">Nov 24</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/24/关于Spring-Security文档上密码发展史的阅读报告/">关于Spring Security文档上密码发展史的阅读报告</a>
-    </h1>
-  
+        <p>最近访问Github的频率有点多，越来越发觉国内访问Github的速度太感人了，于是开始寻找解决方案。</p>
+<p>然后在Github上看到了一个解决这个问题的项目。</p>
+<p>这项目会不定时地更新github的dns映射，只需要在需要访问github的时候，更新一下hosts文件，就可以利用dns映射，快速访问到github上的项目。</p>
+<p>关于更新hosts文件，如果是手动更新，显然是难以接受的，于是该项目推荐了一个自动化更改hosts文件的软件，叫Switchhosts。</p>
+<p>然而这个开源项目没有提供具体的安装包，需要用户自行安装，比如使用yum或者apt-get命令安装。</p>
+<p>看到这里的时候，作为一个Windows系统使用者，我是感觉又被冒犯到的。但是所幸，有大佬开发出了一个名为Scoop的项目。</p>
+<p>使用scoop命令，可以让Windows也可以像Linux终端一样在shell（这里应该是Windows PowerShell）下载安装各种软件包！</p>
+<p><a href="https://github.com/lukesampson/scoop/wiki" target="_blank" rel="noopener">这里</a>是scoop在github上的官方文档，本篇博客主要参考了QuickStart里面的内容。下面让我们看看如何安装使用scoop吧。</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/11/20/MySQL的安装指南以及常用命令/" class="archive-article-date">
-  <time datetime="2020-11-20T06:37:42.000Z" itemprop="datePublished">Nov 20</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/20/MySQL的安装指南以及常用命令/">关于CentOS下MySQL的安装指南以及常用命令</a>
-    </h1>
-  
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/12/09/在Windows-PowerShell安装scoop/" data-id="ckih0r9qk000vfgujul7tqyyu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/其它/">其它</a></li></ul>
 
-    </header>
+    </footer>
   </div>
-</article>
   
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/11/18/Nginx服务器的常用命令/" class="archive-article-date">
-  <time datetime="2020-11-18T09:16:30.000Z" itemprop="datePublished">Nov 18</time>
-</a>
-      
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/18/Nginx服务器的常用命令/">Nginx服务器的常用命令</a>
-    </h1>
   
+    <a href="/2020/12/09/解决无法使用Pycharm自带的pip安装第三方库的问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">解决无法使用Pycharm自带的pip安装第三方库的问题</div>
+    </a>
+  
+</nav>
 
-    </header>
-  </div>
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/11/17/使用Spring-Boot-Spring-Security-Hibernate-Bootstrap-JSP-Spring-Data-JPA-MySQL实现的登陆注册系统/" class="archive-article-date">
-  <time datetime="2020-11-17T13:50:08.000Z" itemprop="datePublished">Nov 17</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/17/使用Spring-Boot-Spring-Security-Hibernate-Bootstrap-JSP-Spring-Data-JPA-MySQL实现的登陆注册系统/">使用Spring Boot, Spring Security, Hibernate, Bootstrap, JSP, Spring Data JPA, MySQL实现的登陆注册系统</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/11/17/关于DAO模式的小记录/" class="archive-article-date">
-  <time datetime="2020-11-17T13:34:09.000Z" itemprop="datePublished">Nov 17</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/17/关于DAO模式的小记录/">关于DAO模式的小记录</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/11/06/使用SpringBoot编写一个https网站/" class="archive-article-date">
-  <time datetime="2020-11-06T14:26:11.000Z" itemprop="datePublished">Nov 6</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/06/使用SpringBoot编写一个https网站/">使用SpringBoot编写一个https网站</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2020/10/08/学习内网穿透/" class="archive-article-date">
-  <time datetime="2020-10-08T02:12:54.000Z" itemprop="datePublished">Oct 8</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/10/08/学习内网穿透/">学习使用frp工具实现内网穿透</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/12/17/使用Heroku部署网页/" class="archive-article-date">
-  <time datetime="2019-12-17T08:12:18.000Z" itemprop="datePublished">Dec 17</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/17/使用Heroku部署网页/">使用Heroku部署网页</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
 
 </section>
         
@@ -300,7 +164,7 @@
       <ul>
         
           <li>
-            <a href="/2020/12/09/使用DNS映射解决Github访问缓慢的问题/">使用DNS映射解决Github访问缓慢的问题</a>
+            <a href="/2020/12/09/在Windows-PowerShell安装scoop/">在Windows PowerShell安装scoop</a>
           </li>
         
           <li>
