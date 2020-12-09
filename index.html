@@ -62,6 +62,56 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-解决无法使用Pycharm自带的pip安装第三方库的问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/12/09/解决无法使用Pycharm自带的pip安装第三方库的问题/" class="article-date">
+  <time datetime="2020-12-09T01:42:59.000Z" itemprop="datePublished">2020-12-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/12/09/解决无法使用Pycharm自带的pip安装第三方库的问题/">解决无法使用Pycharm自带的pip安装第三方库的问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>上次写可视化作业的时候，用pycharm出现了一个问题：无法直接使用IDE的setting中的pip安装第三方库。</p>
+<p>几经周折之下，在Stack Overflow上找到了解答。</p>
+<p>只要在新建项目的时候添加一个设定就可以了！</p>
+<br>
+
+<p>解决方法：</p>
+<p>使用Pycharm，点击New Project，选择Pure Python（使用新建flask项目和Django项目的时候，我没有遇到上述的问题），<strong>勾选inherit global-site packges</strong>，新建项目即可~</p>
+<br>
+
+<p>由于Pycharm新建Pure Python项目的时候，是默认只使用本地的包的，所以当IDE使用pip命令下载第三方库的时候，系统会报错。只能直接只用终端的pip命令，才能够正常安装包。</p>
+<p>勾选inherit选项能够允许IDE继承全局的第三方库，即Pycharm能够帮用户安装包，问题得到解决。</p>
+<p><a href="https://stackoverflow.com/questions/51292729/pycharm-cannt-find-the-packages-or-modules-installed-with-pip-on-windows" target="_blank" rel="noopener">参考文章</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/12/09/解决无法使用Pycharm自带的pip安装第三方库的问题/" data-id="ckigrcux6001c2kujdzu8a3bg" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-使用Python可视化全国各省（除湖北）新冠疫情累计治愈病例数据" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/12/06/使用Python可视化全国各省（除湖北）新冠疫情累计治愈病例数据/" class="article-date">
@@ -122,7 +172,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/12/06/使用Python可视化全国各省（除湖北）新冠疫情累计治愈病例数据/" data-id="ckicjadc30008d8ujgxljoipi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/12/06/使用Python可视化全国各省（除湖北）新冠疫情累计治愈病例数据/" data-id="ckigrcuwe000d2kuju1snvmuq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
@@ -203,7 +253,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/24/关于Spring-Security文档上密码发展史的阅读报告/" data-id="ckicjadcm000sd8uj4x71b97r" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/24/关于Spring-Security文档上密码发展史的阅读报告/" data-id="ckigrcuwp000p2kuju8y3pxv1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
@@ -403,7 +453,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/24/大数据架构作业-简答题7/" data-id="ckicjadd2001dd8ujrp9rh9iy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/24/大数据架构作业-简答题7/" data-id="ckigrcuxw001j2kujwzmfcqld" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
@@ -468,7 +518,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/20/MySQL的安装指南以及常用命令/" data-id="ckicjadbz0003d8ujkhpy0zjv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/20/MySQL的安装指南以及常用命令/" data-id="ckigrcuvx00042kujgbsbebui" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
@@ -516,7 +566,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/18/Nginx服务器的常用命令/" data-id="ckicjadc10005d8uj19t5oplu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/18/Nginx服务器的常用命令/" data-id="ckigrcuvm00002kujvgfks4hq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
@@ -656,7 +706,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/17/使用Spring-Boot-Spring-Security-Hibernate-Bootstrap-JSP-Spring-Data-JPA-MySQL实现的登陆注册系统/" data-id="ckicjadc7000cd8ujm8a0yeii" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/17/使用Spring-Boot-Spring-Security-Hibernate-Bootstrap-JSP-Spring-Data-JPA-MySQL实现的登陆注册系统/" data-id="ckigrcuw8000b2kujpvbsp0ob" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
@@ -727,7 +777,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/17/关于DAO模式的小记录/" data-id="ckicjadcl000qd8uj7iyki8q0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/17/关于DAO模式的小记录/" data-id="ckigrcuwr000s2kuj94j1ybwm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
@@ -833,7 +883,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/16/大数据架构作业-简答题6/" data-id="ckicjadd6001hd8ujldus9m6b" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/16/大数据架构作业-简答题6/" data-id="ckigrcux300182kujkm2a2jr1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
@@ -978,176 +1028,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/12/大数据架构作业-简答题5/" data-id="ckicjadd0001bd8ujvtnudl21" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/12/大数据架构作业-简答题5/" data-id="ckigrcux5001a2kuj1nonjsya" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-使用SpringBoot编写一个https网站" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/11/06/使用SpringBoot编写一个https网站/" class="article-date">
-  <time datetime="2020-11-06T14:26:11.000Z" itemprop="datePublished">2020-11-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/06/使用SpringBoot编写一个https网站/">使用SpringBoot编写一个https网站</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>本周的任务：使用springboot编写一个helloworld网站，并且部署到服务器上。然后配置ssl正式，建立https站点。</em></p>
-<br>
-
-<h2 id="先看第一个任务，编写helloWeb并且部署。"><a href="#先看第一个任务，编写helloWeb并且部署。" class="headerlink" title="先看第一个任务，编写helloWeb并且部署。"></a>先看第一个任务，编写helloWeb并且部署。</h2><h3 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h3><ol>
-<li>下载并且安装IDEA旗舰版</li>
-<li>查看springboot官方文档，根据教程新建hello项目</li>
-<li>修改hello项目开放的端口，把项目打包成jar包</li>
-<li>配置服务器端的java环境，让项目在服务器上运行</li>
-</ol>
-<br>
-
-<h3 id="下载并且安装IDEA旗舰版"><a href="#下载并且安装IDEA旗舰版" class="headerlink" title="下载并且安装IDEA旗舰版"></a>下载并且安装IDEA旗舰版</h3><p>由于目前有学生身份，所以认证成功之后就能够免费试用IDEA旗舰版了。</p>
-<p>访问Jet Barin官网，下载IDEA，登录一下学生账号之后，就可以试用IDEA编写代码了~</p>
-<br>
-
-<h3 id="查看springboot官方文档，根据教程新建hello项目"><a href="#查看springboot官方文档，根据教程新建hello项目" class="headerlink" title="查看springboot官方文档，根据教程新建hello项目"></a>查看springboot官方文档，根据教程新建hello项目</h3><p>进入springboot官网，找到QuickstartGuide，根据教程的内容打开spring initializr。</p>
-<p>根据IDEA的提示，选择start.spring.io创建web项目，决定项目名，添加spring web依赖，选择springboot版本（这里我选了2.3.5），等待IDEA下载对应的配置文件之后，项目就自动生成了。</p>
-<p>复制文档中的实例代码，结合原来的项目名（hello）进行一些修改，使用IDEA尝试运行springboot项目。出现app运行字样之后，使用浏览器访问localhost:8080/hello，出现Hello World!字样~</p>
-<p>另外，使用浏览器访问localhost:8080/hello?name=mps，会出现Hello mps!字样。</p>
-<p>可以修改src/resources/application.properties文件，添加<code>server.port=10066</code>语句，修改服务器监听的端口。</p>
-<br>
-
-<h3 id="修改hello项目开放的端口，把项目打包成jar包"><a href="#修改hello项目开放的端口，把项目打包成jar包" class="headerlink" title="修改hello项目开放的端口，把项目打包成jar包"></a>修改hello项目开放的端口，把项目打包成jar包</h3><p>根据IDEA自带的maven选项，可以把项目打包成jar包。</p>
-<p>打开maven选项卡&gt;hello&gt;Lifecycle&gt;package，可以自动完成打包操作。</p>
-<p>打包完成之后可以在项目的target目录看到刚刚打包出来的jar包。</p>
-<p>在本地使用window terminal定位到jar包的位置，使用java -jar命令之后，使用浏览器访问localhost:10066/hello，网站正常运行，说明jar包没有问题。</p>
-<br>
-
-<h3 id="配置服务器端的java环境，让项目在服务器上运行"><a href="#配置服务器端的java环境，让项目在服务器上运行" class="headerlink" title="配置服务器端的java环境，让项目在服务器上运行"></a>配置服务器端的java环境，让项目在服务器上运行</h3><p>下面使用Xshell控制阿里云的服务器，配置java环境。</p>
-<p>具体步骤：</p>
-<ol>
-<li>在Xshell使用rz命令，传输jdk和前面写好的jar包</li>
-<li>tar命令解压jdk的tar包，安装jdk-8u261</li>
-<li>使用vim命令，配置java环境变量</li>
-<li>运行jar包（可以使用nohup在后台运行）</li>
-</ol>
-<h4 id="使用Xshell传输jdk和jar包"><a href="#使用Xshell传输jdk和jar包" class="headerlink" title="使用Xshell传输jdk和jar包"></a>使用Xshell传输jdk和jar包</h4><p>这里已经提前再本地下载了jdk1.8.0_261-liunx-x64的tar包了，可以自行访问官网下载。</p>
-<p>我使用Xshell对购买的阿里服务器进行操作，下面对于服务器的操作将使用Xshell完成。</p>
-<p>服务器安装lrzsz用于传输jdk以便服务器安装。</p>
-<p>$ yum install lrzsz -y</p>
-<p>安装完成之后，cd到需要存放文件的目录，再使用rz命令会Xshell会弹出文件传输窗口。</p>
-<p>$ cd</p>
-<p>$ rz</p>
-<p>弹窗出现之后，可以选择本地下载的jdk1.8-linux-x64.tar以及前面打包好的jar包，传输到服务器。</p>
-<p>另外，学长推荐使用Xftp传输速度更快，下次有机会可以试试。</p>
-<h4 id="服务器端解压包，安装jdk-8u261"><a href="#服务器端解压包，安装jdk-8u261" class="headerlink" title="服务器端解压包，安装jdk-8u261"></a>服务器端解压包，安装jdk-8u261</h4><p>使用tar命令，解压刚刚传输的jdk包，到/usr/local/java目录。java目录可以使用mkdir新建。</p>
-<p>$ mkdir /usr/local/java</p>
-<p>$ tar -zxvf jdk-8u261-linux-x64.tar.gz -C /usr/local/java/</p>
-<h4 id="使用vim命令，配置java环境变量"><a href="#使用vim命令，配置java环境变量" class="headerlink" title="使用vim命令，配置java环境变量"></a>使用vim命令，配置java环境变量</h4><p>使用vim命令可以修改环境变量配置文件。</p>
-<p>$ vim /etc/profile</p>
-<p>在末尾添加如下字段：</p>
-<p>export JAVA_HOME=/usr/local/java/jdk1.8.0_261</p>
-<p>export PATH=$JAVA_HOME/bin:$PATH</p>
-<p>使用source命令使环境变量生效。</p>
-<p>$ source /etc/profile</p>
-<p>随后，查看java版本。</p>
-<p>$ java -version</p>
-<p>可以正常看到java的版本，说明java环境配置成功。</p>
-<h4 id="运行jar包"><a href="#运行jar包" class="headerlink" title="运行jar包"></a>运行jar包</h4><p>注意，运行jar包之前，需要确保服务器的相关端口是打开的。</p>
-<p>可以打开阿里云的控制台，对于服务器所在的实例，看到比如添加安全组的设置选项；</p>
-<p>在安全组中，用户可以自行设置需要开放的端口。</p>
-<p>这里我已经把端口提前弄好了，就不一一赘述。</p>
-<p>现在可以使用java命令，在服务器运行前面传输的jar包了。</p>
-<p>$ java -jar &lt;jar包名&gt;</p>
-<p>在本地打开浏览器，输入xxx.xxx.xxx.xxx:10066/hello，成功访问hello网站。</p>
-<p>说明项目部署成功！</p>
-<br>
-
-<p>开始配置ssl之前，需要购买一个域名。</p>
-<p>进入阿里云页面，进入产品选项卡，搜索域名注册。</p>
-<p>在万网寻找合适的后缀以及关键字，找到心仪的域名，加入清单。</p>
-<p>结算清单，完善个人信息模板，产品支付，域名购买成功。</p>
-<p>花了5块钱买了一个域名，yysy.xyz感觉还行。</p>
-<br>
-
-<p>购买域名之后，还要等待一下审核。</p>
-<p>再把helloWeb解析到前面购买的域名上。</p>
-<p>打开阿里云的云解析DNS控制台，点击购买的域名，添加记录，选择对应参数即可解析。</p>
-<p>现在可以访问<a href="http://www.yysy.xyz:10066/hello，访问hello网站了。" target="_blank" rel="noopener">www.yysy.xyz:10066/hello，访问hello网站了。</a></p>
-<br>
-
-<h2 id="下面再看第二个任务，配置SSL证书"><a href="#下面再看第二个任务，配置SSL证书" class="headerlink" title="下面再看第二个任务，配置SSL证书"></a>下面再看第二个任务，配置SSL证书</h2><p>令项目可以在https协议下运行，实现用户安全访问。</p>
-<h3 id="步骤：-1"><a href="#步骤：-1" class="headerlink" title="步骤："></a>步骤：</h3><ol>
-<li>申请ssl证书</li>
-<li>配置ssl证书</li>
-</ol>
-<br>
-
-<h3 id="申请SSL证书"><a href="#申请SSL证书" class="headerlink" title="申请SSL证书"></a>申请SSL证书</h3><p>要配置ssl证书，首先需要先申请一个证书。</p>
-<p>进入阿里云控制台&gt;SSL证书管理控制台，点击购买证书服务（先别慌）；</p>
-<p>选择单个域名、DV域名级SSL、免费版、一年，可以看到费用直接归零，于是可以白嫖了。</p>
-<p>白嫖ssl证书之后，还要进行证书申请，填写个人信息。</p>
-<p>由于我的域名是阿里云买的，所以可以自动DNS验证，验证也是自动完成，证书很快就签发成功了。</p>
-<br>
-
-<h3 id="配置SSL证书之前，先解决一个问题："><a href="#配置SSL证书之前，先解决一个问题：" class="headerlink" title="配置SSL证书之前，先解决一个问题："></a>配置SSL证书之前，先解决一个问题：</h3><p>SSL证书签发之后，开始配置证书。</p>
-<p>查看阿里云的SSL证书配置文档，发现SSL证书要部署在Nginx、Tomcat、Apache服务器上，而目前的helloWeb是直接是机器终端的java命令跑起来的，似乎没有包装在上述服务器内。</p>
-<p>原来SpringBoot项目内置了一个Tomcat服务器，让网站项目可以直接以jar包的形式跑起来，而不需要借助外部服务器。</p>
-<p>既然这个SpringBoot项目的Tomcat是内置的，就很难修改它的配置，更难部署SSL证书。</p>
-<p>所以配置SSL证书之前，需要先给机器弄一个正式的服务器。</p>
-<p>现在给机器配置一个Nginx服务器，顺便实现二级域名映射，摆脱<a href="http://www.yysy.xyz:10066网址后面端口号的束缚。" target="_blank" rel="noopener">www.yysy.xyz:10066网址后面端口号的束缚。</a></p>
-<p>安装Nignx</p>
-<p>$ sudo yum -y install nginx   # 安装 nginx<br>$ sudo yum remove nginx  # 卸载 nginx</p>
-<p>配置Nginx服务</p>
-<p>$ sudo systemctl enable nginx # 设置开机启动<br>$ sudo service nginx start # 启动 nginx 服务<br>$ sudo service nginx stop # 停止 nginx 服务<br>$ sudo service nginx restart # 重启 nginx 服务<br>$ sudo service nginx reload # 重新加载配置，一般是在修改过 nginx 配置文件时使用。</p>
-<p>查看Nginx运行状态</p>
-<p>$ sudo systemctl status nginx</p>
-<p>在本地使用浏览器访问机器ip，如果无法访问可以看看是不是阿里云机器的80和443端口没有开放。</p>
-<p>在/etc/nginx/nginx.conf修改配置文件，这里先不展开，下面配置ssl证书才详细讲。</p>
-<p>现在直接访问<a href="http://www.yysy.xyz/hello，就可以访问到helloWeb啦！" target="_blank" rel="noopener">www.yysy.xyz/hello，就可以访问到helloWeb啦！</a></p>
-<br>
-
-<h3 id="配置SSL证书"><a href="#配置SSL证书" class="headerlink" title="配置SSL证书"></a>配置SSL证书</h3><p>安装了Nginx服务器之后，就可以正式开始配置SSL证书了。</p>
-<p>具体步骤：</p>
-<ol>
-<li>登录阿里云SSL证书控制台，下载Nginx证书；</li>
-<li>创建/etc/nginx/cert目录，把下载的pem和key文件拉到cert目录；</li>
-<li>修改Nginx配置文件，如下所示</li>
-</ol>
-<p>$ vim /etc/nginx/nginx.conf</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#以下属性中以ssl开头的属性代表与证书配置有关，其他属性请根据自己的需要进行配置。</span><br><span class="line">server &#123;</span><br><span class="line">         listen 443 ssl; #配置HTTPS的默认访问端口号为443。此处如果未配置HTTPS的默认访问端口，可能会造成Nginx无法启动。Nginx 1.15.0以上版本请使用listen 443 ssl代替listen 443 ssl和ssl on。</span><br><span class="line">         server_name www.certificatestests.com; #将www.certificatestests.com修改为您证书绑定的域名，例如：www.example.com。如果您购买的是通配符域名证书，要修改为通配符域名，例如：*.aliyun.com。</span><br><span class="line">         root html;</span><br><span class="line">         index index.html index.htm;</span><br><span class="line">         ssl_certificate cert/domain name.pem;  #将domain name.pem替换成您证书的文件名称。</span><br><span class="line">         ssl_certificate_key cert/domain name.key; #将domain name.key替换成您证书的密钥文件名称。</span><br><span class="line">         ssl_session_timeout 5m;</span><br><span class="line">         ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4; #使用此加密套件。</span><br><span class="line">         ssl_protocols TLSv1 TLSv1.1 TLSv1.2; #使用该协议进行配置。</span><br><span class="line">         ssl_prefer_server_ciphers on;</span><br><span class="line">         location / &#123;</span><br><span class="line">         root html;  #站点目录。</span><br><span class="line">         index index.html index.htm;</span><br><span class="line">                    &#125;</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
-
-<p>最后重启一下Nginx就完成配置了~</p>
-<br>
-
-<p>配置SSL证书之后，还要进行网站备案。前面已经完成了域名信息的填写和域名持有者的实名认证，但是还没有进行域名持有者过户。</p>
-<p>打开阿里云的域名控制台，管理yysy.xyz域名，选择域名持有者过户填写相关信息。</p>
-<p>域名信息更新完成之后，网站运行的机器还要等待三个月才能申请备案，因此在Nginx上部署的项目一时半会是不能通过域名访问了……</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/06/使用SpringBoot编写一个https网站/" data-id="ckicjadch000ld8ujsqto2c7g" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
 
     </footer>
   </div>
@@ -1184,7 +1068,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Linux/" style="font-size: 13.33px;">Linux</a> <a href="/tags/其它/" style="font-size: 10px;">其它</a> <a href="/tags/后端/" style="font-size: 20px;">后端</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/编程语言入门/" style="font-size: 16.67px;">编程语言入门</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/课程作业/" style="font-size: 20px;">课程作业</a>
+      <a href="/tags/Linux/" style="font-size: 12.5px;">Linux</a> <a href="/tags/其它/" style="font-size: 10px;">其它</a> <a href="/tags/后端/" style="font-size: 20px;">后端</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/编程语言入门/" style="font-size: 15px;">编程语言入门</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/课程作业/" style="font-size: 17.5px;">课程作业</a>
     </div>
   </div>
 
@@ -1206,6 +1090,10 @@
       <ul>
         
           <li>
+            <a href="/2020/12/09/解决无法使用Pycharm自带的pip安装第三方库的问题/">解决无法使用Pycharm自带的pip安装第三方库的问题</a>
+          </li>
+        
+          <li>
             <a href="/2020/12/06/使用Python可视化全国各省（除湖北）新冠疫情累计治愈病例数据/">使用Python可视化全国各省（除湖北）新冠疫情累计治愈病例数据</a>
           </li>
         
@@ -1219,10 +1107,6 @@
         
           <li>
             <a href="/2020/11/20/MySQL的安装指南以及常用命令/">关于CentOS下MySQL的安装指南以及常用命令</a>
-          </li>
-        
-          <li>
-            <a href="/2020/11/18/Nginx服务器的常用命令/">Nginx服务器的常用命令</a>
           </li>
         
       </ul>
