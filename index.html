@@ -62,6 +62,85 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-工作室技术分享会" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/04/08/工作室技术分享会/" class="article-date">
+  <time datetime="2021-04-08T01:39:27.000Z" itemprop="datePublished">2021-04-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/04/08/工作室技术分享会/">工作室技术分享会</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="基础知识："><a href="#基础知识：" class="headerlink" title="基础知识："></a>基础知识：</h2><p>html、css、js的基本概念，可以参照w3school学习使用方法</p>
+<h2 id="echarts简介："><a href="#echarts简介：" class="headerlink" title="echarts简介："></a>echarts简介：</h2><p>使用 <strong>JavaScript</strong> 实现的开源可视化库</p>
+<p>提供常规的<strong>折线图、柱状图、散点图、饼图、K线图</strong>，用于统计的<strong>盒形图</strong>，用于地理数据可视化的<strong>地图、热力图、线图</strong>，用于关系数据可视化的<strong>关系图、treemap、旭日图</strong>，多维数据可视化的平行坐标，还有用于 BI 的<strong>漏斗图，仪表盘</strong>，并且支持图与图之间的混搭</p>
+<p><em>详见<a href="https://echarts.apache.org/zh/index.html" target="_blank" rel="noopener">echarts的官方文档</a></em></p>
+<h2 id="简单上手绘制一个饼图页面："><a href="#简单上手绘制一个饼图页面：" class="headerlink" title="简单上手绘制一个饼图页面："></a>简单上手绘制一个饼图页面：</h2><p>框架：flask（后端）、<strong>echarts（前端）</strong></p>
+<p>IDE：Pycharm</p>
+<h3 id="上手步骤："><a href="#上手步骤：" class="headerlink" title="上手步骤："></a>上手步骤：</h3><ol>
+<li><strong>下载echarts</strong>：从github下载编译产物</li>
+<li>创建一个dom容器  id</li>
+<li>echarts的使用步骤（大象冰箱）：<ol>
+<li>初始化echart（init）—-打开冰箱</li>
+<li><strong>编写option —-把大象推进去</strong></li>
+<li>导入option到echarts对象（setOption） —-关上冰箱</li>
+</ol>
+</li>
+<li>饼图的option使用了哪些配置（结合文档）</li>
+</ol>
+<h2 id="制作一个简单的大屏页面："><a href="#制作一个简单的大屏页面：" class="headerlink" title="制作一个简单的大屏页面："></a>制作一个简单的大屏页面：</h2><h3 id="目标："><a href="#目标：" class="headerlink" title="目标："></a>目标：</h3><p>六个图的大屏（饼图、柱状图、地图、折线图、条形图、折线图）</p>
+<h3 id="制作步骤："><a href="#制作步骤：" class="headerlink" title="制作步骤："></a>制作步骤：</h3><ol>
+<li><p>简单设计大屏，编写html中6个dom和css（记得引用）</p>
+</li>
+<li><p>新建js文件（Why？），结合实例或文档编写echarts代码，引用js到html</p>
+</li>
+<li><p>根据需求细化可视化组件的内容（颜色标题等）</p>
+</li>
+</ol>
+<h3 id="关于地图可视化（地理坐标系）："><a href="#关于地图可视化（地理坐标系）：" class="headerlink" title="关于地图可视化（地理坐标系）："></a>关于地图可视化（地理坐标系）：</h3><ol>
+<li>详见echarts中option的geo配置</li>
+<li>推荐阿里的地图选择器下载Json</li>
+<li>在echarts中通过<strong>registerMap</strong>方法注册地图</li>
+<li>地图标点需要用到经纬度，实际业务中有时只有目标的地址，可以使用百度地图的api将<strong>地址转换为经纬度</strong></li>
+<li>series中指定type为map，绘制功能更丰富的地图可视化组件</li>
+</ol>
+<h2 id="讲讲echarts的其它相关操作："><a href="#讲讲echarts的其它相关操作：" class="headerlink" title="讲讲echarts的其它相关操作："></a>讲讲echarts的其它相关操作：</h2><ol>
+<li><p>事件响应（响应鼠标点击事件）</p>
+</li>
+<li><p>dom容器的隐藏与显示（可以实现类似弹出框的效果）</p>
+</li>
+<li><p>数据异步加载（ajax）</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2021/04/08/工作室技术分享会/" data-id="ckn87sgah001f1gujpfsmr0ax" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-阿里云《Serverless云开发从入门到实战》学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/12/18/阿里云《Serverless云开发从入门到实战》学习笔记/" class="article-date">
@@ -100,7 +179,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/12/18/阿里云《Serverless云开发从入门到实战》学习笔记/" data-id="ckiufmidp001o9kujojo6rxh2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/12/18/阿里云《Serverless云开发从入门到实战》学习笔记/" data-id="ckn87sgak001k1gujzvujw13x" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
@@ -147,7 +226,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/12/09/使用DNS映射解决Github访问缓慢的问题/" data-id="ckiufmico000a9kuj65eiawd8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/12/09/使用DNS映射解决Github访问缓慢的问题/" data-id="ckn87sga2000t1gujd00qnpij" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/其它/">其它</a></li></ul>
@@ -197,7 +276,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/12/09/解决无法使用Pycharm自带的pip安装第三方库的问题/" data-id="ckiufmidn001m9kuj0dfslnho" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/12/09/解决无法使用Pycharm自带的pip安装第三方库的问题/" data-id="ckn87sgb1001u1gujmm3khy1u" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
@@ -269,7 +348,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/12/06/使用Python可视化全国各省（除湖北）新冠疫情累计治愈病例数据/" data-id="ckiufmicv000h9kujebuhb6cv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/12/06/使用Python可视化全国各省（除湖北）新冠疫情累计治愈病例数据/" data-id="ckn87sg9q000f1gujvrt1whaw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
@@ -350,7 +429,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/24/关于Spring-Security文档上密码发展史的阅读报告/" data-id="ckiufmid6000x9kujo8gzx4ab" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/24/关于Spring-Security文档上密码发展史的阅读报告/" data-id="ckn87sga3000u1gujoq3hi8km" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
@@ -550,7 +629,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/24/大数据架构作业-简答题7/" data-id="ckiufmidl001j9kujbqclv9zg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/24/大数据架构作业-简答题7/" data-id="ckn87sgaf001b1guj4wwo7uci" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
@@ -615,7 +694,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/20/MySQL的安装指南以及常用命令/" data-id="ckiufmicd00029kuj6milaf7z" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/20/MySQL的安装指南以及常用命令/" data-id="ckn87sg9t000h1guj7kupc2pj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
@@ -663,7 +742,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/18/Nginx服务器的常用命令/" data-id="ckiufmic700009kuj3nh07aar" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/18/Nginx服务器的常用命令/" data-id="ckn87sg9b00021guj5fdx8w57" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
@@ -803,78 +882,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/17/使用Spring-Boot-Spring-Security-Hibernate-Bootstrap-JSP-Spring-Data-JPA-MySQL实现的登陆注册系统/" data-id="ckiufmics000e9kujdrtd5rtv" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-关于DAO模式的小记录" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/11/17/关于DAO模式的小记录/" class="article-date">
-  <time datetime="2020-11-17T13:34:09.000Z" itemprop="datePublished">2020-11-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/17/关于DAO模式的小记录/">关于DAO模式的小记录</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>上周学习SpringBoot编写用户登录系统，提到了DAO模式。</p>
-<br>
-
-<p>于是网上找了一下<strong>具体概念</strong>：</p>
-<blockquote>
-<p>Data Access Object Pattern or DAO pattern is used to separate low level data accessing API or operations from high level business services. Following are the participants in Data Access Object Pattern.</p>
-<ul>
-<li><strong>Data Access Object Interface</strong> - This interface defines the standard operations to be performed on a model object(s).</li>
-<li><strong>Data Access Object concrete class</strong> - This class implements above interface. This class is responsible to get data from a data source which can be database / xml or any other storage mechanism.</li>
-<li><strong>Model Object or Value Object</strong> - This object is simple POJO containing get/set methods to store data retrieved using DAO class.</li>
-</ul>
-</blockquote>
-<br>
-
-<p><em>渣渣翻译一下</em>：</p>
-<p><strong>DAO模式用于应用的数据操作，实现了底层数据操作和高层业务的分离。</strong></p>
-<br>
-
-<p>它分为以下三个组成部分：</p>
-<ol>
-<li><strong>DAO接口</strong> - 定义了对于底层模式对象应该有的规范化操作；</li>
-<li><strong>DAO实体类</strong> - 具体实现DAO接口里面定义的操作，<strong>负责从数据库或其它形式的数据存储中读取数据</strong>；</li>
-<li><strong>Model模式对象</strong> - 这是一个简单的<strong>POJO</strong>(<strong>Plain Old Java Object</strong>，持久化类)，用于定义需要存储的数据的格式。这个类里面，有许多<strong>get/set方法</strong>，这些方法使用DAO实体类，实现对应数据的存储和修改。</li>
-</ol>
-<br>
-
-<p>关于上述引用的具体内容，可以看看<a href="https://www.tutorialspoint.com/design_pattern/data_access_object_pattern.htm" target="_blank" rel="noopener">这个网页</a>。</p>
-<br>
-
-<p><strong>小结：</strong></p>
-<p>DAO模式是一种将底层数据结构和高层数据操作描述分离的设计模式。</p>
-<p>通过使用该模式，可以简化用户开发难度，分层进行应用开发。</p>
-<p>用户可以从底层的数据存储解放出来（直接定义POJO），从而更加专注于业务需要的数据操作的具体实现上（编写DAO实体类）。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/17/关于DAO模式的小记录/" data-id="ckiufmid5000v9kujlfq1q5wm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/17/使用Spring-Boot-Spring-Security-Hibernate-Bootstrap-JSP-Spring-Data-JPA-MySQL实现的登陆注册系统/" data-id="ckn87sg9l000a1gujabbl01w9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
@@ -904,7 +912,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其它/">其它</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/后端/">后端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编程语言入门/">编程语言入门</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其它/">其它</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/后端/">后端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编程语言入门/">编程语言入门</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
     </div>
   </div>
 
@@ -914,7 +922,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Linux/" style="font-size: 12.5px;">Linux</a> <a href="/tags/其它/" style="font-size: 12.5px;">其它</a> <a href="/tags/后端/" style="font-size: 20px;">后端</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/编程语言入门/" style="font-size: 15px;">编程语言入门</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/课程作业/" style="font-size: 17.5px;">课程作业</a>
+      <a href="/tags/Linux/" style="font-size: 12.5px;">Linux</a> <a href="/tags/其它/" style="font-size: 12.5px;">其它</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/后端/" style="font-size: 20px;">后端</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/编程语言入门/" style="font-size: 15px;">编程语言入门</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/课程作业/" style="font-size: 17.5px;">课程作业</a>
     </div>
   </div>
 
@@ -923,7 +931,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li></ul>
     </div>
   </div>
 
@@ -934,6 +942,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2021/04/08/工作室技术分享会/">工作室技术分享会</a>
+          </li>
         
           <li>
             <a href="/2020/12/18/阿里云《Serverless云开发从入门到实战》学习笔记/">阿里云《Serverless云开发从入门到实战》学习笔记</a>
@@ -951,10 +963,6 @@
             <a href="/2020/12/06/使用Python可视化全国各省（除湖北）新冠疫情累计治愈病例数据/">使用Python可视化全国各省（除湖北）新冠疫情累计治愈病例数据</a>
           </li>
         
-          <li>
-            <a href="/2020/11/24/关于Spring-Security文档上密码发展史的阅读报告/">关于Spring Security文档上密码发展史的阅读报告</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -967,7 +975,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2020 Miaopashi<br>
+      &copy; 2021 Miaopashi<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

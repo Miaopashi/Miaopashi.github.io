@@ -62,6 +62,77 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-关于DAO模式的小记录" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/17/关于DAO模式的小记录/" class="article-date">
+  <time datetime="2020-11-17T13:34:09.000Z" itemprop="datePublished">2020-11-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/17/关于DAO模式的小记录/">关于DAO模式的小记录</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>上周学习SpringBoot编写用户登录系统，提到了DAO模式。</p>
+<br>
+
+<p>于是网上找了一下<strong>具体概念</strong>：</p>
+<blockquote>
+<p>Data Access Object Pattern or DAO pattern is used to separate low level data accessing API or operations from high level business services. Following are the participants in Data Access Object Pattern.</p>
+<ul>
+<li><strong>Data Access Object Interface</strong> - This interface defines the standard operations to be performed on a model object(s).</li>
+<li><strong>Data Access Object concrete class</strong> - This class implements above interface. This class is responsible to get data from a data source which can be database / xml or any other storage mechanism.</li>
+<li><strong>Model Object or Value Object</strong> - This object is simple POJO containing get/set methods to store data retrieved using DAO class.</li>
+</ul>
+</blockquote>
+<br>
+
+<p><em>渣渣翻译一下</em>：</p>
+<p><strong>DAO模式用于应用的数据操作，实现了底层数据操作和高层业务的分离。</strong></p>
+<br>
+
+<p>它分为以下三个组成部分：</p>
+<ol>
+<li><strong>DAO接口</strong> - 定义了对于底层模式对象应该有的规范化操作；</li>
+<li><strong>DAO实体类</strong> - 具体实现DAO接口里面定义的操作，<strong>负责从数据库或其它形式的数据存储中读取数据</strong>；</li>
+<li><strong>Model模式对象</strong> - 这是一个简单的<strong>POJO</strong>(<strong>Plain Old Java Object</strong>，持久化类)，用于定义需要存储的数据的格式。这个类里面，有许多<strong>get/set方法</strong>，这些方法使用DAO实体类，实现对应数据的存储和修改。</li>
+</ol>
+<br>
+
+<p>关于上述引用的具体内容，可以看看<a href="https://www.tutorialspoint.com/design_pattern/data_access_object_pattern.htm" target="_blank" rel="noopener">这个网页</a>。</p>
+<br>
+
+<p><strong>小结：</strong></p>
+<p>DAO模式是一种将底层数据结构和高层数据操作描述分离的设计模式。</p>
+<p>通过使用该模式，可以简化用户开发难度，分层进行应用开发。</p>
+<p>用户可以从底层的数据存储解放出来（直接定义POJO），从而更加专注于业务需要的数据操作的具体实现上（编写DAO实体类）。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/11/17/关于DAO模式的小记录/" data-id="ckn87sgaa00141gujymyyfikl" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-大数据架构作业-简答题6" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/11/16/大数据架构作业-简答题6/" class="article-date">
@@ -156,7 +227,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/16/大数据架构作业-简答题6/" data-id="ckiufmidi001e9kuj3zatlefk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/16/大数据架构作业-简答题6/" data-id="ckn87sgad00191gujlriyafrz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
@@ -301,7 +372,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/12/大数据架构作业-简答题5/" data-id="ckiufmidg001c9kuj2hz1kx6j" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/12/大数据架构作业-简答题5/" data-id="ckn87sgax001q1gujej6w2vn4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
@@ -467,7 +538,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/06/使用SpringBoot编写一个https网站/" data-id="ckiufmicx000j9kujvbbysvr9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/06/使用SpringBoot编写一个https网站/" data-id="ckn87sg9v000k1gujwpz29o27" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
@@ -532,7 +603,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/05/大数据架构作业-简答题4/" data-id="ckiufmidd00179kujg8gx0423" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/05/大数据架构作业-简答题4/" data-id="ckn87sgaj001h1guj6g29zptm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
@@ -666,7 +737,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/04/大数据架构作业-简答题3/" data-id="ckiufmide00199kujr1mr4i3w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/04/大数据架构作业-简答题3/" data-id="ckn87sga6000z1gujhtms96rg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
@@ -833,7 +904,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/10/08/学习内网穿透/" data-id="ckiufmidk001h9kujnam12912" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/10/08/学习内网穿透/" data-id="ckn87sgay001r1gujmnq8a4x6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
@@ -927,7 +998,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/09/27/WSLinux之Ubuntu-安装rpm包/" data-id="ckiufmich00049kuj34bfjh8e" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/09/27/WSLinux之Ubuntu-安装rpm包/" data-id="ckn87sg9200001guj6aww62jt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
@@ -989,7 +1060,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/09/26/大数据架构作业-简答题2/" data-id="ckiufmidb00149kujlxoloruf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/09/26/大数据架构作业-简答题2/" data-id="ckn87sgag001d1guj8x017jxc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
@@ -1279,146 +1350,10 @@ ChildClass());</code><br>※ <strong>泛型只能使用引用类型</strong>, �
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/09/23/入门JavaSE-进阶篇/" data-id="ckiufmid2000r9kuj3s3wcsz6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/09/23/入门JavaSE-进阶篇/" data-id="ckn87sg9z000o1gujeeqzl1n0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程语言入门/">编程语言入门</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-为Windows-Terminal配置Ubuntu系统" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/09/21/为Windows-Terminal配置Ubuntu系统/" class="article-date">
-  <time datetime="2020-09-21T12:19:20.000Z" itemprop="datePublished">2020-09-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/21/为Windows-Terminal配置Ubuntu系统/">为Windows Terminal配置Ubuntu系统(Windows Subsystem for Linux)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>最近掘金上看了一篇文章，简单介绍了安装WindowsTerminal以及LinuxUbuntu之后，进行基本配置改善shell外观。我原来也用过windows的ubuntu子系统，抱着改善一下shell外观的念头，大概跟着做了一下，遇到了一些问题，记录一下。</em></p>
-<blockquote>
-<p>文章链接：<a href="https://juejin.im/post/6865596788490338311" target="_blank" rel="noopener">https://juejin.im/post/6865596788490338311</a></p>
-</blockquote>
-<br>
-
-<p>第一步，安装WindowsTerminal和Ubuntu是没有问题的。打开控制面板里面的Linux子系统功能也没有问题。另外说一下，我安装的是Ubuntu20.04，毕竟技术学新不学旧嘛。</p>
-<p>微软商店安装完上面两个应用之后，打开WindowsTerminal，就可以选择Ubuntu窗口了。于是下一步，给ubuntu的软件源换上镜像源。</p>
-<br>
-
-<h2 id="关于linux的vi文本编辑器的使用方法"><a href="#关于linux的vi文本编辑器的使用方法" class="headerlink" title="关于linux的vi文本编辑器的使用方法"></a>关于linux的vi文本编辑器的使用方法</h2><p>在linux下可以使用vi或者vim，进行文本编辑。大名鼎鼎的vim自然不用说，vim和vi的基本操作基本一致，但是前者的特殊操作多得多而且非常复杂，我选择这次先学习一下vi。</p>
-<p>找到了一篇指导博客，整理了Linux的文件编辑命令。<br>博客地址：<a href="https://blog.csdn.net/u013142781/article/details/50735470" target="_blank" rel="noopener">https://blog.csdn.net/u013142781/article/details/50735470</a></p>
-<br>
-
-<p>关于上面这篇博客简单概括一下。</p>
-<p>vi编辑器有3种编辑模式：命令行模式、文本输入模式、末行模式。</p>
-<p>使用vi命令打开文本之后，默认进入命令行模式。</p>
-<p>命令行模式下，输入文本命令（i、l、a等等）会跳转至对应的文本输入模式，此时就可以开始文本编辑了。</p>
-<p>文本输入模式下，按Esc回到命令行模式。</p>
-<p>命令行模式下按：进入末行模式，使用不同的结束命令，完成对应的操作，退出vi。</p>
-<br>
-
-<p>举一个例子</p>
-<p><em>比如说我要修改wsl的Ubuntu软件源。</em><br>首先，我要用vi打开软件源所在的文件。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
-
-<p>然后，我要输入指定软件源的语句，于是按下i进入文本输入模式<br><code>i</code><br>接着，在合适的位置把复制的文本粘贴进去<br><code>Linux按右键粘贴</code><br>如果想要删除多行，可以在末行模式使用命令<br><code>：m, n de</code><br>即可删除m到n行的文本<br>最后，写入文件并且退出<br><code>:wq!</code></p>
-<p>然后，我要输入指定软件源的语句，于是按下i进入文本输入模式<br>i<br>接着，在合适的位置把复制的文本粘贴进去<br>Linux按右键粘贴<br>如果想要删除多行，可以在末行模式使用命令<br>：m, n de<br>即可删除m到n行的文本<br>最后，写入文件并且退出<br>:wq!</p>
-<br>
-
-<p>关于软件源，这里列一下清华源（Ubuntu 20.04）：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse</span><br><span class="line"><span class="meta">#</span> deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line"><span class="meta">#</span> deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse</span><br><span class="line"><span class="meta">#</span> deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line"><span class="meta">#</span> deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 预发布软件源，不建议启用</span><br><span class="line"><span class="meta">#</span> deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse</span><br><span class="line"><span class="meta">#</span> deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse</span><br></pre></td></tr></table></figure>
-
-<p>关于这个软件源，我后面发现安装东西的时候出了些问题。</p>
-<p><strong>这里备一份默认的软件源！</strong></p>
-<p>另外，有一个恢复原来的源的命令：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -ra /etc/apt/sources.list /etc/apt/sources.list.bak</span><br></pre></td></tr></table></figure>
-
-<p>另另外，Ubuntu每个版本都有一个代号。比如20.04（LTS）版本的代号是Focal Fossa（专注的马达加斯加长尾狸猫）。代号可以用来区分Ubuntu的源的版本。有命令可以查看当前Ubuntu的代号（Description）：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsb_release -a</span><br></pre></td></tr></table></figure>
-
-<p>github上找到的默认软件源：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">deb http://archive.ubuntu.com/ubuntu/ focal main restricted universe multiverse</span><br><span class="line">deb-src http://archive.ubuntu.com/ubuntu/ focal main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://archive.ubuntu.com/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line">deb-src http://archive.ubuntu.com/ubuntu/ focal-updates main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://archive.ubuntu.com/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line">deb-src http://archive.ubuntu.com/ubuntu/ focal-security main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://archive.ubuntu.com/ubuntu/ focal-backports main restricted universe multiverse</span><br><span class="line">deb-src http://archive.ubuntu.com/ubuntu/ focal-backports main restricted universe multiverse</span><br><span class="line"></span><br><span class="line">deb http://archive.canonical.com/ubuntu focal partner</span><br><span class="line">deb-src http://archive.canonical.com/ubuntu focal partner</span><br></pre></td></tr></table></figure>
-
-<br>
-
-<p>添加了软件源之后，开始安装shell终端，很简单 sudo apt install zsh 即可。</p>
-<p>然后这里我遇到了一个小问题，系统提示找不到zsh这个包。搜索了一下，发现新装的Ubuntu需要更新下apt的repository cache。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
-
-<p>然后再安装即可~</p>
-<p>参考文章：<a href="https://itsfoss.com/unable-to-locate-package-error-ubuntu/" target="_blank" rel="noopener">https://itsfoss.com/unable-to-locate-package-error-ubuntu/</a></p>
-<br>
-
-<h2 id="安装oh-my-zsh时，又遇到了一些问题。"><a href="#安装oh-my-zsh时，又遇到了一些问题。" class="headerlink" title="安装oh-my-zsh时，又遇到了一些问题。"></a><strong>安装oh-my-zsh时，又遇到了一些问题。</strong></h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"</span><br></pre></td></tr></table></figure>
-
-<p><strong>这里直接报错：github：443端口拒绝访问</strong></p>
-<p>一开始，我以为是这个地址有问题。上github的ohMyZsh项目上看了一下，发现命令没有问题。<br>然后发现原来curl的地址被墙了……</p>
-<p>但是我明明是开着梯子的，为啥就没法curl下来？？</p>
-<p>原来shell窗口需要自己设置代理，根据另外一篇博客，终于解决了我的问题。<br>shell设置代理参考文章：<a href="https://zhuanlan.zhihu.com/p/115450863" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/115450863</a></p>
-<br>
-
-<p>简单来说就一个命令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export https_proxy=socks5://127.0.0.1:10808 http_proxy=socks5://127.0.0.1:10808 all_proxy=socks5://127.0.0.1:10808</span><br></pre></td></tr></table></figure>
-
-<p><strong>注意，这里的端口是自己的梯子开放的端口。</strong></p>
-<br>
-
-<p>在第一次配置代理的时候，我发现curl的时候被梯子拒绝了。发现是因为没有指明sock5协议。</p>
-<p>由于我的梯子没有开放http协议的设置，我没办法设置http的端口。所以10808是我sock5协议开放的端口，需要事先说明协议。</p>
-<p>注意，这里的端口是自己的梯子开放的端口。<br>在第一次配置代理的时候，我发现curl的时候被梯子拒绝了。后来发现，是因为没有指明sock5协议。由于我的梯子没有开放http协议的设置，我没办法设置http的端口。所以10808是我sock5协议开放的端口，需要事先说明协议。</p>
-<p>另外如果想要恢复成原来的代理状态，可以参考</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">unset https_proxy</span><br><span class="line">unset http_proxy</span><br><span class="line">unset all_proxy</span><br><span class="line">env|grep -I proxy</span><br></pre></td></tr></table></figure>
-
-<p>最后一行是干什么我没弄清楚。</p>
-<p>最后一行是干什么我没弄清楚。</p>
-<br>
-
-<p>安装了oh-my-zsh之后，shell界面终于有了飞跃，画面看上去简介了不少。<br>根据我们的指导文章，我们还要看一看<u>其它zsh主题</u>，把终端的颜值再弄上去一个层次。在 <code>/home/username</code> 目录下使用<code>vi ~/.zshrc</code> 发现<code>OhMyZsh</code>的<code>Plugins</code>只有<code>git</code>，没法选择主题。于是开始在TerminalSplash上看看热门主题。<br>地址：<a href="https://terminalsplash.com/" target="_blank" rel="noopener">https://terminalsplash.com/</a></p>
-<br>
-
-<p>terminalsplash上看到一个<strong>miku</strong>的主题，怦然心动。开始琢磨怎么把<del>纸片人老婆</del>miku弄到shell终端上。<br>根据Windows Terminal Miku项目github的readme，得知需要把profiles文件夹里的文件覆盖到windowsterminal的data文件内。<br>于是，我开始<strong>寻找Windowsterminal的文件夹位置</strong>。</p>
-<br>
-
-<p>传统的文件检索太慢，所以我使用了一个软件叫<strong>Eveything</strong>，很快找到了多个相关的文件夹。有的文件夹无法访问，需要修改一下文件目录的所有者。具体操作可以参照这篇：<a href="http://www.xitongcheng.com/jiaocheng/win10_article_11880.html。" target="_blank" rel="noopener">http://www.xitongcheng.com/jiaocheng/win10_article_11880.html。</a><br>经过一番排查，终于在<strong>packetges目录下</strong>找到的需要的文件。</p>
-<br>
-
-<p>但是，把profile文件复制到对应文件之后发现shell窗口<strong>没有任何变化</strong>。<br>通过查看其它介绍windowsterminal的文章，发现原来修改shell终端的外观，<strong>需要修改windowsterminal/LocalState/settings.json</strong>。于是通过复制miku主题的json相关代码到setting.json，并且在根目录复制对应文件之后，成功修改了shell的外观！<br>其它windowsterminal参考文章：<a href="https://my.oschina.net/u/4269669/blog/4437681" target="_blank" rel="noopener">https://my.oschina.net/u/4269669/blog/4437681</a></p>
-<br>
-
-<p>至此，终于安装好了wsl服务，并且修改了shell的外观。对于这个miku主题我还是很满意的。感谢原文章的作者提供的指引~</p>
-<br>
-
-<p>参考的github项目：</p>
-<ol>
-<li>oh-my-zsh:<br><a href="https://github.com/ohmyzsh/ohmyzsh" target="_blank" rel="noopener">https://github.com/ohmyzsh/ohmyzsh</a></li>
-<li>windows-terminal-miku:<br><a href="https://github.com/DamourYouKnow/windows-terminal-miku" target="_blank" rel="noopener">https://github.com/DamourYouKnow/windows-terminal-miku</a></li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/09/21/为Windows-Terminal配置Ubuntu系统/" data-id="ckiufmicm00099kujus2d508m" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
 
     </footer>
   </div>
@@ -1445,7 +1380,7 @@ ChildClass());</code><br>※ <strong>泛型只能使用引用类型</strong>, �
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其它/">其它</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/后端/">后端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编程语言入门/">编程语言入门</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其它/">其它</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/后端/">后端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编程语言入门/">编程语言入门</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
     </div>
   </div>
 
@@ -1455,7 +1390,7 @@ ChildClass());</code><br>※ <strong>泛型只能使用引用类型</strong>, �
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Linux/" style="font-size: 12.5px;">Linux</a> <a href="/tags/其它/" style="font-size: 12.5px;">其它</a> <a href="/tags/后端/" style="font-size: 20px;">后端</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/编程语言入门/" style="font-size: 15px;">编程语言入门</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/课程作业/" style="font-size: 17.5px;">课程作业</a>
+      <a href="/tags/Linux/" style="font-size: 12.5px;">Linux</a> <a href="/tags/其它/" style="font-size: 12.5px;">其它</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/后端/" style="font-size: 20px;">后端</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/编程语言入门/" style="font-size: 15px;">编程语言入门</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/课程作业/" style="font-size: 17.5px;">课程作业</a>
     </div>
   </div>
 
@@ -1464,7 +1399,7 @@ ChildClass());</code><br>※ <strong>泛型只能使用引用类型</strong>, �
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li></ul>
     </div>
   </div>
 
@@ -1475,6 +1410,10 @@ ChildClass());</code><br>※ <strong>泛型只能使用引用类型</strong>, �
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2021/04/08/工作室技术分享会/">工作室技术分享会</a>
+          </li>
         
           <li>
             <a href="/2020/12/18/阿里云《Serverless云开发从入门到实战》学习笔记/">阿里云《Serverless云开发从入门到实战》学习笔记</a>
@@ -1492,10 +1431,6 @@ ChildClass());</code><br>※ <strong>泛型只能使用引用类型</strong>, �
             <a href="/2020/12/06/使用Python可视化全国各省（除湖北）新冠疫情累计治愈病例数据/">使用Python可视化全国各省（除湖北）新冠疫情累计治愈病例数据</a>
           </li>
         
-          <li>
-            <a href="/2020/11/24/关于Spring-Security文档上密码发展史的阅读报告/">关于Spring Security文档上密码发展史的阅读报告</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -1508,7 +1443,7 @@ ChildClass());</code><br>※ <strong>泛型只能使用引用类型</strong>, �
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2020 Miaopashi<br>
+      &copy; 2021 Miaopashi<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

@@ -5,16 +5,20 @@
   
 
   
-  <title>tags | MPS的个人博客</title>
+  <title>工作室技术分享会 | MPS的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+  <meta name="description" content="基础知识：html、css、js的基本概念，可以参照w3school学习使用方法 echarts简介：使用 JavaScript 实现的开源可视化库 提供常规的折线图、柱状图、散点图、饼图、K线图，用于统计的盒形图，用于地理数据可视化的地图、热力图、线图，用于关系数据可视化的关系图、treemap、旭日图，多维数据可视化的平行坐标，还有用于 BI 的漏斗图，仪表盘，并且支持图与图之间的混搭 详见e">
+<meta name="keywords" content="前端">
+<meta property="og:type" content="article">
+<meta property="og:title" content="工作室技术分享会">
+<meta property="og:url" content="http://yoursite.com/2021/04/08/工作室技术分享会/index.html">
 <meta property="og:site_name" content="MPS的个人博客">
+<meta property="og:description" content="基础知识：html、css、js的基本概念，可以参照w3school学习使用方法 echarts简介：使用 JavaScript 实现的开源可视化库 提供常规的折线图、柱状图、散点图、饼图、K线图，用于统计的盒形图，用于地理数据可视化的地图、热力图、线图，用于关系数据可视化的关系图、treemap、旭日图，多维数据可视化的平行坐标，还有用于 BI 的漏斗图，仪表盘，并且支持图与图之间的混搭 详见e">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-12T03:29:14.383Z">
+<meta property="og:updated_time" content="2021-04-08T01:41:18.673Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tags">
+<meta name="twitter:title" content="工作室技术分享会">
+<meta name="twitter:description" content="基础知识：html、css、js的基本概念，可以参照w3school学习使用方法 echarts简介：使用 JavaScript 实现的开源可视化库 提供常规的折线图、柱状图、散点图、饼图、K线图，用于统计的盒形图，用于地理数据可视化的地图、热力图、线图，用于关系数据可视化的关系图、treemap、旭日图，多维数据可视化的平行坐标，还有用于 BI 的漏斗图，仪表盘，并且支持图与图之间的混搭 详见e">
   
     <link rel="alternate" href="/atom.xml" title="MPS的个人博客" type="application/atom+xml">
   
@@ -61,10 +65,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-工作室技术分享会" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/tags/index.html" class="article-date">
-  <time datetime="2019-10-12T03:25:14.000Z" itemprop="datePublished">2019-10-12</time>
+    <a href="/2021/04/08/工作室技术分享会/" class="article-date">
+  <time datetime="2021-04-08T01:39:27.000Z" itemprop="datePublished">2021-04-08</time>
 </a>
     
   </div>
@@ -75,7 +79,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      tags
+      工作室技术分享会
     </h1>
   
 
@@ -83,17 +87,70 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="基础知识："><a href="#基础知识：" class="headerlink" title="基础知识："></a>基础知识：</h2><p>html、css、js的基本概念，可以参照w3school学习使用方法</p>
+<h2 id="echarts简介："><a href="#echarts简介：" class="headerlink" title="echarts简介："></a>echarts简介：</h2><p>使用 <strong>JavaScript</strong> 实现的开源可视化库</p>
+<p>提供常规的<strong>折线图、柱状图、散点图、饼图、K线图</strong>，用于统计的<strong>盒形图</strong>，用于地理数据可视化的<strong>地图、热力图、线图</strong>，用于关系数据可视化的<strong>关系图、treemap、旭日图</strong>，多维数据可视化的平行坐标，还有用于 BI 的<strong>漏斗图，仪表盘</strong>，并且支持图与图之间的混搭</p>
+<p><em>详见<a href="https://echarts.apache.org/zh/index.html" target="_blank" rel="noopener">echarts的官方文档</a></em></p>
+<h2 id="简单上手绘制一个饼图页面："><a href="#简单上手绘制一个饼图页面：" class="headerlink" title="简单上手绘制一个饼图页面："></a>简单上手绘制一个饼图页面：</h2><p>框架：flask（后端）、<strong>echarts（前端）</strong></p>
+<p>IDE：Pycharm</p>
+<h3 id="上手步骤："><a href="#上手步骤：" class="headerlink" title="上手步骤："></a>上手步骤：</h3><ol>
+<li><strong>下载echarts</strong>：从github下载编译产物</li>
+<li>创建一个dom容器  id</li>
+<li>echarts的使用步骤（大象冰箱）：<ol>
+<li>初始化echart（init）—-打开冰箱</li>
+<li><strong>编写option —-把大象推进去</strong></li>
+<li>导入option到echarts对象（setOption） —-关上冰箱</li>
+</ol>
+</li>
+<li>饼图的option使用了哪些配置（结合文档）</li>
+</ol>
+<h2 id="制作一个简单的大屏页面："><a href="#制作一个简单的大屏页面：" class="headerlink" title="制作一个简单的大屏页面："></a>制作一个简单的大屏页面：</h2><h3 id="目标："><a href="#目标：" class="headerlink" title="目标："></a>目标：</h3><p>六个图的大屏（饼图、柱状图、地图、折线图、条形图、折线图）</p>
+<h3 id="制作步骤："><a href="#制作步骤：" class="headerlink" title="制作步骤："></a>制作步骤：</h3><ol>
+<li><p>简单设计大屏，编写html中6个dom和css（记得引用）</p>
+</li>
+<li><p>新建js文件（Why？），结合实例或文档编写echarts代码，引用js到html</p>
+</li>
+<li><p>根据需求细化可视化组件的内容（颜色标题等）</p>
+</li>
+</ol>
+<h3 id="关于地图可视化（地理坐标系）："><a href="#关于地图可视化（地理坐标系）：" class="headerlink" title="关于地图可视化（地理坐标系）："></a>关于地图可视化（地理坐标系）：</h3><ol>
+<li>详见echarts中option的geo配置</li>
+<li>推荐阿里的地图选择器下载Json</li>
+<li>在echarts中通过<strong>registerMap</strong>方法注册地图</li>
+<li>地图标点需要用到经纬度，实际业务中有时只有目标的地址，可以使用百度地图的api将<strong>地址转换为经纬度</strong></li>
+<li>series中指定type为map，绘制功能更丰富的地图可视化组件</li>
+</ol>
+<h2 id="讲讲echarts的其它相关操作："><a href="#讲讲echarts的其它相关操作：" class="headerlink" title="讲讲echarts的其它相关操作："></a>讲讲echarts的其它相关操作：</h2><ol>
+<li><p>事件响应（响应鼠标点击事件）</p>
+</li>
+<li><p>dom容器的隐藏与显示（可以实现类似弹出框的效果）</p>
+</li>
+<li><p>数据异步加载（ajax）</p>
+</li>
+</ol>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/tags/index.html" data-id="ckn87sg9c00031guj1xvg57c5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2021/04/08/工作室技术分享会/" data-id="ckn87sgah001f1gujpfsmr0ax" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+
     </footer>
   </div>
   
     
+<nav id="article-nav">
+  
+  
+    <a href="/2020/12/18/阿里云《Serverless云开发从入门到实战》学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">阿里云《Serverless云开发从入门到实战》学习笔记</div>
+    </a>
+  
+</nav>
+
   
 </article>
 
