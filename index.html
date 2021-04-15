@@ -62,6 +62,125 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-毕节市可视化Java项目博客记录-日期格式的转换" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/04/15/毕节市可视化Java项目博客记录-日期格式的转换/" class="article-date">
+  <time datetime="2021-04-15T03:20:01.000Z" itemprop="datePublished">2021-04-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/04/15/毕节市可视化Java项目博客记录-日期格式的转换/">毕节市可视化Java项目博客记录----日期格式的转换</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>数据可视化中经常要使用日期作为查询条件或者展示内容，这需要前后端对时间进行转化，本篇的目的是记录我在本项目中使用的日期转换方法</em></p>
+<br>
+
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>后端虽然可以直接使用固定格式的字符串（如：”2021-12-12 11:11:11”）进行<code>sql</code>查询，但是为了保证时间的准确性（排除诸如不同时区对时间的影响），最好还是使用<code>Date</code>类型进行查询<br>另一方面，前端显示的时间格式一般为字符串（如：”2021-12-12 11:11:11”或”2021-12-12T11:11:11”，前者作为<strong>前端表格</strong>显示的时间结果并且可以直接作为<code>sql</code>查询条件，后者用于<code>h5</code>自带的<code>datetime</code>类型<code>Input</code>标签的<strong>时间显示</strong>）<br>这就导致后端需要对时间<strong>字符串</strong>和<strong><code>Date</code>类型变量</strong>进行转换，或者也可以把转换工作交给前端。在这个项目中，对于<strong>空格时间字符串</strong>在<strong>后端</strong>转化成<strong><code>Date</code>类型</strong>，对于<strong>T时间字符串</strong>则先在<strong>前端</strong>将其转化为<strong>空格时间字符串</strong>，后续会进行说明</p>
+<br>
+
+<h2 id="Java中日期的格式化"><a href="#Java中日期的格式化" class="headerlink" title="Java中日期的格式化"></a>Java中日期的格式化</h2><p>Java中的日期格式化可以通过<code>DateFormat</code>类和<strong><code>SimpleDateFormat</code>类</strong>完成，后者可以指定相对随意的文本格式，所以这里使用后者进行日期格式转换</p>
+<p>可以看到<code>SimpleDateFormat</code>构造方法的参数可以比较方便地指定时间字符串的样式，其中y表示面年份、M表示月份、d表示天数……<br><a href="http://c.biancheng.net/view/878.html" target="_blank" rel="noopener">http://c.biancheng.net/view/878.html</a><br>需要注意的一点是，由于参数规定了特殊字符对应具体的时间概念，所以会和时间字符串中的非时间字符产生歧义。比如：对于”2021-12-12T11:11:11”，如果想利用<code>SimpleDateFormat</code>转化为<code>Date</code>变量，调用构造方法<code>SimpleDateFormat(&quot;yyyy-MM-ddTHH:mm:ss&quot;)</code>，参数中的T会产生协议，当调用parse()方法的时候就会报错。这就是我在项目中把T时间字符串和空白字符串之间的转换留在前端的原因。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用SimpleDateFormat需要先生成一个对象</span></span><br><span class="line">SimpleDateFormat f = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line"><span class="comment">// 调用这个对象的parse方法，可以根据空格时间字符串，生成Date变量</span></span><br><span class="line">Date startDate = f.parse(startTime);</span><br><span class="line"><span class="comment">// 调用这个对象的format方法，可以根据Date变量，生成指定格式的字符串</span></span><br><span class="line">SimpleDateFormat nf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"今天是yy-MM-dd"</span>);</span><br><span class="line">String today = nf.format(<span class="keyword">new</span> Date());</span><br></pre></td></tr></table></figure>
+
+<p>可以看到<code>SimpleDateFormat()</code>构造方法的参数可以比较方便地<strong>指定时间字符串的样式</strong>，其中<code>y</code>表示面年份、<code>M</code>表示月份、<code>d</code>表示天数……</p>
+<table>
+<thead>
+<tr>
+<th>字母</th>
+<th>含义</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>y</td>
+<td>年份。一般用 yy 表示两位年份，yyyy 表示 4 位年份</td>
+<td>使用 yy 表示的年扮，如 11； 使用 yyyy 表示的年份，如 2011</td>
+</tr>
+<tr>
+<td>M</td>
+<td>月份。一般用 MM 表示月份，如果使用 MMM，则会 根据语言环境显示不同语言的月份</td>
+<td>使用 MM 表示的月份，如 05； 使用 MMM 表示月份，在 Locale.CHINA 语言环境下，如“十月”；在 Locale.US 语言环境下，如 Oct</td>
+</tr>
+<tr>
+<td>d</td>
+<td>月份中的天数。一般用 dd 表示天数</td>
+<td>使用 dd 表示的天数，如 10</td>
+</tr>
+<tr>
+<td>D</td>
+<td>年份中的天数。表示当天是当年的第几天， 用 D 表示</td>
+<td>使用 D 表示的年份中的天数，如 295</td>
+</tr>
+<tr>
+<td>E</td>
+<td>星期几。用 E 表示，会根据语言环境的不同， 显示不 同语言的星期几</td>
+<td>使用 E 表示星期几，在 Locale.CHINA 语 言环境下，如“星期四”；在 Locale.US 语 言环境下，如 Thu</td>
+</tr>
+<tr>
+<td>H</td>
+<td>一天中的小时数（0~23)。一般用 HH 表示小时数</td>
+<td>使用 HH 表示的小时数，如 18</td>
+</tr>
+<tr>
+<td>h</td>
+<td>一天中的小时数（1~12)。一般使用 hh 表示小时数</td>
+<td>使用 hh 表示的小时数，如 10 (注意 10 有 可能是 10 点，也可能是 22 点）</td>
+</tr>
+<tr>
+<td>m</td>
+<td>分钟数。一般使用 mm 表示分钟数</td>
+<td>使用 mm 表示的分钟数，如 29</td>
+</tr>
+<tr>
+<td>s</td>
+<td>秒数。一般使用 ss 表示秒数</td>
+<td>使用 ss 表示的秒数，如 38</td>
+</tr>
+<tr>
+<td>S</td>
+<td>毫秒数。一般使用 SSS 表示毫秒数</td>
+<td>使用 SSS 表示的毫秒数，如 156</td>
+</tr>
+</tbody></table>
+<p><em>表格来自：<a href="http://c.biancheng.net/view/878.html" target="_blank" rel="noopener">http://c.biancheng.net/view/878.html</a></em><br>需要注意的一点是，由于参数规定了<strong>特殊字符</strong>对应<strong>具体的时间概念</strong>，所以会和时间字符串中的<strong>非时间字符</strong>产生<strong>歧义</strong>。比如：对于”2021-12-12T11:11:11”，如果想利用<code>SimpleDateFormat</code>转化为<code>Date</code>变量，调用构造方法<code>SimpleDateFormat(&quot;yyyy-MM-ddTHH:mm:ss&quot;)</code>，参数中的<strong>“T”</strong>会产生歧义，当调用<code>parse()</code>方法的时候就会报错。这就是我在项目中把<strong>T时间字符串</strong>和<strong>空白字符串</strong>之间的转换，留在前端的原因。</p>
+<br>
+
+<h2 id="JavaScript中的字符串格式化"><a href="#JavaScript中的字符串格式化" class="headerlink" title="JavaScript中的字符串格式化"></a>JavaScript中的字符串格式化</h2><p>在上面遇到了<strong>T时间字符串</strong>的转化问题，这里选择了在前端把<strong>T字符串</strong>转为<strong>空格字符串</strong>，后端再由<strong>空格字符串</strong>转为<strong><code>Date</code>变量</strong>，或者直接进行<code>sql</code>查询。下面贴上前端的字符串转化的代码</p>
+<p>通过指定<code>oldSign</code>和<code>newSign</code>，可以实现T字符串和空格字符串的转化（如T转空格则调用<code>getDateTimeString(originString, &#39;T&#39;, &#39; &#39;)</code>），当然这个代码是临时拼凑的所以写的不咋滴</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> getDateTimeString = <span class="function"><span class="keyword">function</span> <span class="title">getDateTimeString</span>(<span class="params">originString, oldSign, newSign</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 在2021-11-11T00:00:00与2021-11-11 00:00:00之间相互转化</span></span><br><span class="line">    <span class="keyword">let</span> timeValues = originString.split(oldSign),</span><br><span class="line">        res = timeValues[<span class="number">0</span>] + newSign + timeValues[<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">if</span> (res !== <span class="string">" undefined"</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通过指定<code>oldSign</code>和<code>newSign</code>，可以实现T字符串和空格字符串的转化（如<strong>T转空格</strong>则调用<code>getDateTimeString(originString, &#39;T&#39;, &#39; &#39;)</code>），当然这个代码是临时拼凑的所以写的不咋滴</p>
+<br>
+
+<p><em>以上~</em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2021/04/15/毕节市可视化Java项目博客记录-日期格式的转换/" data-id="cknibxzud001ls4uj76jens98" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目/">项目</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-工作室技术分享会" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2021/04/08/工作室技术分享会/" class="article-date">
@@ -129,7 +248,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2021/04/08/工作室技术分享会/" data-id="ckn87sgah001f1gujpfsmr0ax" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2021/04/08/工作室技术分享会/" data-id="cknibxzv3001ys4ujfby06klw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
@@ -179,7 +298,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/12/18/阿里云《Serverless云开发从入门到实战》学习笔记/" data-id="ckn87sgak001k1gujzvujw13x" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/12/18/阿里云《Serverless云开发从入门到实战》学习笔记/" data-id="cknibxzue001ns4ujqqqi5zmc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
@@ -226,7 +345,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/12/09/使用DNS映射解决Github访问缓慢的问题/" data-id="ckn87sga2000t1gujd00qnpij" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/12/09/使用DNS映射解决Github访问缓慢的问题/" data-id="cknibxzt50007s4ujxisq0hz2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/其它/">其它</a></li></ul>
@@ -276,7 +395,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/12/09/解决无法使用Pycharm自带的pip安装第三方库的问题/" data-id="ckn87sgb1001u1gujmm3khy1u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/12/09/解决无法使用Pycharm自带的pip安装第三方库的问题/" data-id="cknibxzuw001ws4ujevtu3m56" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
@@ -348,7 +467,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/12/06/使用Python可视化全国各省（除湖北）新冠疫情累计治愈病例数据/" data-id="ckn87sg9q000f1gujvrt1whaw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/12/06/使用Python可视化全国各省（除湖北）新冠疫情累计治愈病例数据/" data-id="cknibxzti000js4ujhch2n5l3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
@@ -429,7 +548,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/24/关于Spring-Security文档上密码发展史的阅读报告/" data-id="ckn87sga3000u1gujoq3hi8km" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/24/关于Spring-Security文档上密码发展史的阅读报告/" data-id="cknibxztr000ts4uj6w2i1yph" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
@@ -629,7 +748,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/24/大数据架构作业-简答题7/" data-id="ckn87sgaf001b1guj4wwo7uci" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/24/大数据架构作业-简答题7/" data-id="cknibxzua001hs4ujrx1zkaly" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
@@ -694,7 +813,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/20/MySQL的安装指南以及常用命令/" data-id="ckn87sg9t000h1guj7kupc2pj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/20/MySQL的安装指南以及常用命令/" data-id="cknibxzt8000as4ujo3q66zf0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
@@ -742,147 +861,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/18/Nginx服务器的常用命令/" data-id="ckn87sg9b00021guj5fdx8w57" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-使用Spring-Boot-Spring-Security-Hibernate-Bootstrap-JSP-Spring-Data-JPA-MySQL实现的登陆注册系统" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/11/17/使用Spring-Boot-Spring-Security-Hibernate-Bootstrap-JSP-Spring-Data-JPA-MySQL实现的登陆注册系统/" class="article-date">
-  <time datetime="2020-11-17T13:50:08.000Z" itemprop="datePublished">2020-11-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/17/使用Spring-Boot-Spring-Security-Hibernate-Bootstrap-JSP-Spring-Data-JPA-MySQL实现的登陆注册系统/">使用Spring Boot, Spring Security, Hibernate, Bootstrap, JSP, Spring Data JPA, MySQL实现的登陆注册系统</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="本周任务："><a href="#本周任务：" class="headerlink" title="本周任务："></a>本周任务：</h2><p>使用Spring Boot实现一个简单的用户登录系统，并且部署在服务器上。</p>
-<br>
-
-<br>
-
-<h2 id="使用工具以及运行环境："><a href="#使用工具以及运行环境：" class="headerlink" title="使用工具以及运行环境："></a>使用工具以及运行环境：</h2><ol>
-<li>Spring Boot</li>
-<li>Spring Security</li>
-<li>Spring Data JPA</li>
-<li>Hibernate</li>
-<li>JDK 8</li>
-<li>Maven 3.6.3</li>
-<li>MySQL Server 5.7</li>
-<li>Bootstrap</li>
-<li>JSP</li>
-<li>IDEA</li>
-</ol>
-<p><br><br></p>
-<h2 id="文件目录树："><a href="#文件目录树：" class="headerlink" title="文件目录树："></a>文件目录树：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">│  pom.xml</span><br><span class="line">│  </span><br><span class="line">└─src</span><br><span class="line">    └─main</span><br><span class="line">        ├─java</span><br><span class="line">        │  └─com</span><br><span class="line">        │      └─yysy</span><br><span class="line">        │          └─auth</span><br><span class="line">        │              │  WebApplication.java</span><br><span class="line">        │              │  WebSecurityConfig.java</span><br><span class="line">        │              │  </span><br><span class="line">        │              ├─model</span><br><span class="line">        │              │      Role.java</span><br><span class="line">        │              │      User.java</span><br><span class="line">        │              │      </span><br><span class="line">        │              ├─repository</span><br><span class="line">        │              │      RoleRepository.java</span><br><span class="line">        │              │      UserRepository.java</span><br><span class="line">        │              │      </span><br><span class="line">        │              ├─service</span><br><span class="line">        │              │      SecurityService.java</span><br><span class="line">        │              │      SecurityServiceImpl.java</span><br><span class="line">        │              │      UserDetailsServiceImpl.java</span><br><span class="line">        │              │      UserService.java</span><br><span class="line">        │              │      UserServiceImpl.java</span><br><span class="line">        │              │      </span><br><span class="line">        │              ├─validator</span><br><span class="line">        │              │      UserValidator.java</span><br><span class="line">        │              │      </span><br><span class="line">        │              └─web</span><br><span class="line">        │                      UserController.java</span><br><span class="line">        │                      </span><br><span class="line">        ├─resources</span><br><span class="line">        │      application.properties</span><br><span class="line">        │      validation.properties</span><br><span class="line">        │      </span><br><span class="line">        └─webapp</span><br><span class="line">            │  login.jsp</span><br><span class="line">            │  registration.jsp</span><br><span class="line">            │  welcome.jsp</span><br><span class="line">            │  </span><br><span class="line">            └─resources</span><br><span class="line">                ├─css</span><br><span class="line">                │      bootstrap.min.css</span><br><span class="line">                │      common.css</span><br><span class="line">                │      </span><br><span class="line">                └─js</span><br><span class="line">                        bootstrap.min.js</span><br></pre></td></tr></table></figure>
-
-<br>
-
-<br>
-
-<h2 id="实现步骤："><a href="#实现步骤：" class="headerlink" title="实现步骤："></a>实现步骤：</h2><ol>
-<li>使用Maven新建一个项目，也可以使用spring initializr等工具生成项目。</li>
-<li>配置项目依赖，修改pom.xml文件，添加上述的各种依赖。</li>
-<li>定义JPA和Hibernate的实体，编写<code>User.java</code>和<code>Role.java</code>，这里属于DAO模式的Model层。</li>
-<li>编写Spring Data JPA仓库，编写<code>UserRepository.java</code>和<code>RoleRepository.java</code>，实现DAO模式的接口层。</li>
-<li>编写几个Service类，实现用户验证功能。<ol>
-<li>编写<code>UserDetailsServiceImpl.java</code>，实现Spring Security中的<code>UserDetailsService</code>接口，下面的<code>SecurityServiceImpl</code>会用到；</li>
-<li>编写<code>SecurityService</code>接口以及实现类，主要实现用户的身份验证，即实现用户的登陆功能；</li>
-<li>编写<code>UserService</code>接口类以及实现类，主要实现用户的注册功能；</li>
-</ol>
-</li>
-<li>编写<code>UserValidator</code>类，用于注册表单信息的校验；<ol>
-<li>主要实现的校验有：<ol>
-<li>用户名长度不符合规范</li>
-<li>用户名已被使用</li>
-<li>用户密码太短</li>
-<li>用户密码二次输入错误（二次输入是为了注册时确认密码）</li>
-</ol>
-</li>
-<li>校验的错误信息可以在<code>validation.properties</code>中定义；</li>
-<li><code>Validator</code>从<code>Spring.validation</code>导入，已实现了很多常用方法；</li>
-<li>登录页面的的错误比较单一，可以直接在Controller中定义；</li>
-</ol>
-</li>
-<li>编写<code>WebController.java</code>，处理各种url请求的响应；</li>
-<li>使用Bootstrap编写登录、注册和欢迎的JSP页面；</li>
-<li>编写properties文件，包括上面提到的<code>validation.properties</code>和<code>application.properties</code>。<ol>
-<li>validation定义注册表单报错的具体信息</li>
-<li>application指定的属性如下：<ol>
-<li>指定数据库的来源</li>
-<li>指定JPA、Hibernate的选项</li>
-<li>指定mvc的一些选项，以及监听端口等等</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>编写<code>WebSecurityConfig.java</code>，其中定义了受保护的页面以及需要的角色。</li>
-</ol>
-<br>
-
-<h2 id="踩到的坑："><a href="#踩到的坑：" class="headerlink" title="踩到的坑："></a>踩到的坑：</h2><ol>
-<li><h3 id="下载Maven配置到IDEA，项目使用Maven下载依赖包速度很慢。"><a href="#下载Maven配置到IDEA，项目使用Maven下载依赖包速度很慢。" class="headerlink" title="下载Maven配置到IDEA，项目使用Maven下载依赖包速度很慢。"></a>下载Maven配置到IDEA，项目使用Maven下载依赖包速度很慢。</h3><p>下载Maven之后，还要修改<code>Setting.xml</code>，添加国内的镜像。（<a href="https://blog.csdn.net/Hello_World_QWP/article/details/82459915" target="_blank" rel="noopener">Maven镜像配置参考</a>）</p>
-<br>
-</li>
-<li><h3 id="application-properties中指定的DataSource无法访问。"><a href="#application-properties中指定的DataSource无法访问。" class="headerlink" title="application.properties中指定的DataSource无法访问。"></a><code>application.properties</code>中指定的<code>DataSource</code>无法访问。</h3><p><code>spring.datasource.url</code>可以指定使用数据库的地址，有时候会遇到数据库的时区和应用的时区不同步的问题；</p>
-<p>需要使用相关参数指明时区</p>
-<p>使用参数<code>serverTimezone=UTC</code>，规定时区为世界标准时间</p>
-<p>参数与参数之间使用<code>&amp;</code>符号进行连接</p>
-<br>
-</li>
-<li><h3 id="JSP中文乱码问题"><a href="#JSP中文乱码问题" class="headerlink" title="JSP中文乱码问题"></a>JSP中文乱码问题</h3><p>JSP是一个java文件，当应用在JVM中运行的时候需要被编译，如果在jsp文件中写了中文，就需要事先指定；</p>
-<p>否则，jsp被编译之后会直接乱码，编码说明代码如下（指定jsp文件使用utf-8编码）</p>
-<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page contentType=<span class="string">"text/html; charset=utf-8"</span>%&gt;</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://www.cnblogs.com/chengkai/articles/2171848.html" target="_blank" rel="noopener">参考博客</a>。</p>
-<br>
-</li>
-<li><h3 id="项目在IDEA可以运行，达成jar包之后页面404了"><a href="#项目在IDEA可以运行，达成jar包之后页面404了" class="headerlink" title="项目在IDEA可以运行，达成jar包之后页面404了"></a>项目在IDEA可以运行，达成jar包之后页面404了</h3><p>这是因为maven没有把<code>jsp</code>等静态资源打包进jar包，需要在<code>pom</code>文件的<code>build</code>中，指定项目所需静态文件的存储位置</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/webapp<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!--这里必须是META-INF/resources--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">targetPath</span>&gt;</span>META-INF/resources<span class="tag">&lt;/<span class="name">targetPath</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/**<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>true<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/**<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 404解决方案之一 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.4.2.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>需要注意的是，使用的spring-boot-maven版本好像只能为1.4.2，否则无法正常把文件打包进去。</p>
-<br>
-</li>
-<li><h3 id="jar包部署到服务器之后，访问页面不知道为什么一直加载不出来（这个是个大坑）"><a href="#jar包部署到服务器之后，访问页面不知道为什么一直加载不出来（这个是个大坑）" class="headerlink" title="jar包部署到服务器之后，访问页面不知道为什么一直加载不出来（这个是个大坑）"></a>jar包部署到服务器之后，访问页面不知道为什么一直加载不出来（这个是个大坑）</h3><p><em>Linux使用<code>NativePRNG</code>算法生成<code>SecureRandom</code>，如果调用<code>generateSeed()</code>方法，这个方法会读取Linux系统的<code>/dev/random</code>文件，这个文件在<code>JAVA_HOME/jre/lib/securiy/java.security</code>里面有默认定义。而<code>/dev/random</code>文件是动态生成的，如果没有数据，就会阻塞！</em></p>
-<h4 id="个人猜测："><a href="#个人猜测：" class="headerlink" title="个人猜测："></a>个人猜测：</h4><p>​    由于使用<code>SpringSecurity</code>需要生成随机数，进而JVM调用了<code>/dev/random</code>没有结果，于是发生阻塞，毕竟同样的问题在Win下没有出现。</p>
-<h4 id="把JAVA-HOME-jre-lib-securiy-java-security中的securerandom改为urandom即可解决问题！"><a href="#把JAVA-HOME-jre-lib-securiy-java-security中的securerandom改为urandom即可解决问题！" class="headerlink" title="把JAVA_HOME/jre/lib/securiy/java.security中的securerandom改为urandom即可解决问题！"></a>把<code>JAVA_HOME/jre/lib/securiy/java.security</code>中的<code>securerandom</code>改为<code>urandom</code>即可解决问题！</h4><p><a href="https://www.cnblogs.com/it-deepinmind/p/13344558.html" target="_blank" rel="noopener">参考博客</a></p>
-</li>
-</ol>
-<br>
-
-<br>
-
-<h2 id="小结："><a href="#小结：" class="headerlink" title="小结："></a>小结：</h2><p>本次项目学习主要参考了<a href="https://hellokoding.com/registration-and-login-example-with-spring-security-spring-boot-spring-data-jpa-hsql-jsp/" target="_blank" rel="noopener">这篇文章</a>作为学习示例。</p>
-<p>读示例项目源码的过程中，学习到了一个Spring Boot项目该有的体系结构和开发流程。</p>
-<p>特别是认识到了Spring Security的强大功能，后面还会继续学习记录Spring Security的相关内容。</p>
-<p>另外，这次学习没有好好看hibernate框架，后面也要抽时间好好补课，希望不会鸽掉。</p>
-<p>Spring Validation提供了常用的用户校验功能，但是hibernate validation似乎能够实现效果更好的自定义校验功能，希望今后有机会可以学习学习。</p>
-<p>另另外，这个项目还是使用比较陈旧的jsp文件，编写前端页面，似乎也引发了不少问题。今后学习Spring Boot项目，还是应该首要考虑thymeleaf作为前端框架。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/17/使用Spring-Boot-Spring-Security-Hibernate-Bootstrap-JSP-Spring-Data-JPA-MySQL实现的登陆注册系统/" data-id="ckn87sg9l000a1gujabbl01w9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/18/Nginx服务器的常用命令/" data-id="cknibxzsm0000s4ujh010gbn4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
@@ -912,7 +891,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其它/">其它</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/后端/">后端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编程语言入门/">编程语言入门</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其它/">其它</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/后端/">后端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编程语言入门/">编程语言入门</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/课程作业/">课程作业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/项目/">项目</a></li></ul>
     </div>
   </div>
 
@@ -922,7 +901,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Linux/" style="font-size: 12.5px;">Linux</a> <a href="/tags/其它/" style="font-size: 12.5px;">其它</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/后端/" style="font-size: 20px;">后端</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/编程语言入门/" style="font-size: 15px;">编程语言入门</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/课程作业/" style="font-size: 17.5px;">课程作业</a>
+      <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Linux/" style="font-size: 12.5px;">Linux</a> <a href="/tags/其它/" style="font-size: 12.5px;">其它</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/后端/" style="font-size: 20px;">后端</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/编程语言入门/" style="font-size: 15px;">编程语言入门</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/课程作业/" style="font-size: 17.5px;">课程作业</a> <a href="/tags/项目/" style="font-size: 10px;">项目</a>
     </div>
   </div>
 
@@ -944,6 +923,10 @@
       <ul>
         
           <li>
+            <a href="/2021/04/15/毕节市可视化Java项目博客记录-日期格式的转换/">毕节市可视化Java项目博客记录----日期格式的转换</a>
+          </li>
+        
+          <li>
             <a href="/2021/04/08/工作室技术分享会/">工作室技术分享会</a>
           </li>
         
@@ -957,10 +940,6 @@
         
           <li>
             <a href="/2020/12/09/解决无法使用Pycharm自带的pip安装第三方库的问题/">解决无法使用Pycharm自带的pip安装第三方库的问题</a>
-          </li>
-        
-          <li>
-            <a href="/2020/12/06/使用Python可视化全国各省（除湖北）新冠疫情累计治愈病例数据/">使用Python可视化全国各省（除湖北）新冠疫情累计治愈病例数据</a>
           </li>
         
       </ul>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>毕节市可视化Java项目博客记录----日期格式的转换 | MPS的个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="数据可视化中经常要使用日期作为查询条件或者展示内容，这需要前后端对时间进行转化，本篇的目的是记录我在本项目中使用的日期转换方法   背景后端虽然可以直接使用固定格式的字符串（如：”2021-12-12 11:11:11”）进行sql查询，但是为了保证时间的准确性（排除诸如不同时区对时间的影响），最好还是使用Date类型进行查询另一方面，前端显示的时间格式一般为字符串（如：”2021-12-12 1">
+<meta name="keywords" content="项目,Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="毕节市可视化Java项目博客记录----日期格式的转换">
+<meta property="og:url" content="http://yoursite.com/2021/04/15/毕节市可视化Java项目博客记录-日期格式的转换/index.html">
+<meta property="og:site_name" content="MPS的个人博客">
+<meta property="og:description" content="数据可视化中经常要使用日期作为查询条件或者展示内容，这需要前后端对时间进行转化，本篇的目的是记录我在本项目中使用的日期转换方法   背景后端虽然可以直接使用固定格式的字符串（如：”2021-12-12 11:11:11”）进行sql查询，但是为了保证时间的准确性（排除诸如不同时区对时间的影响），最好还是使用Date类型进行查询另一方面，前端显示的时间格式一般为字符串（如：”2021-12-12 1">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2021-04-15T03:35:16.490Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="毕节市可视化Java项目博客记录----日期格式的转换">
+<meta name="twitter:description" content="数据可视化中经常要使用日期作为查询条件或者展示内容，这需要前后端对时间进行转化，本篇的目的是记录我在本项目中使用的日期转换方法   背景后端虽然可以直接使用固定格式的字符串（如：”2021-12-12 11:11:11”）进行sql查询，但是为了保证时间的准确性（排除诸如不同时区对时间的影响），最好还是使用Date类型进行查询另一方面，前端显示的时间格式一般为字符串（如：”2021-12-12 1">
+  
+    <link rel="alternate" href="/atom.xml" title="MPS的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">MPS的个人博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-毕节市可视化Java项目博客记录-日期格式的转换" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/04/15/毕节市可视化Java项目博客记录-日期格式的转换/" class="article-date">
+  <time datetime="2021-04-15T03:20:01.000Z" itemprop="datePublished">2021-04-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      毕节市可视化Java项目博客记录----日期格式的转换
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>数据可视化中经常要使用日期作为查询条件或者展示内容，这需要前后端对时间进行转化，本篇的目的是记录我在本项目中使用的日期转换方法</em></p>
+<br>
+
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>后端虽然可以直接使用固定格式的字符串（如：”2021-12-12 11:11:11”）进行<code>sql</code>查询，但是为了保证时间的准确性（排除诸如不同时区对时间的影响），最好还是使用<code>Date</code>类型进行查询<br>另一方面，前端显示的时间格式一般为字符串（如：”2021-12-12 11:11:11”或”2021-12-12T11:11:11”，前者作为<strong>前端表格</strong>显示的时间结果并且可以直接作为<code>sql</code>查询条件，后者用于<code>h5</code>自带的<code>datetime</code>类型<code>Input</code>标签的<strong>时间显示</strong>）<br>这就导致后端需要对时间<strong>字符串</strong>和<strong><code>Date</code>类型变量</strong>进行转换，或者也可以把转换工作交给前端。在这个项目中，对于<strong>空格时间字符串</strong>在<strong>后端</strong>转化成<strong><code>Date</code>类型</strong>，对于<strong>T时间字符串</strong>则先在<strong>前端</strong>将其转化为<strong>空格时间字符串</strong>，后续会进行说明</p>
+<br>
+
+<h2 id="Java中日期的格式化"><a href="#Java中日期的格式化" class="headerlink" title="Java中日期的格式化"></a>Java中日期的格式化</h2><p>Java中的日期格式化可以通过<code>DateFormat</code>类和<strong><code>SimpleDateFormat</code>类</strong>完成，后者可以指定相对随意的文本格式，所以这里使用后者进行日期格式转换</p>
+<p>可以看到<code>SimpleDateFormat</code>构造方法的参数可以比较方便地指定时间字符串的样式，其中y表示面年份、M表示月份、d表示天数……<br><a href="http://c.biancheng.net/view/878.html" target="_blank" rel="noopener">http://c.biancheng.net/view/878.html</a><br>需要注意的一点是，由于参数规定了特殊字符对应具体的时间概念，所以会和时间字符串中的非时间字符产生歧义。比如：对于”2021-12-12T11:11:11”，如果想利用<code>SimpleDateFormat</code>转化为<code>Date</code>变量，调用构造方法<code>SimpleDateFormat(&quot;yyyy-MM-ddTHH:mm:ss&quot;)</code>，参数中的T会产生协议，当调用parse()方法的时候就会报错。这就是我在项目中把T时间字符串和空白字符串之间的转换留在前端的原因。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用SimpleDateFormat需要先生成一个对象</span></span><br><span class="line">SimpleDateFormat f = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line"><span class="comment">// 调用这个对象的parse方法，可以根据空格时间字符串，生成Date变量</span></span><br><span class="line">Date startDate = f.parse(startTime);</span><br><span class="line"><span class="comment">// 调用这个对象的format方法，可以根据Date变量，生成指定格式的字符串</span></span><br><span class="line">SimpleDateFormat nf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"今天是yy-MM-dd"</span>);</span><br><span class="line">String today = nf.format(<span class="keyword">new</span> Date());</span><br></pre></td></tr></table></figure>
+
+<p>可以看到<code>SimpleDateFormat()</code>构造方法的参数可以比较方便地<strong>指定时间字符串的样式</strong>，其中<code>y</code>表示面年份、<code>M</code>表示月份、<code>d</code>表示天数……</p>
+<table>
+<thead>
+<tr>
+<th>字母</th>
+<th>含义</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>y</td>
+<td>年份。一般用 yy 表示两位年份，yyyy 表示 4 位年份</td>
+<td>使用 yy 表示的年扮，如 11； 使用 yyyy 表示的年份，如 2011</td>
+</tr>
+<tr>
+<td>M</td>
+<td>月份。一般用 MM 表示月份，如果使用 MMM，则会 根据语言环境显示不同语言的月份</td>
+<td>使用 MM 表示的月份，如 05； 使用 MMM 表示月份，在 Locale.CHINA 语言环境下，如“十月”；在 Locale.US 语言环境下，如 Oct</td>
+</tr>
+<tr>
+<td>d</td>
+<td>月份中的天数。一般用 dd 表示天数</td>
+<td>使用 dd 表示的天数，如 10</td>
+</tr>
+<tr>
+<td>D</td>
+<td>年份中的天数。表示当天是当年的第几天， 用 D 表示</td>
+<td>使用 D 表示的年份中的天数，如 295</td>
+</tr>
+<tr>
+<td>E</td>
+<td>星期几。用 E 表示，会根据语言环境的不同， 显示不 同语言的星期几</td>
+<td>使用 E 表示星期几，在 Locale.CHINA 语 言环境下，如“星期四”；在 Locale.US 语 言环境下，如 Thu</td>
+</tr>
+<tr>
+<td>H</td>
+<td>一天中的小时数（0~23)。一般用 HH 表示小时数</td>
+<td>使用 HH 表示的小时数，如 18</td>
+</tr>
+<tr>
+<td>h</td>
+<td>一天中的小时数（1~12)。一般使用 hh 表示小时数</td>
+<td>使用 hh 表示的小时数，如 10 (注意 10 有 可能是 10 点，也可能是 22 点）</td>
+</tr>
+<tr>
+<td>m</td>
+<td>分钟数。一般使用 mm 表示分钟数</td>
+<td>使用 mm 表示的分钟数，如 29</td>
+</tr>
+<tr>
+<td>s</td>
+<td>秒数。一般使用 ss 表示秒数</td>
+<td>使用 ss 表示的秒数，如 38</td>
+</tr>
+<tr>
+<td>S</td>
+<td>毫秒数。一般使用 SSS 表示毫秒数</td>
+<td>使用 SSS 表示的毫秒数，如 156</td>
+</tr>
+</tbody></table>
+<p><em>表格来自：<a href="http://c.biancheng.net/view/878.html" target="_blank" rel="noopener">http://c.biancheng.net/view/878.html</a></em><br>需要注意的一点是，由于参数规定了<strong>特殊字符</strong>对应<strong>具体的时间概念</strong>，所以会和时间字符串中的<strong>非时间字符</strong>产生<strong>歧义</strong>。比如：对于”2021-12-12T11:11:11”，如果想利用<code>SimpleDateFormat</code>转化为<code>Date</code>变量，调用构造方法<code>SimpleDateFormat(&quot;yyyy-MM-ddTHH:mm:ss&quot;)</code>，参数中的<strong>“T”</strong>会产生歧义，当调用<code>parse()</code>方法的时候就会报错。这就是我在项目中把<strong>T时间字符串</strong>和<strong>空白字符串</strong>之间的转换，留在前端的原因。</p>
+<br>
+
+<h2 id="JavaScript中的字符串格式化"><a href="#JavaScript中的字符串格式化" class="headerlink" title="JavaScript中的字符串格式化"></a>JavaScript中的字符串格式化</h2><p>在上面遇到了<strong>T时间字符串</strong>的转化问题，这里选择了在前端把<strong>T字符串</strong>转为<strong>空格字符串</strong>，后端再由<strong>空格字符串</strong>转为<strong><code>Date</code>变量</strong>，或者直接进行<code>sql</code>查询。下面贴上前端的字符串转化的代码</p>
+<p>通过指定<code>oldSign</code>和<code>newSign</code>，可以实现T字符串和空格字符串的转化（如T转空格则调用<code>getDateTimeString(originString, &#39;T&#39;, &#39; &#39;)</code>），当然这个代码是临时拼凑的所以写的不咋滴</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> getDateTimeString = <span class="function"><span class="keyword">function</span> <span class="title">getDateTimeString</span>(<span class="params">originString, oldSign, newSign</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 在2021-11-11T00:00:00与2021-11-11 00:00:00之间相互转化</span></span><br><span class="line">    <span class="keyword">let</span> timeValues = originString.split(oldSign),</span><br><span class="line">        res = timeValues[<span class="number">0</span>] + newSign + timeValues[<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">if</span> (res !== <span class="string">" undefined"</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通过指定<code>oldSign</code>和<code>newSign</code>，可以实现T字符串和空格字符串的转化（如<strong>T转空格</strong>则调用<code>getDateTimeString(originString, &#39;T&#39;, &#39; &#39;)</code>），当然这个代码是临时拼凑的所以写的不咋滴</p>
+<br>
+
+<p><em>以上~</em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2021/04/15/毕节市可视化Java项目博客记录-日期格式的转换/" data-id="cknibxzud001ls4uj76jens98" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目/">项目</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2021/04/08/工作室技术分享会/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">工作室技术分享会</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其它/">其它</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/后端/">后端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编程语言入门/">编程语言入门</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/课程作业/">课程作业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/项目/">项目</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Linux/" style="font-size: 12.5px;">Linux</a> <a href="/tags/其它/" style="font-size: 12.5px;">其它</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/后端/" style="font-size: 20px;">后端</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/编程语言入门/" style="font-size: 15px;">编程语言入门</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/课程作业/" style="font-size: 17.5px;">课程作业</a> <a href="/tags/项目/" style="font-size: 10px;">项目</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/04/15/毕节市可视化Java项目博客记录-日期格式的转换/">毕节市可视化Java项目博客记录----日期格式的转换</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/08/工作室技术分享会/">工作室技术分享会</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/18/阿里云《Serverless云开发从入门到实战》学习笔记/">阿里云《Serverless云开发从入门到实战》学习笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/09/使用DNS映射解决Github访问缓慢的问题/">使用DNS映射解决Github访问缓慢的问题</a>
+          </li>
+        
+          <li>
+            <a href="/2020/12/09/解决无法使用Pycharm自带的pip安装第三方库的问题/">解决无法使用Pycharm自带的pip安装第三方库的问题</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 Miaopashi<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
