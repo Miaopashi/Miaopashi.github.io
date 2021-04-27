@@ -62,6 +62,100 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-WSLinux之Ubuntu-安装rpm包" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/09/27/WSLinux之Ubuntu-安装rpm包/" class="article-date">
+  <time datetime="2020-09-27T02:28:09.000Z" itemprop="datePublished">2020-09-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/09/27/WSLinux之Ubuntu-安装rpm包/">Windows Subsystem for Linux之Ubuntu安装rpm包</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在看<strong>《springboot实战》</strong>。</p>
+<p>看到<strong>springbootCLI</strong>的时候，想要在<strong>windos</strong>子系统的<strong>Ubuntu</strong>上学习一下，所以想要安装<strong>java</strong>。</p>
+<p>从同学那里要到了rpm包之后，发现<strong>Ubuntu</strong>居然不能直接安装<strong>rpm</strong>包！</p>
+<p>查看社区发现<strong>Ubuntu</strong>是基于<strong>Debian</strong>的系统，不同于<strong>CentOS, RHEL or Fedora</strong>。</p>
+<p><strong>Ubuntu</strong>不能直接使用<strong>rpm</strong>命令，而是要通过<strong>alien命令</strong>。</p>
+<br>
+
+<h2 id="安装alien可分为三个步骤："><a href="#安装alien可分为三个步骤：" class="headerlink" title="安装alien可分为三个步骤："></a>安装alien可分为三个步骤：</h2><h3 id="一、添加Universe-distribution-component（渣翻：universe组成元件，用于连接universe仓库）"><a href="#一、添加Universe-distribution-component（渣翻：universe组成元件，用于连接universe仓库）" class="headerlink" title="一、添加Universe distribution component（渣翻：universe组成元件，用于连接universe仓库）"></a>一、添加Universe distribution component（渣翻：universe组成元件，用于连接universe仓库）</h3><p>仓库提供软件安装的地址。除了<strong>universe</strong>以外，<strong>Ubuntu</strong>还有<strong>Main</strong>、<strong>Restricted</strong>、Multiverse等仓库。</p>
+<p><strong>Universe</strong>仓库提供由社区主导，并且完全开源的软件。这里的alien安装就需要<strong>Universe</strong>仓库。</p>
+<p>添加远程仓库：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository universe</span><br></pre></td></tr></table></figure>
+
+<p>另外，在命令里添加-r选项，可以移除仓库。</p>
+<p><strong>注意，如果网络速度太慢可能会导致部分安装错误，最后无法安装alien！所以安装之前先考虑一下网络，有可能需要科学上网。</strong></p>
+<br>
+
+<h3 id="二、更新apt的cache"><a href="#二、更新apt的cache" class="headerlink" title="二、更新apt的cache"></a>二、更新apt的cache</h3><p>更新了仓库之后，还要更新<strong>apt</strong>的<strong>cache</strong>才能查找到需要的软件。apt的<strong>cache</strong>用于提供软件安装的地址，如果不更新就自然就找不到对应的包。另外，系统新装的时候也需要更新一下apt。</p>
+<p>更新apt：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
+
+<p><strong>update</strong>命令并不会直接<strong>apt</strong>安装所有软件。如果需要进一步更新软件需要使用upgrade命令。</p>
+<br>
+
+<h3 id="三、安装alien包"><a href="#三、安装alien包" class="headerlink" title="三、安装alien包"></a>三、安装alien包</h3><p><strong>alien</strong>用于安装rpm包，具体的安装方法有两种，第四点会一一介绍。</p>
+<p>安装<strong>alien</strong>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install alien</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="四、安装rpm包"><a href="#四、安装rpm包" class="headerlink" title="四、安装rpm包"></a>四、安装rpm包</h3><p>安装了<strong>alien</strong>之后就可以愉快地安装rpm包。但是这里在说一下，安装<strong>rpm</strong>包有两种方式。</p>
+<ol>
+<li>把<strong>rpm</strong>转换成deb包再安装</li>
+</ol>
+<p><strong>alien</strong>命令可以把rpm包变成<strong>deb</strong>包，再安装。这种方法比较推荐。</p>
+<p>把当前目录<strong>cd</strong>到<strong>rpm</strong>包所在的目录下，按一下命令执行即可安装：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo alien packagename.rpm</span><br><span class="line"></span><br><span class="line">sudo dpkg -i packagename.deb</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>直接安装<strong>rpm</strong>包</li>
+</ol>
+<p>alien也可直接<strong>rpm</strong>包。但是需要注意，这个方法不是<strong>native</strong>（原生）的所以可能会出现一点问题。</p>
+<p>直接安装<strong>rpm</strong>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo alien -i packagename.rpm</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<br>
+
+<p>好了，到这里本次分享已经结束。希望能够帮助你。</p>
+<br>
+
+<p>参考文章：</p>
+<ol>
+<li><a href="https://phoenixnap.com/kb/install-rpm-packages-on-ubuntu" target="_blank" rel="noopener">https://phoenixnap.com/kb/install-rpm-packages-on-ubuntu</a></li>
+<li><a href="https://help.ubuntu.com/community/Repositories/Ubuntu" target="_blank" rel="noopener">https://help.ubuntu.com/community/Repositories/Ubuntu</a></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/09/27/WSLinux之Ubuntu-安装rpm包/" data-id="cknzr9js8000480ujyf9qj0r3" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-大数据架构作业-简答题2" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/09/26/大数据架构作业-简答题2/" class="article-date">
@@ -112,7 +206,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/09/26/大数据架构作业-简答题2/" data-id="cknzpya240019dkujnihmyjs3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/09/26/大数据架构作业-简答题2/" data-id="cknzr9jt3001980uj8tc0zpxp" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
@@ -402,7 +496,7 @@ ChildClass());</code><br>※ <strong>泛型只能使用引用类型</strong>, �
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/09/23/入门JavaSE-进阶篇/" data-id="cknzpya1r000udkujiys7mle7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/09/23/入门JavaSE-进阶篇/" data-id="cknzr9jsw000y80ujxgb5sgx3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程语言入门/">编程语言入门</a></li></ul>
@@ -538,7 +632,7 @@ ChildClass());</code><br>※ <strong>泛型只能使用引用类型</strong>, �
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/09/21/为Windows-Terminal配置Ubuntu系统/" data-id="cknzpya18000bdkujfqgmonfs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/09/21/为Windows-Terminal配置Ubuntu系统/" data-id="cknzr9jsg000c80ujffhe3rzy" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
@@ -657,7 +751,7 @@ ChildClass());</code><br>※ <strong>泛型只能使用引用类型</strong>, �
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/09/16/大数据架构作业-简答题1/" data-id="cknzpya210016dkuj07mmo1oy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/09/16/大数据架构作业-简答题1/" data-id="cknzr9jsz001280uj4su9wz75" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
@@ -833,7 +927,7 @@ ps: 编译程序之后会出现多个</code>.class`文件</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/08/26/入门JavaSE-中级篇/" data-id="cknzpya1p000sdkuj7z8843e7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/08/26/入门JavaSE-中级篇/" data-id="cknzr9jss000t80ujvfvt99zw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程语言入门/">编程语言入门</a></li></ul>
@@ -957,7 +1051,7 @@ ps: 编译程序之后会出现多个</code>.class`文件</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/08/21/入门JavaSE-初级篇/" data-id="cknzpya1u000xdkujplkbxokf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/08/21/入门JavaSE-初级篇/" data-id="cknzr9jsu000v80uj4gxell7n" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程语言入门/">编程语言入门</a></li></ul>
@@ -1055,7 +1149,7 @@ ps: 编译程序之后会出现多个</code>.class`文件</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/08/21/使用photomosaic库实现马赛克拼图/" data-id="cknzpya1m000ndkuj9uhljbow" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/08/21/使用photomosaic库实现马赛克拼图/" data-id="cknzr9jsr000r80uj56yh1o7f" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/其它/">其它</a></li></ul>
@@ -1270,7 +1364,7 @@ ps: 编译程序之后会出现多个</code>.class`文件</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/06/28/关于学校校园网挂VPN解决断网问题的个人解读/" data-id="cknzpya200014dkujj1iilbec" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/06/28/关于学校校园网挂VPN解决断网问题的个人解读/" data-id="cknzr9jt1001780ujdfqqaisg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络/">网络</a></li></ul>
@@ -1387,91 +1481,10 @@ DABUG = False</code></pre><p>推送并提交修改</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/17/使用Heroku部署网页/" data-id="cknzpya1f000fdkuj63hieowj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/12/17/使用Heroku部署网页/" data-id="cknzr9jsh000e80uj5m9rz6z7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-《算法图解》内容概要" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/12/17/《算法图解》内容概要/" class="article-date">
-  <time datetime="2019-12-17T06:50:57.000Z" itemprop="datePublished">2019-12-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/17/《算法图解》内容概要/">《算法图解》内容概要</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="浅谈一下《算法图解》"><a href="#浅谈一下《算法图解》" class="headerlink" title="浅谈一下《算法图解》"></a>浅谈一下《算法图解》</h1><p><em>打算系统的学一下算法，上个月刚看完《算法图解》，这周刚好抽出时间，来写一写该书的总结。</em></p>
-<p><em>本文打算先大致谈谈本书的特点和大概内容，对于个人比较感兴趣的地方再稍微做展开，最后谈谈本书给我的感受</em></p>
-<h2 id="本书特点"><a href="#本书特点" class="headerlink" title="本书特点"></a>本书特点</h2><h3 id="作为一本面向完全初学者的算法书，本书旨在，用最简单的表达，为读者介绍算法学习中常见的几个概念，并且介绍了几个比较基础的算法，最后再简要提及了几个算法，引导读者进一步学习。"><a href="#作为一本面向完全初学者的算法书，本书旨在，用最简单的表达，为读者介绍算法学习中常见的几个概念，并且介绍了几个比较基础的算法，最后再简要提及了几个算法，引导读者进一步学习。" class="headerlink" title="作为一本面向完全初学者的算法书，本书旨在，用最简单的表达，为读者介绍算法学习中常见的几个概念，并且介绍了几个比较基础的算法，最后再简要提及了几个算法，引导读者进一步学习。"></a>作为一本面向完全初学者的算法书，本书旨在，用最简单的表达，为读者介绍算法学习中常见的几个概念，并且介绍了几个比较基础的算法，最后再简要提及了几个算法，引导读者进一步学习。</h3><h2 id="大致内容"><a href="#大致内容" class="headerlink" title="大致内容"></a>大致内容</h2><h3 id="全书分为11章，脉络清晰。"><a href="#全书分为11章，脉络清晰。" class="headerlink" title="全书分为11章，脉络清晰。"></a>全书分为11章，脉络清晰。</h3><ul>
-<li>第一章介绍了一下<code>大O表示法</code>和<code>二分查找</code>；</li>
-<li>第二章开始解释<code>选择排序</code>，并且解释了一下内存的工作原理，以及<code>数组</code>和<code>链表</code>的概念；</li>
-<li>第三章开始介绍的简洁优雅的基础算法—— <code>递归</code>；</li>
-<li>第四章用<code>快速排序</code>算法的例子，介绍了一下 <code>分而治之</code> 的算法思想；</li>
-<li>第五章主要介绍了<code>散列表</code>的算法实现（通讯录）；</li>
-<li>第六章介绍了<code>广度优先搜索</code>算法，顺便解释了“<code>图</code>”的概念；</li>
-<li>第七章趁热打铁，介绍了<code>狄克斯特拉</code>算法，作为广度优先搜索的进阶算法；</li>
-<li>第八章又介绍了另外一种耳熟能详的算法——<code>贪婪算法</code>；</li>
-<li>第九章以背包问题的优化入手，介绍了<code>动态规划</code>的算法思想；</li>
-<li>第十章介绍了<code>k最邻算法</code>，这个算法是很多推荐系统和机器学习的基础算法；</li>
-<li>第十一章的内容比较杂，简单介绍了很多进阶的算法概念，为读者提供了进一步学习的方向。</li>
-</ul>
-<h3 id="下面贴上我的思维导图"><a href="#下面贴上我的思维导图" class="headerlink" title="下面贴上我的思维导图"></a>下面贴上我的思维导图</h3><p><img src="../pictures/%E3%80%8A%E7%AE%97%E6%B3%95%E5%9B%BE%E8%A7%A3%E3%80%8B%E5%86%85%E5%AE%B9%E6%A6%82%E8%A6%81/%E5%AF%BC%E5%9B%BE.png" alt="《算法图解》导图"></p>
-<h5 id="该图作为参考脉络，对于有兴趣的概念各位可以逐一去了解。"><a href="#该图作为参考脉络，对于有兴趣的概念各位可以逐一去了解。" class="headerlink" title="该图作为参考脉络，对于有兴趣的概念各位可以逐一去了解。"></a>该图作为参考脉络，对于有兴趣的概念各位可以逐一去了解。</h5><h2 id="下面来聊一聊几个有趣的点"><a href="#下面来聊一聊几个有趣的点" class="headerlink" title="下面来聊一聊几个有趣的点"></a>下面来聊一聊几个有趣的点</h2><h2 id="大O表示法"><a href="#大O表示法" class="headerlink" title="大O表示法"></a>大O表示法</h2><blockquote>
-<h4 id="大O表示法是一种描述算法运行速度的方法。它指出了最坏的情况下算法运算量与数据量之间的关系。我们一般通过它来比较不同算法的运行效率。常见表示为O-p-n"><a href="#大O表示法是一种描述算法运行速度的方法。它指出了最坏的情况下算法运算量与数据量之间的关系。我们一般通过它来比较不同算法的运行效率。常见表示为O-p-n" class="headerlink" title="大O表示法是一种描述算法运行速度的方法。它指出了最坏的情况下算法运算量与数据量之间的关系。我们一般通过它来比较不同算法的运行效率。常见表示为O(p(n))"></a>大O表示法是一种描述算法运行速度的方法。它指出了最坏的情况下算法运算量与数据量之间的关系。我们一般通过它来比较不同算法的运行效率。常见表示为<code>O(p(n))</code></h4><p>ps:所以为什么是用“O”？</p>
-</blockquote>
-<h5 id="举个例子："><a href="#举个例子：" class="headerlink" title="举个例子："></a>举个例子：</h5><blockquote>
-<p>如果我要在一张纸上画四个方格，最笨的方法是在纸上一个格子一个格子的画，比较好的方法是将整张纸对折两次。</p>
-</blockquote>
-<p>于是前者的大O表示为<code>O(n)</code>；后者的大O表示为<code>O(log n)</code></p>
-<h6 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h6><ul>
-<li>“n”表示数据量，比如本问的n=4，O(n)表示第一种方法的运行时间为n</li>
-<li>“log n”表示底数为2的对数函数，比如本问第二种方法的运算时间为”log 4” = “2” （很多算法问题用到的底数都是2）</li>
-<li>大O表示法不考虑常数，比如说问题变成“在两张纸上各画四个方格”那么上述两种方法的大O表示法不变</li>
-</ul>
-<p>显然，<code>O(log n)</code>要比<code>O(n)</code>简单地多。实际上，<code>O(log n)</code>已经是运算量非常小的算法了。</p>
-<h5 id="常见的大O表示法"><a href="#常见的大O表示法" class="headerlink" title="常见的大O表示法"></a>常见的大O表示法</h5><p>这样看来大O表示法的种类有很多，但是常见的大O表示法其实并不太多，下面大致罗列一下。</p>
-<ul>
-<li>O(log n) 对数时间，比如二分查找就是这种算法</li>
-<li>O(n) 线性时间</li>
-<li>O(n * log n) 这样的算法包括快速排序，后面会讲到</li>
-<li>O(n ^ 2) 包括选择排序，后面也会讲到</li>
-<li>O(n!) n的阶乘，一种非常慢的算法，但是对于NP问题无可奈何的时候也可以采用的方法，但也可以用贪婪算法等近似求解代替正解</li>
-</ul>
-<h6 id="关于大O表示法还有很多概念这里不一一展开，希望感兴趣的同学自行了解。"><a href="#关于大O表示法还有很多概念这里不一一展开，希望感兴趣的同学自行了解。" class="headerlink" title="关于大O表示法还有很多概念这里不一一展开，希望感兴趣的同学自行了解。"></a>关于大O表示法还有很多概念这里不一一展开，希望感兴趣的同学自行了解。</h6><h2 id="聊聊排序"><a href="#聊聊排序" class="headerlink" title="聊聊排序"></a>聊聊排序</h2><blockquote>
-<p>给定一个无序的数组，怎样才能得到一个排好序的数组呢？这是很常见的一个问题。<br>这个问题看似简单但是处理起来很麻烦，因为我们必须逐个逐个元素进行确认。</p>
-</blockquote>
-<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><p>比较简单的一个方法是<code>选择排序</code>。它的原理如下：</p>
-<p>比如数组为{2, 6, 8, 9, 5, 7}，需要从大到小进行排序。可以对数组中的每个元素进行比较，得到最大值，放到新数组的首位；后面对剩下的元素重复上诉操作，把得到的最大值放在新数组的后一位。于是我们就得到了拍过序的新数组{9, 8, 7, 5, 6, 2}。</p>
-<h6 id="这种排序方法就是选择排序"><a href="#这种排序方法就是选择排序" class="headerlink" title="这种排序方法就是选择排序"></a>这种排序方法就是选择排序</h6><p>由于这种算法需要找n次最值，每次找最值需要比较n次，所以它的运行时间为<code>O(n ^ 2)</code>。<br>那么问题来了：各位同学可能觉得这个结果不太对劲。因为找完一次最值之后，下一次只需比较n-1次就可以了，所以运行时间应该为<code>O(n + (n-1) + (n-2) + ... + 1)</code>才对<br>而<code>(n + (n-1) + (n-2) + ... + 1)</code>是有个等差数列，等效于<code>(n * (n+1) / 2)</code>，由于大O表示法无视常数，所以最后的运算时间则为<code>O(n * n)</code><br>看到这里，你可能会觉得大O表示法不科学，因为它无法准确表示运算时间，但是大O表示法旨在表示算法复杂度，不够抽象反而有失偏颇。<br>另外，大O表示法表示算法最遭的运行时间，而实际计算时间的时候会用“平均运行时间”来表示，有兴趣的同学可以了解一下。</p>
-<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/17/《算法图解》内容概要/" data-id="cknzpya110007dkujqim0mv2y" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 
     </footer>
   </div>
@@ -1498,7 +1511,7 @@ DABUG = False</code></pre><p>推送并提交修改</p>
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其它/">其它</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/后端/">后端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编程语言入门/">编程语言入门</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/课程作业/">课程作业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/项目/">项目</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其它/">其它</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/后端/">后端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编程语言入门/">编程语言入门</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/课程作业/">课程作业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/项目/">项目</a></li></ul>
     </div>
   </div>
 
@@ -1508,7 +1521,7 @@ DABUG = False</code></pre><p>推送并提交修改</p>
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Linux/" style="font-size: 12.5px;">Linux</a> <a href="/tags/其它/" style="font-size: 12.5px;">其它</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/后端/" style="font-size: 20px;">后端</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/编程语言入门/" style="font-size: 15px;">编程语言入门</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/课程作业/" style="font-size: 17.5px;">课程作业</a> <a href="/tags/项目/" style="font-size: 10px;">项目</a>
+      <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Linux/" style="font-size: 12.5px;">Linux</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/其它/" style="font-size: 12.5px;">其它</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/后端/" style="font-size: 20px;">后端</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/编程语言入门/" style="font-size: 15px;">编程语言入门</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/课程作业/" style="font-size: 17.5px;">课程作业</a> <a href="/tags/项目/" style="font-size: 10px;">项目</a>
     </div>
   </div>
 
@@ -1530,6 +1543,10 @@ DABUG = False</code></pre><p>推送并提交修改</p>
       <ul>
         
           <li>
+            <a href="/2021/04/27/使用js和后端模糊查询实现搜索提示功能/">使用js和后端模糊查询实现搜索提示功能</a>
+          </li>
+        
+          <li>
             <a href="/2021/04/27/使用Docker部署jar包/">使用Docker部署jar包</a>
           </li>
         
@@ -1543,10 +1560,6 @@ DABUG = False</code></pre><p>推送并提交修改</p>
         
           <li>
             <a href="/2020/12/18/阿里云《Serverless云开发从入门到实战》学习笔记/">阿里云《Serverless云开发从入门到实战》学习笔记</a>
-          </li>
-        
-          <li>
-            <a href="/2020/12/09/使用DNS映射解决Github访问缓慢的问题/">使用DNS映射解决Github访问缓慢的问题</a>
           </li>
         
       </ul>
