@@ -62,6 +62,63 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-使用Docker部署jar包" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/04/27/使用Docker部署jar包/" class="article-date">
+  <time datetime="2021-04-27T07:21:37.000Z" itemprop="datePublished">2021-04-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/04/27/使用Docker部署jar包/">使用Docker部署jar包</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p><em>最近在用springBoot写毕节市煤矿预警的项目，上线之后又面临着多次修改，而且在实际部署到毕节市之前还要先部署到自己的服务器给老师先看看，挺麻烦的。每次部署都在在搜索引擎找小白教程，虽然来来去去去就那基本命令，但是不是每天都写确实进不了脑子，这里索性直接记下来。</em></p>
+<br>
+
+<h2 id="删除原来的镜像和容器"><a href="#删除原来的镜像和容器" class="headerlink" title="删除原来的镜像和容器"></a>删除原来的镜像和容器</h2><p>部署项目之前需要将原来运行的docker容器给关掉，容器开着一来占用服务器资源，二来占用了原来的端口（为了安全服务器防火墙是一个项目开一个端口）。下面直接贴上经常使用的docker相关命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">查看所有容器ID</span><br><span class="line">docker ps -a</span><br><span class="line"></span><br><span class="line">停止指定的容器</span><br><span class="line">docker stop [容器id]</span><br><span class="line"></span><br><span class="line">删除指定的容器</span><br><span class="line">docker rm [容器id]</span><br><span class="line"></span><br><span class="line">查看所有image</span><br><span class="line">docker imaged</span><br><span class="line"></span><br><span class="line">删除docker镜像</span><br><span class="line">docker rmi [镜像ID]</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h2 id="部署jar包"><a href="#部署jar包" class="headerlink" title="部署jar包"></a>部署jar包</h2><p>删除了原来的容器和镜像之后，开始部署jar包。首先，将jar包放在某个项目目录里面，然后再目录内新建一个<code>Dockerfile</code>文件，后面docker就是根据这个文件的内容生成镜像的。</p>
+<h3 id="Dockerfile文件内容参考如下"><a href="#Dockerfile文件内容参考如下" class="headerlink" title="Dockerfile文件内容参考如下"></a><code>Dockerfile</code>文件内容参考如下</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">FROM java:8</span><br><span class="line">MAINTAINER miaopashi</span><br><span class="line">ADD demo-0.0.1-SNAPSHOT.jar demo.jar</span><br><span class="line">EXPOSE 8080</span><br><span class="line">ENTRYPOINT [&quot;java&quot;,&quot;-jar&quot;,&quot;demo.jar&quot;]</span><br></pre></td></tr></table></figure>
+
+<h3 id="构建docker镜像"><a href="#构建docker镜像" class="headerlink" title="构建docker镜像"></a>构建docker镜像</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t my/demo .</span><br></pre></td></tr></table></figure>
+
+<h3 id="运行容器"><a href="#运行容器" class="headerlink" title="运行容器"></a>运行容器</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --restart=always --name demo -p 8080:8080  my/demo</span><br></pre></td></tr></table></figure>
+
+<p>说明：restart选项的内容表示docker容器在服务器开机之后会自动重启</p>
+<br>
+
+<p>以上~</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2021/04/27/使用Docker部署jar包/" data-id="cknzpya1b000edkujaw9hlg5s" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-毕节市可视化Java项目博客记录-日期格式的转换" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2021/04/15/毕节市可视化Java项目博客记录-日期格式的转换/" class="article-date">
@@ -178,7 +235,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2021/04/15/毕节市可视化Java项目博客记录-日期格式的转换/" data-id="cknzp7qdw001lk8ujgm6o5mr0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2021/04/15/毕节市可视化Java项目博客记录-日期格式的转换/" data-id="cknzpya2h001pdkujaiwze4go" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目/">项目</a></li></ul>
@@ -257,7 +314,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2021/04/08/工作室技术分享会/" data-id="cknzp7qdx001nk8ujapf9xidl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2021/04/08/工作室技术分享会/" data-id="cknzpya2i001rdkujuh6zt591" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
@@ -307,7 +364,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/12/18/阿里云《Serverless云开发从入门到实战》学习笔记/" data-id="cknzp7qef0021k8ujfed8elbg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/12/18/阿里云《Serverless云开发从入门到实战》学习笔记/" data-id="cknzpya2k001udkujdik8fg2t" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
@@ -354,7 +411,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/12/09/使用DNS映射解决Github访问缓慢的问题/" data-id="cknzp7qc60005k8uj0xxqzjbo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/12/09/使用DNS映射解决Github访问缓慢的问题/" data-id="cknzpya15000adkujbsiqlw8m" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/其它/">其它</a></li></ul>
@@ -404,7 +461,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/12/09/解决无法使用Pycharm自带的pip安装第三方库的问题/" data-id="cknzp7qdz001qk8ujvtsh9y6w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/12/09/解决无法使用Pycharm自带的pip安装第三方库的问题/" data-id="cknzpya2l001wdkujx5ztggl4" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
@@ -476,7 +533,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/12/06/使用Python可视化全国各省（除湖北）新冠疫情累计治愈病例数据/" data-id="cknzp7qch000fk8ujolj9fwsj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/12/06/使用Python可视化全国各省（除湖北）新冠疫情累计治愈病例数据/" data-id="cknzpya1i000idkujbq42qit1" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
@@ -557,7 +614,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/24/关于Spring-Security文档上密码发展史的阅读报告/" data-id="cknzp7qdb0011k8ujghy8089c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/24/关于Spring-Security文档上密码发展史的阅读报告/" data-id="cknzpya1w000zdkuj5k0yt58o" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
@@ -757,7 +814,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/24/大数据架构作业-简答题7/" data-id="cknzp7qds001hk8uj6zsp1og6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/24/大数据架构作业-简答题7/" data-id="cknzpya2e001ldkujstauaoe6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
@@ -822,55 +879,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/20/MySQL的安装指南以及常用命令/" data-id="cknzp7qbu0001k8uj7t57eyfm" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Nginx服务器的常用命令" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/11/18/Nginx服务器的常用命令/" class="article-date">
-  <time datetime="2020-11-18T09:16:30.000Z" itemprop="datePublished">2020-11-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/18/Nginx服务器的常用命令/">Nginx服务器的常用命令</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>上次学习Spring Boot编写Hello World网页的时候用到了Nginx服务器，为了以后使用方便，记录一下Nginx的常用命令。</em></p>
-<br>
-
-<h3 id="Nginx的常用命令"><a href="#Nginx的常用命令" class="headerlink" title="Nginx的常用命令"></a>Nginx的常用命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># 设置开机启动 </span><br><span class="line">$ sudo systemctl enable nginx </span><br><span class="line"></span><br><span class="line"># 启动 nginx 服务</span><br><span class="line">$ sudo service nginx start </span><br><span class="line"></span><br><span class="line"># 停止 nginx 服务</span><br><span class="line">$ sudo service nginx stop </span><br><span class="line"></span><br><span class="line"># 重启 nginx 服务</span><br><span class="line">$ sudo service nginx restart </span><br><span class="line"></span><br><span class="line"># 重新加载配置，一般是在修改过 nginx 配置文件时使用</span><br><span class="line">$ sudo service nginx reload </span><br><span class="line"></span><br><span class="line"># 查看Nginx运行状态</span><br><span class="line">$ sudo systemctl status nginx</span><br></pre></td></tr></table></figure>
-
-<br>
-
-<h3 id="配置文件位置"><a href="#配置文件位置" class="headerlink" title="配置文件位置"></a>配置文件位置</h3><p>使用yum安装的nginx，配置文件默认在/etc/nginx/nginx.conf。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 修改配置文件</span><br><span class="line">$ vim /etc/nginx/nginx.conf</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/18/Nginx服务器的常用命令/" data-id="cknzp7qc80006k8uj08q0arol" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/20/MySQL的安装指南以及常用命令/" data-id="cknzpya0s0002dkuj5y22uqip" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
@@ -886,7 +895,7 @@
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -932,6 +941,10 @@
       <ul>
         
           <li>
+            <a href="/2021/04/27/使用Docker部署jar包/">使用Docker部署jar包</a>
+          </li>
+        
+          <li>
             <a href="/2021/04/15/毕节市可视化Java项目博客记录-日期格式的转换/">毕节市可视化Java项目博客记录----日期格式的转换</a>
           </li>
         
@@ -945,10 +958,6 @@
         
           <li>
             <a href="/2020/12/09/使用DNS映射解决Github访问缓慢的问题/">使用DNS映射解决Github访问缓慢的问题</a>
-          </li>
-        
-          <li>
-            <a href="/2020/12/09/解决无法使用Pycharm自带的pip安装第三方库的问题/">解决无法使用Pycharm自带的pip安装第三方库的问题</a>
           </li>
         
       </ul>

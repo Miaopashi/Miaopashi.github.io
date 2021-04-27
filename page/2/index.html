@@ -62,6 +62,54 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Nginx服务器的常用命令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/11/18/Nginx服务器的常用命令/" class="article-date">
+  <time datetime="2020-11-18T09:16:30.000Z" itemprop="datePublished">2020-11-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/18/Nginx服务器的常用命令/">Nginx服务器的常用命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><em>上次学习Spring Boot编写Hello World网页的时候用到了Nginx服务器，为了以后使用方便，记录一下Nginx的常用命令。</em></p>
+<br>
+
+<h3 id="Nginx的常用命令"><a href="#Nginx的常用命令" class="headerlink" title="Nginx的常用命令"></a>Nginx的常用命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># 设置开机启动 </span><br><span class="line">$ sudo systemctl enable nginx </span><br><span class="line"></span><br><span class="line"># 启动 nginx 服务</span><br><span class="line">$ sudo service nginx start </span><br><span class="line"></span><br><span class="line"># 停止 nginx 服务</span><br><span class="line">$ sudo service nginx stop </span><br><span class="line"></span><br><span class="line"># 重启 nginx 服务</span><br><span class="line">$ sudo service nginx restart </span><br><span class="line"></span><br><span class="line"># 重新加载配置，一般是在修改过 nginx 配置文件时使用</span><br><span class="line">$ sudo service nginx reload </span><br><span class="line"></span><br><span class="line"># 查看Nginx运行状态</span><br><span class="line">$ sudo systemctl status nginx</span><br></pre></td></tr></table></figure>
+
+<br>
+
+<h3 id="配置文件位置"><a href="#配置文件位置" class="headerlink" title="配置文件位置"></a>配置文件位置</h3><p>使用yum安装的nginx，配置文件默认在/etc/nginx/nginx.conf。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 修改配置文件</span><br><span class="line">$ vim /etc/nginx/nginx.conf</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/11/18/Nginx服务器的常用命令/" data-id="cknzpya0m0000dkuj5mp9pijw" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-使用Spring-Boot-Spring-Security-Hibernate-Bootstrap-JSP-Spring-Data-JPA-MySQL实现的登陆注册系统" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/11/17/使用Spring-Boot-Spring-Security-Hibernate-Bootstrap-JSP-Spring-Data-JPA-MySQL实现的登陆注册系统/" class="article-date">
@@ -190,7 +238,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/17/使用Spring-Boot-Spring-Security-Hibernate-Bootstrap-JSP-Spring-Data-JPA-MySQL实现的登陆注册系统/" data-id="cknzp7qcf000dk8ujszqrxllt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/17/使用Spring-Boot-Spring-Security-Hibernate-Bootstrap-JSP-Spring-Data-JPA-MySQL实现的登陆注册系统/" data-id="cknzpya1k000kdkujdnuugmey" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
@@ -261,7 +309,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/17/关于DAO模式的小记录/" data-id="cknzp7qdu001jk8uj4390ejza" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/17/关于DAO模式的小记录/" data-id="cknzpya1y0011dkuj9lcnudtf" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
@@ -367,7 +415,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/16/大数据架构作业-简答题6/" data-id="cknzp7qdp001dk8ujx93r5n0k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/16/大数据架构作业-简答题6/" data-id="cknzpya2c001jdkujvo5wdr3u" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
@@ -512,7 +560,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/12/大数据架构作业-简答题5/" data-id="cknzp7qdr001fk8uj3p1zoa5k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/12/大数据架构作业-简答题5/" data-id="cknzpya2a001gdkujo9pcbpgi" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
@@ -678,7 +726,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/06/使用SpringBoot编写一个https网站/" data-id="cknzp7qe0001rk8ujq727u51h" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/06/使用SpringBoot编写一个https网站/" data-id="cknzpya1n000pdkujk687df3t" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
@@ -743,7 +791,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/05/大数据架构作业-简答题4/" data-id="cknzp7qdo001bk8ujopwz0sjt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/05/大数据架构作业-简答题4/" data-id="cknzpya28001edkujj5wn1hkl" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
@@ -877,7 +925,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/04/大数据架构作业-简答题3/" data-id="cknzp7qdm0019k8ujp5nmrwy5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/04/大数据架构作业-简答题3/" data-id="cknzpya26001bdkujllmusgxc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
@@ -1044,7 +1092,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/10/08/学习内网穿透/" data-id="cknzp7qe2001tk8ujwul4jui6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/10/08/学习内网穿透/" data-id="cknzpya2g001ndkujo7dt0x94" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
@@ -1138,72 +1186,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/09/27/WSLinux之Ubuntu-安装rpm包/" data-id="cknzp7qc10002k8ujmkcvx0cm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/09/27/WSLinux之Ubuntu-安装rpm包/" data-id="cknzpya0y0005dkujfky8w7y0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-大数据架构作业-简答题2" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/09/26/大数据架构作业-简答题2/" class="article-date">
-  <time datetime="2020-09-26T12:05:46.000Z" itemprop="datePublished">2020-09-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/26/大数据架构作业-简答题2/">大数据架构作业-简答题2</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>大数据架构第二次作业出来了，这次照旧记录一下。</em></p>
-<br>
-
-<h2 id="容器化技术的核心原理"><a href="#容器化技术的核心原理" class="headerlink" title="容器化技术的核心原理"></a>容器化技术的核心原理</h2><blockquote>
-<p><strong>题目：</strong>请从网络下载<strong>virtualbox</strong>软件并安装，然后在<strong>virtualbox</strong>中创建一台或多台虚拟机，尝试在虚拟机中安装<strong>CentOS</strong>或者<strong>Ubuntu</strong>等<strong>Linux</strong>操作系统。在<strong>Linux</strong>操作系统中，测试实现容器的核心技术：<strong>namespace</strong>和<strong>cgroups</strong>两项内核功能，最后在答案部分陈述实验过程、遇到的问题和解决思路、技术原理和实验体会等。</p>
-</blockquote>
-<br>
-
-<h3 id="使用virtualbox创建Ubuntu虚拟机"><a href="#使用virtualbox创建Ubuntu虚拟机" class="headerlink" title="使用virtualbox创建Ubuntu虚拟机"></a>使用virtualbox创建Ubuntu虚拟机</h3><p>首先在官网下载并安装<strong>virtualbox</strong>，到<strong>Ubuntu</strong>官网：<a href="https://cn.ubuntu.com/download，下载20.04版本的**Ubuntu.ios**文件。然后参考博客安装**Ubuntu**系统。" target="_blank" rel="noopener">https://cn.ubuntu.com/download，下载20.04版本的**Ubuntu.ios**文件。然后参考博客安装**Ubuntu**系统。</a></p>
-<p>安装的速度比较慢，有可能是因为机子的配置不够。安装系统提示仍需<strong>8h</strong>的时候，我直接睡觉了…</p>
-<p>虚拟机的创建过程很简单，只要根据基本的操作，看看系统安装的步骤很快就可以完成。</p>
-<p>考虑到现在<strong>Win10</strong>可以安装<strong>Ubuntu</strong>子系统，其实没有必要非得装一个虚拟机去体验<strong>Linux</strong>。不过以后如果有机会，可以尝试用一下<strong>vbox</strong>安装<strong>windows-xp</strong>，玩一下不兼容的老游戏。</p>
-<p>参考博客：<a href="https://blog.csdn.net/u012732259/article/details/70172704" target="_blank" rel="noopener">https://blog.csdn.net/u012732259/article/details/70172704</a></p>
-<br>
-
-<p>学习Linux中的容器</p>
-<p>容器实现的原理：namespace（实现资源隔离）、cgroups（实现资源控制）（两者是Linux内核功能）</p>
-<p>容器是拥有单独命名空间的进程。</p>
-<p>Namespace（命名空间）</p>
-<p>Namespace定义了一个封闭的作用域范围，约定。Namespace本质是一种资源隔离方案。</p>
-<p>处于同一命名空间的进程，只能看到该名字空间下的资源，如主机名、网络、进程、用户、文件系统等。</p>
-<p>不同名字空间的进程彼此不可见，互不影响。</p>
-<p>每个进程拥有七个命名空间犹豫隔离不同类型的资源：PID Namespace（pid）、CGroup Namespace（cgroup）、IPC Namespace（ipc）、Mount Namespace（mnt）、Network Namespace（net）、User Namespace（user）、UTS Namespace（uts）。</p>
-<p>关于namespace的特性可以参考这篇博客：<a href="https://zhengyinyong.com/post/introduction-to-linux-namespace/" target="_blank" rel="noopener">https://zhengyinyong.com/post/introduction-to-linux-namespace/</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/09/26/大数据架构作业-简答题2/" data-id="cknzp7qdk0017k8ujlonb9oz4" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
 
     </footer>
   </div>
@@ -1216,7 +1202,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -1262,6 +1248,10 @@
       <ul>
         
           <li>
+            <a href="/2021/04/27/使用Docker部署jar包/">使用Docker部署jar包</a>
+          </li>
+        
+          <li>
             <a href="/2021/04/15/毕节市可视化Java项目博客记录-日期格式的转换/">毕节市可视化Java项目博客记录----日期格式的转换</a>
           </li>
         
@@ -1275,10 +1265,6 @@
         
           <li>
             <a href="/2020/12/09/使用DNS映射解决Github访问缓慢的问题/">使用DNS映射解决Github访问缓慢的问题</a>
-          </li>
-        
-          <li>
-            <a href="/2020/12/09/解决无法使用Pycharm自带的pip安装第三方库的问题/">解决无法使用Pycharm自带的pip安装第三方库的问题</a>
           </li>
         
       </ul>

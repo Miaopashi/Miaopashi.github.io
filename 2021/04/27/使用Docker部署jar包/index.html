@@ -5,20 +5,20 @@
   
 
   
-  <title>关于DAO模式的小记录 | MPS的个人博客</title>
+  <title>使用Docker部署jar包 | MPS的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="上周学习SpringBoot编写用户登录系统，提到了DAO模式。   于是网上找了一下具体概念：  Data Access Object Pattern or DAO pattern is used to separate low level data accessing API or operations from high level business services. Following">
+  <meta name="description" content="背景最近在用springBoot写毕节市煤矿预警的项目，上线之后又面临着多次修改，而且在实际部署到毕节市之前还要先部署到自己的服务器给老师先看看，挺麻烦的。每次部署都在在搜索引擎找小白教程，虽然来来去去去就那基本命令，但是不是每天都写确实进不了脑子，这里索性直接记下来。   删除原来的镜像和容器部署项目之前需要将原来运行的docker容器给关掉，容器开着一来占用服务器资源，二来占用了原来的端口（为">
 <meta name="keywords" content="后端">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于DAO模式的小记录">
-<meta property="og:url" content="http://yoursite.com/2020/11/17/关于DAO模式的小记录/index.html">
+<meta property="og:title" content="使用Docker部署jar包">
+<meta property="og:url" content="http://yoursite.com/2021/04/27/使用Docker部署jar包/index.html">
 <meta property="og:site_name" content="MPS的个人博客">
-<meta property="og:description" content="上周学习SpringBoot编写用户登录系统，提到了DAO模式。   于是网上找了一下具体概念：  Data Access Object Pattern or DAO pattern is used to separate low level data accessing API or operations from high level business services. Following">
+<meta property="og:description" content="背景最近在用springBoot写毕节市煤矿预警的项目，上线之后又面临着多次修改，而且在实际部署到毕节市之前还要先部署到自己的服务器给老师先看看，挺麻烦的。每次部署都在在搜索引擎找小白教程，虽然来来去去去就那基本命令，但是不是每天都写确实进不了脑子，这里索性直接记下来。   删除原来的镜像和容器部署项目之前需要将原来运行的docker容器给关掉，容器开着一来占用服务器资源，二来占用了原来的端口（为">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-12-03T13:25:46.147Z">
+<meta property="og:updated_time" content="2021-04-27T07:39:35.892Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于DAO模式的小记录">
-<meta name="twitter:description" content="上周学习SpringBoot编写用户登录系统，提到了DAO模式。   于是网上找了一下具体概念：  Data Access Object Pattern or DAO pattern is used to separate low level data accessing API or operations from high level business services. Following">
+<meta name="twitter:title" content="使用Docker部署jar包">
+<meta name="twitter:description" content="背景最近在用springBoot写毕节市煤矿预警的项目，上线之后又面临着多次修改，而且在实际部署到毕节市之前还要先部署到自己的服务器给老师先看看，挺麻烦的。每次部署都在在搜索引擎找小白教程，虽然来来去去去就那基本命令，但是不是每天都写确实进不了脑子，这里索性直接记下来。   删除原来的镜像和容器部署项目之前需要将原来运行的docker容器给关掉，容器开着一来占用服务器资源，二来占用了原来的端口（为">
   
     <link rel="alternate" href="/atom.xml" title="MPS的个人博客" type="application/atom+xml">
   
@@ -65,10 +65,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-关于DAO模式的小记录" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-使用Docker部署jar包" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/11/17/关于DAO模式的小记录/" class="article-date">
-  <time datetime="2020-11-17T13:34:09.000Z" itemprop="datePublished">2020-11-17</time>
+    <a href="/2021/04/27/使用Docker部署jar包/" class="article-date">
+  <time datetime="2021-04-27T07:21:37.000Z" itemprop="datePublished">2021-04-27</time>
 </a>
     
   </div>
@@ -79,7 +79,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      关于DAO模式的小记录
+      使用Docker部署jar包
     </h1>
   
 
@@ -87,44 +87,30 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>上周学习SpringBoot编写用户登录系统，提到了DAO模式。</p>
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p><em>最近在用springBoot写毕节市煤矿预警的项目，上线之后又面临着多次修改，而且在实际部署到毕节市之前还要先部署到自己的服务器给老师先看看，挺麻烦的。每次部署都在在搜索引擎找小白教程，虽然来来去去去就那基本命令，但是不是每天都写确实进不了脑子，这里索性直接记下来。</em></p>
 <br>
 
-<p>于是网上找了一下<strong>具体概念</strong>：</p>
-<blockquote>
-<p>Data Access Object Pattern or DAO pattern is used to separate low level data accessing API or operations from high level business services. Following are the participants in Data Access Object Pattern.</p>
-<ul>
-<li><strong>Data Access Object Interface</strong> - This interface defines the standard operations to be performed on a model object(s).</li>
-<li><strong>Data Access Object concrete class</strong> - This class implements above interface. This class is responsible to get data from a data source which can be database / xml or any other storage mechanism.</li>
-<li><strong>Model Object or Value Object</strong> - This object is simple POJO containing get/set methods to store data retrieved using DAO class.</li>
-</ul>
-</blockquote>
+<h2 id="删除原来的镜像和容器"><a href="#删除原来的镜像和容器" class="headerlink" title="删除原来的镜像和容器"></a>删除原来的镜像和容器</h2><p>部署项目之前需要将原来运行的docker容器给关掉，容器开着一来占用服务器资源，二来占用了原来的端口（为了安全服务器防火墙是一个项目开一个端口）。下面直接贴上经常使用的docker相关命令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">查看所有容器ID</span><br><span class="line">docker ps -a</span><br><span class="line"></span><br><span class="line">停止指定的容器</span><br><span class="line">docker stop [容器id]</span><br><span class="line"></span><br><span class="line">删除指定的容器</span><br><span class="line">docker rm [容器id]</span><br><span class="line"></span><br><span class="line">查看所有image</span><br><span class="line">docker imaged</span><br><span class="line"></span><br><span class="line">删除docker镜像</span><br><span class="line">docker rmi [镜像ID]</span><br></pre></td></tr></table></figure>
+
 <br>
 
-<p><em>渣渣翻译一下</em>：</p>
-<p><strong>DAO模式用于应用的数据操作，实现了底层数据操作和高层业务的分离。</strong></p>
+<h2 id="部署jar包"><a href="#部署jar包" class="headerlink" title="部署jar包"></a>部署jar包</h2><p>删除了原来的容器和镜像之后，开始部署jar包。首先，将jar包放在某个项目目录里面，然后再目录内新建一个<code>Dockerfile</code>文件，后面docker就是根据这个文件的内容生成镜像的。</p>
+<h3 id="Dockerfile文件内容参考如下"><a href="#Dockerfile文件内容参考如下" class="headerlink" title="Dockerfile文件内容参考如下"></a><code>Dockerfile</code>文件内容参考如下</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">FROM java:8</span><br><span class="line">MAINTAINER miaopashi</span><br><span class="line">ADD demo-0.0.1-SNAPSHOT.jar demo.jar</span><br><span class="line">EXPOSE 8080</span><br><span class="line">ENTRYPOINT [&quot;java&quot;,&quot;-jar&quot;,&quot;demo.jar&quot;]</span><br></pre></td></tr></table></figure>
+
+<h3 id="构建docker镜像"><a href="#构建docker镜像" class="headerlink" title="构建docker镜像"></a>构建docker镜像</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build -t my/demo .</span><br></pre></td></tr></table></figure>
+
+<h3 id="运行容器"><a href="#运行容器" class="headerlink" title="运行容器"></a>运行容器</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --restart=always --name demo -p 8080:8080  my/demo</span><br></pre></td></tr></table></figure>
+
+<p>说明：restart选项的内容表示docker容器在服务器开机之后会自动重启</p>
 <br>
 
-<p>它分为以下三个组成部分：</p>
-<ol>
-<li><strong>DAO接口</strong> - 定义了对于底层模式对象应该有的规范化操作；</li>
-<li><strong>DAO实体类</strong> - 具体实现DAO接口里面定义的操作，<strong>负责从数据库或其它形式的数据存储中读取数据</strong>；</li>
-<li><strong>Model模式对象</strong> - 这是一个简单的<strong>POJO</strong>(<strong>Plain Old Java Object</strong>，持久化类)，用于定义需要存储的数据的格式。这个类里面，有许多<strong>get/set方法</strong>，这些方法使用DAO实体类，实现对应数据的存储和修改。</li>
-</ol>
-<br>
-
-<p>关于上述引用的具体内容，可以看看<a href="https://www.tutorialspoint.com/design_pattern/data_access_object_pattern.htm" target="_blank" rel="noopener">这个网页</a>。</p>
-<br>
-
-<p><strong>小结：</strong></p>
-<p>DAO模式是一种将底层数据结构和高层数据操作描述分离的设计模式。</p>
-<p>通过使用该模式，可以简化用户开发难度，分层进行应用开发。</p>
-<p>用户可以从底层的数据存储解放出来（直接定义POJO），从而更加专注于业务需要的数据操作的具体实现上（编写DAO实体类）。</p>
+<p>以上~</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/17/关于DAO模式的小记录/" data-id="cknzpya1y0011dkuj9lcnudtf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2021/04/27/使用Docker部署jar包/" data-id="cknzpya1b000edkujaw9hlg5s" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
@@ -135,19 +121,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/11/17/使用Spring-Boot-Spring-Security-Hibernate-Bootstrap-JSP-Spring-Data-JPA-MySQL实现的登陆注册系统/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          使用Spring Boot, Spring Security, Hibernate, Bootstrap, JSP, Spring Data JPA, MySQL实现的登陆注册系统
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/11/16/大数据架构作业-简答题6/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2021/04/15/毕节市可视化Java项目博客记录-日期格式的转换/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">大数据架构作业-简答题6</div>
+      <div class="article-nav-title">毕节市可视化Java项目博客记录----日期格式的转换</div>
     </a>
   
 </nav>
