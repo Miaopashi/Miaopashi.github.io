@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="MPS的个人博客">
 <meta property="og:description" content="数据可视化中经常要使用日期作为查询条件或者展示内容，这需要前后端对时间进行转化，本篇的目的是记录我在本项目中使用的日期转换方法   背景后端虽然可以直接使用固定格式的字符串（如：”2021-12-12 11:11:11”）进行sql查询，但是为了保证时间的准确性（排除诸如不同时区对时间的影响），最好还是使用Date类型进行查询另一方面，前端显示的时间格式一般为字符串（如：”2021-12-12 1">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2021-04-15T03:35:16.490Z">
+<meta property="og:updated_time" content="2021-04-27T07:18:42.055Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="毕节市可视化Java项目博客记录----日期格式的转换">
 <meta name="twitter:description" content="数据可视化中经常要使用日期作为查询条件或者展示内容，这需要前后端对时间进行转化，本篇的目的是记录我在本项目中使用的日期转换方法   背景后端虽然可以直接使用固定格式的字符串（如：”2021-12-12 11:11:11”）进行sql查询，但是为了保证时间的准确性（排除诸如不同时区对时间的影响），最好还是使用Date类型进行查询另一方面，前端显示的时间格式一般为字符串（如：”2021-12-12 1">
@@ -91,6 +91,7 @@
 <br>
 
 <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>后端虽然可以直接使用固定格式的字符串（如：”2021-12-12 11:11:11”）进行<code>sql</code>查询，但是为了保证时间的准确性（排除诸如不同时区对时间的影响），最好还是使用<code>Date</code>类型进行查询<br>另一方面，前端显示的时间格式一般为字符串（如：”2021-12-12 11:11:11”或”2021-12-12T11:11:11”，前者作为<strong>前端表格</strong>显示的时间结果并且可以直接作为<code>sql</code>查询条件，后者用于<code>h5</code>自带的<code>datetime</code>类型<code>Input</code>标签的<strong>时间显示</strong>）<br>这就导致后端需要对时间<strong>字符串</strong>和<strong><code>Date</code>类型变量</strong>进行转换，或者也可以把转换工作交给前端。在这个项目中，对于<strong>空格时间字符串</strong>在<strong>后端</strong>转化成<strong><code>Date</code>类型</strong>，对于<strong>T时间字符串</strong>则先在<strong>前端</strong>将其转化为<strong>空格时间字符串</strong>，后续会进行说明</p>
+<p>顺便在后面可以讲一下，如何在浏览器使用一个h5新组件，实现日历框输入。但是这个组件目前在部分主流浏览器比如火狐浏览器是不支持的（所幸谷歌浏览器是支持的），后期考虑使用其他框架的日历输入框。</p>
 <br>
 
 <h2 id="Java中日期的格式化"><a href="#Java中日期的格式化" class="headerlink" title="Java中日期的格式化"></a>Java中日期的格式化</h2><p>Java中的日期格式化可以通过<code>DateFormat</code>类和<strong><code>SimpleDateFormat</code>类</strong>完成，后者可以指定相对随意的文本格式，所以这里使用后者进行日期格式转换</p>
@@ -167,12 +168,20 @@
 <p>通过指定<code>oldSign</code>和<code>newSign</code>，可以实现T字符串和空格字符串的转化（如<strong>T转空格</strong>则调用<code>getDateTimeString(originString, &#39;T&#39;, &#39; &#39;)</code>），当然这个代码是临时拼凑的所以写的不咋滴</p>
 <br>
 
+<h2 id="使用html-lt-input-type-quot-datetime-local-quot-gt-标签实现日历框输入"><a href="#使用html-lt-input-type-quot-datetime-local-quot-gt-标签实现日历框输入" class="headerlink" title="使用html&lt;input type=&quot;datetime-local&quot;&gt;标签实现日历框输入"></a>使用html<code>&lt;input type=&quot;datetime-local&quot;&gt;</code>标签实现日历框输入</h2><p>在html5中可以指定input标签的type为datatime-local，使得input输入框使用<code>--年--月--日 xx:xx:xx</code>的日期格式，以日历框的形式进行日历输入。</p>
+<p>但是这个特性在部分浏览器，比如火狐浏览器，是没有实现的。所幸谷歌浏览器对这个特性有一个比较好看的实现，考虑到谷歌浏览器的使用率比较高，最后还是选择了这个组件。</p>
+<p>有点奇怪的是，火狐浏览器的项目基金会mozilla对这个html特性进行了<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/datetime-local" target="_blank" rel="noopener">非常详细的介绍</a>，尽管火狐浏览器并不支持它😂</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"input-group mb-3"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"input-group-prepend"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">"input-group-text"</span> <span class="attr">for</span>=<span class="string">"startTime"</span>&gt;</span>开始时间<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">id</span>=<span class="string">"startTime"</span> <span class="attr">type</span>=<span class="string">"datetime-local"</span> <span class="attr">step</span>=<span class="string">"01"</span> <span class="attr">value</span>=<span class="string">""</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>需要注意的是，这里的value格式要遵循<code>年/月/日Txx:xx:xx</code>的格式，否则value值会失效。另外这里为了显示效果，使用了<code>bootstrap4</code>进行部分装点，核心的<code>datetime</code>还是<code>html5</code>的组件</p>
+<br>
+
 <p><em>以上~</em></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2021/04/15/毕节市可视化Java项目博客记录-日期格式的转换/" data-id="cknibxzud001ls4uj76jens98" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2021/04/15/毕节市可视化Java项目博客记录-日期格式的转换/" data-id="cknzp7qdw001lk8ujgm6o5mr0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目/">项目</a></li></ul>
