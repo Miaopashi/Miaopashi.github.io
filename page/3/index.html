@@ -62,6 +62,173 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-学习内网穿透" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/10/08/学习内网穿透/" class="article-date">
+  <time datetime="2020-10-08T02:12:54.000Z" itemprop="datePublished">2020-10-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/08/学习内网穿透/">学习使用frp工具实现内网穿透</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="需要设备"><a href="#需要设备" class="headerlink" title="需要设备"></a>需要设备</h2><ol>
+<li>学校分发的虚拟机</li>
+<li>一个云服务器</li>
+</ol>
+<br>
+
+<h2 id="熟悉云服务器"><a href="#熟悉云服务器" class="headerlink" title="熟悉云服务器"></a>熟悉云服务器</h2><p>学生优惠购买了一个实例<br>设置实例密码<br>使用<strong>vnc</strong>链接服务器，发现<strong>login incorrect</strong>，原来是实例密码跟服务器密码不一样，要自己设置一个…<br>通过阿里云的控制台修改服务器密码，重启机子，然后就可以链接啦~<br>后面了解到可以使用<strong>Xshell</strong>代替<strong>workbench</strong>链接到自己的服务器，这个教程很多随便百度都能找到<br><strong>ps:</strong> 通过下文问题一了解到，阿里云服务器通过在控制台设置安全组开启端口。</p>
+<br>
+
+<br>
+
+<h2 id="下面正式学习frp"><a href="#下面正式学习frp" class="headerlink" title="下面正式学习frp"></a>下面正式学习frp</h2><h4 id="frp学习参考文章："><a href="#frp学习参考文章：" class="headerlink" title="frp学习参考文章："></a>frp学习参考文章：</h4><ol>
+<li><a href="https://sspai.com/post/52523" target="_blank" rel="noopener">https://sspai.com/post/52523</a> =  –”少数派”的博客</li>
+<li><a href="https://gofrp.org/" target="_blank" rel="noopener">https://gofrp.org/</a>  –<strong>frp</strong>的官方文档</li>
+</ol>
+<br>
+
+<h4 id="安装go环境："><a href="#安装go环境：" class="headerlink" title="安装go环境："></a>安装go环境：</h4><p>直接下载<strong>go</strong>对应的版本：<a href="https://golang.org/dl/go1.15.2.linux-amd64.tar.gz" target="_blank" rel="noopener">https://golang.org/dl/go1.15.2.linux-amd64.tar.gz</a><br>也可以使用<strong>wget</strong>命令直接在终端下载：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://storage.googleapis.com/golang/go1.15.2.linux-amd64.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p><strong>ps:</strong> 如果想通过<strong>wget</strong>命令下载，貌似需要提前安装git和<strong>gcc</strong>，参考文章1<br>然后参考文章2的提示，通过<code>tar</code>和<code>export</code>命令，完成<strong>go</strong>的安装<br>参考的文章：</p>
+<ol>
+<li><a href="https://www.jianshu.com/p/21dc1bcf382e" target="_blank" rel="noopener">https://www.jianshu.com/p/21dc1bcf382e</a></li>
+<li><a href="https://golang.org/doc/install#requirements" target="_blank" rel="noopener">https://golang.org/doc/install#requirements</a></li>
+</ol>
+<br>
+
+<h4 id="下载frp"><a href="#下载frp" class="headerlink" title="下载frp"></a>下载frp</h4><p>使用<strong>wget</strong>命令下载<strong>frp</strong>的最新版本：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/fatedier/frp/releases/download/v0.34.0/frp_0.34.0_linux_amd64.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p><strong>ps:</strong> 下载的版本错了可以使用rm命令删除，详见博客1<br><strong>pps:</strong> <strong>wget</strong>命令好像跟<strong>yum</strong>命令不一样，配置软件源没有什么用，想配置的可以参考一下博客2<br>参考的博客：</p>
+<ol>
+<li><a href="https://blog.csdn.net/sqbzo/article/details/8990404" target="_blank" rel="noopener">https://blog.csdn.net/sqbzo/article/details/8990404</a></li>
+<li><a href="https://www.jianshu.com/p/541c737bc947" target="_blank" rel="noopener">https://www.jianshu.com/p/541c737bc947</a></li>
+</ol>
+<br>
+
+<h4 id="启动frps-配置frps端"><a href="#启动frps-配置frps端" class="headerlink" title="启动frps(配置frps端)"></a>启动frps(配置frps端)</h4><p>内网穿透是把自己的终端穿透到有公网ip的服务器上的技术，这里我们先配置<strong>VPS</strong>（有公网ip的服务器），也就是<strong>frps</strong>端，这里我使用了阿里的服务器<br>先使用<strong>tar</strong>命令解压刚下载的frp：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf frp_0.34.0_linux_amd64.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>然后cd进该目录：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd frp_0.34.0_linux_amd64</span><br></pre></td></tr></table></figure>
+
+<p>检查文件发现目录内除了<strong>fprs</strong>文件还有<strong>frpc</strong>文件，使用rm命令将<strong>frpc</strong>文件一一删除<br>然后修改<strong>frps.ini</strong>文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim frps.ini</span><br></pre></td></tr></table></figure>
+
+<p>文件格式大致如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">bind_port = 7000</span><br><span class="line">vhost_http_port = 10080</span><br><span class="line">vhost_https_port = 100443</span><br><span class="line">dashboard_port = 7500</span><br><span class="line">token = ******</span><br><span class="line">dashboard_user = ms</span><br><span class="line">dashboard_pwd = ********</span><br></pre></td></tr></table></figure>
+
+<p>编辑完成之后保存:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:wq</span><br></pre></td></tr></table></figure>
+
+<p>然后启动<strong>frps：</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./frps -c frps.ini</span><br></pre></td></tr></table></figure>
+
+<p>出现<strong>start</strong>字样，说明<strong>frps</strong>服务启动成功</p>
+<br>
+
+<h4 id="问题一：x-x-x-xxx-7500无法连接至控制页面"><a href="#问题一：x-x-x-xxx-7500无法连接至控制页面" class="headerlink" title="问题一：x.x.x.xxx:7500无法连接至控制页面"></a>问题一：x.x.x.xxx:7500无法连接至控制页面</h4><p>运行<strong>frps</strong>之后，使用浏览器访问对应的地址无响应…<br>根据博客2，发现原来是防火墙没有开放服务器指定的端口！<br>查看端口是否开放: </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --query-port=7500/tcp --zone=public</span><br></pre></td></tr></table></figure>
+
+<p>如果端口开放了就返回<strong>yes</strong>，反则返回<strong>no</strong><br>但是，我返回的是<strong>FirewallD is not running</strong>…<br>百度找到博客3，发现原来服务器没有打开防火墙！<br>根据blog3打开防火墙：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">system start firewalld</span><br></pre></td></tr></table></figure>
+
+<p>打开7500端口：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent --zone=public --add-port=7500/tcp</span><br></pre></td></tr></table></figure>
+
+<p>这次再使用<strong>firewall-cmd</strong>命令看端口是否开放，返回的结果居然是<strong>no</strong>…<br>再次百度，根据博客1，发现阿里的服务器需要<strong>另外设置安全组</strong>才能开放相关的端口！<br>根据博客1设置安全组，开放2000到20000的端口<br>重启服务器之后，再次打开防火墙，开放7500端口<br>再次使用<strong>firewall-cmd</strong>检查，这次终于返回yes了<br>访问<strong>x.x.x.xxx:7500</strong>，输入用户密码，成功访问<strong>frp</strong>管理网页！<br>后话：后面配置<strong>frpc</strong>的时候居然要关闭防火墙，所以前面根据博客3和博客2关于防火墙和端口的修改其实没有什么必要，直接使用阿里云的控制平台开放端口才是正解！<br>参考的博客：</p>
+<ol>
+<li><a href="https://blog.csdn.net/weferxe/article/details/104777838" target="_blank" rel="noopener">https://blog.csdn.net/weferxe/article/details/104777838</a>  –设置阿里云安全组</li>
+<li><a href="https://koolshare.cn/forum.php?mod=viewthread&amp;tid=137536&amp;page=1&amp;extra=" target="_blank" rel="noopener">https://koolshare.cn/forum.php?mod=viewthread&amp;tid=137536&amp;page=1&amp;extra=</a>  –开放端口的命令</li>
+<li><a href="https://www.cnblogs.com/rxbook/p/8110143.html" target="_blank" rel="noopener">https://www.cnblogs.com/rxbook/p/8110143.html</a>  –控制<strong>linux</strong>的防火墙</li>
+</ol>
+<br>
+
+<h4 id="使用nohup挂起frps进程"><a href="#使用nohup挂起frps进程" class="headerlink" title="使用nohup挂起frps进程"></a>使用nohup挂起frps进程</h4><p>目前关闭<strong>shell</strong>窗口之后，现在的<strong>frps</strong>进程就会结束<br>为了让<strong>frps</strong>和<strong>frpc</strong>两端一直穿透，需要把<strong>frps</strong>进程挂到后台<br>参考博客1，使用<strong>nohup</strong>命令把进程移动到后台:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./frps -c frps.ini &amp;</span><br></pre></td></tr></table></figure>
+
+<p>同理，后面<strong>frpc</strong>端也要使用nohup挂起进程<br>参考的博客：</p>
+<p>同理，后面frpc端也要使用nohup挂起进程<br>参考的博客：</p>
+<ol>
+<li><a href="https://ehlxr.me/2017/01/18/Linux-%E7%9A%84-nohup-%E5%91%BD%E4%BB%A4%E7%9A%84%E7%94%A8%E6%B3%95/" target="_blank" rel="noopener">https://ehlxr.me/2017/01/18/Linux-%E7%9A%84-nohup-%E5%91%BD%E4%BB%A4%E7%9A%84%E7%94%A8%E6%B3%95/</a> –这篇博客还介绍了后台进程的关闭等事项</li>
+</ol>
+<br>
+
+<h4 id="启动frpc-配置frpc端"><a href="#启动frpc-配置frpc端" class="headerlink" title="启动frpc(配置frpc端)"></a>启动frpc(配置frpc端)</h4><p>上面配置好了<strong>frps</strong>端，下面再配置<strong>frpc</strong>端之后就能实现穿透了！<br>这里我使用学校机房分发的一台虚拟机，作为<strong>frpc</strong>端，同样需要实现安装golang和<strong>frp</strong><br>下载完<strong>frp</strong>的安装包之后，和<strong>frps</strong>端类似，tar解压，然后删除f<strong>rps</strong>文件<br>使用vim命令修改frpc.ini:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim frpc.ini</span><br></pre></td></tr></table></figure>
+
+<p>文件的格式大致如下:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">server_addr = x.x.x.x</span><br><span class="line">server_port = 7000</span><br><span class="line">token = ******</span><br><span class="line">[web]</span><br><span class="line">type = http</span><br><span class="line">local_port = 5000</span><br><span class="line">custom_domains = x.x.x.x</span><br></pre></td></tr></table></figure>
+
+<p><strong>说明:</strong> 这里的<strong>local_port</strong>是指frpc机子上<strong>web</strong>进程使用的端口; custom_domains是<strong>frps</strong>端的<strong>ip地址</strong>或者域名，由于我还没买域名，所以这里就填了自己的ip<br>保存之后启动进程: </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./frpc -c frpc.ini</span><br></pre></td></tr></table></figure>
+
+<p>进程正常启动，和<strong>frps</strong>端类似，使用nohup把进程挂起，<strong>frpc</strong>端配置就完成了！</p>
+<br>
+
+<h4 id="编写一个最简单的web"><a href="#编写一个最简单的web" class="headerlink" title="编写一个最简单的web"></a>编写一个最简单的web</h4><p>现在<strong>frpc</strong>端已经配置完成，还需要写一个web测试一下，<strong>web</strong>服务能否被正常访问<br>远程控制学校分配的虚拟机，使用<strong>python</strong>的flask框架编写一个简单的应用</p>
+<br>
+
+<p>安装<strong>python3</strong>和<strong>pip3</strong><br>安装<strong>python3</strong>直接<strong>yum</strong>即可，安装<strong>pip3</strong>可以参照一下文章1<br>使用<strong>pip</strong>安装<strong>flask</strong>： </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install -i [清华源] flask</span><br></pre></td></tr></table></figure>
+
+<p>使用清华源安装<strong>flask</strong>快一点，详细参照文章2<br>完成上面的安装之后就可以开始编写<strong>web</strong>了！<br>参考文章：</p>
+<ol>
+<li><a href="https://blog.csdn.net/jamieblue1/article/details/89208151" target="_blank" rel="noopener">https://blog.csdn.net/jamieblue1/article/details/89208151</a>  –安装pip</li>
+<li><a href="https://mirrors.tuna.tsinghua.edu.cn/help/pypi/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/help/pypi/</a>  –清华</li>
+</ol>
+<br>
+
+<h4 id="编写app-py"><a href="#编写app-py" class="headerlink" title="编写app.py"></a>编写app.py</h4><p>临时创建一个文件夹<strong>test_flask</strong>，存放app.py<br>根据<strong>flask</strong>的官方文档，文章1，编写一个只返回<strong>‘frp sucess!!!’</strong>的简单应用<br><strong>vim app.py:</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line">app = Flask(__name__)</span><br><span class="line"><span class="meta">@app.route('/')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello_world</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'frp sucess!!!'</span></span><br></pre></td></tr></table></figure>
+
+<p>然后保存</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:wq</span><br></pre></td></tr></table></figure>
+
+<p>启动web:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export FLASK_APP=app.py</span><br><span class="line">python3 -m flask run</span><br></pre></td></tr></table></figure>
+
+<p>然后使用自己的机子访问<strong>x.x.x.x:10080</strong>，显示<strong>‘frp sucess!!!’</strong>，说明内网穿透成功！</p>
+<p>参考文章：</p>
+<ol>
+<li><a href="https://dormousehole.readthedocs.io/en/latest/quickstart.html#id2" target="_blank" rel="noopener">https://dormousehole.readthedocs.io/en/latest/quickstart.html#id2</a></li>
+</ol>
+<br>
+
+<br>
+
+<p>结语：<br>内网穿透技术可以很好地解决<strong>VPS</strong>配置不足的问题，由于学校机房分配了3台虚拟机，我才想借机利用一下，才学习了<strong>frp</strong>。但是在学习的中途我越发觉得这个技术对于学生来说，能够提供很大的便利，于是把学习的过程记录下来，希望能够帮助到其他人。<br>以后想学习一下<strong>nignx</strong>，尝试一下能否把多个域名映射到一台<strong>VPS</strong>的不同端口，进而穿透到不同的机子，提供多个服务。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/10/08/学习内网穿透/" data-id="ckqi1pg09001qjoujx4s58xso" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-WSLinux之Ubuntu-安装rpm包" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/09/27/WSLinux之Ubuntu-安装rpm包/" class="article-date">
@@ -144,7 +311,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/09/27/WSLinux之Ubuntu-安装rpm包/" data-id="cknzrcec000045wuj6ukpp5ff" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/09/27/WSLinux之Ubuntu-安装rpm包/" data-id="ckqi1pfyy0004joujkrb2dkdg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
@@ -206,7 +373,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/09/26/大数据架构作业-简答题2/" data-id="cknzrcecu00175wujmy8iku3c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/09/26/大数据架构作业-简答题2/" data-id="ckqi1pfzy001bjoujz3ifq0am" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
@@ -496,7 +663,7 @@ ChildClass());</code><br>※ <strong>泛型只能使用引用类型</strong>, �
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/09/23/入门JavaSE-进阶篇/" data-id="cknzrcecn000w5wuj0yjkhyb3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/09/23/入门JavaSE-进阶篇/" data-id="ckqi1pfzn000vjouj3s30f293" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程语言入门/">编程语言入门</a></li></ul>
@@ -632,7 +799,7 @@ ChildClass());</code><br>※ <strong>泛型只能使用引用类型</strong>, �
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/09/21/为Windows-Terminal配置Ubuntu系统/" data-id="cknzrcec500095wujctoqai9c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/09/21/为Windows-Terminal配置Ubuntu系统/" data-id="ckqi1pfz8000djouj7fs9l636" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
@@ -751,7 +918,7 @@ ChildClass());</code><br>※ <strong>泛型只能使用引用类型</strong>, �
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/09/16/大数据架构作业-简答题1/" data-id="cknzrcecw00195wuj016c0h1b" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/09/16/大数据架构作业-简答题1/" data-id="ckqi1pfzw0018joujmavcj3jy" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
@@ -927,7 +1094,7 @@ ps: 编译程序之后会出现多个</code>.class`文件</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/08/26/入门JavaSE-中级篇/" data-id="cknzrcecr00125wujf4f1ty6f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/08/26/入门JavaSE-中级篇/" data-id="ckqi1pfzp000xjouj8xwnv7j7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程语言入门/">编程语言入门</a></li></ul>
@@ -1051,7 +1218,7 @@ ps: 编译程序之后会出现多个</code>.class`文件</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/08/21/入门JavaSE-初级篇/" data-id="cknzrcecl000t5wuj80im0yo6" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/08/21/入门JavaSE-初级篇/" data-id="ckqi1pfzl000sjoujjyfoyd3q" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/编程语言入门/">编程语言入门</a></li></ul>
@@ -1149,7 +1316,7 @@ ps: 编译程序之后会出现多个</code>.class`文件</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/08/21/使用photomosaic库实现马赛克拼图/" data-id="cknzrceci000o5wujqilid7d8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/08/21/使用photomosaic库实现马赛克拼图/" data-id="ckqi1pfzq000zjoujtzb232tw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/其它/">其它</a></li></ul>
@@ -1364,127 +1531,10 @@ ps: 编译程序之后会出现多个</code>.class`文件</p>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/06/28/关于学校校园网挂VPN解决断网问题的个人解读/" data-id="cknzrcect00145wuji9ilu6ps" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/06/28/关于学校校园网挂VPN解决断网问题的个人解读/" data-id="ckqi1pfzv0016joujlkyuov8e" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络/">网络</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-使用Heroku部署网页" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/12/17/使用Heroku部署网页/" class="article-date">
-  <time datetime="2019-12-17T08:12:18.000Z" itemprop="datePublished">2019-12-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/12/17/使用Heroku部署网页/">使用Heroku部署网页</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近学习了使用python的Django框架编写一个笔记条目记录网站。根据参考书的指导，把项目托管到了Heroku上。</p>
-<p>下面记录一下，如何把pythonWeb项目托管到Heroku上运行。</p>
-<br>
-
-<h2 id="1-安装必要的包"><a href="#1-安装必要的包" class="headerlink" title="1.安装必要的包"></a>1.安装必要的包</h2><blockquote>
-<p>如：<br>dj-database-url<br>dj-static<br>static3<br>gunicorn</p>
-</blockquote>
-<br>
-
-<h2 id="2-创建记录包列表的文件-requirements-txt"><a href="#2-创建记录包列表的文件-requirements-txt" class="headerlink" title="2.创建记录包列表的文件 requirements.txt"></a>2.创建记录包列表的文件 requirements.txt</h2><p><code>$ pip freeze &gt; requirements.txt</code></p>
-<br>
-
-<h3 id="记得加入-psycopg2-gt-lt-2-6-1-gt"><a href="#记得加入-psycopg2-gt-lt-2-6-1-gt" class="headerlink" title="记得加入 psycopg2&gt;=&lt;2.6.1&gt;"></a>记得加入 psycopg2&gt;=&lt;2.6.1&gt;</h3><p>// &lt;&gt;表示不一定是版本号</p>
-<p>ps: windows系统好像不太一样</p>
-<br>
-
-<h2 id="3-在-runtime-txt-指定-python-的版本"><a href="#3-在-runtime-txt-指定-python-的版本" class="headerlink" title="3.在 runtime.txt 指定 python 的版本"></a>3.在 runtime.txt 指定 python 的版本</h2><ul>
-<li>python –version    查看版本</li>
-<li>写进 runtime, 注意用小写</li>
-</ul>
-<br>
-
-<h2 id="4-修改-settings-py-保证能够在-heroku-的服务器跑起来"><a href="#4-修改-settings-py-保证能够在-heroku-的服务器跑起来" class="headerlink" title="4.修改 settings.py 保证能够在 heroku 的服务器跑起来"></a>4.修改 settings.py 保证能够在 heroku 的服务器跑起来</h2><p>可以参照一下我在 learning_log 项目写的设置：</p>
-<pre><code>#Heroku设置
-if os.environ[&apos;HOME&apos;] == &apos;/app&apos;:
-    import dj_database_url
-    DATABASES = {
-        &apos;default&apos;: dj_database_url.config(default=&apos;postgres://localhost&apos;)
-    }
-
-    #让request.is_secure()承认X_Forward_Proto头
-    SECURE_PROXY_SSL_HEADER = (&apos;HTTP_X_FORWARDED_PROTO&apos;, &apos;https&apos;)
-
-    #支持所有的主机头(host header)
-    ALLOWED_HOSTS = [&apos;*&apos;]
-
-    #静态资产配置
-    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-    STATIC_URL = &apos;static/&apos;
-    STATIC_ROOT = os.path.join(PROJECT_ROOT, &apos;static&apos;)</code></pre><br>
-
-<h2 id="5-创建启动进程的-Procfile"><a href="#5-创建启动进程的-Procfile" class="headerlink" title="5.创建启动进程的 Procfile"></a>5.创建启动进程的 Procfile</h2><p>不指定扩展名，P为大写</p>
-<pre><code>web: gunicorn learning_log.wsgi --log-file -</code></pre><ul>
-<li>指定服务器为 gunicorn，</li>
-<li>并且使用 wsgi.py 中的设置，</li>
-<li>告诉 Heroku 什么类型的事件写进日志</li>
-</ul>
-<br>
-
-<h2 id="6-创建静态文件目录"><a href="#6-创建静态文件目录" class="headerlink" title="6.创建静态文件目录"></a>6.创建静态文件目录</h2><p>1.在 &lt;learning_log/learning_log/&gt; 中创建文件夹 static，<br>2.并且用 placeholder.txt 占位 // &lt;&gt;表示不一定为这个路径<br>3.txt 的内容随便写</p>
-<br>
-
-<h2 id="7-使用-git-（没有的就先看怎么安装，这里不赘述）"><a href="#7-使用-git-（没有的就先看怎么安装，这里不赘述）" class="headerlink" title="7.使用 git （没有的就先看怎么安装，这里不赘述）"></a>7.使用 git （没有的就先看怎么安装，这里不赘述）</h2><p>编写 <code>.gitignore</code>文件，内容如下</p>
-<blockquote>
-<p>11_env/<br><strong>pycache</strong>/<br>*.sqlite3<br>// 内容不唯一</p>
-</blockquote>
-<p>再一顿基操：</p>
-<blockquote>
-<p>git init<br>git add .<br>git commit -am “”<br>git status<br>// 如果 app 已经创建好了<br>git push heroku master<br><br></p>
-</blockquote>
-<h2 id="8-推送到-Heroku"><a href="#8-推送到-Heroku" class="headerlink" title="8.推送到 Heroku"></a>8.推送到 Heroku</h2><p>代码如下：</p>
-<pre><code>heroku login
-// 登录之后
-heroku create
-git push heroku master</code></pre><br>
-
-<h2 id="9-建立数据库"><a href="#9-建立数据库" class="headerlink" title="9.建立数据库"></a>9.建立数据库</h2><h3 id="code"><a href="#code" class="headerlink" title="code:"></a>code:</h3><pre><code>heroku run python manage.py migrate</code></pre><br>
-
-<h3 id="10-有时候直接用-heroku-命令会报错，可以加-–remote-heroku-解决"><a href="#10-有时候直接用-heroku-命令会报错，可以加-–remote-heroku-解决" class="headerlink" title="10.有时候直接用 heroku 命令会报错，可以加 –remote heroku 解决"></a>10.有时候直接用 heroku 命令会报错，可以加 –remote heroku 解决</h3><br>
-
-<h2 id="11-改进-Heroku-部署"><a href="#11-改进-Heroku-部署" class="headerlink" title="11.改进 Heroku 部署"></a>11.改进 Heroku 部署</h2><h3 id="创建超级用户"><a href="#创建超级用户" class="headerlink" title="创建超级用户"></a>创建超级用户</h3><h3 id="code-1"><a href="#code-1" class="headerlink" title="code:"></a>code:</h3><pre><code>heroku run bash
-ls
-python manage.py creaetesuperuser
-balabala...
-exit</code></pre><h3 id="优化-URL"><a href="#优化-URL" class="headerlink" title="优化 URL"></a>优化 URL</h3><pre><code>heroku apps:rename &lt;mps-learning-log&gt; // &lt;&gt;表示不唯一</code></pre><br>
-
-<h2 id="12-确保项目安全"><a href="#12-确保项目安全" class="headerlink" title="12.确保项目安全"></a>12.确保项目安全</h2><h4 id="在setting-py中关闭调试模式，只允许-Heroku-托管"><a href="#在setting-py中关闭调试模式，只允许-Heroku-托管" class="headerlink" title="在setting.py中关闭调试模式，只允许 Heroku 托管"></a>在setting.py中关闭调试模式，只允许 Heroku 托管</h4><pre><code>#只允许 Heroku 托管这个项目
-ALLOWED_HOSTS = [&apos;*&apos;]
-DABUG = False</code></pre><p>推送并提交修改</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/12/17/使用Heroku部署网页/" data-id="cknzrcecb000e5wujfo02auvk" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
 
     </footer>
   </div>
@@ -1530,7 +1580,7 @@ DABUG = False</code></pre><p>推送并提交修改</p>
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li></ul>
     </div>
   </div>
 
@@ -1541,6 +1591,10 @@ DABUG = False</code></pre><p>推送并提交修改</p>
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2021/06/29/MySQL导入csv文件导出sql文件/">MySQL导入csv文件导出sql文件</a>
+          </li>
         
           <li>
             <a href="/2021/04/27/使用js和后端模糊查询实现搜索提示功能/">使用js和后端模糊查询实现搜索提示功能</a>
@@ -1556,10 +1610,6 @@ DABUG = False</code></pre><p>推送并提交修改</p>
         
           <li>
             <a href="/2021/04/08/工作室技术分享会/">工作室技术分享会</a>
-          </li>
-        
-          <li>
-            <a href="/2020/12/18/阿里云《Serverless云开发从入门到实战》学习笔记/">阿里云《Serverless云开发从入门到实战》学习笔记</a>
           </li>
         
       </ul>

@@ -5,20 +5,20 @@
   
 
   
-  <title>大数据架构作业-简答题2 | MPS的个人博客</title>
+  <title>MySQL导入csv文件导出sql文件 | MPS的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="大数据架构第二次作业出来了，这次照旧记录一下。   容器化技术的核心原理 题目：请从网络下载virtualbox软件并安装，然后在virtualbox中创建一台或多台虚拟机，尝试在虚拟机中安装CentOS或者Ubuntu等Linux操作系统。在Linux操作系统中，测试实现容器的核心技术：namespace和cgroups两项内核功能，最后在答案部分陈述实验过程、遇到的问题和解决思路、技术原理和实">
-<meta name="keywords" content="课程作业">
+  <meta name="description" content="首先创建数据库12create database covid_19;use covid_19;  使用数据库，并且创建一个表这里表的格式比较随意 1234567CREATE TABLE counties (    date VARCHAR(20) NULL,    county VARCHAR(40) NULL,    state VARCHAR(40) NULL,    cases INT NU">
+<meta name="keywords" content="后端">
 <meta property="og:type" content="article">
-<meta property="og:title" content="大数据架构作业-简答题2">
-<meta property="og:url" content="http://yoursite.com/2020/09/26/大数据架构作业-简答题2/index.html">
+<meta property="og:title" content="MySQL导入csv文件导出sql文件">
+<meta property="og:url" content="http://yoursite.com/2021/06/29/MySQL导入csv文件导出sql文件/index.html">
 <meta property="og:site_name" content="MPS的个人博客">
-<meta property="og:description" content="大数据架构第二次作业出来了，这次照旧记录一下。   容器化技术的核心原理 题目：请从网络下载virtualbox软件并安装，然后在virtualbox中创建一台或多台虚拟机，尝试在虚拟机中安装CentOS或者Ubuntu等Linux操作系统。在Linux操作系统中，测试实现容器的核心技术：namespace和cgroups两项内核功能，最后在答案部分陈述实验过程、遇到的问题和解决思路、技术原理和实">
+<meta property="og:description" content="首先创建数据库12create database covid_19;use covid_19;  使用数据库，并且创建一个表这里表的格式比较随意 1234567CREATE TABLE counties (    date VARCHAR(20) NULL,    county VARCHAR(40) NULL,    state VARCHAR(40) NULL,    cases INT NU">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-12-03T13:22:33.116Z">
+<meta property="og:updated_time" content="2021-06-29T12:44:55.664Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="大数据架构作业-简答题2">
-<meta name="twitter:description" content="大数据架构第二次作业出来了，这次照旧记录一下。   容器化技术的核心原理 题目：请从网络下载virtualbox软件并安装，然后在virtualbox中创建一台或多台虚拟机，尝试在虚拟机中安装CentOS或者Ubuntu等Linux操作系统。在Linux操作系统中，测试实现容器的核心技术：namespace和cgroups两项内核功能，最后在答案部分陈述实验过程、遇到的问题和解决思路、技术原理和实">
+<meta name="twitter:title" content="MySQL导入csv文件导出sql文件">
+<meta name="twitter:description" content="首先创建数据库12create database covid_19;use covid_19;  使用数据库，并且创建一个表这里表的格式比较随意 1234567CREATE TABLE counties (    date VARCHAR(20) NULL,    county VARCHAR(40) NULL,    state VARCHAR(40) NULL,    cases INT NU">
   
     <link rel="alternate" href="/atom.xml" title="MPS的个人博客" type="application/atom+xml">
   
@@ -65,10 +65,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-大数据架构作业-简答题2" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-MySQL导入csv文件导出sql文件" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2020/09/26/大数据架构作业-简答题2/" class="article-date">
-  <time datetime="2020-09-26T12:05:46.000Z" itemprop="datePublished">2020-09-26</time>
+    <a href="/2021/06/29/MySQL导入csv文件导出sql文件/" class="article-date">
+  <time datetime="2021-06-29T12:44:12.000Z" itemprop="datePublished">2021-06-29</time>
 </a>
     
   </div>
@@ -79,7 +79,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      大数据架构作业-简答题2
+      MySQL导入csv文件导出sql文件
     </h1>
   
 
@@ -87,38 +87,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><em>大数据架构第二次作业出来了，这次照旧记录一下。</em></p>
-<br>
+        <h4 id="首先创建数据库"><a href="#首先创建数据库" class="headerlink" title="首先创建数据库"></a>首先创建数据库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create database covid_19;</span><br><span class="line">use covid_19;</span><br></pre></td></tr></table></figure>
 
-<h2 id="容器化技术的核心原理"><a href="#容器化技术的核心原理" class="headerlink" title="容器化技术的核心原理"></a>容器化技术的核心原理</h2><blockquote>
-<p><strong>题目：</strong>请从网络下载<strong>virtualbox</strong>软件并安装，然后在<strong>virtualbox</strong>中创建一台或多台虚拟机，尝试在虚拟机中安装<strong>CentOS</strong>或者<strong>Ubuntu</strong>等<strong>Linux</strong>操作系统。在<strong>Linux</strong>操作系统中，测试实现容器的核心技术：<strong>namespace</strong>和<strong>cgroups</strong>两项内核功能，最后在答案部分陈述实验过程、遇到的问题和解决思路、技术原理和实验体会等。</p>
-</blockquote>
-<br>
+<h4 id="使用数据库，并且创建一个表"><a href="#使用数据库，并且创建一个表" class="headerlink" title="使用数据库，并且创建一个表"></a>使用数据库，并且创建一个表</h4><p>这里表的格式比较随意</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE counties (</span><br><span class="line">    date VARCHAR(20) NULL,</span><br><span class="line">    county VARCHAR(40) NULL,</span><br><span class="line">    state VARCHAR(40) NULL,</span><br><span class="line">    cases INT NULL,</span><br><span class="line">    deaths INT NULL</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
-<h3 id="使用virtualbox创建Ubuntu虚拟机"><a href="#使用virtualbox创建Ubuntu虚拟机" class="headerlink" title="使用virtualbox创建Ubuntu虚拟机"></a>使用virtualbox创建Ubuntu虚拟机</h3><p>首先在官网下载并安装<strong>virtualbox</strong>，到<strong>Ubuntu</strong>官网：<a href="https://cn.ubuntu.com/download，下载20.04版本的**Ubuntu.ios**文件。然后参考博客安装**Ubuntu**系统。" target="_blank" rel="noopener">https://cn.ubuntu.com/download，下载20.04版本的**Ubuntu.ios**文件。然后参考博客安装**Ubuntu**系统。</a></p>
-<p>安装的速度比较慢，有可能是因为机子的配置不够。安装系统提示仍需<strong>8h</strong>的时候，我直接睡觉了…</p>
-<p>虚拟机的创建过程很简单，只要根据基本的操作，看看系统安装的步骤很快就可以完成。</p>
-<p>考虑到现在<strong>Win10</strong>可以安装<strong>Ubuntu</strong>子系统，其实没有必要非得装一个虚拟机去体验<strong>Linux</strong>。不过以后如果有机会，可以尝试用一下<strong>vbox</strong>安装<strong>windows-xp</strong>，玩一下不兼容的老游戏。</p>
-<p>参考博客：<a href="https://blog.csdn.net/u012732259/article/details/70172704" target="_blank" rel="noopener">https://blog.csdn.net/u012732259/article/details/70172704</a></p>
-<br>
+<h4 id="使用如下命令加载csv文件到指定的表中"><a href="#使用如下命令加载csv文件到指定的表中" class="headerlink" title="使用如下命令加载csv文件到指定的表中"></a>使用如下命令加载csv文件到指定的表中</h4><p>注意替换文件路径。另外，这里忽略掉了csv中第一行的数据。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">LOAD DATA</span><br><span class="line">INFILE &apos;D:\\Learning\\DataAnalysis\\covid-19-prediction\\data\\counties.csv&apos;</span><br><span class="line">INTO TABLE counties</span><br><span class="line">FIELDS TERMINATED BY &apos;,&apos;</span><br><span class="line">ENCLOSED BY &apos;&quot;&apos;</span><br><span class="line">IGNORE 1 ROWS;</span><br></pre></td></tr></table></figure>
 
-<p>学习Linux中的容器</p>
-<p>容器实现的原理：namespace（实现资源隔离）、cgroups（实现资源控制）（两者是Linux内核功能）</p>
-<p>容器是拥有单独命名空间的进程。</p>
-<p>Namespace（命名空间）</p>
-<p>Namespace定义了一个封闭的作用域范围，约定。Namespace本质是一种资源隔离方案。</p>
-<p>处于同一命名空间的进程，只能看到该名字空间下的资源，如主机名、网络、进程、用户、文件系统等。</p>
-<p>不同名字空间的进程彼此不可见，互不影响。</p>
-<p>每个进程拥有七个命名空间犹豫隔离不同类型的资源：PID Namespace（pid）、CGroup Namespace（cgroup）、IPC Namespace（ipc）、Mount Namespace（mnt）、Network Namespace（net）、User Namespace（user）、UTS Namespace（uts）。</p>
-<p>关于namespace的特性可以参考这篇博客：<a href="https://zhengyinyong.com/post/introduction-to-linux-namespace/" target="_blank" rel="noopener">https://zhengyinyong.com/post/introduction-to-linux-namespace/</a></p>
+<h4 id="导出数据库"><a href="#导出数据库" class="headerlink" title="导出数据库"></a>导出数据库</h4><p>在shell窗口或者cmd窗口，使用如下命令，即可导出指定的数据库。</p>
+<p>注意，这里导出文件名应该是绝对路径。</p>
+<p><strong>如果使用window系统，注意不要使用power shell！！否则导出的sql文件可能无法使用！</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u [用户名] -p [数据库名] &gt; [导出的文件名]</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/09/26/大数据架构作业-简答题2/" data-id="ckqi1pfzy001bjoujz3ifq0am" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2021/06/29/MySQL导入csv文件导出sql文件/" data-id="ckqi1pfyn0000joujd749oizn" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
 
     </footer>
   </div>
@@ -126,19 +115,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2020/09/27/WSLinux之Ubuntu-安装rpm包/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Windows Subsystem for Linux之Ubuntu安装rpm包
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/09/23/入门JavaSE-进阶篇/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2021/04/27/使用js和后端模糊查询实现搜索提示功能/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">入门Java其三</div>
+      <div class="article-nav-title">使用js和后端模糊查询实现搜索提示功能</div>
     </a>
   
 </nav>

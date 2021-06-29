@@ -62,6 +62,57 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-MySQL导入csv文件导出sql文件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2021/06/29/MySQL导入csv文件导出sql文件/" class="article-date">
+  <time datetime="2021-06-29T12:44:12.000Z" itemprop="datePublished">2021-06-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/06/29/MySQL导入csv文件导出sql文件/">MySQL导入csv文件导出sql文件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="首先创建数据库"><a href="#首先创建数据库" class="headerlink" title="首先创建数据库"></a>首先创建数据库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create database covid_19;</span><br><span class="line">use covid_19;</span><br></pre></td></tr></table></figure>
+
+<h4 id="使用数据库，并且创建一个表"><a href="#使用数据库，并且创建一个表" class="headerlink" title="使用数据库，并且创建一个表"></a>使用数据库，并且创建一个表</h4><p>这里表的格式比较随意</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE counties (</span><br><span class="line">    date VARCHAR(20) NULL,</span><br><span class="line">    county VARCHAR(40) NULL,</span><br><span class="line">    state VARCHAR(40) NULL,</span><br><span class="line">    cases INT NULL,</span><br><span class="line">    deaths INT NULL</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h4 id="使用如下命令加载csv文件到指定的表中"><a href="#使用如下命令加载csv文件到指定的表中" class="headerlink" title="使用如下命令加载csv文件到指定的表中"></a>使用如下命令加载csv文件到指定的表中</h4><p>注意替换文件路径。另外，这里忽略掉了csv中第一行的数据。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">LOAD DATA</span><br><span class="line">INFILE &apos;D:\\Learning\\DataAnalysis\\covid-19-prediction\\data\\counties.csv&apos;</span><br><span class="line">INTO TABLE counties</span><br><span class="line">FIELDS TERMINATED BY &apos;,&apos;</span><br><span class="line">ENCLOSED BY &apos;&quot;&apos;</span><br><span class="line">IGNORE 1 ROWS;</span><br></pre></td></tr></table></figure>
+
+<h4 id="导出数据库"><a href="#导出数据库" class="headerlink" title="导出数据库"></a>导出数据库</h4><p>在shell窗口或者cmd窗口，使用如下命令，即可导出指定的数据库。</p>
+<p>注意，这里导出文件名应该是绝对路径。</p>
+<p><strong>如果使用window系统，注意不要使用power shell！！否则导出的sql文件可能无法使用！</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -u [用户名] -p [数据库名] &gt; [导出的文件名]</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2021/06/29/MySQL导入csv文件导出sql文件/" data-id="ckqi1pfyn0000joujd749oizn" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-使用js和后端模糊查询实现搜索提示功能" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2021/04/27/使用js和后端模糊查询实现搜索提示功能/" class="article-date">
@@ -127,7 +178,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2021/04/27/使用js和后端模糊查询实现搜索提示功能/" data-id="cknzrcecj000r5wujqovoit19" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2021/04/27/使用js和后端模糊查询实现搜索提示功能/" data-id="ckqi1pfzk000qjoujr4v1ryll" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
@@ -184,7 +235,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2021/04/27/使用Docker部署jar包/" data-id="cknzrcec9000d5wuj5pyqgjx5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2021/04/27/使用Docker部署jar包/" data-id="ckqi1pfzb000gjoujliqqz4mt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
@@ -312,7 +363,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2021/04/15/毕节市可视化Java项目博客记录-日期格式的转换/" data-id="cknzrceda001y5wujmxkisfo5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2021/04/15/毕节市可视化Java项目博客记录-日期格式的转换/" data-id="ckqi1pg0c001ujoujktrhvzf6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目/">项目</a></li></ul>
@@ -391,7 +442,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2021/04/08/工作室技术分享会/" data-id="cknzrced6001r5wuj9vfvkwn9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2021/04/08/工作室技术分享会/" data-id="ckqi1pg0b001sjouj9q9f6thm" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
@@ -441,7 +492,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/12/18/阿里云《Serverless云开发从入门到实战》学习笔记/" data-id="cknzrced9001w5wujcghmxhlu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/12/18/阿里云《Serverless云开发从入门到实战》学习笔记/" data-id="ckqi1pg0f001zjoujz133161b" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
@@ -488,7 +539,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/12/09/使用DNS映射解决Github访问缓慢的问题/" data-id="cknzrcec7000a5wujd4np124i" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/12/09/使用DNS映射解决Github访问缓慢的问题/" data-id="ckqi1pfz50009joujkup6yjtr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/其它/">其它</a></li></ul>
@@ -538,7 +589,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/12/09/解决无法使用Pycharm自带的pip安装第三方库的问题/" data-id="cknzrced8001t5wuj7da5xs13" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/12/09/解决无法使用Pycharm自带的pip安装第三方库的问题/" data-id="ckqi1pg0e001xjouj7s4t4m0t" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
@@ -610,7 +661,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/12/06/使用Python可视化全国各省（除湖北）新冠疫情累计治愈病例数据/" data-id="cknzrcecd000h5wujqs8m7xdr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/12/06/使用Python可视化全国各省（除湖北）新冠疫情累计治愈病例数据/" data-id="ckqi1pfzd000ijoujb46ta2iu" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
@@ -691,210 +742,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/24/关于Spring-Security文档上密码发展史的阅读报告/" data-id="cknzrcecq000z5wujsjcddw1t" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/11/24/关于Spring-Security文档上密码发展史的阅读报告/" data-id="ckqi1pfzr0011joujxlmgbr0v" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/后端/">后端</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-大数据架构作业-简答题7" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/11/24/大数据架构作业-简答题7/" class="article-date">
-  <time datetime="2020-11-24T10:37:49.000Z" itemprop="datePublished">2020-11-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/24/大数据架构作业-简答题7/">大数据架构作业-简答题7</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><em>最后一次大数据架构超星作业了，终于结束了罪恶的ppt复制粘贴答题了。</em></p>
-<br>
-
-<br>
-
-<blockquote>
-<h2 id="1-简要说明流数据的特点以及流计算的需求和处理流程。"><a href="#1-简要说明流数据的特点以及流计算的需求和处理流程。" class="headerlink" title="1 简要说明流数据的特点以及流计算的需求和处理流程。"></a>1 简要说明流数据的特点以及流计算的需求和处理流程。</h2></blockquote>
-<h3 id="流数据的特点："><a href="#流数据的特点：" class="headerlink" title="流数据的特点："></a>流数据的特点：</h3><ol>
-<li>无穷无尽的数据连续、快速地传输；</li>
-<li>数据的来源众多，而且格式复杂；</li>
-<li>数据量巨大，一般不关注存储，经过处理之后会被丢弃或者被归档存储；</li>
-<li>不会过分关注个别数据，注重数据的整体价值；</li>
-<li>数据的顺序有可能颠倒，或者不完整。</li>
-</ol>
-<br>
-
-<h3 id="流计算系统的需求："><a href="#流计算系统的需求：" class="headerlink" title="流计算系统的需求："></a>流计算系统的需求：</h3><ol>
-<li>高性能；</li>
-<li>海量处理；</li>
-<li>实时处理；</li>
-<li>分布式处理；</li>
-<li>简单易用；</li>
-<li>可靠性高。</li>
-</ol>
-<br>
-
-<h3 id="流计算的处理流程："><a href="#流计算的处理流程：" class="headerlink" title="流计算的处理流程："></a>流计算的处理流程：</h3><ol>
-<li>数据实时采集；</li>
-<li>数据实时计算；</li>
-<li>提供实时查询服务。</li>
-</ol>
-<br>
-
-<br>
-
-<blockquote>
-<h2 id="2-简要说明Spark解决流计算的基本思路和不足之处。"><a href="#2-简要说明Spark解决流计算的基本思路和不足之处。" class="headerlink" title="2 简要说明Spark解决流计算的基本思路和不足之处。"></a>2 简要说明Spark解决流计算的基本思路和不足之处。</h2></blockquote>
-<h3 id="Spark解决流计算的思路："><a href="#Spark解决流计算的思路：" class="headerlink" title="Spark解决流计算的思路："></a>Spark解决流计算的思路：</h3><p>Spark使用Spark Streaming处理流数据，把数据流以时间片为单位，切割成一段一段的数据，每段数据作为一个批处理请求，通过Spark批处理引擎，模仿实现流处理。</p>
-<br>
-
-<h3 id="Spark处理流计算的不足之处："><a href="#Spark处理流计算的不足之处：" class="headerlink" title="Spark处理流计算的不足之处："></a>Spark处理流计算的不足之处：</h3><p>Spark Streaming无法实现毫秒级需求的流计算业务，进而无法承载实时性要求很高的应用。</p>
-<br>
-
-<br>
-
-<blockquote>
-<h2 id="3-说明Flink框架中处理时间和事件时间的概念和区别。"><a href="#3-说明Flink框架中处理时间和事件时间的概念和区别。" class="headerlink" title="3 说明Flink框架中处理时间和事件时间的概念和区别。"></a>3 说明Flink框架中处理时间和事件时间的概念和区别。</h2></blockquote>
-<h3 id="处理时间：指流处理应用程序机器，在处理数据流时，所对应的本地时钟时间。处理时间窗口中包含了一个时间段内，所有发送到机器的事件。"><a href="#处理时间：指流处理应用程序机器，在处理数据流时，所对应的本地时钟时间。处理时间窗口中包含了一个时间段内，所有发送到机器的事件。" class="headerlink" title="处理时间：指流处理应用程序机器，在处理数据流时，所对应的本地时钟时间。处理时间窗口中包含了一个时间段内，所有发送到机器的事件。"></a>处理时间：指流处理应用程序机器，在处理数据流时，所对应的本地时钟时间。处理时间窗口中包含了一个时间段内，所有发送到机器的事件。</h3><br>
-
-<h3 id="事件时间：指数据流中，事件实际发生的时间。在事件进入流处理程序之前，事件数据就包含了时间戳。事件时间可以真实地反映，事件是如何发生的。"><a href="#事件时间：指数据流中，事件实际发生的时间。在事件进入流处理程序之前，事件数据就包含了时间戳。事件时间可以真实地反映，事件是如何发生的。" class="headerlink" title="事件时间：指数据流中，事件实际发生的时间。在事件进入流处理程序之前，事件数据就包含了时间戳。事件时间可以真实地反映，事件是如何发生的。"></a>事件时间：指数据流中，事件实际发生的时间。在事件进入流处理程序之前，事件数据就包含了时间戳。事件时间可以真实地反映，事件是如何发生的。</h3><br>
-
-<h3 id="处理时间和事件时间的区别："><a href="#处理时间和事件时间的区别：" class="headerlink" title="处理时间和事件时间的区别："></a>处理时间和事件时间的区别：</h3><ol>
-<li>由于数据流可能存在延迟或者乱序到达，两者的具体数值可能相差极大；</li>
-<li>处理时间的结果取决于处理速度，不能够保证其结果的准确性，可以实现低延迟特性；</li>
-<li>事件时间可以处理迟到和乱序的事件流，可以保证结果的确定性。</li>
-</ol>
-<br>
-
-<br>
-
-<blockquote>
-<h2 id="4-简要介绍Flink提供的窗口操作及其分类。"><a href="#4-简要介绍Flink提供的窗口操作及其分类。" class="headerlink" title="4 简要介绍Flink提供的窗口操作及其分类。"></a>4 简要介绍Flink提供的窗口操作及其分类。</h2></blockquote>
-<h3 id="窗口操作的概念：窗口操作是Flink在数据流上的一种操作手段，需要收集并且缓存一段时间内的事件进行计算。"><a href="#窗口操作的概念：窗口操作是Flink在数据流上的一种操作手段，需要收集并且缓存一段时间内的事件进行计算。" class="headerlink" title="窗口操作的概念：窗口操作是Flink在数据流上的一种操作手段，需要收集并且缓存一段时间内的事件进行计算。"></a>窗口操作的概念：窗口操作是Flink在数据流上的一种操作手段，需要收集并且缓存一段时间内的事件进行计算。</h3><br>
-
-<h3 id="窗口操作的分类："><a href="#窗口操作的分类：" class="headerlink" title="窗口操作的分类："></a>窗口操作的分类：</h3><ol>
-<li>时间窗口；</li>
-<li>技术窗口；</li>
-<li>滚动窗口；</li>
-<li>滑动窗口；</li>
-<li>会话窗口。</li>
-</ol>
-<br>
-
-<br>
-
-<blockquote>
-<h2 id="5-什么是Flink的状态（state），Flink如何保证在网络故障的情况下状态能够恢复并保持一致。"><a href="#5-什么是Flink的状态（state），Flink如何保证在网络故障的情况下状态能够恢复并保持一致。" class="headerlink" title="5 什么是Flink的状态（state），Flink如何保证在网络故障的情况下状态能够恢复并保持一致。"></a>5 什么是Flink的状态（state），Flink如何保证在网络故障的情况下状态能够恢复并保持一致。</h2></blockquote>
-<h3 id="Flink的状态：状态是指流计算过程中，计算节点的中间计算结果或者元数据状态。"><a href="#Flink的状态：状态是指流计算过程中，计算节点的中间计算结果或者元数据状态。" class="headerlink" title="Flink的状态：状态是指流计算过程中，计算节点的中间计算结果或者元数据状态。"></a>Flink的状态：状态是指流计算过程中，计算节点的中间计算结果或者元数据状态。</h3><br>
-
-<h3 id="Flink保持状态持久和恢复的机制："><a href="#Flink保持状态持久和恢复的机制：" class="headerlink" title="Flink保持状态持久和恢复的机制："></a>Flink保持状态持久和恢复的机制：</h3><ol>
-<li>状态一致检查点。是指当所有任务的状态，在所有任务都处理完一个相同数据时，的一份状态拷贝。</li>
-<li>全局一致性快照。使用检查点，记录文件系统集群所有节点的在某一时间点的状态。</li>
-<li>通过分布式快照和状态检查点，实现了精确一次的语义，在各种故障的情况下，处理数据流的所有算子都保证，数据和事件只会被处理一次。具体操作如下：<ol>
-<li>对流处理应哟红的每个算子的所有状态，定期做检查点；</li>
-<li>若系统中任何地方发生错误，每个算子的所有状态回滚到最近的全局一致性快照；</li>
-<li>整个流处理应用程序，回到最近的一次一致性状态，然后在该状态重新启动。</li>
-</ol>
-</li>
-</ol>
-<br>
-
-<br>
-
-<blockquote>
-<h2 id="6-举例说明逻辑流图、物理数据流图的概念以及不同类型数据交换策略。"><a href="#6-举例说明逻辑流图、物理数据流图的概念以及不同类型数据交换策略。" class="headerlink" title="6 举例说明逻辑流图、物理数据流图的概念以及不同类型数据交换策略。"></a>6 举例说明逻辑流图、物理数据流图的概念以及不同类型数据交换策略。</h2></blockquote>
-<h3 id="逻辑流图的概念：用于程序在描述数据流中的数据，在算子节点之间的流动，以有向图的形式表现。"><a href="#逻辑流图的概念：用于程序在描述数据流中的数据，在算子节点之间的流动，以有向图的形式表现。" class="headerlink" title="逻辑流图的概念：用于程序在描述数据流中的数据，在算子节点之间的流动，以有向图的形式表现。"></a>逻辑流图的概念：用于程序在描述数据流中的数据，在算子节点之间的流动，以有向图的形式表现。</h3><br>
-
-<h3 id="物理数据流图：用于说明程序的执行方式，描述数据在任务节点之间的流动，以有向图的形式表现。"><a href="#物理数据流图：用于说明程序的执行方式，描述数据在任务节点之间的流动，以有向图的形式表现。" class="headerlink" title="物理数据流图：用于说明程序的执行方式，描述数据在任务节点之间的流动，以有向图的形式表现。"></a>物理数据流图：用于说明程序的执行方式，描述数据在任务节点之间的流动，以有向图的形式表现。</h3><br>
-
-<h3 id="数据交换策略类型："><a href="#数据交换策略类型：" class="headerlink" title="数据交换策略类型："></a>数据交换策略类型：</h3><ol>
-<li>前向策略，将数据从一个任务发送到一个接受任务；</li>
-<li>广播策略，将数据发送到算子的所有并行任务上；</li>
-<li>基于键控的策略，通过键值对数据进行分区，保证相同键值的数据经同一任务处理；</li>
-<li>随机策略，随机分配数据，便于将负载均匀分配到不同的计算任务。</li>
-</ol>
-<br>
-
-<br>
-
-<blockquote>
-<h2 id="7-简要说明Flink架构中的主要角色及其功能。"><a href="#7-简要说明Flink架构中的主要角色及其功能。" class="headerlink" title="7 简要说明Flink架构中的主要角色及其功能。"></a>7 简要说明Flink架构中的主要角色及其功能。</h2></blockquote>
-<h3 id="Flink架构中的主要角色以及功能："><a href="#Flink架构中的主要角色以及功能：" class="headerlink" title="Flink架构中的主要角色以及功能："></a>Flink架构中的主要角色以及功能：</h3><ol>
-<li>Job Manager：作业管理器，又称为Master，负责资源申请、协调任务的分布式执行、协调检查点和失败恢复。</li>
-<li>Task Manager：任务管理器，又称为Worker，负责任务执行，与Job Manager保持心跳沟通和汇报任务状态。</li>
-</ol>
-<br>
-
-<br>
-
-<blockquote>
-<h2 id="8-说明Flink-on-YARN的两种作业运行模式。"><a href="#8-说明Flink-on-YARN的两种作业运行模式。" class="headerlink" title="8 说明Flink on YARN的两种作业运行模式。"></a>8 说明Flink on YARN的两种作业运行模式。</h2></blockquote>
-<h3 id="Flink-on-YARN的两种作业运行模式："><a href="#Flink-on-YARN的两种作业运行模式：" class="headerlink" title="Flink on YARN的两种作业运行模式："></a>Flink on YARN的两种作业运行模式：</h3><ol>
-<li><h4 id="会话方式："><a href="#会话方式：" class="headerlink" title="会话方式："></a>会话方式：</h4><ol>
-<li>使用Flink中的yarn-session，启动Job Manager和Task Manager之后，yarn-session一直保持运行，等待接收客户端提交作业；</li>
-<li>客户端通过yarn-session提交作业；</li>
-<li>这种方式适合处理数量比较大，但是数据量比较小的作业。</li>
-</ol>
-</li>
-<li><h4 id="分离模式："><a href="#分离模式：" class="headerlink" title="分离模式："></a>分离模式：</h4><ol>
-<li>使用yarn-session直接提交作业到YARN集群；</li>
-<li>这种方式适合处理数据量比较大的作业。</li>
-</ol>
-</li>
-</ol>
-<br>
-
-<br>
-
-<blockquote>
-<h2 id="9-说明Flink任务的调度与执行过程。"><a href="#9-说明Flink任务的调度与执行过程。" class="headerlink" title="9 说明Flink任务的调度与执行过程。"></a>9 说明Flink任务的调度与执行过程。</h2></blockquote>
-<h3 id="Flin任务调度与执行："><a href="#Flin任务调度与执行：" class="headerlink" title="Flin任务调度与执行："></a>Flin任务调度与执行：</h3><ol>
-<li>程序代码提交到应用程序的优化器或者图生成器，生成Dataflow提交到客户端的Actor系统；</li>
-<li>Actor客户端提交作业，发送Dataflow到JobManager；</li>
-<li>JobManager不断监听TaskManager的心跳消息，可以获取到有效的TaskManager信息；</li>
-<li>JobManager通过调度器在TaskManager中调度任务，由任务槽执行任务；</li>
-<li>程序运行的是时候，任务之间可以进行数据流传输。</li>
-</ol>
-<br>
-
-<br>
-
-<blockquote>
-<h2 id="10-举例说明Flink程序开发的代码基本框架。"><a href="#10-举例说明Flink程序开发的代码基本框架。" class="headerlink" title="10 举例说明Flink程序开发的代码基本框架。"></a>10 举例说明Flink程序开发的代码基本框架。</h2></blockquote>
-<h3 id="Flink程序开发的代码基本框架："><a href="#Flink程序开发的代码基本框架：" class="headerlink" title="Flink程序开发的代码基本框架："></a>Flink程序开发的代码基本框架：</h3><ol>
-<li>获取执行环境；</li>
-<li>加载或者创建初始数据；</li>
-<li>指定对该数据的转换；</li>
-<li>指定结果的存储位置；</li>
-<li>触发程序执行。</li>
-</ol>
-<br>
-
-<br>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/24/大数据架构作业-简答题7/" data-id="cknzrced5001o5wujc3blmyk4" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
 
     </footer>
   </div>
@@ -940,7 +791,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li></ul>
     </div>
   </div>
 
@@ -951,6 +802,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2021/06/29/MySQL导入csv文件导出sql文件/">MySQL导入csv文件导出sql文件</a>
+          </li>
         
           <li>
             <a href="/2021/04/27/使用js和后端模糊查询实现搜索提示功能/">使用js和后端模糊查询实现搜索提示功能</a>
@@ -966,10 +821,6 @@
         
           <li>
             <a href="/2021/04/08/工作室技术分享会/">工作室技术分享会</a>
-          </li>
-        
-          <li>
-            <a href="/2020/12/18/阿里云《Serverless云开发从入门到实战》学习笔记/">阿里云《Serverless云开发从入门到实战》学习笔记</a>
           </li>
         
       </ul>
