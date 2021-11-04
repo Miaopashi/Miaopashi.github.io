@@ -145,6 +145,87 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/11/04/Mysql中索引的查看、删除、创建、修改/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Miaopashi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frisk-9的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/11/04/Mysql中索引的查看、删除、创建、修改/" class="post-title-link" itemprop="url">Mysql中索引的查看、删除、创建、修改</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-11-04 20:26:19 / Modified: 21:22:22" itemprop="dateCreated datePublished" datetime="2021-11-04T20:26:19+08:00">2021-11-04</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>上次面快手的时候要手撕SQL题要求修改/创建索引，隔了几周没看忘了没写出来，赶紧记录一下。</p>
+<h3 id="查看索引"><a href="#查看索引" class="headerlink" title="查看索引"></a>查看索引</h3><p>修改索引之前可能要查看一下当前表有哪些索引，下面两种命令皆可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 如果使用执行语句之前已经使用过&apos;use db_name’则不需要再执行中括号的内容</span><br><span class="line">SHOW INDEX FROM table_name [FROM db_name];</span><br><span class="line">SHOW INDEX FROM [db_name.]table_name;</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除索引"><a href="#删除索引" class="headerlink" title="删除索引"></a>删除索引</h3><p>索引是依附于表的，可以使用<code>ALTER</code>关键字对表的索引进行修改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 删除指定表中指定名称的索引</span><br><span class="line">ALTER TABLE table_name</span><br><span class="line">DROP INDEX index_name;</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h3><p>这里的创建索引是指建表之后再创建索引，其实再设计表的时候就应该考虑到哪些字段需要使用索引</p>
+<p>可以使用<code>CREATE</code>语句创建索引</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CREATE [UNIQUE|FULLTEXT|SPATIAL] INDEX index_name</span><br><span class="line">ON table_name (index_col_name, ...)</span><br><span class="line">[USING index_type];</span><br></pre></td></tr></table></figure>
+
+<p><code>UNIQUE</code>, <code>FULLTEXT</code>, <code>SPATIAL</code>三个字段分别指定索引为：唯一索引、全文索引、空间索引，如果不指定则为不同索引</p>
+<p>使用<code>USING</code>关键字指定索引类型，一般有BTREE索引和HASH索引两种</p>
+<p>但是InnoDB和MyISAM只能够手动创建B+树索引，InnoDB不支持哈希索引，但是在内存结构中有一个自适应哈希索引，用来提高性能，InnoDB默认索引类型为B+树索引，MEMORY存储引擎可以创建哈希索引</p>
+<p>另外，对于字符串类型字段，可以根据字段内容的前一部分创建索引，在字段名称后面加上<code>(length)</code>即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CREATE INDEX id_user_username ON user (uesrname(6));</span><br></pre></td></tr></table></figure>
+
+<p>也可以同上使用<code>ALTER</code>语句创建索引</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE table_name</span><br><span class="line">ADD [UNIQUE|FULLTEXT|SPATIAL] INDEX index_name</span><br><span class="line">ON table_name (index_col_name, ...)</span><br><span class="line">[USING index_type];</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改索引"><a href="#修改索引" class="headerlink" title="修改索引"></a>修改索引</h3><p>MySQL没有直接提供修改索引的命令（好家伙被面试官唬住了），可以先删除后创建实现索引修改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE user</span><br><span class="line">DROP INDEX index_name</span><br><span class="line">ADD INDEX index_name ON table (vchar_col_name(8));</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/06/29/MySQL导入csv文件导出sql文件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -938,113 +1019,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/24/关于Spring-Security文档上密码发展史的阅读报告/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Miaopashi">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Frisk-9的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/24/关于Spring-Security文档上密码发展史的阅读报告/" class="post-title-link" itemprop="url">关于Spring Security文档上密码发展史的阅读报告</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-11-24 18:43:05" itemprop="dateCreated datePublished" datetime="2020-11-24T18:43:05+08:00">2020-11-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2021-07-05 11:54:56" itemprop="dateModified" datetime="2021-07-05T11:54:56+08:00">2021-07-05</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>这周做实验，服务器宕机了</p>
-<p>刚好闲着无聊，有机会看一下<a href="https://docs.spring.io/spring-security/site/docs/5.4.1/reference/html5/#features" target="_blank" rel="noopener">security的文档</a>。</p>
-<p>突然看到一段密码存储的发展史</p>
-<p>个人觉得挺有意思的，记录一下</p>
-<br>
-
-<br>
-
-<h2 id="简单翻译记录一下："><a href="#简单翻译记录一下：" class="headerlink" title="简单翻译记录一下："></a>简单翻译记录一下：</h2><p>一开始用于用户认证的密码，是直接以文本形式存储在服务器的。</p>
-<p>也就是说，用户的密码没有经过任何加密就直接存储在服务器的。</p>
-<p>在这种情况下，有的黑客使用SQL inject等技术，攻击服务器，直接穷举出用户的密码。</p>
-<p>然后利用窃取的密码，查看用户持有的数据！</p>
-<p>为了应对这种情况，有开发者使用了哈希函数进行加密</p>
-<p>将用户的密码进行一次哈希加密，再存储到数据库当中</p>
-<p>这样，即便黑客通过服务器数据库穷举到了用户密码对应的哈希值，还是很难知道哈希值对应的用户密码</p>
-<p>因此，用户密码的安全性暂时得以保障。</p>
-<br>
-
-<p>可是，道高一尺魔高一丈，黑客们又开始想到了Rainbow Table技术</p>
-<p>黑客长时间穷举用户密码，并且把穷举像存储到一个彩虹表中，然后一次性攻击窃取密码</p>
-<p>为了应对RainbowTable，开发者们开始使用“腌制过的密码”存储用户密码。</p>
-<p>腌制过的密码是指，加入了salt的密码</p>
-<p>salt是每个用户特有的一串字符</p>
-<p>服务器存储的密码，通过salt和用户密码文本进行混合哈希运算，得到哈希值</p>
-<p>通过这种技术，加大了黑客穷举密码的难度~</p>
-<br>
-
-<p>但是，随着计算机硬件的不断发展。</p>
-<p>我们知道，现在的机器已经可以快速穷举256位的字符串来穷举密码了，所以”Salted Password”也不好用了</p>
-<p>现在，开发者们建议使用自适应的单射函数（adaptive one-way function）进行哈希映射</p>
-<p>这种哈希映射，可以给存储的密码提供一个工作因子（work factor）</p>
-<p>工作因子可以根据客户端的硬件水平，让用户在客户端花一秒左右的时间才能完成哈希映射</p>
-<p>通过这种技术，可以防止黑客短时间内发动多次密码穷举，保证了用户密码的安全性。</p>
-<p>而Spring Security框架可以直接使用 bcrypt, PBKDF2, scrypt和argon2等加密方式</p>
-<p>这些加密方式就是上面的加密手段，可以大大提高用户密码的安全性。</p>
-<br>
-
-<br>
-
-<h2 id="小结："><a href="#小结：" class="headerlink" title="小结："></a>小结：</h2><p>可以说这篇文档上所写的密码的发展史，是一部开发者和黑客斗智斗勇的历史</p>
-<p>当然数学家在其中也扮演了极其重要的角色</p>
-<p>随着技术的发展，我们有理由相信，新的破解技术会不断地产生，新的加密手段也会应运而生</p>
-<p>到时候，只会复制粘贴的小菜鸡应该能够看到更为精彩的现代密码学“神仙打架”啦！</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1114,7 +1088,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-count">34</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

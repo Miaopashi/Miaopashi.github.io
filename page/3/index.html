@@ -145,6 +145,166 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/04/大数据架构作业-简答题3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Miaopashi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frisk-9的个人博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/04/大数据架构作业-简答题3/" class="post-title-link" itemprop="url">大数据架构作业-简答题3</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-11-04 14:45:47" itemprop="dateCreated datePublished" datetime="2020-11-04T14:45:47+08:00">2020-11-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-12-03 21:24:09" itemprop="dateModified" datetime="2020-12-03T21:24:09+08:00">2020-12-03</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><em>大数据架构第三次作业，依然记录一下。</em></p>
+<br>
+
+<h2 id="第一问"><a href="#第一问" class="headerlink" title="第一问"></a>第一问</h2><blockquote>
+<p>假设一个企业网需要建设一个后端的缓存集群，用于缓存用户数据加速用户访问速度，因此希望<strong>每个特定的用户最好每次都访问一台固定的服务器节点</strong>，方法是将n台服务器节点编号为0~(n-1)，通过[用户账户 % n]得到访问的服务器编号。但是，如果集群中某台服务器宕机了，则n就变成了n-1，于是取余计算就很可能得不到正确的服务器编号，导致用户请求定位到错误的服务器编号，造成大量的缓存失效。</p>
+<p>请设计一种方案来改善这种情况，使得<strong>集群中部分服务器失效后不会造成大面积的缓存失效</strong>；（2）原有的访问大部分还是保持在同一台服务器节点上；（3）负载尽量均衡。</p>
+</blockquote>
+<p>这里我的思路是，使用<strong>一致性哈希</strong>进行数据分片。</p>
+<p>首先，将n个服务器节点，根据对应的编号计算相应的hash值，映射到一个首尾相接的hash环上；然后，再将用户，按照用户账户计算hash值，映射到同一个hash环上；这样，当用户发起访问请求的时候时，根据用户账户在hash环的位置，将用户的请求交给环上顺时针数到的第一个服务器节点。</p>
+<p>为了实现要求(3)，需要根据用户账户的hash映射情况，设计合理的hash算法，把n个服务器以对于用户相对均匀地映射到hash环上。</p>
+<p>为了实现要求(2)和要求(1)，当一个服务器宕机之后，需要及时在宕机节点的位置，设置一个新的虚拟分身节点。虚拟分身节点对应的物理节点不应该取宕机服务器附近的节点，避免出现数据倾斜和节点雪崩。</p>
+<br>
+
+<br>
+
+<h2 id="第二问"><a href="#第二问" class="headerlink" title="第二问"></a>第二问</h2><blockquote>
+<p>简要说明分布式系统中的副本建立策略以及各种策略存在的问题。</p>
+</blockquote>
+<p>建立副本的策略及其存在问题</p>
+<ol>
+<li>单主复制，有且仅有一个master副本，其它都是备用的slave副本，维护master副本的节点作为中心节点，负责维护数据更新、并发控制、协调副本的一致性。</li>
+</ol>
+<ul>
+<li>单主复制的问题。可用性问题，master宕机之后，slave竞选、服务切换到新的master都需要时间，这段时间内系统拥塞，无法提供服务；一致性问题，master宕机之后，通过slave竞选出新的master，此时新旧master之间存在尚未同步的数据，导致数据不一致。</li>
+</ul>
+<ol start="2">
+<li>多主复制，所有副本都是master，副本之间户为主从。</li>
+</ol>
+<ul>
+<li>多主复制的问题，在并发操作时，存在数据不一致性问题。</li>
+</ul>
+<ol start="3">
+<li>无主复制，不区分master和slave副本，客户端向多个副本同时发送请求。</li>
+</ol>
+<ul>
+<li>无主复制的问题，尽管客户端可以进行数据补偿，但是依然存在数据不一致性问题。</li>
+</ul>
+<br>
+
+<br>
+
+<h2 id="第三问"><a href="#第三问" class="headerlink" title="第三问"></a>第三问</h2><blockquote>
+<p>分布式系统中是否能够在保证副本强一致性的前提下，同时可以获得高可用和容错性。请简要阐述CAP定理和BASE理论的内容和作用。</p>
+</blockquote>
+<p><strong>CAP定理</strong>：<strong>一个分布式系统不可能同时满足一致性、可用和分区容错性，最多只能满足其中两项。</strong>一致性，所有数据副本的数据都是一致的；可用性，所有请求都能获取正确的响应；分区容错性，即使发生了网络分区，系统也能对外提供满足一致性和可用性的服务。</p>
+<p>CAP定理指出了，在分布式系统的设计中，由于分区容错性不能舍弃，因此只能在一致性和可用性之间做出妥协，不能同时兼得三大特性，该定理给出了简明并且可以理解的证明。</p>
+<p><strong>BASE原理</strong>：弱化一致性，追求分区容错性和可用性。基本可用，要求系统能够基本运行，一直提供服务，在出现不可预知故障的时候， 允许损失部分可用性，如响应延时或者服务降级；软状态，允许系统中的数据存在中间状态，并认为该状态不影响系统的整体可 用性，即允许不同节点的副本之间存在暂时的不一致情况；最终一致性，要求数据不能一直处于软状态，必须在一段时间后达到一致，保证所 有副本中的数据一致性。</p>
+<p>BASE理论的作用，保证最终一致性，对可用性做出让步，代表了追求可用性和分区容错性的分布式系统设计哲学。这种设计模式，对可用性要求比较高但一致性要求不是特别高的应用场景下，提供了高效的理论指导。</p>
+<br>
+
+<br>
+
+<h2 id="第四问"><a href="#第四问" class="headerlink" title="第四问"></a>第四问</h2><blockquote>
+<p>学习Basic Paxos算法，针对5个节点的集群，模仿算法执行过程。假设集群需要完成来自客户端的如下命令，针对该命令模仿说明算法达成一致性的过程。</p>
+<p>Put(“x”, 3)</p>
+<p>要求仿真出如下场景：（1）节点故障（3）并发操作请求（4）网络分区。</p>
+</blockquote>
+<p>假设场景：目前有五个节点，分别为node1、node2、node3、node4、node5；其中节点1、2和3和节点4和5进行了网络分区；同一时刻有两个客户端对集群发出并发请求Put(“x”, 3)；目前node3出现了故障，无法响应客户端的请求。</p>
+<p>假设node1首先接收到client1的请求，node4首先接收到client2的请求，而且node1比node4更早收到请求。如下图所示</p>
+<p><img src="https://p.ananas.chaoxing.com/star3/origin/a95fbf4d53abf8c7c4c453ff77d8cccd.png" alt="发送请求.png"></p>
+<p>node1和node4接收到请求之后成为提案者，开始Basic Paxos算法的准备阶段。node1开始向各个节点发送prepare请求，K值为1。由于各个节点此前还没有进行过同步操作，所以各个节点的MaxN都小于1，则各个节点都会回应pok。但是，由于node3节点故障，无法响应node1的请求，所以node3没有响应。node4节点上的情景和node1相类似，不再重复说明。如下图所示</p>
+<p><img src="https://p.ananas.chaoxing.com/star3/origin/088f1789610696a20ba27c290c5c6c05.png" alt="Prepare.png"></p>
+<p>各节点返回pok之后，算法开始第二阶段接收阶段。node1收到了超过半数的pok，开始向各节点发送accept请求，accept(1, Put(“x”, 3))。但是，由于其他节点已经接收了node4的Prepare(2)请求，所以不会再接收提案编号小于2的accept请求，因此其它节点不会响应node1的请求。另一方面，node4发送的accept(2, Put(“x”, 3))，则会被除了目前故障的node3以外的其他节点接收。如下图所示</p>
+<p><img src="https://p.ananas.chaoxing.com/star3/origin/cb9b0ad7e65cfebdba2c659972542141" alt="img"></p>
+<p>完成了如上两个阶段之后，所有非故障节点会主动同步提案2到本地，完成Put(“x”, 3)的一致性修改。</p>
+<br>
+
+<br>
+
+<h2 id="第五问"><a href="#第五问" class="headerlink" title="第五问"></a>第五问</h2><blockquote>
+<p>简述分布式系统中建立逻辑时钟的两种方法。</p>
+</blockquote>
+<p><strong>Lamport时间戳原理规则</strong>：</p>
+<ol>
+<li><p>每个节点本地都有一个时间戳，初始值为0。</p>
+</li>
+<li><p>若事件在节点内发生，本地时间戳加1。</p>
+</li>
+<li><p>若是发送事件，本地时间戳加1并在消息中带上该时间戳。</p>
+</li>
+<li><p>若是接收事件，本地时间戳 = Max(本地时间戳，消息中的时间戳)+1。</p>
+</li>
+</ol>
+<p><strong>Lamport时间戳具体操作</strong>：</p>
+<ol>
+<li>假设事件a和b分别发生在节点5和节点3上，时间戳为L(a)和L(b)。</li>
+<li>如果L(a) &lt; L(b)，则a发生在b之前，记作 a-&gt;b。</li>
+<li>如果L(a) = L(b)，则按事件发生的节点编号排序，3&lt;5，故 b-&gt;a。</li>
+</ol>
+<br>
+
+<p><strong>向量时钟具体操作:</strong></p>
+<ol>
+<li>事件a、b分别在节点P、Q上发生，Vector clock分别为Ta、Tb，如果 Tb[Q] &gt; Ta[Q]并且 Tb[P] &gt;= Ta[P]，则a发生于b之前，记作 a -&gt; b。</li>
+<li>如果 Tb[Q] &gt; Ta[Q] 并且 Tb[P] &lt; Ta[P]，则认为a、b同时发生，记作 a &lt;-&gt; b。</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/08/学习内网穿透/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1641,247 +1801,6 @@ ps: 编译程序之后会出现多个</code>.class`文件</p>
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/28/关于学校校园网挂VPN解决断网问题的个人解读/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Miaopashi">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Frisk-9的个人博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/28/关于学校校园网挂VPN解决断网问题的个人解读/" class="post-title-link" itemprop="url">关于学校校园网挂VPN解决断网问题的个人解读</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-06-28 19:59:43" itemprop="dateCreated datePublished" datetime="2020-06-28T19:59:43+08:00">2020-06-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-12-03 21:18:05" itemprop="dateModified" datetime="2020-12-03T21:18:05+08:00">2020-12-03</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>从上个学期开始，学校推展网络一体化，三家运营商的网络归入CUMT_STU，师生通过身份认证上网。</p>
-<p>一体化之后，宿舍里三家运营商的wifi合并到一起，插网线也只需要往同一排插口接就可以了</p>
-<p>而且全校基本实现wifi覆盖，特别宿舍的wifi质量非常好（有爽到）</p>
-<p>​    </p>
-<p>不过一体化之后，<strong>学校突然限制了同学的上网时段</strong>（工作日晚十一点半后禁网）</p>
-<p>不少深夜奋战的同学<strong>只能选择手机开热点</strong></p>
-<p>气抖冷，青年何时才能站起来？（不是）</p>
-<p>​    </p>
-<p>正值众同学半夜断网大喊卧槽之际</p>
-<p>有同学发现</p>
-<p>在断网时段之前，如果<strong>连接校园网，再挂学校的vpn</strong></p>
-<p>居然可以实现 <strong>在禁网时段，照常使用学校的网络上网</strong>！</p>
-<p>​    </p>
-<p>最近刚学了计算机网络，觉得这个操作应该可以用课本的知识解释。</p>
-<p>于是便有了这篇博客。</p>
-<p>​    </p>
-<p>要解释这个问题，本文打算先说三个基础知识：</p>
-<p>终端如何访问外网、学校的网络情况、vpn的原理</p>
-<p>然后再结合以上三点，具体说明校园网挂vpn是如何无视时段禁网的。</p>
-<p>​    </p>
-<p>下面是正文</p>
-<p>​    </p>
-<p>​    </p>
-<h2 id="三个基本的原理"><a href="#三个基本的原理" class="headerlink" title="三个基本的原理"></a>三个基本的原理</h2><p>​    </p>
-<h3 id="原理一：终端通过路由器访问外网"><a href="#原理一：终端通过路由器访问外网" class="headerlink" title="原理一：终端通过路由器访问外网"></a>原理一：终端通过路由器访问外网</h3><p>我们常用的家庭网络都是通过双绞线或者wifi，将手机、pc和ipad等终端连接到路由器，才能上网的。</p>
-<p><strong>也就是说，如果要上外网，必须要有路由器！</strong></p>
-<p><strong>而通过一个一个的路由器，我们最后就可以访问到某个地点放置的服务器！</strong></p>
-<p>​    </p>
-<p>​    </p>
-<h3 id="原理二：学校的CUMT-STU使用多个路由器供学生上网"><a href="#原理二：学校的CUMT-STU使用多个路由器供学生上网" class="headerlink" title="原理二：学校的CUMT_STU使用多个路由器供学生上网"></a>原理二：学校的CUMT_STU使用多个路由器供学生上网</h3><p>在校园内，虽然会有多个同学都使用CUMT_STU上网</p>
-<p><strong>但根据认证页面选择的运营商的不同，我们可以选择不同的路由器上网</strong></p>
-<p>​    </p>
-<p>下面给出上述结论的依据</p>
-<p>​    </p>
-<p>以下是分别使用，校园网和联通，访问外网的经过的ip地址：</p>
-<p><img src="../pictures/%E5%85%B3%E4%BA%8E%E5%AD%A6%E6%A0%A1%E6%A0%A1%E5%9B%AD%E7%BD%91%E6%8C%82VPN%E8%A7%A3%E5%86%B3%E6%96%AD%E7%BD%91%E9%97%AE%E9%A2%98%E7%9A%84%E4%B8%AA%E4%BA%BA%E8%A7%A3%E8%AF%BB/%E6%A0%A1%E5%9B%AD%E7%BD%91tracert.png" alt="校园网tracert"></p>
-<p><em>使用校园网访问百度经过的路由器（ip地址），可以看到校园网路由器使用的ip地址为 202.119.203.65</em></p>
-<p>​    </p>
-<p><img src="../pictures/%E5%85%B3%E4%BA%8E%E5%AD%A6%E6%A0%A1%E6%A0%A1%E5%9B%AD%E7%BD%91%E6%8C%82VPN%E8%A7%A3%E5%86%B3%E6%96%AD%E7%BD%91%E9%97%AE%E9%A2%98%E7%9A%84%E4%B8%AA%E4%BA%BA%E8%A7%A3%E8%AF%BB/%E8%81%94%E9%80%9Atracert.png" alt="联通tracert"></p>
-<p><em>使用联通访问百度经过的路由器（ip地址），可以看到联通的路由器使用的ip地址为 112.85.229.157</em></p>
-<p>​    </p>
-<p>可以看到，<u>由于选择的两个运营商不同，访问外网使用的ip地址/路由器也完全不同</u>。</p>
-<p>另外，<strong>ip地址是对应到路由器的</strong>，注意这点后面我们会用到。</p>
-<p>​    </p>
-<p>简单来说，就是在学校，只要是通过wifi或者网线，连接到CUMT_STU的同学</p>
-<p>根据他们的选择，一共可以连接到<strong>4个路由器</strong>：</p>
-<p>移动的、电信的、联通的、校园网的，用于访问外网。</p>
-<p>​    </p>
-<p>然后，<strong>到了禁网的时段，路由器就不会帮我们向外部发消息，请求服务，所以我们就没法上网了</strong>。</p>
-<p>因为在禁网时段，我们没办法进行网络认证，路由器就不会帮我们给<strong>“外部”</strong>发信息。<em>（注意这个外部是伏笔）</em></p>
-<p>（这个认证，每隔一段时间都要进行一次，不单单是首次登录就完事的了）</p>
-<p>​    </p>
-<p>​    </p>
-<h3 id="原理三：虚拟专用网VPN的基本原理"><a href="#原理三：虚拟专用网VPN的基本原理" class="headerlink" title="原理三：虚拟专用网VPN的基本原理"></a>原理三：虚拟专用网VPN的基本原理</h3><p>在原理一我们提到：如果要上外网，必须要有路由器。</p>
-<p>但是路由器只是上外网的<strong>必要条件</strong>，如果要访问外部网站还有其他条件，比如<strong>访问权限</strong>。</p>
-<p>​    </p>
-<p>如果所有人都可以随便访问外网的每一个服务器，那互联网大企供内部人员访问的数据库，估计没几分钟就给各路人马给白嫖完了…</p>
-<p>​    </p>
-<p>所以，<u>当我们访问外部的主机的时候，目标路由器还会判断我们是否有资格访问。</u></p>
-<p>​    </p>
-<p>当然，比如百度、微博这些网站是不需要特殊权限的，村里通网了就可以访问。</p>
-<p>​    </p>
-<p>​    </p>
-<h4 id="那我们如何获得访问权限？"><a href="#那我们如何获得访问权限？" class="headerlink" title="那我们如何获得访问权限？"></a>那我们如何获得访问权限？</h4><ol>
-<li>专门连一条专用的网线过去，其他人不能用（成本高而且浪费资源); ×</li>
-<li><strong>使用虚拟专用网VPN！</strong>（终于到重点了！）√</li>
-</ol>
-<p>​    </p>
-<p>vpn的原理很简单，就是把终端发送的信息进行加密，</p>
-<p>而只有目标终端那边的路由器才能解密</p>
-<p>中间路过的所有路由器都无法解密，（为何中间会有路由器出现，具体见原理一的加粗字）</p>
-<p>因此，中间路由器无法截取发送的信息，保证信息中途不会泄露。（只能当纯工具人）</p>
-<p>​    </p>
-<p>另外，通过vpn，不管我们访问哪个ip地址，我们都会把<strong>所有的网络请求</strong>都先发给目标路由器！</p>
-<p>​    </p>
-<p><strong>这点非常重要，可以理解为：</strong></p>
-<p><strong>通过vpn我们不仅有了访问其他组织内网的通道，我们还获取了<u>连接其他外网的新的路径</u>！</strong></p>
-<p>以上就是我们要讲的三个原理，下面就是重点的分析了</p>
-<p>​    </p>
-<p>​    </p>
-<p>​    </p>
-<h2 id="具体分析"><a href="#具体分析" class="headerlink" title="具体分析"></a>具体分析</h2><p>​        </p>
-<p>上面说了一大堆，那到底为什么校园网挂vpn可以无视时段禁网？？？</p>
-<p>​    </p>
-<h4 id="现在咱们就来分析一下"><a href="#现在咱们就来分析一下" class="headerlink" title="现在咱们就来分析一下"></a>现在咱们就来分析一下</h4><blockquote>
-<p>​    先来看两个结论：<br>​    首先，根据原理二，我们通过校园网认证页面可以选择不同的运营商，<strong>选择不同的路由器</strong>，访问外网；<br>​    其次，根据原理三，我们挂vpn的时候，会把上网的<strong>所有请求</strong>，<u>从自己的路由器发送到学校的路由器</u>；</p>
-</blockquote>
-<p>​        </p>
-<p>下面就是重点了！</p>
-<p>​    </p>
-<p>我们来看一下，联通挂vpn和我们使用校园网，分别访问百度的截图：</p>
-<p><img src="../pictures/%E5%85%B3%E4%BA%8E%E5%AD%A6%E6%A0%A1%E6%A0%A1%E5%9B%AD%E7%BD%91%E6%8C%82VPN%E8%A7%A3%E5%86%B3%E6%96%AD%E7%BD%91%E9%97%AE%E9%A2%98%E7%9A%84%E4%B8%AA%E4%BA%BA%E8%A7%A3%E8%AF%BB/%E8%81%94%E9%80%9A%E6%8C%82VPNtracert.png" alt="联通挂VPNtracert"></p>
-<p><em>联通挂vpn上网，离开本地的第一个ip地址【2】，即vpn访问的目标路由器地址，为202.119.203.1</em></p>
-<p>​    </p>
-<p><img src="../pictures/%E5%85%B3%E4%BA%8E%E5%AD%A6%E6%A0%A1%E6%A0%A1%E5%9B%AD%E7%BD%91%E6%8C%82VPN%E8%A7%A3%E5%86%B3%E6%96%AD%E7%BD%91%E9%97%AE%E9%A2%98%E7%9A%84%E4%B8%AA%E4%BA%BA%E8%A7%A3%E8%AF%BB/%E6%A0%A1%E5%9B%AD%E7%BD%91tracert.png" alt="校园网tracert"></p>
-<p><em>使用校园网上网，离开本地的第一个ip地址【3】，即用户使用的路由器地址，为202.119.203.65</em></p>
-<p>​    </p>
-<p><strong>有没有发现什么？</strong></p>
-<p><strong>校园网和vpn链接过去的ip地址前面的网络号是一样的</strong>！</p>
-<p>​    </p>
-<p><strong>也就是说，<u>校园网用的路由器 和 vpn的目标路由器 是同一个</u>！！</strong></p>
-<p><strong>我们使用校园网和vpn就是通过”同一个路由器”的”不同子网ip”对外网进行访问！</strong></p>
-<p>​    </p>
-<p>有的同学可能就会问：“那有怎么样？到点了不还是禁网吗？”</p>
-<p>​    </p>
-<p>然而，根据原理二，在禁网时段，路由器不会帮我们给<strong>“外部”</strong>发信息，但是我们仍然可以<strong>发信息</strong>给路由器。</p>
-<p>​    </p>
-<p>信息传递给路由器之后，由于我们挂了vpn</p>
-<p>校园网路由器就会给目标路由器发认证消息</p>
-<p>​    </p>
-<p>而vpn的<strong>目标路由器</strong>和<strong>我们使用的路由器</strong>又恰巧是同一个</p>
-<p>所以<strong>学校的路由器会自己把认证消息发给自己看</strong>，不需要访问外部的路由器，所以直接无视断网时间段！</p>
-<p>​    </p>
-<p>最后，我们肯定是可以通过vpn的认证的</p>
-<p>​    </p>
-<p>于是我们就从子网：202.119.203.65（校园网的ip），<strong>跳到了子网：202.119.203.1（学校教学用的ip）</strong></p>
-<p>​    </p>
-<p>注意这里的两个子网是<strong>同一个路由器</strong>里的ip地址</p>
-<p><strong>而这个过程是无视断网时段的</strong></p>
-<p>​    </p>
-<p>路由器当然不会在禁网时段内，允许我们使用202.119.203.65访问外网</p>
-<p>毕竟我们的校园认证在该时段会失效</p>
-<p>​    </p>
-<p><strong>可是，通过vpn，我们就可以使用202.119.203.1访问外网</strong>。</p>
-<p>​    </p>
-<p>而202.119.203.1是一般情况是不会断网的</p>
-<p>否则整个学校教学使用的网络都会断掉！</p>
-<p>所以这条路线是非常稳定的。</p>
-<p>​    </p>
-<p><strong>所以，根据断网前不同的操作，在禁网的时段，我们访问外网（比如说上B站），就经历如下流程：</strong></p>
-<blockquote>
-<p><strong>①不挂vpn，随便选一个运营商的路由器（包括校园网、移动、联通、电信）：</strong></p>
-<p>机子:”我要上B站！” –&gt; </p>
-<p>运营商的路由器:”我不认识你，凭什么帮你发消息？” –&gt; </p>
-<p>机子:”上不了网了，该歇了~”</p>
-</blockquote>
-<p>​    </p>
-<blockquote>
-<p><strong>②挂校园vpn，但是选移动、联通、电信的路由器：</strong><br>机子:”歪？（打电话给运营商的路由器）帮我找学校的路由器，我要上B站！” –&gt; </p>
-<p>运营商的路由器:”我不认识你，凭什么帮你转接？” –&gt; </p>
-<p>机子:”上不了网了，该歇了~”</p>
-</blockquote>
-<p>​    </p>
-<blockquote>
-<p><strong>③挂别的vpn，用校园网：</strong><br>机子:”歪？（打电话给校园网的路由器）帮我找学校的路由器！我要上B站！” –&gt; </p>
-<p>校园网的路由器:”我不认识你，凭什么帮你转接？” （连不到vpn的目标路由器）–&gt; </p>
-<p>机子:”上不了网了，该歇了~”</p>
-</blockquote>
-<p>​    </p>
-<blockquote>
-<p><strong>④挂校园vpn，用校园网：</strong><br>机子:”歪？帮我找学校的路由器！我要上B站！” –&gt; </p>
-<p>校园网的路由器:”我不认识你，凭什么……” –&gt; </p>
-<p><strong>校园网的路由器:”等等，学校路由器不就是我吗？你等下，我看下你是不是会员哈”</strong> –&gt; </p>
-<p>“vpn认证成功 “–&gt; </p>
-<p>校园网的路由器:”尊贵的客户…您向B站的请求已发出~ “ –&gt; </p>
-<p>机子:”收到B站返回的信息，正在生成网页” –&gt; </p>
-<p>我:”up主更新啦！爷青回！不歇了！”</p>
-</blockquote>
-<p>​    </p>
-<p>看这里你可能会担心vpn上网的速度可能不能满足普通的上网需求</p>
-<p>​    </p>
-<p>其实由于此时vpn链接的两个路由器其实是同一个路由器，不用绕远路找目标路由器</p>
-<p>这样就能够省去的大量的中间时间，因此速度还是可以的。</p>
-<p>​    </p>
-<p>最后发一下正常连联通，和挂vpn的校园网速度对比：</p>
-<p><img src="../pictures/%E5%85%B3%E4%BA%8E%E5%AD%A6%E6%A0%A1%E6%A0%A1%E5%9B%AD%E7%BD%91%E6%8C%82VPN%E8%A7%A3%E5%86%B3%E6%96%AD%E7%BD%91%E9%97%AE%E9%A2%98%E7%9A%84%E4%B8%AA%E4%BA%BA%E8%A7%A3%E8%AF%BB/%E8%81%94%E9%80%9Aspeedtest.png" alt="联通speedtest"></p>
-<p><em>使用联通上网用speedtest测试，速度还是非常可观的</em></p>
-<p>​    </p>
-<p><img src="../pictures/%E5%85%B3%E4%BA%8E%E5%AD%A6%E6%A0%A1%E6%A0%A1%E5%9B%AD%E7%BD%91%E6%8C%82VPN%E8%A7%A3%E5%86%B3%E6%96%AD%E7%BD%91%E9%97%AE%E9%A2%98%E7%9A%84%E4%B8%AA%E4%BA%BA%E8%A7%A3%E8%AF%BB/%E6%A0%A1%E5%9B%AD%E7%BD%91%E6%8C%82VPNspeedtest.png" alt="校园网挂VPNspeedtest"></p>
-<p><em>使用校园网挂vpn好吧……不过，这个速度其实还是够用的了</em></p>
-<p>​    </p>
-<p>​    </p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>自此，我尽我所能，大概讲了一下我的理解。由于基本功不扎实，上面的说法应该有不少问题，希望大佬及时指正！</p>
-<p>如有错误，还请各位读者原谅……</p>
-<p>​    </p>
-<p>​    </p>
-<p>​    </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1951,7 +1870,7 @@ ps: 编译程序之后会出现多个</code>.class`文件</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-count">34</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
