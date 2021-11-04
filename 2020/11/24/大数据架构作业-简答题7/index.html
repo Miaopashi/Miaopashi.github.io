@@ -1,91 +1,199 @@
 <!DOCTYPE html>
-<html>
-<head><meta name="generator" content="Hexo 3.9.0">
-  <meta charset="utf-8">
-  
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 3.9.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-  
-  <title>大数据架构作业-简答题7 | MPS的个人博客</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
   <meta name="description" content="最后一次大数据架构超星作业了，终于结束了罪恶的ppt复制粘贴答题了。      1 简要说明流数据的特点以及流计算的需求和处理流程。 流数据的特点： 无穷无尽的数据连续、快速地传输； 数据的来源众多，而且格式复杂； 数据量巨大，一般不关注存储，经过处理之后会被丢弃或者被归档存储； 不会过分关注个别数据，注重数据的整体价值； 数据的顺序有可能颠倒，或者不完整。    流计算系统的需求： 高性能； 海">
 <meta name="keywords" content="课程作业">
 <meta property="og:type" content="article">
 <meta property="og:title" content="大数据架构作业-简答题7">
 <meta property="og:url" content="http://yoursite.com/2020/11/24/大数据架构作业-简答题7/index.html">
-<meta property="og:site_name" content="MPS的个人博客">
+<meta property="og:site_name" content="Frisk-9的个人博客">
 <meta property="og:description" content="最后一次大数据架构超星作业了，终于结束了罪恶的ppt复制粘贴答题了。      1 简要说明流数据的特点以及流计算的需求和处理流程。 流数据的特点： 无穷无尽的数据连续、快速地传输； 数据的来源众多，而且格式复杂； 数据量巨大，一般不关注存储，经过处理之后会被丢弃或者被归档存储； 不会过分关注个别数据，注重数据的整体价值； 数据的顺序有可能颠倒，或者不完整。    流计算系统的需求： 高性能； 海">
 <meta property="og:locale" content="zh">
 <meta property="og:updated_time" content="2020-12-03T13:27:07.556Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="大数据架构作业-简答题7">
 <meta name="twitter:description" content="最后一次大数据架构超星作业了，终于结束了罪恶的ppt复制粘贴答题了。      1 简要说明流数据的特点以及流计算的需求和处理流程。 流数据的特点： 无穷无尽的数据连续、快速地传输； 数据的来源众多，而且格式复杂； 数据量巨大，一般不关注存储，经过处理之后会被丢弃或者被归档存储； 不会过分关注个别数据，注重数据的整体价值； 数据的顺序有可能颠倒，或者不完整。    流计算系统的需求： 高性能； 海">
-  
-    <link rel="alternate" href="/atom.xml" title="MPS的个人博客" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-</head>
-</html>
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">MPS的个人博客</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-大数据架构作业-简答题7" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/11/24/大数据架构作业-简答题7/" class="article-date">
-  <time datetime="2020-11-24T10:37:49.000Z" itemprop="datePublished">2020-11-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      大数据架构作业-简答题7
-    </h1>
+
+<link rel="canonical" href="http://yoursite.com/2020/11/24/大数据架构作业-简答题7/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh'
+  };
+</script>
+
+  <title>大数据架构作业-简答题7 | Frisk-9的个人博客</title>
   
 
-      </header>
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Frisk-9的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
     
-    <div class="article-entry" itemprop="articleBody">
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/24/大数据架构作业-简答题7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Miaopashi">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Frisk-9的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          大数据架构作业-简答题7
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-11-24 18:37:49" itemprop="dateCreated datePublished" datetime="2020-11-24T18:37:49+08:00">2020-11-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-12-03 21:27:07" itemprop="dateModified" datetime="2020-12-03T21:27:07+08:00">2020-12-03</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
         <p><em>最后一次大数据架构超星作业了，终于结束了罪恶的ppt复制粘贴答题了。</em></p>
 <br>
@@ -250,140 +358,186 @@
 <br>
 
 <br>
-      
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/11/24/大数据架构作业-简答题7/" data-id="ckvkw0ou3001iasujofkm1k3y" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/课程作业/">课程作业</a></li></ul>
 
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/课程作业/" rel="tag"># 课程作业</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/11/20/MySQL的安装指南以及常用命令/" rel="prev" title="关于CentOS下MySQL的安装指南以及常用命令">
+      <i class="fa fa-chevron-left"></i> 关于CentOS下MySQL的安装指南以及常用命令
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/11/24/关于Spring-Security文档上密码发展史的阅读报告/" rel="next" title="关于Spring Security文档上密码发展史的阅读报告">
+      关于Spring Security文档上密码发展史的阅读报告 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-简要说明流数据的特点以及流计算的需求和处理流程。"><span class="nav-number">1.</span> <span class="nav-text">1 简要说明流数据的特点以及流计算的需求和处理流程。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#流数据的特点："><span class="nav-number">1.1.</span> <span class="nav-text">流数据的特点：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流计算系统的需求："><span class="nav-number">1.2.</span> <span class="nav-text">流计算系统的需求：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#流计算的处理流程："><span class="nav-number">1.3.</span> <span class="nav-text">流计算的处理流程：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-简要说明Spark解决流计算的基本思路和不足之处。"><span class="nav-number">2.</span> <span class="nav-text">2 简要说明Spark解决流计算的基本思路和不足之处。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spark解决流计算的思路："><span class="nav-number">2.1.</span> <span class="nav-text">Spark解决流计算的思路：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spark处理流计算的不足之处："><span class="nav-number">2.2.</span> <span class="nav-text">Spark处理流计算的不足之处：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-说明Flink框架中处理时间和事件时间的概念和区别。"><span class="nav-number">3.</span> <span class="nav-text">3 说明Flink框架中处理时间和事件时间的概念和区别。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#处理时间：指流处理应用程序机器，在处理数据流时，所对应的本地时钟时间。处理时间窗口中包含了一个时间段内，所有发送到机器的事件。"><span class="nav-number">3.1.</span> <span class="nav-text">处理时间：指流处理应用程序机器，在处理数据流时，所对应的本地时钟时间。处理时间窗口中包含了一个时间段内，所有发送到机器的事件。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件时间：指数据流中，事件实际发生的时间。在事件进入流处理程序之前，事件数据就包含了时间戳。事件时间可以真实地反映，事件是如何发生的。"><span class="nav-number">3.2.</span> <span class="nav-text">事件时间：指数据流中，事件实际发生的时间。在事件进入流处理程序之前，事件数据就包含了时间戳。事件时间可以真实地反映，事件是如何发生的。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理时间和事件时间的区别："><span class="nav-number">3.3.</span> <span class="nav-text">处理时间和事件时间的区别：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-简要介绍Flink提供的窗口操作及其分类。"><span class="nav-number">4.</span> <span class="nav-text">4 简要介绍Flink提供的窗口操作及其分类。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#窗口操作的概念：窗口操作是Flink在数据流上的一种操作手段，需要收集并且缓存一段时间内的事件进行计算。"><span class="nav-number">4.1.</span> <span class="nav-text">窗口操作的概念：窗口操作是Flink在数据流上的一种操作手段，需要收集并且缓存一段时间内的事件进行计算。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#窗口操作的分类："><span class="nav-number">4.2.</span> <span class="nav-text">窗口操作的分类：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-什么是Flink的状态（state），Flink如何保证在网络故障的情况下状态能够恢复并保持一致。"><span class="nav-number">5.</span> <span class="nav-text">5 什么是Flink的状态（state），Flink如何保证在网络故障的情况下状态能够恢复并保持一致。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Flink的状态：状态是指流计算过程中，计算节点的中间计算结果或者元数据状态。"><span class="nav-number">5.1.</span> <span class="nav-text">Flink的状态：状态是指流计算过程中，计算节点的中间计算结果或者元数据状态。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Flink保持状态持久和恢复的机制："><span class="nav-number">5.2.</span> <span class="nav-text">Flink保持状态持久和恢复的机制：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-举例说明逻辑流图、物理数据流图的概念以及不同类型数据交换策略。"><span class="nav-number">6.</span> <span class="nav-text">6 举例说明逻辑流图、物理数据流图的概念以及不同类型数据交换策略。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑流图的概念：用于程序在描述数据流中的数据，在算子节点之间的流动，以有向图的形式表现。"><span class="nav-number">6.1.</span> <span class="nav-text">逻辑流图的概念：用于程序在描述数据流中的数据，在算子节点之间的流动，以有向图的形式表现。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#物理数据流图：用于说明程序的执行方式，描述数据在任务节点之间的流动，以有向图的形式表现。"><span class="nav-number">6.2.</span> <span class="nav-text">物理数据流图：用于说明程序的执行方式，描述数据在任务节点之间的流动，以有向图的形式表现。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据交换策略类型："><span class="nav-number">6.3.</span> <span class="nav-text">数据交换策略类型：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-简要说明Flink架构中的主要角色及其功能。"><span class="nav-number">7.</span> <span class="nav-text">7 简要说明Flink架构中的主要角色及其功能。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Flink架构中的主要角色以及功能："><span class="nav-number">7.1.</span> <span class="nav-text">Flink架构中的主要角色以及功能：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-说明Flink-on-YARN的两种作业运行模式。"><span class="nav-number">8.</span> <span class="nav-text">8 说明Flink on YARN的两种作业运行模式。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Flink-on-YARN的两种作业运行模式："><span class="nav-number">8.1.</span> <span class="nav-text">Flink on YARN的两种作业运行模式：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#会话方式："><span class="nav-number">8.1.1.</span> <span class="nav-text">会话方式：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分离模式："><span class="nav-number">8.1.2.</span> <span class="nav-text">分离模式：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-说明Flink任务的调度与执行过程。"><span class="nav-number">9.</span> <span class="nav-text">9 说明Flink任务的调度与执行过程。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Flin任务调度与执行："><span class="nav-number">9.1.</span> <span class="nav-text">Flin任务调度与执行：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-举例说明Flink程序开发的代码基本框架。"><span class="nav-number">10.</span> <span class="nav-text">10 举例说明Flink程序开发的代码基本框架。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Flink程序开发的代码基本框架："><span class="nav-number">10.1.</span> <span class="nav-text">Flink程序开发的代码基本框架：</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Miaopashi</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Miaopashi</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
     </footer>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2020/11/24/关于Spring-Security文档上密码发展史的阅读报告/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          关于Spring Security文档上密码发展史的阅读报告
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2020/11/20/MySQL的安装指南以及常用命令/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">关于CentOS下MySQL的安装指南以及常用命令</div>
-    </a>
-  
-</nav>
 
   
-</article>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/js/">js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/其它/">其它</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前端/">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/后端/">后端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/编程语言入门/">编程语言入门</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络/">网络</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/课程作业/">课程作业</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/项目/">项目</a></li></ul>
-    </div>
-  </div>
 
 
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Java/" style="font-size: 10px;">Java</a> <a href="/tags/Linux/" style="font-size: 12.5px;">Linux</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/其它/" style="font-size: 12.5px;">其它</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/后端/" style="font-size: 20px;">后端</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/编程语言入门/" style="font-size: 15px;">编程语言入门</a> <a href="/tags/网络/" style="font-size: 10px;">网络</a> <a href="/tags/课程作业/" style="font-size: 17.5px;">课程作业</a> <a href="/tags/项目/" style="font-size: 10px;">项目</a>
-    </div>
-  </div>
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">June 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/12/">December 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/11/">November 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/12/">December 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a></li></ul>
-    </div>
-  </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2021/06/29/MySQL导入csv文件导出sql文件/">MySQL导入csv文件导出sql文件</a>
-          </li>
-        
-          <li>
-            <a href="/2021/04/27/使用js和后端模糊查询实现搜索提示功能/">使用js和后端模糊查询实现搜索提示功能</a>
-          </li>
-        
-          <li>
-            <a href="/2021/04/27/使用Docker部署jar包/">使用Docker部署jar包</a>
-          </li>
-        
-          <li>
-            <a href="/2021/04/15/毕节市可视化Java项目博客记录-日期格式的转换/">毕节市可视化Java项目博客记录----日期格式的转换</a>
-          </li>
-        
-          <li>
-            <a href="/2021/04/08/工作室技术分享会/">工作室技术分享会</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
 
   
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2021 Miaopashi<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-
-
-  </div>
 </body>
 </html>
