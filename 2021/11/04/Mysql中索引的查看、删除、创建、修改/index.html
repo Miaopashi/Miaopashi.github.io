@@ -17,14 +17,14 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"miaopashi.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="上次面快手的时候要手撕SQL题要求修改/创建索引，隔了几周没看忘了没写出来，赶紧记录一下。 查看索引修改索引之前可能要查看一下当前表有哪些索引，下面两种命令皆可 123# 如果使用执行语句之前已经使用过&amp;apos;use db_name’则不需要再执行中括号的内容SHOW INDEX FROM table_name [FROM db_name];SHOW INDEX FROM [db_name.]">
 <meta name="keywords" content="MySQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL中索引的查看、删除、创建、修改">
-<meta property="og:url" content="http://yoursite.com/2021/11/04/Mysql中索引的查看、删除、创建、修改/index.html">
+<meta property="og:url" content="https://miaopashi.github.io/2021/11/04/Mysql中索引的查看、删除、创建、修改/index.html">
 <meta property="og:site_name" content="Frisk-9的个人博客">
 <meta property="og:description" content="上次面快手的时候要手撕SQL题要求修改/创建索引，隔了几周没看忘了没写出来，赶紧记录一下。 查看索引修改索引之前可能要查看一下当前表有哪些索引，下面两种命令皆可 123# 如果使用执行语句之前已经使用过&amp;apos;use db_name’则不需要再执行中括号的内容SHOW INDEX FROM table_name [FROM db_name];SHOW INDEX FROM [db_name.]">
 <meta property="og:locale" content="zh">
@@ -33,7 +33,7 @@
 <meta name="twitter:title" content="MySQL中索引的查看、删除、创建、修改">
 <meta name="twitter:description" content="上次面快手的时候要手撕SQL题要求修改/创建索引，隔了几周没看忘了没写出来，赶紧记录一下。 查看索引修改索引之前可能要查看一下当前表有哪些索引，下面两种命令皆可 123# 如果使用执行语句之前已经使用过&amp;apos;use db_name’则不需要再执行中括号的内容SHOW INDEX FROM table_name [FROM db_name];SHOW INDEX FROM [db_name.]">
 
-<link rel="canonical" href="http://yoursite.com/2021/11/04/Mysql中索引的查看、删除、创建、修改/">
+<link rel="canonical" href="https://miaopashi.github.io/2021/11/04/Mysql中索引的查看、删除、创建、修改/">
 
 
 <script id="page-configurations">
@@ -156,7 +156,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/11/04/Mysql中索引的查看、删除、创建、修改/">
+    <link itemprop="mainEntityOfPage" href="https://miaopashi.github.io/2021/11/04/Mysql中索引的查看、删除、创建、修改/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">

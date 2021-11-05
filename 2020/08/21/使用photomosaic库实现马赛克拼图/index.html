@@ -17,25 +17,25 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"miaopashi.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="最近看到有软件实现了用多张图片拼成指定的某一张图片。 基于好奇心理，想自己实现一个，功能类似的程序。（本来是想做成自己头像的） 于是，搜索了一下相关的程序，果然有不少别人已经写好的程序。   其中看到某个效果很好，用cpp实现的程序，基于本人太菜，没怎么看。 转而看到python可以通过photomosaic库，几行代码就可以实现功能，于是立马就自己试了一试。 简单捣腾几下就实现了需要的效果，果然">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用Python的photomosaic库实现马赛克拼图">
-<meta property="og:url" content="http://yoursite.com/2020/08/21/使用photomosaic库实现马赛克拼图/index.html">
+<meta property="og:url" content="https://miaopashi.github.io/2020/08/21/使用photomosaic库实现马赛克拼图/index.html">
 <meta property="og:site_name" content="Frisk-9的个人博客">
 <meta property="og:description" content="最近看到有软件实现了用多张图片拼成指定的某一张图片。 基于好奇心理，想自己实现一个，功能类似的程序。（本来是想做成自己头像的） 于是，搜索了一下相关的程序，果然有不少别人已经写好的程序。   其中看到某个效果很好，用cpp实现的程序，基于本人太菜，没怎么看。 转而看到python可以通过photomosaic库，几行代码就可以实现功能，于是立马就自己试了一试。 简单捣腾几下就实现了需要的效果，果然">
 <meta property="og:locale" content="zh">
-<meta property="og:image" content="http://yoursite.com/2020/08/21/pictures/%E4%BD%BF%E7%94%A8photomosaic%E5%BA%93%E5%AE%9E%E7%8E%B0%E9%A9%AC%E8%B5%9B%E5%85%8B%E6%8B%BC%E5%9B%BE/hdog.jpg">
+<meta property="og:image" content="https://miaopashi.github.io/2020/08/21/pictures/%E4%BD%BF%E7%94%A8photomosaic%E5%BA%93%E5%AE%9E%E7%8E%B0%E9%A9%AC%E8%B5%9B%E5%85%8B%E6%8B%BC%E5%9B%BE/hdog.jpg">
 <meta property="og:updated_time" content="2021-11-05T01:36:00.624Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Python的photomosaic库实现马赛克拼图">
 <meta name="twitter:description" content="最近看到有软件实现了用多张图片拼成指定的某一张图片。 基于好奇心理，想自己实现一个，功能类似的程序。（本来是想做成自己头像的） 于是，搜索了一下相关的程序，果然有不少别人已经写好的程序。   其中看到某个效果很好，用cpp实现的程序，基于本人太菜，没怎么看。 转而看到python可以通过photomosaic库，几行代码就可以实现功能，于是立马就自己试了一试。 简单捣腾几下就实现了需要的效果，果然">
-<meta name="twitter:image" content="http://yoursite.com/2020/08/21/pictures/%E4%BD%BF%E7%94%A8photomosaic%E5%BA%93%E5%AE%9E%E7%8E%B0%E9%A9%AC%E8%B5%9B%E5%85%8B%E6%8B%BC%E5%9B%BE/hdog.jpg">
+<meta name="twitter:image" content="https://miaopashi.github.io/2020/08/21/pictures/%E4%BD%BF%E7%94%A8photomosaic%E5%BA%93%E5%AE%9E%E7%8E%B0%E9%A9%AC%E8%B5%9B%E5%85%8B%E6%8B%BC%E5%9B%BE/hdog.jpg">
 
-<link rel="canonical" href="http://yoursite.com/2020/08/21/使用photomosaic库实现马赛克拼图/">
+<link rel="canonical" href="https://miaopashi.github.io/2020/08/21/使用photomosaic库实现马赛克拼图/">
 
 
 <script id="page-configurations">
@@ -158,7 +158,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/21/使用photomosaic库实现马赛克拼图/">
+    <link itemprop="mainEntityOfPage" href="https://miaopashi.github.io/2020/08/21/使用photomosaic库实现马赛克拼图/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">

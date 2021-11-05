@@ -17,14 +17,14 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"miaopashi.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="这周做实验，服务器宕机了 刚好闲着无聊，有机会看一下security的文档。 突然看到一段密码存储的发展史 个人觉得挺有意思的，记录一下     简单翻译记录一下：一开始用于用户认证的密码，是直接以文本形式存储在服务器的。 也就是说，用户的密码没有经过任何加密就直接存储在服务器的。 在这种情况下，有的黑客使用SQL inject等技术，攻击服务器，直接穷举出用户的密码。 然后利用窃取的密码，查看用">
 <meta name="keywords" content="后端">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于Spring Security文档上密码发展史的阅读报告">
-<meta property="og:url" content="http://yoursite.com/2020/11/24/关于Spring-Security文档上密码发展史的阅读报告/index.html">
+<meta property="og:url" content="https://miaopashi.github.io/2020/11/24/关于Spring-Security文档上密码发展史的阅读报告/index.html">
 <meta property="og:site_name" content="Frisk-9的个人博客">
 <meta property="og:description" content="这周做实验，服务器宕机了 刚好闲着无聊，有机会看一下security的文档。 突然看到一段密码存储的发展史 个人觉得挺有意思的，记录一下     简单翻译记录一下：一开始用于用户认证的密码，是直接以文本形式存储在服务器的。 也就是说，用户的密码没有经过任何加密就直接存储在服务器的。 在这种情况下，有的黑客使用SQL inject等技术，攻击服务器，直接穷举出用户的密码。 然后利用窃取的密码，查看用">
 <meta property="og:locale" content="zh">
@@ -33,7 +33,7 @@
 <meta name="twitter:title" content="关于Spring Security文档上密码发展史的阅读报告">
 <meta name="twitter:description" content="这周做实验，服务器宕机了 刚好闲着无聊，有机会看一下security的文档。 突然看到一段密码存储的发展史 个人觉得挺有意思的，记录一下     简单翻译记录一下：一开始用于用户认证的密码，是直接以文本形式存储在服务器的。 也就是说，用户的密码没有经过任何加密就直接存储在服务器的。 在这种情况下，有的黑客使用SQL inject等技术，攻击服务器，直接穷举出用户的密码。 然后利用窃取的密码，查看用">
 
-<link rel="canonical" href="http://yoursite.com/2020/11/24/关于Spring-Security文档上密码发展史的阅读报告/">
+<link rel="canonical" href="https://miaopashi.github.io/2020/11/24/关于Spring-Security文档上密码发展史的阅读报告/">
 
 
 <script id="page-configurations">
@@ -156,7 +156,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/24/关于Spring-Security文档上密码发展史的阅读报告/">
+    <link itemprop="mainEntityOfPage" href="https://miaopashi.github.io/2020/11/24/关于Spring-Security文档上密码发展史的阅读报告/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
