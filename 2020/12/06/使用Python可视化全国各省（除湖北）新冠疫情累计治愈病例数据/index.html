@@ -17,18 +17,18 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="这周要完成大数据可视化的第一次作业，使用python实现最近很火的条形图竞赛效果。 上知乎参考了一下已有的代码，结合自己的需求，修改了一下。 在github上找到了大佬整理丁香园的新冠疫情数据，直接fork下来了。   需要解决的问题： 根据给定数据的属性（如不同的省份）类别，生成对应的颜色方案： 我的思路是导出目标属性列，使用set集合去重，获得颜色方案的数目 使用pyplot.cm.get_c">
-<meta name="keywords" content="课程作业">
+<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用Python可视化全国各省（除湖北）新冠疫情累计治愈病例数据">
 <meta property="og:url" content="http://yoursite.com/2020/12/06/使用Python可视化全国各省（除湖北）新冠疫情累计治愈病例数据/index.html">
 <meta property="og:site_name" content="Frisk-9的个人博客">
 <meta property="og:description" content="这周要完成大数据可视化的第一次作业，使用python实现最近很火的条形图竞赛效果。 上知乎参考了一下已有的代码，结合自己的需求，修改了一下。 在github上找到了大佬整理丁香园的新冠疫情数据，直接fork下来了。   需要解决的问题： 根据给定数据的属性（如不同的省份）类别，生成对应的颜色方案： 我的思路是导出目标属性列，使用set集合去重，获得颜色方案的数目 使用pyplot.cm.get_c">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2020-12-06T02:55:45.271Z">
+<meta property="og:updated_time" content="2021-11-05T01:35:56.339Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Python可视化全国各省（除湖北）新冠疫情累计治愈病例数据">
 <meta name="twitter:description" content="这周要完成大数据可视化的第一次作业，使用python实现最近很火的条形图竞赛效果。 上知乎参考了一下已有的代码，结合自己的需求，修改了一下。 在github上找到了大佬整理丁香园的新冠疫情数据，直接fork下来了。   需要解决的问题： 根据给定数据的属性（如不同的省份）类别，生成对应的颜色方案： 我的思路是导出目标属性列，使用set集合去重，获得颜色方案的数目 使用pyplot.cm.get_c">
@@ -118,6 +118,11 @@
     <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
 
   </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
@@ -173,10 +178,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-12-06 10:33:44 / Modified: 10:55:45" itemprop="dateCreated datePublished" datetime="2020-12-06T10:33:44+08:00">2020-12-06</time>
+              <time title="Created: 2020-12-06 10:33:44" itemprop="dateCreated datePublished" datetime="2020-12-06T10:33:44+08:00">2020-12-06</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-11-05 09:35:56" itemprop="dateModified" datetime="2021-11-05T09:35:56+08:00">2021-11-05</time>
+              </span>
 
           
 
@@ -232,7 +243,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/课程作业/" rel="tag"># 课程作业</a>
+              <a href="/tags/Python/" rel="tag"># Python</a>
           </div>
 
         
@@ -326,7 +337,8 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">11</span>
+          
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -359,7 +371,7 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Miaopashi</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  <div class="powered-by">Powered by <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a>
   </div>
 
         
@@ -380,7 +392,7 @@
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script>
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 <script src="/js/next-boot.js"></script>
 
 
